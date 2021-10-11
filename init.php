@@ -42,7 +42,19 @@ spl_autoload_register(function(string $className) {
 });
 
 use Project\Models\ModelManager;
+use Project\Models\UserModel;
 
 $modelManager = new ModelManager();
 $modelManager->verify();
 $modelManager->init();
+
+UserModel::create([
+	'm_password' => 'blabla',
+	'm_username' => 'Théodore',
+	'm_email' => 'prevottheodore@gmail.com',
+])->save();
+$user = UserModel::findOne(1);
+$user->m_username = 'Théodazdore';
+$user->save();
+$user->print();
+$user->remove();
