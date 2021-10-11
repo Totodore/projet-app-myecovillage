@@ -20,4 +20,6 @@ class Conf
 		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_CLASS,
 		PDO::ATTR_EMULATE_PREPARES   => false,
 	];
+
+	const ROOT_PATH = "php-framework";
 }

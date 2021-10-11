@@ -3,6 +3,9 @@
 namespace Project;
 
 use Exception;
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 /**
  * PHP autoloader
@@ -43,19 +46,25 @@ spl_autoload_register(function (string $className) {
 });
 
 use Project\Models\ModelManager;
-use Project\Models\UserModel;
+use Project\Controllers\ControllerManager;
+// use Project\Models\UserModel;
 
-$modelManager = new ModelManager();
-$modelManager->verify();
-$modelManager->init();
+// $modelManager = new ModelManager();
+// $modelManager->verify();
+// $modelManager->init();
 
-UserModel::create([
-	'm_password' => 'blabla',
-	'm_username' => 'Théodore',
-	'm_email' => 'prevottheodore@gmail.com',
-])->save();
-$user = UserModel::findOne(1);
-$user->m_username = 'Théodazdore';
-$user->save();
-$user->print();
-$user->remove();
+// $user = UserModel::create([
+// 	'm_password' => 'blabla',
+// 	'm_username' => 'Théodore',
+// 	'm_email' => 'prevottheodore@gmail.com',
+// ])->save();
+// print_r($user);
+
+// $user = UserModel::findOne(1);
+// $user->m_username = 'Théodazdore';
+// $user->save();
+// $user->print();
+// $user->remove();
+// print_r(UserModel::findOne(345));
+$controllerManager = new ControllerManager();
+$controllerManager->handleRequest();
