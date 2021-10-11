@@ -18,6 +18,9 @@ namespace Project\Models {
 			UserModel::class
 		);
 
+		/**
+		 * Verify that all the given models are valid
+		 */
 		public function verify() {
 			/**
 			 * @var BaseModel $model
@@ -27,7 +30,11 @@ namespace Project\Models {
 					throw new Exception('ModelManager: Model must be a subclass of BaseModel');
 		}
 
-		public function init()
+		/**
+		 * Initialize the connection to the database
+		 * Synchronize the database with the models
+		 */
+		public function init(): void
 		{
 			try {
 				$this->pdo = new PDO("mysql:host=".Conf::$host.";dbname=".Conf::$db.";charset=".Conf::$charset, Conf::$user, Conf::$pass, Conf::$options);

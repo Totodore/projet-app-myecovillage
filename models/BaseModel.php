@@ -16,6 +16,11 @@ namespace Project\Models {
 
 		private string $tableName;
 		private array $columns = [];
+
+		/**
+		 * When the model is instantiated we fill the columns array with all the model properties
+		 * We also set the table name from the model name
+		 */
 		public function __construct()
 		{
 			$reflection = new ReflectionClass($this);
@@ -48,7 +53,11 @@ namespace Project\Models {
 			}
 		}
 
-		public function sync(PDO $pdo)
+		/**
+		 * @return void
+		 * Synchronize the model with the database
+		 */
+		public function sync(PDO $pdo): void
 		{
 			echo 'Syncing '.$this->tableName.'...'."\n";
 			if (!$this->tableExist($pdo)) {
@@ -77,6 +86,9 @@ namespace Project\Models {
 			return strtolower(implode('_', array_slice($classNameArray, 0, -1)));
 		}
 
+		/**
+		 * Check if the table already exist in the database.
+		 */
 		private function tableExist(PDO $pdo): bool {
 			try {
 				$pdo->query('SELECT 1 FROM '.$this->tableName.' LIMIT 1');
@@ -86,6 +98,10 @@ namespace Project\Models {
 			return true;
 		}
 
+		/**
+		 * @param PDO $pdo
+		 * Create a table from the current model with all the columns and the primary key.
+		 */
 		private function createTable(PDO $pdo): void {
 			$sqlArgArray = array_map(function($columnName, $columnType) {
 				return $columnName.' '.$columnType;
@@ -94,6 +110,10 @@ namespace Project\Models {
 			$pdo->query('CREATE TABLE '.$this->tableName.' ('.$sqlArgs.')');
 		}
 
+		/**
+		 * @param PDO $pdo
+		 * Remove the table from the database.
+		 */
 		private function dropTable(PDO $pdo): void {
 			$pdo->query('DROP TABLE '.$this->tableName);
 		}
