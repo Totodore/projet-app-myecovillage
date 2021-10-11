@@ -49,6 +49,7 @@ namespace Project\Models {
 				$instantiatedModel = new $model();
 				$instantiatedModel->sync($this->pdo);
 			}
+			$GLOBALS['pdo'] = $this->pdo;
 		}
 	}
 }
