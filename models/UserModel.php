@@ -7,6 +7,5 @@ namespace Project\Models {
 		public string $m_username;
 		public string $m_password;
 		public string $m_email;
-		public string $m_firstName;
 	}
 }
