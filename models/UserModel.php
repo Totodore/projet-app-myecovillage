@@ -1,11 +1,12 @@
-<?php 
-namespace Project\Models {
+<?php
 
-	class UserModel extends BaseModel {
+namespace Project\Models;
 
-		public int $m_id;
-		public string $m_username;
-		public string $m_password;
-		public string $m_email;
-	}
+class UserModel extends BaseModel
+{
+
+	public int $m_id;
+	public string $m_username;
+	public string $m_password;
+	public string $m_email;
 }

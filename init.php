@@ -1,4 +1,5 @@
 <?php
+
 namespace Project;
 
 use Exception;
@@ -10,7 +11,7 @@ use Exception;
  * @return void
  * @throws Exception if class is not found
  */
-spl_autoload_register(function(string $className) {
+spl_autoload_register(function (string $className) {
 	//The list of all the namespaces folders
 	$availableNamespaces = [
 		'Models' => __DIR__ . '/models',
@@ -21,13 +22,13 @@ spl_autoload_register(function(string $className) {
 	//We split the namespace by the namespace separator
 	$namespace = explode('\\', $className);
 	if ($namespace[0] !== 'Project')
-		throw new Exception('Class name is not in namespace Project: '.$className);
+		throw new Exception('Class name is not in namespace Project: ' . $className);
 
 	//We iterate through all the available directories and if it match one we include it
 	$included = false;
-	foreach ($availableNamespaces as $availableNamespace => $dir) {		
-		if ($namespace[1] === $availableNamespace && file_exists($dir.'/'.$namespace[2].'.php')) {
-			include $dir.'/' . $namespace[2] . '.php';
+	foreach ($availableNamespaces as $availableNamespace => $dir) {
+		if ($namespace[1] === $availableNamespace && file_exists($dir . '/' . $namespace[2] . '.php')) {
+			include $dir . '/' . $namespace[2] . '.php';
 			$included = true;
 		}
 	}

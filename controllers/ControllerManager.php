@@ -1,5 +1,7 @@
 <?php
-	namespace Project\Controllers;
-	class ControllerManager {
-		
-	}
+
+namespace Project\Controllers;
+
+class ControllerManager
+{
+}
