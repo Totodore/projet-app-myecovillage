@@ -61,17 +61,17 @@ abstract class BaseModel
 	 */
 	public function sync(PDO $pdo): void
 	{
-		echo 'Syncing ' . $this->tableName . '...' . "\n";
+		// echo 'Syncing ' . $this->tableName . '...' . "\n";
 		if (!$this->tableExist($pdo)) {
 			$this->createTable($pdo);
-			echo 'Table ' . $this->tableName . ' created' . "\n";
+			// echo 'Table ' . $this->tableName . ' created' . "\n";
 		} else {
 			if (Conf::$forceUpdate) {
-				echo 'Table ' . $this->tableName . ' force update, dropping table and recreating it...' . "\n";
+				// echo 'Table ' . $this->tableName . ' force update, dropping table and recreating it...' . "\n";
 				$this->dropTable($pdo);
 				$this->createTable($pdo);
-			} else
-				echo 'Table ' . $this->tableName . ' already exists.' . "\n";
+			}
+				// echo 'Table ' . $this->tableName . ' already exists.' . "\n";
 		}
 	}
 

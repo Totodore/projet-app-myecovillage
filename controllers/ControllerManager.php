@@ -6,6 +6,7 @@ use Exception;
 use ReflectionClass;
 use Project\Conf;
 use Project\Utils;
+use Project\Models\ModelManager;
 
 class ControllerManager
 {
@@ -33,6 +34,10 @@ class ControllerManager
 			if (in_array(IDeleteController::class, $implementations))
 				$this->routes["DELETE ".$route] = [$classInfos->getMethod('verifyDeleteRequest'), $classInfos->getMethod('deleteHandler'), is_subclass_of($controller, JsonController::class)];
 		}
+
+		$modelManager = new ModelManager();
+		$modelManager->verify();
+		$modelManager->init();
 	}
 
 	public function handleRequest() {
@@ -50,6 +55,8 @@ class ControllerManager
 			if ($this->routes[$key][2])	//If the controller inherits from the json controller
 				echo json_encode($res);
 			else {
+				if (array_key_exists(1, $res))
+					extract($res[1]);
 				include_once ROOT."/views/$res[0].php";
 			}
 		}

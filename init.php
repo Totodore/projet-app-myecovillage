@@ -19,7 +19,6 @@ spl_autoload_register(function (string $className) {
 	$availableNamespaces = [
 		'Models' => __DIR__ . '/models',
 		'Controllers' => __DIR__ . '/controllers',
-		'Views' => __DIR__ . '/views',
 	];
 
 	//We split the namespace by the namespace separator

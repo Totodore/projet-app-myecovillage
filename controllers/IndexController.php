@@ -9,7 +9,6 @@ class IndexController extends BaseController implements IGetController {
 	}
 
 	public function getHandler(array $query): array {
-		print_r($query);
 		return ["index", $query];
 	}
 }
