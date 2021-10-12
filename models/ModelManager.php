@@ -15,7 +15,11 @@ class ModelManager
 	 * @var models BaseModel[]
 	 */
 	private array $models = array(
-		UserModel::class
+		UserModel::class,
+		AdminMessageModel::class,
+		HeartBeatModel::class,
+		MinigameResultModel::class,
+		FaqArticleModel::class,
 	);
 
 	/**
