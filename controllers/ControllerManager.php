@@ -43,6 +43,10 @@ class ControllerManager
 	public function handleRequest() {
 		$path = $this->getRequestPath();
 		$key = "$_SERVER[REQUEST_METHOD] $path";
+		if (!array_key_exists($path, self::CONTROLLERS)) {
+			http_response_code(404);
+			return;
+		}
 		$controllerType = self::CONTROLLERS[$path];
 		$controller = new $controllerType();
 		$entityBody = file_get_contents('php://input');
