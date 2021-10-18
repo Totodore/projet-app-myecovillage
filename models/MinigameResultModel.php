@@ -18,4 +18,7 @@ class MinigameResultModel extends BaseModel {
 	public bool $m_sportHarder;
 	public int $m_sportDuration;
 
+	public function getAuthor(): UserModel {
+		return UserModel::findOne($this->m_userId);
+	}
 }

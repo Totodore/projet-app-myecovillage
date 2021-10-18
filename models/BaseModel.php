@@ -7,6 +7,7 @@ use ReflectionProperty;
 use PDO;
 use PDOException;
 use Project\Conf;
+use DateTime;
 
 /**
  * This is the base model class for all models.
@@ -110,6 +111,10 @@ abstract class BaseModel
 	{
 		static::delete($this->m_id);
 		return $this;
+	}
+
+	public function getCreationDate(): ?DateTime {
+		return $this->m_date ? DateTime::createFromFormat(DateTime::ISO8601, $this->m_date) : null;
 	}
 
 	public function print(): void
