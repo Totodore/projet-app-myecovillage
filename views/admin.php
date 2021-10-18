@@ -1,1 +1,7 @@
-<html>azdyvazdiazndoazidnazodin</html>
+<html>
+	<head>
+		<?php include "components/head.php"; ?>
+	</head>
+	<body>
+	</body>
+</html>

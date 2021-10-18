@@ -1,6 +1,10 @@
 <html>
-	<head></head>
+	<head>
+		<?php include "components/head.php"; ?>
+	</head>
 	<body>
-		<a href="<?php echo $link ?>" class="">GOOGLE</a>
+		<div id="body-wrapper">
+			
+		</div>
 	</body>
 </html>

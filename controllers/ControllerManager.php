@@ -61,6 +61,7 @@ class ControllerManager
 			else {
 				if (array_key_exists(1, $res))
 					extract($res[1]);
+				$baseUrl = Conf::ROOT_PATH;
 				include_once ROOT."/views/$res[0].php";
 			}
 		}

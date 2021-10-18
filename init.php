@@ -44,7 +44,6 @@ spl_autoload_register(function (string $className) {
 		throw new Exception('Class ' . $className . ' not found');
 });
 
-use Project\Models\ModelManager;
 use Project\Controllers\ControllerManager;
 // use Project\Models\UserModel;
 
