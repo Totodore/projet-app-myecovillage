@@ -7,6 +7,5 @@ class AdminMessageModel extends BaseModel {
 	public string $m_content;
 	public bool $m_opened;
 	public int $m_userId;
-	public UserModel $l_user;
 	public int $m_date;
 }

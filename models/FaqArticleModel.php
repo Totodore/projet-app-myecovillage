@@ -8,5 +8,4 @@ class FaqArticleModel extends BaseModel {
 	public string $m_title;
 	public string $m_content;
 	public int $m_authorId;
-	public UserModel $m_author;
 }
