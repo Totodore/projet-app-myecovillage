@@ -1,6 +1,8 @@
 <?php
 
 namespace Project\Controllers;
+use Project\Core\BaseController;
+use Project\Core\IGetController;
 
 class AdminController extends BaseController implements IGetController {
 

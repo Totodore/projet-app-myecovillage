@@ -1,5 +1,5 @@
 <?php
 
-namespace Project\Controllers;
+namespace Project\Core;
 
 abstract class JsonController extends BaseController { }

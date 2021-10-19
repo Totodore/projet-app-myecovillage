@@ -1,6 +1,7 @@
 <?php 
 
 namespace Project\Models;
+use Project\Core\BaseModel;
 class HeartBeatModel extends BaseModel {
 
 	public int $m_id;

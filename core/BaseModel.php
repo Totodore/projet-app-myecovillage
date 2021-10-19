@@ -1,6 +1,6 @@
 <?php
 
-namespace Project\Models;
+namespace Project\Core;
 
 use ReflectionClass;
 use ReflectionProperty;
@@ -197,7 +197,7 @@ abstract class BaseModel
 		return $models;
 	}
 
-	public static function findOne(int $id): ?UserModel
+	public static function findOne(int $id): ?BaseModel
 	{
 		$tableName = static::getTableName();
 		$pdo = $GLOBALS['pdo'];

@@ -1,6 +1,6 @@
 <?php
 
-namespace Project\Models;
+namespace Project\Core;
 
 use Exception;
 use PDO;

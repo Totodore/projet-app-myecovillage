@@ -1,12 +1,11 @@
 <?php
 
-namespace Project\Controllers;
+namespace Project\Core;
 
 use Exception;
 use ReflectionClass;
 use Project\Conf;
 use Project\Utils;
-use Project\Models\ModelManager;
 
 class ControllerManager
 {

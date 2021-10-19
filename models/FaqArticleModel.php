@@ -1,6 +1,7 @@
 <?php
 
 namespace Project\Models;
+use Project\Core\BaseModel;
 
 class FaqArticleModel extends BaseModel {
 
