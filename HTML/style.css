@@ -259,6 +259,13 @@ header{
 .dropdownmenu ul li:hover a {   
     color:#6A90AD;
      /* Couleur du texte des sous-menu au survol */
+
+}
+@media (hover){
+    #menu{
+        visibility: hidden;
+
+    }
 }
 @media only screen and (min-width: 700px) 
 {
