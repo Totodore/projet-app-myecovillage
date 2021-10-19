@@ -9,7 +9,7 @@ export class BaseController {
 
 	constructor(params) {
 		this.params = params;
-		this.view = `${baseUrl}/${ressourcePath}`;
+		this.view = `/${baseUrl}/${this.ressourcePath}`;
 		this.log("Controller loaded");
 	}
 

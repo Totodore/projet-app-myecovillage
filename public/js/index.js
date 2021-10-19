@@ -22,8 +22,12 @@ class Main {
 	 */
 	async render(route) {
 		this.currentController = new routes[route[0]](route[1]);
-		const view = await this.currentController.loadView();
-		document.getElementById("body-wrapper").innerHTML = view;
+		try {
+			const view = await this.currentController.loadView();
+			document.getElementById("body-wrapper").innerHTML = view;
+		} catch(e) {
+			console.error("Fatal: Could not load view:", e);
+		}
 	}
 
 	/**
