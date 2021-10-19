@@ -191,11 +191,22 @@ header{
     text-align: left;
     margin-left: 10px;
 }
+#Menu
+{
+    position : relative;
+    height: 80%;
+    width: auto;
+    justify-content:space-between;
+    align-items: center;
+
+}
 .dropdownmenu,
 .dropdownmenu ul { /* Pour les sous-menus */
     list-style-type: none; 
     margin: 0px;
     padding: 0px;
+    
+    
 }
 .dropdownmenu ul {
     display: none;
@@ -207,9 +218,9 @@ header{
 .dropdownmenu a {
     display: inline-block;
     width: 100px;
-    height: 30px;
+    height: 90px;
     line-height: 30px;
-    padding: 30% 10px;
+    
     text-align: center;
     font-size: 25px;
     font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -220,28 +231,29 @@ header{
     position: absolute;
     top: 36px; 
     left: 0px; 
-    z-index: 100; 
+    z-index: 100;
+   
 
 }
 .dropdownmenu li {   
-    background-color: #666;  /* Couleur d'arriere-plan du menu */ 
+    background-color: white;  /* Couleur d'arriere-plan du menu */ 
 }
 .dropdownmenu li a {
-    color:white; /* Couleur du texte du menu */ 
+    color:#666; /* Couleur du texte du menu */ 
 } 
 .dropdownmenu li:hover {
-    background-color: #666; /* Couleur d'arriere-plan du menu au survol */ }
+    background-color: white; /* Couleur d'arriere-plan du menu au survol */ }
 .dropdownmenu li:hover a {
-    color: white; /* Couleur du texte du menu au survol */ 
+    color: #666; /* Couleur du texte du menu au survol */ 
 }
 .dropdownmenu ul li {
-    background-color: #666; /* Couleur d'arriere-plan des sous-menu */
+    background-color: white; /* Couleur d'arriere-plan des sous-menu */
     
 }
 .dropdownmenu ul li:hover {
-    background-color: #666;  /* Couleur d'arriere-plan des sous-menu au survol */ } 
+    background-color: white;  /* Couleur d'arriere-plan des sous-menu au survol */ } 
 .dropdownmenu ul li a {
-    color: #666; /* Couleur du texte des sous-menu */ 
+    color: white; /* Couleur du texte des sous-menu */ 
     text-align : center;
 }
 .dropdownmenu ul li:hover a {   
