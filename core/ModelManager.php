@@ -6,6 +6,8 @@ use Exception;
 use PDO;
 use Project\Conf;
 
+use Project\Models;
+
 /**
  * Class ModelManager
  * Class that manage all the models and the connexion to the database
@@ -21,11 +23,11 @@ class ModelManager
 	 * The list of all the models in the database
 	 */
 	private array $models = array(
-		UserModel::class,
-		AdminMessageModel::class,
-		HeartBeatModel::class,
-		MinigameResultModel::class,
-		FaqArticleModel::class,
+		Models\UserModel::class,
+		Models\AdminMessageModel::class,
+		Models\HeartBeatModel::class,
+		Models\MinigameResultModel::class,
+		Models\FaqArticleModel::class,
 	);
 
 	/**
@@ -51,9 +53,10 @@ class ModelManager
 		try {
 			$this->pdo = new PDO("mysql:host=" . Conf::$host . ";dbname=" . Conf::$db . ";charset=" . Conf::$charset, Conf::$user, Conf::$pass, Conf::$options);
 		} catch (\PDOException $e) {
-			echo $e;
+			// echo $e;
 			http_response_code(500);
-			throw new Exception('ModelManager: Could not connect to database');
+			echo 'ModelManager: Could not connect to database';
+			exit();
 		}
 		/**
 		 * @var BaseModel $model
