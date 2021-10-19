@@ -2,6 +2,7 @@ import { AdminController } from "./controllers/admin.controller.js";
 import { HomeController } from "./controllers/home.controller.js";
 import { BaseController } from "./core/base.controller.js";
 /**
+ * Route mapping between path and controllers
  * @type {Object.<string, typeof BaseController>}
  */
 export const routes = {

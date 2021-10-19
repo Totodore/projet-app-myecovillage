@@ -18,9 +18,12 @@ class Main {
 
 	/**
 	 * @param {[string, string[]]} route
+	 * Render method, it will load the appropriate controller and view
 	 */
 	async render(route) {
 		this.currentController = new routes[route[0]](route[1]);
+		const view = await this.currentController.loadView();
+		document.getElementById("body-wrapper").innerHTML = view;
 	}
 
 	/**
@@ -38,4 +41,7 @@ class Main {
 
 }
 
+/**
+ * We wait for the content to be loaded before starting the application
+ */
 document.addEventListener('DOMContentLoaded', () => new Main());
