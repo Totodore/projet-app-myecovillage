@@ -1,6 +1,8 @@
 <?php
 namespace Project\Models;
 
+use Project\Core\BaseModel;
+
 class AdminMessageModel extends BaseModel {
 
 	public int $m_id;
