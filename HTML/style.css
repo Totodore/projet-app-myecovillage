@@ -191,20 +191,13 @@ header{
     text-align: left;
     margin-left: 10px;
 }
-#Menu
-{
-    position : relative;
-    height: 80%;
-    width: auto;
-    justify-content:space-between;
-    align-items: center;
 
-}
 .dropdownmenu,
 .dropdownmenu ul { /* Pour les sous-menus */
     list-style-type: none; 
     margin: 0px;
     padding: 0px;
+    text-align: center;
     
     
 }
@@ -217,10 +210,9 @@ header{
 }
 .dropdownmenu a {
     display: inline-block;
-    width: 100px;
-    height: 90px;
+    width: 150px;
+    height: 95px;
     line-height: 30px;
-    
     text-align: center;
     font-size: 25px;
     font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -235,11 +227,26 @@ header{
    
 
 }
+#Menu
+{
+    display : flex;
+    height: 80%;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+
+    
+
+}
 .dropdownmenu li {   
     background-color: white;  /* Couleur d'arriere-plan du menu */ 
 }
 .dropdownmenu li a {
+    display: flex;
     color:#666; /* Couleur du texte du menu */ 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 } 
 .dropdownmenu li:hover {
     background-color: white; /* Couleur d'arriere-plan du menu au survol */ }
@@ -248,6 +255,7 @@ header{
 }
 .dropdownmenu ul li {
     background-color: white; /* Couleur d'arriere-plan des sous-menu */
+    text-align: center;
     
 }
 .dropdownmenu ul li:hover {
