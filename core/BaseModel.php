@@ -15,8 +15,17 @@ use DateTime;
 abstract class BaseModel
 {
 
+	/**
+	 * The mysql table name
+	 */
 	private string $tableName;
+	/**
+	 * All the column in the table with their SQL definition
+	 */
 	private array $columns = []; //["id", "DEFINITION"]
+	/**
+	 * Mapping between the column name and the property name
+	 */
 	private array $properties = []; //["id", "m_id"]
 
 	/**
@@ -27,9 +36,14 @@ abstract class BaseModel
 	{
 		$reflection = new ReflectionClass($this);
 
+		/**
+		 * We get the class name and remove the "Model" suffix
+		 */
 		$this->tableName = $this->normalizeClassName($reflection->getName());
 		/**
 		 * @var $property ReflectionProperty
+		 * For each property, if it starts with m_ we add it to the properties array
+		 * We also add the column name to the columns array with the SQL definition
 		 */
 		foreach ($reflection->getProperties(ReflectionProperty::IS_PUBLIC) as $property) {
 			if (str_starts_with($property->getName(), "m_")) {
@@ -59,6 +73,8 @@ abstract class BaseModel
 	/**
 	 * @return void
 	 * Synchronize the model with the database
+	 * If the table does not exsts we create it
+	 * If we have to force update the table we recreate it
 	 */
 	public function sync(PDO $pdo): void
 	{
@@ -77,19 +93,28 @@ abstract class BaseModel
 	}
 
 	/**
-	 * This will save current entity into the database.
+	 * This will save current model into the database.
 	 * If it exists it will update all the values
-	 * If it doesn't exists it will insert the new entity into the database
+	 * If it doesn't exists it will insert the new model into the database
 	 */
 	public function save(): BaseModel
 	{
+		//We get the reference of the database
 		$pdo = $GLOBALS["pdo"];
 		$propsToModify = $this->properties;
+		//We remove the id property because we should not modify the id
 		unset($propsToModify["id"]);
+		//For each property we get the values
 		$values = array_map(function ($property) {
 			return $this->{$property};
 		}, array_values($propsToModify));
 
+		/**
+		 * If there is an id specified in the model and that id exists in the database
+		 * We update the model
+		 * Else we add the new model to the database
+		 * We return the created or updated model
+		 */
 		if (isset($this->m_id) && static::exists($this->m_id)) {
 			$sqlPropsArg = implode(', ', array_map(function ($column) {
 				return $column . ' = ?';
@@ -107,16 +132,25 @@ abstract class BaseModel
 		return $this;
 	}
 
+	/**
+	 * Method to remove the model from the database
+	 */
 	public function remove(): BaseModel
 	{
 		static::delete($this->m_id);
 		return $this;
 	}
 
+	/**
+	 * Method to get the creation date of the model from its date field
+	 */
 	public function getCreationDate(): ?DateTime {
 		return $this->m_date ? DateTime::createFromFormat(DateTime::ISO8601, $this->m_date) : null;
 	}
 
+	/**
+	 * Method to list all the properties with there values
+	 */
 	public function print(): void
 	{
 		$val = array();
@@ -136,6 +170,7 @@ abstract class BaseModel
 		$classNameArray = explode('\\', $namespace);
 		//We get the last element of the namespace (the classname) and we lowercase it
 		$classNameArray = preg_split('/(?=[A-Z])/', end($classNameArray), -1, PREG_SPLIT_NO_EMPTY);
+		//We put '_' between the classname words and we lowercase the whole string
 		return strtolower(implode('_', array_slice($classNameArray, 0, -1)));
 	}
 
@@ -174,6 +209,9 @@ abstract class BaseModel
 		$pdo->query('DROP TABLE ' . $this->tableName);
 	}
 
+	/**
+	 * Create a model from an array of data
+	 */
 	public static function create(array $data, string $prefix = ''): BaseModel
 	{
 		$instance = new static();
@@ -182,14 +220,22 @@ abstract class BaseModel
 		return $instance;
 	}
 	/**
+	 * Find a list of models in the database from a list of ids
+	 * If the list of ids is not specified it will returns all the models
 	 * @return array of models
 	 **/
-	public static function find(array $ids): array
+	public static function find(?array $ids): array
 	{
 		$tableName = static::getTableName();
 		$pdo = $GLOBALS['pdo'];
-		$query = $pdo->prepare('SELECT * FROM ' . $tableName . ' WHERE id IN (?)');
-		$query->execute(array(implode(',', $ids)));
+		if ($ids === null) {
+			$query = $pdo->query('SELECT * FROM ' . $tableName);
+			$query->execute();
+		}
+		else {
+			$query = $pdo->prepare('SELECT * FROM ' . $tableName . ' WHERE id IN (?)');
+			$query->execute(array(implode(',', $ids)));
+		}
 		$res = $query->fetchAll(PDO::FETCH_ASSOC);
 		$models = array();
 		foreach ($res as $data)
@@ -197,6 +243,9 @@ abstract class BaseModel
 		return $models;
 	}
 
+	/**
+	 * Find a model in the database from its id
+	 */
 	public static function findOne(int $id): ?BaseModel
 	{
 		$tableName = static::getTableName();
@@ -207,6 +256,9 @@ abstract class BaseModel
 		return !$res ? NULL : static::create($res, 'm_');
 	}
 
+	/**
+	 * Delete a model from the database from its id
+	 */
 	public static function delete(int $id)
 	{
 		$tableName = static::getTableName();
@@ -214,11 +266,17 @@ abstract class BaseModel
 		$pdo->prepare('DELETE FROM ' . $tableName . ' WHERE id = ?')->execute(array($id));
 	}
 
+	/**
+	 * Check if a model exists in the database from its id
+	 */
 	public static function exists(int $id): bool
 	{
 		return static::findOne($id) !== NULL;
 	}
 
+	/**
+	 * Get the table name
+	 */
 	private static function getTableName(): string
 	{
 		$el = new static();

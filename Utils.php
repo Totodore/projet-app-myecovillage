@@ -5,9 +5,12 @@ namespace Project;
 class Utils
 {
 
-	public static function isJson($string)
+	/**
+	 * Little helper function to detect if the given param is json
+	 */
+	public static function isJson(string $str)
 	{
-		json_decode($string);
+		json_decode($str);
 		return json_last_error() === JSON_ERROR_NONE;
 	}
 }

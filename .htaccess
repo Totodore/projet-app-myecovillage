@@ -1,3 +1,4 @@
+#Router configuration to redirect all request the index.php file except for request for static files (in public folder)
 Options -MultiViews -Indexes
 SetOutputFilter DEFLATE
 RewriteEngine On

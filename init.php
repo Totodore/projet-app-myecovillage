@@ -3,6 +3,9 @@
 namespace Project;
 
 use Exception;
+/**
+ * Options to display all errors
+ */
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -65,5 +68,9 @@ use Project\Core\ControllerManager;
 // $user->print();
 // $user->remove();
 // print_r(UserModel::findOne(345));
+
+/**
+ * We create the controller manager and we ask it to handle the current request
+ */
 $controllerManager = new ControllerManager();
 $controllerManager->handleRequest();

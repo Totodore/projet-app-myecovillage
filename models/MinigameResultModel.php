@@ -3,6 +3,9 @@
 namespace Project\Models;
 use Project\Core\BaseModel;
 
+/**
+ * Model for the minigame results
+ */
 class MinigameResultModel extends BaseModel {
 
 	public int $m_id;

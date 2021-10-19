@@ -3,6 +3,10 @@ namespace Project\Models;
 
 use Project\Core\BaseModel;
 
+/**
+ * Model for admin messages
+ */
+
 class AdminMessageModel extends BaseModel {
 
 	public int $m_id;

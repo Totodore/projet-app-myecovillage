@@ -3,6 +3,9 @@
 namespace Project\Models;
 use Project\Core\BaseModel;
 
+/**
+ * Model for the users table
+ */
 class UserModel extends BaseModel
 {
 

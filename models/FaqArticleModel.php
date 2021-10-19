@@ -3,6 +3,9 @@
 namespace Project\Models;
 use Project\Core\BaseModel;
 
+/**
+ * Model for FAQ articles
+ */
 class FaqArticleModel extends BaseModel {
 
 	public int $m_id;

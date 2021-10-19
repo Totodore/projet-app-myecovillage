@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Project Configuration (ex: database credentials)
+ */
 namespace Project;
 
 define('ROOT', dirname(__FILE__) . "/");

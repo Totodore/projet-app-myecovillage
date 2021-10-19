@@ -2,6 +2,10 @@
 
 namespace Project\Models;
 use Project\Core\BaseModel;
+
+/**
+ * model for the heart beat
+ */
 class HeartBeatModel extends BaseModel {
 
 	public int $m_id;

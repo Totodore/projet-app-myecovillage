@@ -7,16 +7,32 @@ use ReflectionClass;
 use Project\Conf;
 use Project\Utils;
 
+/**
+ * Controller manager
+ * Handle all the controllers
+ * @package Project\Core
+ */
 class ControllerManager
 {
+	/**
+	 * The list of the controllers with their corresponding routes
+	 */
 	const CONTROLLERS = [
 		"/" => IndexController::class,
 		"/admin" => AdminController::class,
 	];
 
-	private $routes = []; // [GET /Path/To/route, [Verify method ref, Method ref, isJson]] 
+	/**
+	 * List of routes
+	 * For each route there is a list 
+	 * [GET /Path/To/route, [Verify method ref, Method ref, isJson]] 
+	 */
+	private $routes = [];
 
 	public function __construct() {
+		/**
+		 * For each controllers we create a route and we put it in the routes list
+		 */
 		foreach (self::CONTROLLERS as $route => $controller) {
 			if (!is_subclass_of($controller, BaseController::class))
 				throw new Exception('ControllerManager: Controller must be a subclass of BaseController');
@@ -34,11 +50,22 @@ class ControllerManager
 				$this->routes["DELETE ".$route] = [$classInfos->getMethod('verifyDeleteRequest'), $classInfos->getMethod('deleteHandler'), is_subclass_of($controller, JsonController::class)];
 		}
 
+		/**
+		 * We initialize the database
+		 */
 		$modelManager = new ModelManager();
 		$modelManager->verify();
 		$modelManager->init();
 	}
 
+	/**
+	 * This function is called by the main script and will handle the request
+	 * If the path does not exists it returns a 404 error
+	 * We merge all requests parameters (json body, files, get query or post request)
+	 * Then we invoke the method to check the request, if it returns true. Then we invoke the main handling method
+	 * If it is a json controller we encode the json response and we send it
+	 * Otherwise we extract the variables and we include the view
+	 */
 	public function handleRequest() {
 		$path = $this->getRequestPath();
 		$key = "$_SERVER[REQUEST_METHOD] $path";

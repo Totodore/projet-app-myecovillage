@@ -6,6 +6,11 @@ use Exception;
 use PDO;
 use Project\Conf;
 
+/**
+ * Class ModelManager
+ * Class that manage all the models and the connexion to the database
+ * @package Project\Core
+ */
 class ModelManager
 {
 
@@ -13,6 +18,7 @@ class ModelManager
 
 	/**
 	 * @var models BaseModel[]
+	 * The list of all the models in the database
 	 */
 	private array $models = array(
 		UserModel::class,
@@ -24,6 +30,7 @@ class ModelManager
 
 	/**
 	 * Verify that all the given models are valid
+	 * They are not valid if the models dont inherit from the BaseModel class 
 	 */
 	public function verify()
 	{
