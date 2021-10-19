@@ -209,8 +209,9 @@ header{
     width: 65px;
     height: 30px;
     line-height: 30px;
-    padding: 3px 10px;
+    padding: 10px 10px;
     text-align: center;
+    font-size: 25px;
     font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
 }
@@ -226,25 +227,25 @@ header{
     background-color: #666;  /* Couleur d'arriere-plan du menu */ 
 }
 .dropdownmenu li a {
-    color: #ccc; /* Couleur du texte du menu */ 
+    color:white; /* Couleur du texte du menu */ 
 } 
 .dropdownmenu li:hover {
-    background-color: #6A90AD; /* Couleur d'arriere-plan du menu au survol */ }
+    background-color: #666; /* Couleur d'arriere-plan du menu au survol */ }
 .dropdownmenu li:hover a {
-    color: #fff; /* Couleur du texte du menu au survol */ 
+    color: white; /* Couleur du texte du menu au survol */ 
 }
 .dropdownmenu ul li {
-    background-color: #6A90AD; /* Couleur d'arriere-plan des sous-menu */
+    background-color: #666; /* Couleur d'arriere-plan des sous-menu */
     
 }
 .dropdownmenu ul li:hover {
-    background-color: #6A90AD;  /* Couleur d'arriere-plan des sous-menu au survol */ } 
+    background-color: #666;  /* Couleur d'arriere-plan des sous-menu au survol */ } 
 .dropdownmenu ul li a {
     color: #666; /* Couleur du texte des sous-menu */ 
     text-align : center;
 }
 .dropdownmenu ul li:hover a {   
-    color:#5BCC12;
+    color:#6A90AD;
      /* Couleur du texte des sous-menu au survol */
 }
 @media only screen and (min-width: 700px) 
