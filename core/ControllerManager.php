@@ -80,8 +80,9 @@ class ControllerManager
 		$controller = new $controllerType();
 		$entityBody = file_get_contents('php://input');
 		$request = array_merge($_GET, $_POST, $_FILES, Utils::isJson($entityBody) ? json_decode($entityBody) : []);
+		$headers = getallheaders();
 		//We invoke the method to check the request, if it returns true. Then we invoke the main handling method
-		if ($this->routes[$key][0]->invokeArgs($controller, [$request])) {
+		if ($this->routes[$key][0]->invokeArgs($controller, [$request, $headers])) {
 			$res = $this->routes[$key][1]->invokeArgs($controller, [$request]);
 			if (!$res)
 				http_response_code(204);

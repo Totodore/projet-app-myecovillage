@@ -1,7 +1,7 @@
 <?php
 
 namespace Project\Core;
-
+use PDO;
 /**
  * Class JsonController
  * Controller that will implements methods for requests that require html responses
@@ -9,6 +9,10 @@ namespace Project\Core;
  */
 abstract class BaseController
 {
+	protected PDO $pdo;
+	public function __construct() {
+		$this->pdo = $GLOBALS['pdo'];
+	}
 }
 
 /**
