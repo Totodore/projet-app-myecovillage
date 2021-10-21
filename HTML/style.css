@@ -210,7 +210,7 @@ header{
 }
 .dropdownmenu a {
     display: inline-block;
-    width: 150px;
+    /*width: 150px;*/
     height: 95px;
     line-height: 30px;
     text-align: center;
@@ -361,9 +361,8 @@ header{
     .Donnee{
         display: block;
         align-items: center;
-        justify-content: space-between;
-        margin-right:  3%;
-        margin-left: 3%;
+        justify-content: space-around;
+        
     }
 }
 
