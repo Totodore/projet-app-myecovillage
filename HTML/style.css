@@ -91,7 +91,7 @@ body
 
 
 }
-#Game,#Acceuil,#Connexion,#Inscription,#FAQ
+#Game,#Acceuil,#FAQ
 {
 font-size: 40px;
 font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -103,7 +103,7 @@ text-align: right;
 margin: 20px;
 position : relative
 }
-#Game,#Inscription
+#Game
 {
     font-size: 40px;
 font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -115,19 +115,56 @@ text-align: right;
 margin: 20px;
 position : relative
 }
+#Inscription
+{
+    background-color:#5BCC12;
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:white;
+    font-size: 40px;
+    text-decoration:none;
+    
+
+}
+#Connexion
+{
+   border-width: 1px;
+   border-color:#5BCC12;
+   border-style: solid;
+  
+    padding: 5px 10px;
+    border-radius: 8px;
+    font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color:#5BCC12;
+    font-size: 40px;
+    text-decoration:none;
+
+}
+
 
 #Acceuil:hover,#Connexion:hover,#FAQ:hover
 {
     color:#5BCC12;
     
 }
-#Game:hover,#Inscription:hover
+#Game:hover,#Connexion:hover
 {
     color:white
 }
+#Connexion:hover
+{
+    color:white;
+    background-color:#45990f ;
+}
+#Inscription:hover
+{
+    background-color:#45990f ;
+
+}
 header{
     height: 100%;
-	padding:0px 0px;/*Marge verticale*/
+	padding:10px 0px;/*Marge verticale*/
 	background-color:white; /*Couleur de fond*/
     
 
@@ -200,6 +237,7 @@ header{
     text-align: center;
     
     
+    
 }
 .dropdownmenu ul {
     display: none;
@@ -216,6 +254,7 @@ header{
     text-align: center;
     font-size: 25px;
     font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-decoration:none
     
 }
 .dropdownmenu li:hover ul {
@@ -378,7 +417,7 @@ header{
     }
 }
 
-#Tableau
+.Tableau
 {
    display: flex;
    justify-content: space-around;
@@ -391,6 +430,7 @@ header{
     margin : auto;
     margin-bottom: 20%;
     padding-bottom: 3%;
+    
     
 
 }
@@ -405,12 +445,25 @@ header{
 }
 #Txtgraph1,#Txtgraph2,#Txtgraph3,#Txtgraph4,#Txtgraph5,#Txtgraph6,#Txtgraph7
 {
-    
+    position: relative;
     font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
     color: white;
     font-size: 30px;
     
+  
 }
+/*.Txttableau
+{
+    
+    position:relative;
+    font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+    color: white;
+    font-size: 30px;
+    justify-content: space-around;
+    
+
+}*/
+
 #graph1,#graph3,#graph6
 {
     height: 30%;
