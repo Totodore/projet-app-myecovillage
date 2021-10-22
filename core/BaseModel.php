@@ -197,7 +197,7 @@ abstract class BaseModel
 			return $columnName . ' ' . $columnType;
 		}, array_keys($this->columns), array_values($this->columns));
 		$sqlArgs = implode(', ', $sqlArgArray);
-		$pdo->query('CREATE TABLE ' . $this->tableName . ' (' . $sqlArgs . ')');
+		$pdo->query('CREATE TABLE IF NOT EXISTS ' . $this->tableName . ' (' . $sqlArgs . ')');
 	}
 
 	/**
@@ -206,7 +206,7 @@ abstract class BaseModel
 	 */
 	private function dropTable(PDO $pdo): void
 	{
-		$pdo->query('DROP TABLE ' . $this->tableName);
+		$pdo->query('DROP TABLE IF EXISTS ' . $this->tableName);
 	}
 
 	/**

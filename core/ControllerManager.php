@@ -6,8 +6,6 @@ use Exception;
 use ReflectionClass;
 use Project\Conf;
 use Project\Utils;
-use Project\Controllers\AdminController;
-use Project\Controllers\IndexController;
 
 
 /**
@@ -17,13 +15,6 @@ use Project\Controllers\IndexController;
  */
 class ControllerManager
 {
-	/**
-	 * The list of the controllers with their corresponding routes
-	 */
-	const CONTROLLERS = [
-		"/" => IndexController::class,
-		"/admin" => AdminController::class,
-	];
 
 	/**
 	 * List of routes
@@ -36,7 +27,7 @@ class ControllerManager
 		/**
 		 * For each controllers we create a route and we put it in the routes list
 		 */
-		foreach (self::CONTROLLERS as $route => $controller) {
+		foreach (Conf::CONTROLLERS as $route => $controller) {
 			if (!is_subclass_of($controller, BaseController::class))
 				throw new Exception('ControllerManager: Controller must be a subclass of BaseController');
 			$classInfos = new ReflectionClass($controller);
@@ -72,11 +63,11 @@ class ControllerManager
 	public function handleRequest() {
 		$path = $this->getRequestPath();
 		$key = "$_SERVER[REQUEST_METHOD] $path";
-		if (!array_key_exists($path, self::CONTROLLERS)) {
+		if (!array_key_exists($path, Conf::CONTROLLERS)) {
 			http_response_code(404);
 			return;
 		}
-		$controllerType = self::CONTROLLERS[$path];
+		$controllerType = Conf::CONTROLLERS[$path];
 		$controller = new $controllerType();
 		$entityBody = file_get_contents('php://input');
 		$request = array_merge($_GET, $_POST, $_FILES, Utils::isJson($entityBody) ? json_decode($entityBody) : []);
