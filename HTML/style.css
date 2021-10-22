@@ -169,7 +169,7 @@ header{
     
    
 }
-.Gauche
+.Toolbar
 {
     display: flex;
     justify-content:space-between;
@@ -378,20 +378,24 @@ header{
     }
 }
 
-.Tableau
+#Tableau
 {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+   display: flex;
+   justify-content: space-around;
+   align-items: flex-end;
     margin-top: 10%;
-    color :#666;
-    width: 100%;
+    background-color :#666;
+    width: 90%;
     height: 500px;
+    border-radius: 30px;
+    margin: auto;
+    margin-bottom: 20%;
+    
 
 }
 .graph1,.graph2,.graph3,.graph4,.graph5,.graph6,.graph7
 {
-    display: inline-block;
+   
     width: 500px;
     height: 400px;
     margin-top: 10%;
