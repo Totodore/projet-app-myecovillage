@@ -9,8 +9,13 @@ class Main {
 
 	currentView;
 
-	constructor() {
-		console.log(routes);
+	/**
+	 * @type {Object.<typeof BaseService, BaseService>}
+	 */
+	services = {};
+
+	async init() {
+		await this.instantiateServices();
 		const route = this.routeParser();
 		if (route)
 			this.render(route);
@@ -21,7 +26,8 @@ class Main {
 	 * Render method, it will load the appropriate controller and view
 	 */
 	async render(route) {
-		this.currentController = new routes[route[0]](route[1]);
+		const servicesToInject = routes[route[0]].services.map(serviceId => this.services[serviceId]);
+		this.currentController = new routes[route[0]].controller(route[1], ...servicesToInject);
 		try {
 			const view = await this.currentController.loadView();
 			document.getElementById("body-wrapper").innerHTML = view;
@@ -43,9 +49,23 @@ class Main {
 		} 
 	}
 
+	/**
+	 * 
+	 */
+	async instantiateServices() {
+		const services = Object.values(routes).reduce((prev, curr) => curr.services.concat(prev), []);
+		for(const service of services) {
+			this.services[service] = new service();
+		}
+		for(const service of services) {
+			if(service.init)
+				await service.init();
+		}
+	}
+
 }
 
 /**
  * We wait for the content to be loaded before starting the application
  */
-document.addEventListener('DOMContentLoaded', () => new Main());
+document.addEventListener('DOMContentLoaded', () => new Main().init());

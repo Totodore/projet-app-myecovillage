@@ -4,8 +4,8 @@ export class BaseController {
 	 * @type {object}
 	 */
 	params = {};
-	id = "";
 	ressourcePath = "";
+	viewParams = {};
 
 	constructor(params) {
 		this.params = params;
@@ -21,7 +21,7 @@ export class BaseController {
 			this.error("No view found!");
 		else {
 			this.log("Loading view...");
-			let response = await fetch(this.view);
+			let response = await fetch(`${this.view}?${Object.entries(el => el[0] + "=" + el[1]).join('&')}`);
 			let html = await response.text();
 			this.log("View loaded");
 			return html;
