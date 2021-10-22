@@ -10,17 +10,18 @@ define('ROOT', dirname(__FILE__) . "/");
 use PDO;
 use Project\Controllers\AdminController;
 use Project\Controllers\IndexController;
+use Project\Models;
 
 class Conf
 {
 
-	static string $host = '127.0.0.1';
-	static string $db   = 'test';
-	static string $user = 'root';
-	static string $pass = 'root';
-	static string $charset = 'utf8mb4';
-	static bool $forceUpdate = true;
-	static array $options = [
+	const HOST = '127.0.0.1';
+	const DB   = 'test';
+	const USER = 'root';
+	const PASS = 'root';
+	const CHARSET = 'utf8mb4';
+	const FORCE_UPDATE = true;
+	const OPTIONS = [
 		PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
 		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_CLASS,
 		PDO::ATTR_EMULATE_PREPARES   => false,
@@ -32,6 +33,18 @@ class Conf
 	const CONTROLLERS = [
 		"/" => IndexController::class,
 		"/admin" => AdminController::class,
+		"/api/auth" => AuthController::class
+	];
+
+	/**
+	 * The list of all the models in the database
+ 	*/
+	const MODELS = [
+		Models\UserModel::class,
+		Models\AdminMessageModel::class,
+		Models\HeartBeatModel::class,
+		Models\MinigameResultModel::class,
+		Models\FaqArticleModel::class,
 	];
 
 	const ROOT_PATH = "php-framework";

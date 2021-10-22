@@ -6,8 +6,6 @@ use Exception;
 use PDO;
 use Project\Conf;
 
-use Project\Models;
-
 /**
  * Class ModelManager
  * Class that manage all the models and the connexion to the database
@@ -19,18 +17,6 @@ class ModelManager
 	public $pdo;
 
 	/**
-	 * @var models BaseModel[]
-	 * The list of all the models in the database
-	 */
-	private array $models = array(
-		Models\UserModel::class,
-		Models\AdminMessageModel::class,
-		Models\HeartBeatModel::class,
-		Models\MinigameResultModel::class,
-		Models\FaqArticleModel::class,
-	);
-
-	/**
 	 * Verify that all the given models are valid
 	 * They are not valid if the models dont inherit from the BaseModel class 
 	 */
@@ -39,7 +25,7 @@ class ModelManager
 		/**
 		 * @var BaseModel $model
 		 */
-		foreach ($this->models as $model)
+		foreach (Conf::MODELS as $model)
 			if (!is_subclass_of($model, BaseModel::class))
 				throw new Exception('ModelManager: Model must be a subclass of BaseModel');
 	}
@@ -51,7 +37,7 @@ class ModelManager
 	public function init(): void
 	{
 		try {
-			$this->pdo = new PDO("mysql:host=" . Conf::$host . ";dbname=" . Conf::$db . ";charset=" . Conf::$charset, Conf::$user, Conf::$pass, Conf::$options);
+			$this->pdo = new PDO("mysql:host=" . Conf::HOST . ";dbname=" . Conf::DB . ";charset=" . Conf::CHARSET, Conf::USER, Conf::PASS, Conf::OPTIONS);
 		} catch (\PDOException $e) {
 			// echo $e;
 			http_response_code(500);
@@ -61,7 +47,7 @@ class ModelManager
 		/**
 		 * @var BaseModel $model
 		 */
-		foreach ($this->models as $model) {
+		foreach (Conf::MODELS as $model) {
 			$instantiatedModel = new $model();
 			$instantiatedModel->sync($this->pdo);
 		}

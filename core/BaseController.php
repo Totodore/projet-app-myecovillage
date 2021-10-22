@@ -26,20 +26,20 @@ interface IGetController {
 interface IPostController
 {
 	public function verifyPostRequest(array $query): bool;
-	public function postHandler(): array;
+	public function postHandler(array $query): array;
 }
 interface IPatchController
 {
 	public function verifyPatchRequest(array $query): bool;
-	public function patchHandler(): array;
+	public function patchHandler(array $query): array;
 }
 interface IPutController
 {
 	public function verifyPutRequest(array $query): bool;
-	public function putHandler(): array;
+	public function putHandler(array $query): array;
 }
 interface IDeleteController
 {
 	public function verifyDeleteRequest(array $query): bool;
-	public function deleteHandler(): array;
+	public function deleteHandler(array $query): array;
 }

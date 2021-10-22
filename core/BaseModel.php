@@ -83,7 +83,7 @@ abstract class BaseModel
 			$this->createTable($pdo);
 			// echo 'Table ' . $this->tableName . ' created' . "\n";
 		} else {
-			if (Conf::$forceUpdate) {
+			if (Conf::FORCE_UPDATE) {
 				// echo 'Table ' . $this->tableName . ' force update, dropping table and recreating it...' . "\n";
 				$this->dropTable($pdo);
 				$this->createTable($pdo);
