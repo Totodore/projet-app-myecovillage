@@ -388,19 +388,40 @@ header{
     width: 90%;
     height: 500px;
     border-radius: 30px;
-    margin: auto;
+    margin : auto;
     margin-bottom: 20%;
+    padding-bottom: 3%;
     
 
 }
-.graph1,.graph2,.graph3,.graph4,.graph5,.graph6,.graph7
+#graph1,#graph2,#graph3,#graph4,#graph5,#graph6,#graph7
 {
-   
-    width: 500px;
-    height: 400px;
-    margin-top: 10%;
-    color:#6A90AD ;
-   
+    
+    width: 150px;
+    
+    background-color:#6A90AD ;  
+    justify-content: center;
+    align-items: center;
+}
+#Txtgraph1,#Txtgraph2,#Txtgraph3,#Txtgraph4,#Txtgraph5,#Txtgraph6,#Txtgraph7
+{
+    
+    font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+    color: white;
+    font-size: 30px;
+    
+}
+#graph1,#graph3,#graph6
+{
+    height: 30%;
+}
+#graph2,#graph4
+{
+    height:70%;
+}
+#graph5,#graph7
+{
+    height:50%;
 }
 *{
     margin:0;
