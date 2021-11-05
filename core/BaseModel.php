@@ -60,7 +60,7 @@ abstract class BaseModel
 							$this->columns[$columnName] = 'TINYINT(1)';
 							break;
 						case 'int':
-							$this->columns[$columnName] = 'INT';
+							$this->columns[$columnName] = 'BIGINT';
 							break;
 						default:
 							break;
@@ -106,7 +106,10 @@ abstract class BaseModel
 		unset($propsToModify["id"]);
 		//For each property we get the values
 		$values = array_map(function ($property) {
-			return $this->{$property};
+			if (is_bool($this->{$property}))
+				return $this->{$property} ? 1 : 0;
+			else
+				return $this->{$property};
 		}, array_values($propsToModify));
 
 		/**
@@ -252,6 +255,16 @@ abstract class BaseModel
 		$pdo = $GLOBALS['pdo'];
 		$query = $pdo->prepare('SELECT * FROM ' . $tableName . ' WHERE id = ? LIMIT 1');
 		$query->execute(array($id));
+		$res = $query->fetch(PDO::FETCH_ASSOC);
+		return !$res ? NULL : static::create($res, 'm_');
+	}
+
+	public static function findBy(string $column, string $value): ?BaseModel
+	{
+		$tableName = static::getTableName();
+		$pdo = $GLOBALS['pdo'];
+		$query = $pdo->prepare('SELECT * FROM ' . $tableName . ' WHERE ' . $column . ' = ? LIMIT 1');
+		$query->execute(array($value));
 		$res = $query->fetch(PDO::FETCH_ASSOC);
 		return !$res ? NULL : static::create($res, 'm_');
 	}

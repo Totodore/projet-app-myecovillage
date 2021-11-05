@@ -11,6 +11,7 @@ use PDO;
 use Project\Controllers\AdminController;
 use Project\Controllers\IndexController;
 use Project\Controllers\AuthController;
+use Project\Controllers\RegisterController;
 use Project\Models;
 
 class Conf
@@ -21,7 +22,8 @@ class Conf
 	const USER = 'root';
 	const PASS = 'root';
 	const CHARSET = 'utf8mb4';
-	const FORCE_UPDATE = true;
+	const FORCE_UPDATE = false;
+	const JWT_SECRET = "PNkL4zCwxmP34SN8mhQNuqLijoq8X9zocsbJnzUzXLOXWDbXL8m67B0vYBgyKoH1";
 	const OPTIONS = [
 		PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
 		PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_CLASS,
@@ -34,7 +36,8 @@ class Conf
 	const CONTROLLERS = [
 		"/" => IndexController::class,
 		"/admin" => AdminController::class,
-		"/api/auth" => AuthController::class
+		"/api/auth" => AuthController::class,
+		'/api/register' => RegisterController::class
 	];
 
 	/**

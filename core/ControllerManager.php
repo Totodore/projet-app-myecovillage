@@ -5,6 +5,7 @@ namespace Project\Core;
 use Exception;
 use ReflectionClass;
 use Project\Conf;
+use Project\Exceptions\HttpException;
 use Project\Utils;
 
 
@@ -29,7 +30,7 @@ class ControllerManager
 		 */
 		foreach (Conf::CONTROLLERS as $route => $controller) {
 			if (!is_subclass_of($controller, BaseController::class))
-				throw new Exception('ControllerManager: Controller must be a subclass of BaseController');
+				throw new Exception("ControllerManager: Controller '$controller' must be a subclass of BaseController");
 			$classInfos = new ReflectionClass($controller);
 			$implementations = class_implements($controller);
 			if (in_array(IGetController::class, $implementations))
@@ -74,16 +75,29 @@ class ControllerManager
 		$headers = getallheaders();
 		//We invoke the method to check the request, if it returns true. Then we invoke the main handling method
 		if ($this->routes[$key][0]->invokeArgs($controller, [$request, $headers])) {
-			$res = $this->routes[$key][1]->invokeArgs($controller, [$request]);
-			if (!$res)
-				http_response_code(204);
-			if ($this->routes[$key][2])	//If the controller inherits from the json controller
-				echo json_encode($res);
-			else {
-				if (array_key_exists(1, $res))
-					extract($res[1]);
-				$baseUrl = Conf::ROOT_PATH;
-				include_once ROOT."/views/$res[0].php";
+			try {
+				$res = $this->routes[$key][1]->invokeArgs($controller, [$request]);
+				if (!$res)
+					http_response_code(204);
+				if ($this->routes[$key][2])	//If the controller inherits from the json controller
+					echo json_encode($res);
+				else {
+					if (array_key_exists(1, $res))
+						extract($res[1]);
+					$baseUrl = Conf::ROOT_PATH;
+					include_once ROOT."/views/$res[0].php";
+				}
+			} catch(HttpException $e) {
+				http_response_code($e->getCode());
+				if ($this->routes[$key][2])	//If the controller inherits from the json controller
+					echo json_encode(["message" => $e->getMessage(), "code" => $e->getCode()]);
+				else echo $e->getMessage();
+			} catch(Exception $e) {
+				http_response_code(500);
+				if ($this->routes[$key][2])	//If the controller inherits from the json controller
+					echo json_encode(["message" => "Internal server error: " . $e->getMessage(), "code" => 500]);
+				else
+					echo "Internal server error: " . $e->getMessage();
 			}
 		}
 		else {
