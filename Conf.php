@@ -10,6 +10,7 @@ define('ROOT', dirname(__FILE__) . "/");
 use PDO;
 use Project\Controllers\AdminController;
 use Project\Controllers\IndexController;
+use Project\Controllers\AuthController;
 use Project\Models;
 
 class Conf
