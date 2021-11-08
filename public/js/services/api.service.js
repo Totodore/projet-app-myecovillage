@@ -7,9 +7,9 @@ export class ApiService extends BaseService {
 	 * @param {string} password
 	 * @return {Promise<boolean>} 
 	 */
-	async login(username, password) {
+	async login(email, password) {
 		try {
-			const req = await this.post("/api/login", { username, password });
+			const req = await this.post("/api/auth", { email, password });
 			const res = await req.json();
 			this.token = res.token;
 			return true;
@@ -28,7 +28,7 @@ export class ApiService extends BaseService {
 	}
 
 	async get(url, params) {
-		const req = await fetch(baseUrl + url, { params: params });
+		const req = await fetch(baseUrl + url, { params: params, headers: this.token ? { "Authorization": "Bearer " + this.token } : null });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
@@ -36,7 +36,7 @@ export class ApiService extends BaseService {
 	}
 
 	async post(url, data) {
-		const req = await fetch(baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json" } });
+		const req = await fetch(baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? "Bearer " + this.token : null } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
@@ -44,7 +44,7 @@ export class ApiService extends BaseService {
 	}
 
 	async put(url, data) {
-		const req = await fetch(baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json" } });
+		const req = await fetch(baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? "Bearer " + this.token : null } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
@@ -52,7 +52,7 @@ export class ApiService extends BaseService {
 	}
 
 	async delete(url) {
-		const req = await fetch(baseUrl + url, { method: "DELETE" });
+		const req = await fetch(baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? "Bearer " + this.token : null } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}

@@ -10,8 +10,13 @@ define('ROOT', dirname(__FILE__) . "/");
 use PDO;
 use Project\Controllers\AdminController;
 use Project\Controllers\IndexController;
-use Project\Controllers\AuthController;
-use Project\Controllers\RegisterController;
+use Project\Controllers\Api\AuthController;
+use Project\Controllers\Api\UserController;
+use Project\Core\Attributes\Get;
+use Project\Core\Attributes\Post;
+use Project\Core\Attributes\Put;
+use Project\Core\Attributes\Delete;
+use Project\Core\Attributes\Patch;
 use Project\Models;
 
 class Conf
@@ -34,10 +39,10 @@ class Conf
 	 * The list of the controllers with their corresponding routes
 	 */
 	const CONTROLLERS = [
-		"/" => IndexController::class,
-		"/admin" => AdminController::class,
-		"/api/auth" => AuthController::class,
-		'/api/register' => RegisterController::class
+		IndexController::class,
+		AdminController::class,
+		AuthController::class,
+		UserController::class,
 	];
 
 	/**
@@ -49,6 +54,14 @@ class Conf
 		Models\HeartBeatModel::class,
 		Models\MinigameResultModel::class,
 		Models\FaqArticleModel::class,
+	];
+
+	const ROUTE_ATTRIBUTES = [
+		Get::class,
+		Post::class,
+		Put::class,
+		Patch::class,
+		Delete::class,
 	];
 
 	const ROOT_PATH = "php-framework";

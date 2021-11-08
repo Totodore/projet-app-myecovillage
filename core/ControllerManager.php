@@ -5,6 +5,9 @@ namespace Project\Core;
 use Exception;
 use ReflectionClass;
 use Project\Conf;
+use Project\Core\Attributes\Controller;
+use Project\Core\Attributes\JsonController;
+use Project\Core\Attributes\VerifyRequest;
 use Project\Exceptions\HttpException;
 use Project\Utils;
 
@@ -19,30 +22,26 @@ class ControllerManager
 
 	/**
 	 * List of routes
-	 * For each route there is a list 
-	 * [GET /Path/To/route, [Verify method ref, Method ref, isJson]] 
+	 * @var Route[]
 	 */
-	private $routes = [];
+	private array $routes = [];
 
-	public function __construct() {
+	public function __construct()
+	{
 		/**
 		 * For each controllers we create a route and we put it in the routes list
 		 */
-		foreach (Conf::CONTROLLERS as $route => $controller) {
-			if (!is_subclass_of($controller, BaseController::class))
-				throw new Exception("ControllerManager: Controller '$controller' must be a subclass of BaseController");
+		foreach (Conf::CONTROLLERS as $controller) {
 			$classInfos = new ReflectionClass($controller);
-			$implementations = class_implements($controller);
-			if (in_array(IGetController::class, $implementations))
-				$this->routes['GET '.$route] = [$classInfos->getMethod('verifyGetRequest'), $classInfos->getMethod('getHandler'), is_subclass_of($controller, JsonController::class)];
-			if (in_array(IPostController::class, $implementations))
-				$this->routes['POST '.$route] = [$classInfos->getMethod('verifyPostRequest'), $classInfos->getMethod('postHandler'), is_subclass_of($controller, JsonController::class)];
-			if (in_array(IPatchController::class, $implementations))
-				$this->routes['PATCH '.$route] = [$classInfos->getMethod('verifyPatchRequest'), $classInfos->getMethod('patchHandler'), is_subclass_of($controller, JsonController::class)];
-			if (in_array(IPutController::class, $implementations))
-				$this->routes['PUT '.$route] = [$classInfos->getMethod('verifyPutRequest'), $classInfos->getMethod('putHandler'), is_subclass_of($controller, JsonController::class)];
-			if (in_array(IDeleteController::class, $implementations))
-				$this->routes["DELETE ".$route] = [$classInfos->getMethod('verifyDeleteRequest'), $classInfos->getMethod('deleteHandler'), is_subclass_of($controller, JsonController::class)];
+			$controllerAttribute = $classInfos->getAttributes(Controller::class);
+			if (!$controllerAttribute)
+				$controllerAttribute = $classInfos->getAttributes(JsonController::class);
+			$controllerAttribute = $controllerAttribute[0] ?? null;
+			if (is_null($controllerAttribute))
+				throw new Exception("ControllerManager: Controller '$controller' must have a #[Controller] or #[JsonController] Attribute");
+			$rootPath = $this->parsePath($controllerAttribute->getArguments()[0] ?? '/');
+			$isJson = $controllerAttribute->getName() == JsonController::class;
+			$this->routes = array_merge($this->routes, $this->getControllerRoutes($classInfos, $rootPath, $isJson));
 		}
 
 		/**
@@ -61,53 +60,103 @@ class ControllerManager
 	 * If it is a json controller we encode the json response and we send it
 	 * Otherwise we extract the variables and we include the view
 	 */
-	public function handleRequest() {
-		$path = $this->getRequestPath();
-		$key = "$_SERVER[REQUEST_METHOD] $path";
-		if (!array_key_exists($path, Conf::CONTROLLERS)) {
+	public function handleRequest()
+	{
+		$route = $this->getCurrentRoute();
+		echo is_null($route);
+		if (!$route) {
 			http_response_code(404);
 			return;
 		}
-		$controllerType = Conf::CONTROLLERS[$path];
-		$controller = new $controllerType();
+		$controller = $route->function->getDeclaringClass()->newInstance();
 		$entityBody = file_get_contents('php://input');
 		$request = array_merge($_GET, $_POST, $_FILES, Utils::isJson($entityBody) ? json_decode($entityBody) : []);
 		$headers = getallheaders();
+		if (!$this->verifyRequest($request)) {
+			http_response_code(400);
+			return;
+		}
 		//We invoke the method to check the request, if it returns true. Then we invoke the main handling method
-		if ($this->routes[$key][0]->invokeArgs($controller, [$request, $headers])) {
 			try {
-				$res = $this->routes[$key][1]->invokeArgs($controller, [$request]);
+				$res = $route->function->invokeArgs($controller, [$request]);
 				if (!$res)
 					http_response_code(204);
-				if ($this->routes[$key][2])	//If the controller inherits from the json controller
+				if ($route->isJson)	//If the controller inherits from the json controller
 					echo json_encode($res);
 				else {
 					if (array_key_exists(1, $res))
 						extract($res[1]);
 					$baseUrl = Conf::ROOT_PATH;
-					include_once ROOT."/views/$res[0].php";
+					include_once ROOT . "/views/$res[0].php";
 				}
-			} catch(HttpException $e) {
+			} catch (HttpException $e) {	//We catch Http Exception to throw http errors
 				http_response_code($e->getCode());
-				if ($this->routes[$key][2])	//If the controller inherits from the json controller
+				if ($route->isJson)	//If the controller inherits from the json controller
 					echo json_encode(["message" => $e->getMessage(), "code" => $e->getCode()]);
-				else echo $e->getMessage();
-			} catch(Exception $e) {
+				else
+					echo $e->getMessage();
+			} catch (Exception $e) { //In case of a generic exception we throw a 500 error
 				http_response_code(500);
-				if ($this->routes[$key][2])	//If the controller inherits from the json controller
+				if ($route->isJson)	//If the controller inherits from the json controller
 					echo json_encode(["message" => "Internal server error: " . $e->getMessage(), "code" => 500]);
 				else
 					echo "Internal server error: " . $e->getMessage();
 			}
-		}
-		else {
-			http_response_code(400);
-			return;
-		}
 	}
 
-	private function getRequestPath(): string {
+	private function getRequestPath(): string
+	{
 		$path = str_replace(Conf::ROOT_PATH, "", strtok($_SERVER["REQUEST_URI"], '?'));
+		if (str_ends_with($path, "/"))
+			$path = substr($path, 0, strlen($path) - 1);
 		return str_replace("//", "/", $path);
+	}
+
+	/**
+	 * Will parse path in order to have the appropriate number of / before and after path
+	 */
+	private function parsePath(string $path): string
+	{
+		$fragments = explode("/", $path);
+		$fragments = array_filter($fragments, function ($fragment) {
+			return $fragment !== "";
+		});
+		return "/" . implode("/", $fragments);
+	}
+
+	private function getControllerRoutes(ReflectionClass $controller, string $rootPath, bool $isJson): array
+	{
+		$routeMethods = [];
+		foreach ($controller->getMethods() as $method) {
+			$attributes = $method->getAttributes();
+			$routeAttr = array_filter($attributes, function ($attribute) {
+				return in_array($attribute->getName(), Conf::ROUTE_ATTRIBUTES);
+			})[0] ?? null;
+			if (is_null($routeAttr))
+				continue;
+			$verifyAttr = $method->getAttributes(VerifyRequest::class)[0] ?? null;
+			array_push($routeMethods, new Route(
+				path: ($rootPath == "/" ? '' : $rootPath) . $this->parsePath($routeAttr->getArguments()[0]), 
+				verifyArray: $verifyAttr ? $verifyAttr->getArguments()[0] ?? null : null,
+				method: (new ReflectionClass($routeAttr->getName()))->getConstant("METHOD"),
+				function:$method,
+				isJson:$isJson
+			));
+		}
+		return $routeMethods;
+	}
+
+	private function getCurrentRoute(): ?Route {
+		return current(array_filter($this->routes, function ($route) {
+			return $this->getRequestPath() == $route->path && $_SERVER["REQUEST_METHOD"] == $route->method;
+		})) ?? null;
+	}
+
+	private function verifyRequest(array $request): bool
+	{
+		$route = $this->getCurrentRoute();
+		if (is_null($route->verifyArray))
+			return true;
+		return array_count_values(array_diff(array_keys($request), array_keys($route->verifyArray))) == 0;
 	}
 }
