@@ -34,7 +34,7 @@ class JWT
 		$payload = base64_encode($payload);
 		$signature = hash_hmac('sha256', $header . '.' . $payload, $secret, true);
 		$signature = base64_encode($signature);
-		return $header . '.' . $payload . '.' . $signature;
+		return trim($header, '=') . '.' . trim($payload, '=') . '.' . trim($signature, '=');
 	}
 
 	public static function decode(string $token, string $secret): array

@@ -14,19 +14,19 @@ use Project\Models\UserModel;
 class AuthController extends JsonController implements IPostController {
 
 	public function verifyPostRequest(array $query): bool {
-		return isset($array['email'], $array['password']);
+		return isset($query["email"], $query["password"]);
 	}
 
 	public function postHandler(array $query): array {
 		$user = UserModel::findBy("email", $query['email']);
 		if (!$user)
 			throw new NotFoundException("User not found");
-		if (!password_verify($query['password'], $user->password))
+		if (!password_verify($query['password'], $user->m_password))
 			throw new ForbiddenException("Wrong password");
 
-		unset($user["password"]);
+		unset($user->m_password);
 		return [
-			"token" => JWT::encode($user, Conf::JWT_SECRET)
+			"token" => JWT::encode(get_object_vars($user), Conf::JWT_SECRET)
 		];
 	}
 }
