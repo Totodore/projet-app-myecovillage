@@ -157,6 +157,6 @@ class ControllerManager
 		$route = $this->getCurrentRoute();
 		if (is_null($route->verifyArray))
 			return true;
-		return array_count_values(array_diff(array_keys($request), array_keys($route->verifyArray))) == 0;
+		return empty(array_filter(array_diff($route->verifyArray, array_keys($request))));
 	}
 }
