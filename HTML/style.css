@@ -205,6 +205,7 @@ header{
     align-content: space-between;
 	width:auto;/*Taille de la colonne centrée moins le padding*/
     text-align: right;
+   
     
 
     
@@ -433,7 +434,7 @@ header{
     }
     #Menu{
         height: 70%;
-        
+
     }
 }
 
@@ -441,6 +442,7 @@ header{
 {
    display: flex;
    justify-content: space-around;
+   align-items: flex-end;
     background-color :#666;
     width: 90%;
     height: 500px;
