@@ -249,6 +249,7 @@ header{
 }
 .dropdownmenu li {
     position: relative;
+    left: -10px;
     
 }
 .dropdownmenu a {
@@ -265,7 +266,7 @@ header{
 .dropdownmenu li:hover ul {
     display: block ;
     position: absolute;
-    top: 36px; 
+    top: 25px; 
     left: 0px; 
     z-index: 100;
    
@@ -433,7 +434,7 @@ header{
         font-size : 35px
     }
     #Menu{
-        height: 70%;
+        height: 65%;
 
     }
 }
