@@ -503,12 +503,28 @@ header{
     padding:0;
     
     }
-    @media only screen and (max-width : 500px){
+@media only screen and (max-width : 1215px){
         #graph1,#graph2,#graph3,#graph4,#graph5,#graph6,#graph7{
-            display:none;
+            width: 90px;
+        }
+    }
+@media only screen and (max-width : 765px){
+        #graph1,#graph2,#graph3,#graph4,#graph5,#graph6,#graph7{
+            margin-top: 7%;
+            width: 175px;
             
+        }
+        .Tableau{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            align-content: space-evenly;
+            height:2000px;
 
         }
+            
+
+        
     }
 footer{
     background-color: white;
