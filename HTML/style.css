@@ -122,9 +122,9 @@ position : relative
     border-radius: 8px;
     font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:white;
-    font-size: 40px;
+    font-size: 35px;
     text-decoration:none;
-    
+   
 
 }
 #Connexion
@@ -137,8 +137,9 @@ position : relative
     border-radius: 8px;
     font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     color:#5BCC12;
-    font-size: 40px;
+    font-size: 35px;
     text-decoration:none;
+   
 
 }
 
@@ -201,8 +202,11 @@ header{
 }
 .centercolumn{
     display: block;
+    align-content: space-between;
 	width:auto;/*Taille de la colonne centrée moins le padding*/
     text-align: right;
+    
+
     
    
 }
@@ -211,7 +215,7 @@ header{
     display: flex;
     justify-content:space-between;
     align-items: center;
-    height: 90%;
+    height: 100%;
    
     
 }
@@ -416,18 +420,33 @@ header{
         font-size : 40px
     }
 }
+@media only screen and (max-width : 320px){
+    .rond1,.rond2,.rond3{
+        
+        Width : 250px;
+        height : 250px;
+        border-radius : 250px;
+        
+    }
+    #Txtrond1,#Txtrond2,#Txtrond3{
+        font-size : 35px
+    }
+    #Menu{
+        height: 70%;
+        
+    }
+}
 
 .Tableau
 {
    display: flex;
    justify-content: space-around;
-   align-items: flex-end;
-    margin-top: 10%;
     background-color :#666;
     width: 90%;
     height: 500px;
     border-radius: 30px;
-    margin : auto;
+    margin : 5%;
+    margin-top: 10%;
     margin-bottom: 20%;
     padding-bottom: 3%;
     
@@ -461,7 +480,6 @@ header{
     font-size: 30px;
     justify-content: space-around;
     
-
 }*/
 
 #graph1,#graph3,#graph6
@@ -481,6 +499,13 @@ header{
     
     padding:0;
     
+    }
+    @media only screen and (max-width : 500px){
+        #graph1,#graph2,#graph3,#graph4,#graph5,#graph6,#graph7{
+            display:none;
+            
+
+        }
     }
 footer{
     background-color: white;
