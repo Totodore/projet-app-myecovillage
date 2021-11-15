@@ -1,15 +1,13 @@
 <?php
 
-namespace Project\Core\Attributes;
-
+namespace Project\Core\Attributes\Http;
 use Attribute;
 
-
 #[Attribute(Attribute::TARGET_METHOD)]
-final class Patch
+final class Delete
 {
 	public function __construct(?string $route) {
 
 	}
-	public const METHOD = 'PATCH';
+	public const METHOD = 'DELETE';
 }

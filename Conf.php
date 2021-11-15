@@ -12,12 +12,16 @@ use Project\Controllers\AdminController;
 use Project\Controllers\IndexController;
 use Project\Controllers\Api\AuthController;
 use Project\Controllers\Api\UserController;
-use Project\Core\Attributes\Get;
-use Project\Core\Attributes\Post;
-use Project\Core\Attributes\Put;
-use Project\Core\Attributes\Delete;
-use Project\Core\Attributes\Patch;
-use Project\Models;
+use Project\Core\Attributes\Http\Get;
+use Project\Core\Attributes\Http\Post;
+use Project\Core\Attributes\Http\Put;
+use Project\Core\Attributes\Http\Delete;
+use Project\Core\Attributes\Http\Patch;
+use Project\Models\UserModel;
+use Project\Models\AdminMessageModel;
+use Project\Models\HeartBeatModel;
+use Project\Models\MinigameResultModel;
+use Project\Models\FaqArticleModel;
 
 class Conf
 {
@@ -49,11 +53,11 @@ class Conf
 	 * The list of all the models in the database
  	*/
 	const MODELS = [
-		Models\UserModel::class,
-		Models\AdminMessageModel::class,
-		Models\HeartBeatModel::class,
-		Models\MinigameResultModel::class,
-		Models\FaqArticleModel::class,
+		UserModel::class,
+		AdminMessageModel::class,
+		HeartBeatModel::class,
+		MinigameResultModel::class,
+		FaqArticleModel::class,
 	];
 
 	const ROUTE_ATTRIBUTES = [

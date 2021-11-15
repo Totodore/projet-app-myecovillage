@@ -1,6 +1,8 @@
 <?php
 namespace Project\Models;
 
+use Project\Core\Attributes\Orm\Column;
+use Project\Core\Attributes\Orm\PrimaryColumn;
 use Project\Core\BaseModel;
 
 /**
@@ -9,9 +11,15 @@ use Project\Core\BaseModel;
 
 class AdminMessageModel extends BaseModel {
 
-	public int $m_id;
-	public string $m_content;
-	public bool $m_opened;
-	public int $m_userId;
-	public int $m_date;
+	#[PrimaryColumn()]
+	public int $id;
+	#[Column(type: "TEXT")]
+	public string $content;
+
+	#[Column()]
+	public bool $opened;
+	#[Column()]
+	public int $userId;
+	#[Column()]
+	public int $date;
 }

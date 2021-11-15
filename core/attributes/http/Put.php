@@ -1,15 +1,13 @@
-<?php
+<?php 
 
-namespace Project\Core\Attributes;
-
+namespace Project\Core\Attributes\Http;
 use Attribute;
 
 #[Attribute(Attribute::TARGET_METHOD)]
-final class Get
+final class Put
 {
 	public function __construct(?string $route) {
 
 	}
-
-	public const METHOD = 'GET';
+	public const METHOD = 'PUT';
 }

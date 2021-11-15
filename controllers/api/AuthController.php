@@ -3,9 +3,9 @@
 namespace Project\Controllers\Api;
 
 use Project\Conf;
-use Project\Core\Attributes\JsonController;
-use Project\Core\Attributes\Post;
-use Project\Core\Attributes\VerifyRequest;
+use Project\Core\Attributes\Http\JsonController;
+use Project\Core\Attributes\Http\Post;
+use Project\Core\Attributes\Http\VerifyRequest;
 use Project\Exceptions\ForbiddenException;
 use Project\Exceptions\NotFoundException;
 use Project\JWT;

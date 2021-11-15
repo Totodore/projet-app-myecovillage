@@ -1,8 +1,8 @@
 <?php
 
 namespace Project\Controllers;
-use Project\Core\Attributes\Controller;
-use Project\Core\Attributes\Get;
+use Project\Core\Attributes\Http\Controller;
+use Project\Core\Attributes\Http\Get;
 
 #[Controller]
 class IndexController {

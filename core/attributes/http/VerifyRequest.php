@@ -1,6 +1,6 @@
 <?php 
 
-namespace Project\Core\Attributes;
+namespace Project\Core\Attributes\Http;
 
 use Attribute;
 

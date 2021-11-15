@@ -5,9 +5,9 @@ namespace Project\Core;
 use Exception;
 use ReflectionClass;
 use Project\Conf;
-use Project\Core\Attributes\Controller;
-use Project\Core\Attributes\JsonController;
-use Project\Core\Attributes\VerifyRequest;
+use Project\Core\Attributes\Http\Controller;
+use Project\Core\Attributes\Http\JsonController;
+use Project\Core\Attributes\Http\VerifyRequest;
 use Project\Exceptions\HttpException;
 use Project\Utils;
 
@@ -63,8 +63,8 @@ class ControllerManager
 	public function handleRequest()
 	{
 		$route = $this->getCurrentRoute();
-		echo is_null($route);
-		if (!$route) {
+		if (is_null($route)) {
+			echo "404 Not found";
 			http_response_code(404);
 			return;
 		}
@@ -79,8 +79,10 @@ class ControllerManager
 		//We invoke the method to check the request, if it returns true. Then we invoke the main handling method
 			try {
 				$res = $route->function->invokeArgs($controller, [$request]);
-				if (!$res)
+				if (is_null($res)) {
 					http_response_code(204);
+					return;
+				}
 				if ($route->isJson)	//If the controller inherits from the json controller
 					echo json_encode($res);
 				else {
@@ -147,9 +149,10 @@ class ControllerManager
 	}
 
 	private function getCurrentRoute(): ?Route {
-		return current(array_filter($this->routes, function ($route) {
+		$route = current(array_filter($this->routes, function ($route) {
 			return $this->getRequestPath() == $route->path && $_SERVER["REQUEST_METHOD"] == $route->method;
-		})) ?? null;
+		}));
+		return $route ? $route : null;
 	}
 
 	private function verifyRequest(array $request): bool

@@ -1,6 +1,9 @@
 <?php
 
 namespace Project\Models;
+
+use Project\Core\Attributes\Orm\PrimaryColumn;
+use Project\Core\Attributes\Orm\Column;
 use Project\Core\BaseModel;
 
 /**
@@ -9,19 +12,30 @@ use Project\Core\BaseModel;
 class UserModel extends BaseModel
 {
 
-	public int $m_id;
-	public string $m_name;
-	public string $m_firstname;
-	public int $m_birthdate;
-	public int $m_height;
-	public int $m_weight;
-	public string $m_password;
-	public string $m_email;
-	public bool $m_isAdmin = false;
+	#[PrimaryColumn()]
+	public ?int $id = null;
 
-	public function __construct()
-	{
-		parent::__construct();
-		$this->m_isAdmin = false;
-	}
+	#[Column()]
+	public string $name;
+
+	#[Column()]
+	public string $firstname;
+	
+	#[Column()]
+	public int $birthdate;
+	
+	#[Column()]
+	public int $height;
+	
+	#[Column()]
+	public int $weight;
+	
+	#[Column()]
+	public string $password;
+
+	#[Column()]
+	public string $email;
+	
+	#[Column(default: false, nullable: false)]
+	public bool $isadmin = false;
 }

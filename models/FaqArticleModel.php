@@ -1,6 +1,9 @@
 <?php
 
 namespace Project\Models;
+
+use Project\Core\Attributes\Orm\Column;
+use Project\Core\Attributes\Orm\PrimaryColumn;
 use Project\Core\BaseModel;
 
 /**
@@ -8,8 +11,13 @@ use Project\Core\BaseModel;
  */
 class FaqArticleModel extends BaseModel {
 
-	public int $m_id;
-	public string $m_title;
-	public string $m_content;
-	public int $m_authorId;
+	#[PrimaryColumn()]
+	public int $id;
+
+	#[Column()]
+	public string $title;
+	#[Column(type: "TEXT")]
+	public string $content;
+	#[Column()]
+	public int $authorId;
 }
