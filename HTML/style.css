@@ -548,6 +548,10 @@ header{
             height:2000px;
 
         }
+        .Txttableau
+        {
+            flex-direction: column;
+        }
             
 
         
