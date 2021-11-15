@@ -167,6 +167,8 @@ header{
     height: 100%;
 	padding:10px 0px;/*Marge verticale*/
 	background-color:white; /*Couleur de fond*/
+    box-shadow: 0 0 4px 2px #4e6b81;
+    
     
 
     
@@ -401,6 +403,10 @@ header{
     font-size: 60px;
 
 }
+.rond1,.rond2,.rond3{
+    box-shadow: 0 0 5px 2px #00000069;
+    border: 1px solid #6a90ad;
+}
 @media only screen and (max-width : 1466px){
     .Donnee{
         display: block;
@@ -553,6 +559,7 @@ footer{
     width: 100%;
     height: 50px;
     padding-top: 50px;
+    box-shadow: 0 0 4px 2px #4e6b81;
    
 }
 #CGU
