@@ -438,20 +438,25 @@ header{
 
     }
 }
-
+.Emptableau{
+    background-color :#666;
+    width: 90%;
+    height: 500px;
+    border-radius: 30px;
+    margin:5%;
+    box-shadow: 0 0 5px 2px #00000069;
+    border: 1px solid #6a90ad;
+    display: flex;
+    flex-direction: column;
+}
 .Tableau
 {
    display: flex;
    justify-content: space-around;
    align-items: flex-end;
-    background-color :#666;
-    width: 90%;
-    height: 500px;
-    border-radius: 30px;
-    margin : 5%;
-    margin-top: 10%;
-    margin-bottom: 20%;
-    padding-bottom: 3%;
+   flex: 1 0;
+   
+    
     
     
 
@@ -464,8 +469,9 @@ header{
     background-color:#6A90AD ;  
     justify-content: center;
     align-items: center;
+    box-shadow: 1px  2px 3px 1px #4e6b81 inset;
 }
-#Txtgraph1,#Txtgraph2,#Txtgraph3,#Txtgraph4,#Txtgraph5,#Txtgraph6,#Txtgraph7
+/*#Txtgraph1,#Txtgraph2,#Txtgraph3,#Txtgraph4,#Txtgraph5,#Txtgraph6,#Txtgraph7
 {
     position: relative;
     font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
@@ -473,21 +479,26 @@ header{
     font-size: 30px;
     
   
-}
-/*.Txttableau
+}*/
+.Txttableau
 {
     
-    position:relative;
+    display:flex;
     font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
     color: white;
     font-size: 30px;
     justify-content: space-around;
+    align-items: flex-end;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+
     
-}*/
+}
+
 
 #graph1,#graph3,#graph6
 {
-    height: 30%;
+    height: 40%;
 }
 #graph2,#graph4
 {
@@ -503,6 +514,15 @@ header{
     padding:0;
     
     }
+#barre_tableau{
+    display: block;
+    width: 99%;
+    height: 20px;
+    margin-top: 1%;
+    background-color: #6A90AD;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+}
 @media only screen and (max-width : 1215px){
         #graph1,#graph2,#graph3,#graph4,#graph5,#graph6,#graph7{
             width: 90px;
