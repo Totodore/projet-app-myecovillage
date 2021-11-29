@@ -76,6 +76,14 @@ abstract class BaseModelHandler
 		));
 	}
 
+	protected function getColumnTypes($excludeId = false): array {
+		foreach ($this->columns as $column) {
+			if (!$column->isPrimaryKey || !$excludeId)
+				$arr[$column->getName()] = $column->getType();
+		}
+		return $arr;
+	}
+
 	protected function getColumnEntries($excludeId = false): array {
 		$arr = [];
 		foreach ($this->columns as $column) {

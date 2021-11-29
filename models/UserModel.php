@@ -2,6 +2,7 @@
 
 namespace Project\Models;
 
+use DateTime;
 use Project\Core\Attributes\Orm\PrimaryColumn;
 use Project\Core\Attributes\Orm\Column;
 use Project\Core\BaseModel;
@@ -22,7 +23,7 @@ class UserModel extends BaseModel
 	public string $firstname;
 	
 	#[Column()]
-	public int $birthdate;
+	public DateTime $birthdate;
 	
 	#[Column()]
 	public int $height;

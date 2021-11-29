@@ -71,6 +71,7 @@ class ControllerManager
 		$controller = $route->function->getDeclaringClass()->newInstance();
 		$entityBody = file_get_contents('php://input');
 		$request = array_merge($_GET, $_POST, $_FILES, Utils::isJson($entityBody) ? json_decode($entityBody) : []);
+		unset($request['q']);
 		$headers = getallheaders();
 		if (!$this->verifyRequest($request)) {
 			http_response_code(400);

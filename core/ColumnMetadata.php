@@ -34,6 +34,8 @@ class ColumnMetadata {
 					return 'TINYINT(1)';
 				case 'int':
 					return 'BIGINT';
+				case 'DateTime':
+					return 'DATETIME';
 				default:
 					return 'VARCHAR(255)';
 			}
@@ -62,11 +64,19 @@ class ColumnMetadata {
 
 	public function getValue(): mixed {
 		$val = $this->model->{$this->property->getName()};
-		if (is_bool($val))
-			return $val ? 1 : 0;
-		else return $val;
+		switch ($this->getType()) {
+			case 'TINYINT(1)':
+				return $val ? 1 : 0;
+			case 'DATETIME':
+				return $val ? $val->format('Y-m-d H:i:s') : null;
+			default:
+				return $val;
+		}
 	}
 	public function getName(): string {
 		return $this->name;
+	}
+	public function getType(): string {
+		return $this->columnType;
 	}
 }

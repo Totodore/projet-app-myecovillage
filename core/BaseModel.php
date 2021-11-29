@@ -138,8 +138,10 @@ abstract class BaseModel extends BaseModelHandler
 	public static function create(array $data): BaseModel
 	{
 		$instance = new static();
-		foreach ($data as $key => $value)
-			$instance->{$key} = $value;
+		$types = $instance->getColumnTypes();
+		foreach ($data as $key => $value) {
+			$instance->{$key} = $types[$key] === 'DATETIME' ? new DateTime($value) : $value;
+		}
 		return $instance;
 	}
 	/**
