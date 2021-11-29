@@ -606,5 +606,8 @@ footer{
 #CGU
 {
     font-size: 40px;
-    font-family: "Roboto","Helvetica Neue","Helvetica","Arial";;
+    font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
+    color:#5BCC12 ;
+    text-align: center;
+    font-weight: 700;
 }
