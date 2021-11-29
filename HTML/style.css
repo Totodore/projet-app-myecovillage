@@ -97,7 +97,7 @@ font-size: 40px;
 font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 text-shadow: 2px 2px 3px black;
 text-decoration:none;
-font-style:italic;
+
 color:white;
 text-align: right;
 margin: 20px;
@@ -109,7 +109,7 @@ position : relative
 font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 text-shadow: 2px 2px 3px black;
 text-decoration:none;
-font-style:italic;
+
 color:#5BCC12;
 text-align: right;
 margin: 20px;
@@ -203,10 +203,15 @@ header{
 
 }
 .centercolumn{
-    display: block;
+    display: flex;
+    flex-direction: row;
     align-content: space-between;
 	width:auto;/*Taille de la colonne centrée moins le padding*/
     text-align: right;
+    margin-left:auto;
+    margin-right:1%;
+    align-items: center;
+
    
     
 
@@ -219,6 +224,7 @@ header{
     justify-content:space-between;
     align-items: center;
     height: 100%;
+    width: 100%;
    
     
 }
@@ -229,7 +235,7 @@ header{
 .By
 {
     display: inline-block;
-    width: 40%;
+    
     font-size: 20px;
     font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-align: left;
@@ -322,7 +328,7 @@ header{
 
     }
 }
-@media only screen and (min-width: 780px) 
+@media only screen and (max-width: 988px) 
 {
     .dropdownmenu {
     display: none;
@@ -344,7 +350,33 @@ header{
         clear: both;
     }
 }
+@media only screen and (min-width: 988px) 
+{
+    .dropdownmenu {
+    display: none;
+    clear: both;
+    }
+    .centercolumn{
+        display: flex;
+        clear: both;
+    }
+}
+@media only screen and (max-width: 320px) 
+{
 
+    .By{
+        font-size: 15px;      
+    }
+    #logo{
+        height: 60px;
+    }
+    #logo_2{
+        height: 35px;
+    }
+    #menu{
+        height: 50%;
+    }
+}
 .Donnee
 {
     display: flex;
