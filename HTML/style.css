@@ -94,20 +94,19 @@ body
 #Game,#Acceuil,#FAQ
 {
 font-size: 40px;
-font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-text-shadow: 2px 2px 3px black;
+font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
+color:#5BCC12;
 text-decoration:none;
 
-color:white;
+
 text-align: right;
 margin: 20px;
 position : relative
 }
 #Game
 {
-    font-size: 40px;
-font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-text-shadow: 2px 2px 3px black;
+font-size: 40px;
+
 text-decoration:none;
 
 color:#5BCC12;
@@ -120,10 +119,11 @@ position : relative
     background-color:#5BCC12;
     padding: 5px 10px;
     border-radius: 8px;
-    font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
     color:white;
     font-size: 35px;
     text-decoration:none;
+   
    
 
 }
@@ -135,7 +135,7 @@ position : relative
   
     padding: 5px 10px;
     border-radius: 8px;
-    font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family:"Roboto","Helvetica Neue","Helvetica","Arial";
     color:#5BCC12;
     font-size: 35px;
     text-decoration:none;
@@ -146,12 +146,12 @@ position : relative
 
 #Acceuil:hover,#Connexion:hover,#FAQ:hover
 {
-    color:#5BCC12;
+    color:#45990f;
     
 }
 #Game:hover,#Connexion:hover
 {
-    color:white
+    color:#45990f
 }
 #Connexion:hover
 {
@@ -235,9 +235,9 @@ header{
 .By
 {
     display: inline-block;
-    
-    font-size: 20px;
-    font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
     text-align: left;
     margin-left: 10px;
 }
@@ -328,7 +328,7 @@ header{
 
     }
 }
-@media only screen and (max-width: 988px) 
+@media only screen and (max-width: 1200px) 
 {
     .dropdownmenu {
     display: none;
@@ -338,8 +338,13 @@ header{
         display: block;
         clear: both;
     }
+    .button{
+    margin-top: 2%;
+    margin-bottom: 0.75%;
+
+    }   
 }
-@media only screen and (max-width: 780px) 
+@media only screen and (max-width: 793px) 
 {
     .dropdownmenu {
     display: block;
@@ -350,7 +355,7 @@ header{
         clear: both;
     }
 }
-@media only screen and (min-width: 988px) 
+@media only screen and (min-width: 1200px) 
 {
     .dropdownmenu {
     display: none;
