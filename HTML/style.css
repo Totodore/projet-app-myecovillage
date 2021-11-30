@@ -212,7 +212,7 @@ header{
 	width:auto;/*Taille de la colonne centrée moins le padding*/
     text-align: right;
     margin-left:auto;
-    margin-right:1%;
+    margin-right:0;
     align-items: center;
 
    
