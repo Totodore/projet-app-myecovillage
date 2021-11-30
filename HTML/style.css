@@ -552,7 +552,7 @@ header{
 {
     
     display:flex;
-    font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+    
     color: white;
     font-size: 25px;
     justify-content: space-around;
@@ -563,7 +563,15 @@ header{
 
     
 }
+#Txtgraph1,#Txtgraph2{
+    color: white;
+    font-size: 25px;
+    align-items: flex-end;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    font-family:"Roboto","Helvetica Neue","Helvetica","Arial";
 
+}
 
 #graph1,#graph3,#graph6
 {
@@ -592,12 +600,24 @@ header{
     margin-right: 0.5%;
     margin-left: 0.5%;
 }
+#barretableausmall{
+    width: 99%;
+    height: 15px;
+    margin-top: 1%;
+    background-color: #6A90AD;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
+
+}
 @media only screen and (max-width : 1215px){
         #graph1,#graph2,#graph3,#graph4,#graph5,#graph6,#graph7{
             width: 90px;
         }
         .Txttableau{
             font-size: 20px;
+        }
+        #barretableausmall,#Txtgraph1,#Txtgraph2{
+            display: none;
         }
     }
 @media only screen and (max-width : 765px){
@@ -614,15 +634,27 @@ header{
             height:2000px;
 
         }
-        .Txttableau
-        {
-            flex-direction: column;
-            font-size: 25px;
+        
+        .Emptableau{
+            height: 2000px;
+        }
+        
+        
+        #barretableausmall,#Txtgraph1_2,#Txtgraph2_2{
+            display: block;
+        }
+        #barre_tableau{
+            display: none;
         }
             
 
         
     }
+@media only screen and (min-width : 765px){
+    #barretableausmall,#Txtgraph1_2,#Txtgraph2_2{
+        display: none;
+    }
+}
 footer{
     background-color: white;
     position :relative;
