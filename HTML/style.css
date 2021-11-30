@@ -765,8 +765,8 @@ form {
     font-size: 15px;
   }
   .container{
-    margin: 15%;
-    background-color: #6A90AD;
+    margin: 10%;
+    background-color:none;
     padding: 40px 60px;
     border-radius: 10px;
     align-self: center;
