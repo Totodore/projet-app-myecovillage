@@ -708,6 +708,14 @@ form {
     outline:none;
     margin-bottom: 15px;
   }
+  form .inputs input[type='nom'],input[type='prenom'],input[type='passwordconfirm']{
+    padding: 15px;
+    border:none;
+    border-radius: 5px;
+    background-color:#f2f2f2;
+    outline:none;
+    margin-bottom: 15px;
+  }
   form p.inscription{
     font-size: 14px;
     margin-bottom: 20px;
@@ -732,10 +740,16 @@ form {
     background-color: #5BCC12;
     outline:none;
     cursor:pointer;
-    
-    
+      
   }
   a#buttonconnexion:link{
+    text-decoration: none;
+    color: white;
+    font-family:"Roboto","Helvetica Neue","Helvetica","Arial";
+    font-size: 15px;
+  }
+
+  .buttonins{
     text-decoration: none;
     color: white;
     font-family:"Roboto","Helvetica Neue","Helvetica","Arial";
