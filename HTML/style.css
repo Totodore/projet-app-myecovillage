@@ -747,6 +747,10 @@ form {
       width: 60px;
       top : 32px;
   }
+  .bar-5 {
+    width: 40px;
+    top: 38px;
+  }
   
   .dropdown-menu {
     padding: 20px 0;
@@ -824,11 +828,19 @@ form {
     top: 15px;
     transform: rotate(-135deg);
   }
+  .menu:hover .bar-5{
+    opacity: 0;
+    width: 60px;
+    top: 15px;
+    transform: rotate(135deg);
   
-  .menu:hover .dropdown-menu {
-    right: 0;
-    opacity: 1;
-    visibility: visible;
-    display: block;
+  
    
+  }
+  .menu:hover .dropdown-menu{
+    right:0;
+    opacity:1;
+    visibility:visible;
+    display:block;
+    
   }
