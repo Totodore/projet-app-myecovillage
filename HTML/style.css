@@ -445,6 +445,26 @@ header{
     color:white;
 
 }
+/*.Txtrond3:hover{
+        opacity: .1;
+        -webkit-transition: all .5s ease-in-out;
+        -moz-transition: all .5s ease-in-out;
+        -o-transition: all .5s ease-in-out;
+        transition: all .5s ease-in-out;
+ }
+
+ 
+
+.Txtrond3:hover  .Txtrond3_2{
+    display: block;
+}
+
+.Txtrond3_2{
+    font-size: 60px;
+    color:white;
+    display: none;
+}*/
+
 .rond1,.rond2,.rond3{
     box-shadow: 0 0 5px 2px #00000069;
     border: 1px solid #6a90ad;
