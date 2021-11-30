@@ -49,10 +49,10 @@
 p
 {
    font-size: 24px;/* commentaire*/
-   font-family: "Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+   font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
    text-align: center;
-   color: white;
-   text-shadow: 2px 2px 3px black;
+   color:#878787;
+   text-shadow: none
 }
 
 body
@@ -63,6 +63,7 @@ body
     /*background-repeat: no-repeat;*/
     
     margin : 0;
+    height: 100%;
 }
 /*@media
 {
@@ -93,7 +94,7 @@ body
 }
 #Game,#Acceuil,#FAQ
 {
-font-size: 40px;
+font-size: 30px;
 font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
 color:#5BCC12;
 text-decoration:none;
@@ -105,7 +106,7 @@ position : relative
 }
 #Game
 {
-font-size: 40px;
+font-size: 30px;
 
 text-decoration:none;
 
@@ -117,12 +118,14 @@ position : relative
 #Inscription
 {
     background-color:#5BCC12;
-    padding: 5px 10px;
-    border-radius: 8px;
+
+    border-radius: 3px;
     font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
     color:white;
-    font-size: 35px;
+    font-size: 20px;
     text-decoration:none;
+    padding: 15px 25px;
+    border-radius: 3px;
    
    
 
@@ -132,12 +135,12 @@ position : relative
    border-width: 1px;
    border-color:#5BCC12;
    border-style: solid;
-  
-    padding: 5px 10px;
-    border-radius: 8px;
+   padding: 15px 25px;
+    border-radius: 3px;
+    font-size: 20px;
+
     font-family:"Roboto","Helvetica Neue","Helvetica","Arial";
     color:#5BCC12;
-    font-size: 35px;
     text-decoration:none;
    
 
@@ -438,6 +441,7 @@ header{
 }
 #Txtrond3,#Txtrond2,#Txtrond1{
     font-size: 60px;
+    color:white;
 
 }
 .rond1,.rond2,.rond3{
@@ -611,3 +615,78 @@ footer{
     text-align: center;
     font-weight: 700;
 }
+
+form {
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 40px 60px;
+    border-radius: 10px;
+    height: auto;
+    width: auto;
+    
+}
+ #titreconnexion{
+    color: #5BCC12;
+    font-size: 40px;
+    font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
+    align-self: center;
+
+}
+  form p.choose-email{
+    text-align:center;
+  }
+  form .inputs {
+    display: flex;
+    flex-direction: column;
+  }
+  form .inputs input[type='email'], input[type='password']{
+    padding: 15px;
+    border:none;
+    border-radius: 5px;
+    background-color:#f2f2f2;
+    outline:none;
+    margin-bottom: 15px;
+  }
+  form p.inscription{
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #878787;
+  }
+  form p.inscription span{
+    color: #5BCC12;
+  }
+  form button{
+    padding: 15px 25px;
+    border-radius: 3px;
+    border:none;
+    font-size: 15px;
+    color: #fff;
+    background-color: #5BCC12;
+    outline:none;
+    cursor:pointer;
+    
+  }
+  .container{
+    margin: 15%;
+    background-color: #6A90AD;
+    padding: 40px 60px;
+    border-radius: 10px;
+    align-self: center;
+    
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
+    height: auto;
+      
+  }
+ html{
+     min-height: 100%;
+     position: relative;
+ }
+ .logoconnexion,.buttonconnexion{
+     align-self:center;
+ }
