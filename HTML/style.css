@@ -352,6 +352,7 @@ header{
     .dropdownmenu {
     display: block;
     clear: both;
+    min-width: 10%;
     }
     .centercolumn{
         display: none;
@@ -533,11 +534,12 @@ header{
     display:flex;
     font-family:"Bebas Neue light", Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
     color: white;
-    font-size: 30px;
+    font-size: 25px;
     justify-content: space-around;
     align-items: flex-end;
     margin-top: 0.5%;
     margin-bottom: 0.5%;
+    font-family:"Roboto","Helvetica Neue","Helvetica","Arial";
 
     
 }
@@ -574,6 +576,9 @@ header{
         #graph1,#graph2,#graph3,#graph4,#graph5,#graph6,#graph7{
             width: 90px;
         }
+        .Txttableau{
+            font-size: 20px;
+        }
     }
 @media only screen and (max-width : 765px){
         #graph1,#graph2,#graph3,#graph4,#graph5,#graph6,#graph7{
@@ -592,6 +597,7 @@ header{
         .Txttableau
         {
             flex-direction: column;
+            font-size: 25px;
         }
             
 
