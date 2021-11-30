@@ -708,7 +708,8 @@ form {
     outline:none;
     margin-bottom: 15px;
   }
-  form .inputs input[type='nom'],input[type='prenom'],input[type='passwordconfirm'],input[type='Email']{
+  form .inputs input[type='nom'],input[type='prenom'],input[type='passwordconfirm'],input[type='email'],
+  input[type='datenaissance'],input[type='taille'],input[type='poids']{
     padding: 15px;
     border:none;
     border-radius: 4px;
