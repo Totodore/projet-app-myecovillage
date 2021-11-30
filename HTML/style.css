@@ -352,7 +352,7 @@ header{
     .dropdownmenu {
     display: block;
     clear: both;
-    min-width: 10%;
+  
     }
     .centercolumn{
         display: none;
@@ -661,10 +661,17 @@ form {
     margin-bottom: 20px;
     color: #878787;
   }
-  form p.inscription span{
-    color: #5BCC12;
+  #creer{
+      color:#5BCC12
   }
-  form button{
+  
+  a#creer:link{
+    font-size: 14px;
+    margin-bottom: 20px;
+    font-family:"Roboto","Helvetica Neue","Helvetica","Arial" ;
+    text-decoration: none;
+  }
+  .buttonconnexion{
     padding: 15px 25px;
     border-radius: 3px;
     border:none;
@@ -674,6 +681,13 @@ form {
     outline:none;
     cursor:pointer;
     
+    
+  }
+  a#buttonconnexion:link{
+    text-decoration: none;
+    color: white;
+    font-family:"Roboto","Helvetica Neue","Helvetica","Arial";
+    font-size: 15px;
   }
   .container{
     margin: 15%;
