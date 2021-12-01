@@ -62,8 +62,9 @@ body
     /*background-attachment: fixed;*/
     /*background-repeat: no-repeat;*/
     
-    margin : 0;
+    margin-top: 190px;
     height: 100%;
+    margin-bottom: 100px;
 }
 /*@media
 {
@@ -104,6 +105,9 @@ text-align: right;
 margin: 20px;
 position : relative
 }
+ #FAQ{
+     margin-right: 0;
+ }
 #Game
 {
 font-size: 30px;
@@ -167,10 +171,15 @@ position : relative
 
 }
 header{
-    height: 100%;
+    height: auto;
 	padding:10px 0px;/*Marge verticale*/
 	background-color:white; /*Couleur de fond*/
     box-shadow: 0 0 4px 2px #4e6b81;
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+
     
     
 
@@ -178,6 +187,7 @@ header{
     
     
 }
+
 #logo
 {
    display: block;
@@ -430,6 +440,7 @@ header{
     border: 1px solid #6a90ad;
     display: flex;
     flex-direction: column;
+    margin-bottom: 20%;
 }
 .Tableau
 {
@@ -437,6 +448,7 @@ header{
    justify-content: space-around;
    align-items: flex-end;
    flex: 1 0;
+   
    
     
     
@@ -474,6 +486,7 @@ header{
     margin-top: 0.5%;
     margin-bottom: 0.5%;
     font-family:"Roboto","Helvetica Neue","Helvetica","Arial";
+    
 
     
 }
@@ -528,12 +541,18 @@ header{
             width: 90px;
         }
         .Txttableau{
-            font-size: 20px;
+            font-size: 14px;
         }
         #barretableausmall,#Txtgraph1,#Txtgraph2{
             display: none;
         }
     }
+@media only screen and (max-width : 630px){
+    form .inputs input[type='nom']{
+     width: 315px;
+  }
+
+}
 @media only screen and (max-width : 765px){
         #graph1,#graph2,#graph3,#graph4,#graph5,#graph6,#graph7{
             margin-top: 7%;
@@ -574,21 +593,32 @@ header{
 }
 footer{
     background-color: white;
-    position :relative;
-    bottom:0px;
+    position :absolute;
+    position:absolute;
+
+    bottom:0;
+    
     width: 100%;
     height: 50px;
-    padding-top: 50px;
+    padding-top: 40px;
     box-shadow: 0 0 4px 2px #4e6b81;
+    
    
 }
-#CGU
+#CGU,#FAQ_f,#contact
 {
-    font-size: 40px;
+    font-size: 20px;
     font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
     color:#5BCC12 ;
-    text-align: center;
+    text-align: right;
     font-weight: 700;
+    padding-right: 2%;
+}
+.desfooter{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: right;
 }
 
 form {
@@ -601,6 +631,7 @@ form {
     height: auto;
     width: auto;
     text-align: center;
+    margin-bottom: 2%;
     
 }
  #titreconnexion{
@@ -633,6 +664,12 @@ form {
     margin-bottom: 15px;
     width: 450px;
   }
+
+  @media only screen and (max-width : 630px){
+    form .inputs input[type='nom']{
+     width: auto;
+  }
+}
   form p.inscription{
     font-size: 14px;
     margin-bottom: 20px;
@@ -838,7 +875,7 @@ form {
    
   }
   .menu:hover .dropdown-menu{
-    right:0;
+    right:-14px;
     opacity:1;
     visibility:visible;
     display:block;
