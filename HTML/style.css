@@ -298,9 +298,9 @@ header{
         margin: right 4px;
     }
    
-    }
+    
 }
-@media only screen and (max-width: 320px) 
+@media only screen and (max-width: 375px) 
 {
 
     .By{
@@ -315,6 +315,11 @@ header{
     /*#menu{
         height: 50%;
     }*/
+    body{
+        margin-top: 170px;
+    }
+    
+   
 }
 .Donnee
 {
@@ -625,6 +630,7 @@ footer{
     flex-direction: row;
     align-content: center;
     justify-content: right;
+    
 }
 
 form {
