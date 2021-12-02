@@ -492,13 +492,23 @@ header {
     margin-left: 0.5%;
 }
 
-#barretableausmall {
-    width: 99%;
-    height: 15px;
-    margin-top: 1%;
+#barre_tableausmall {
+    width: 80%;
+    height: 100px;
+    margin-top: 2%;
     background-color: #6A90AD;
     margin-right: 0.5%;
     margin-left: 0.5%;
+}
+
+#Txtgraph1_2,
+#Txtgraph2_2 {
+    color: white;
+    font-size: 25px;
+    align-items: flex-end;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 }
 
 @media only screen and (max-width: 1215px) {
@@ -511,24 +521,25 @@ header {
     #graph7 {
         width: 90px;
     }
-    .Txttableau {
-        display: flex;
-        color: white;
-        font-size: 14px;
-        justify-content: space-around;
-        align-items: flex-end;
-        margin-top: 0.5%;
-        margin-bottom: 0.5%;
-        font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-    }
-    #barretableausmall,
     #Txtgraph1,
     #Txtgraph2 {
         display: none;
     }
+    #barre_tableau {
+        width: 98%;
+        align-self: center;
+    }
 }
 
 @media only screen and (max-width: 630px) {}
+
+@media only screen and (min-width: 765px) {
+    #barre_tableausmall,
+    #Txtgraph1_2,
+    #Txtgraph2_2 {
+        display: none;
+    }
+}
 
 @media only screen and (max-width: 765px) {
     #graph1,
@@ -548,10 +559,14 @@ header {
         align-content: space-evenly;
         height: 2000px;
     }
+    .Txttableau {
+        display: block;
+        font-size: 15px;
+    }
     .Emptableau {
         height: 2000px;
     }
-    #barretableausmall,
+    #barre_tableausmall,
     #Txtgraph1_2,
     #Txtgraph2_2 {
         display: block;
