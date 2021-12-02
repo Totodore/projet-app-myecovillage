@@ -512,7 +512,14 @@ header {
         width: 90px;
     }
     .Txttableau {
+        display: flex;
+        color: white;
         font-size: 14px;
+        justify-content: space-around;
+        align-items: flex-end;
+        margin-top: 0.5%;
+        margin-bottom: 0.5%;
+        font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
     }
     #barretableausmall,
     #Txtgraph1,
