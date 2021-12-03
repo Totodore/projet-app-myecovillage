@@ -2,7 +2,7 @@ import { BaseController } from '../core/base.controller.js';
 import { ApiService } from '../services/api.service.js';
 
 
-export class HomeController extends BaseController {
+export class SignupController extends BaseController {
 
 	id = "home";
 	ressourcePath = "";

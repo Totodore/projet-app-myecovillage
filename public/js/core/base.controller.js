@@ -6,6 +6,7 @@ export class BaseController {
 	params = {};
 	ressourcePath = "";
 	viewParams = {};
+	id = "";
 
 	constructor(params) {
 		this.params = params;
@@ -28,8 +29,39 @@ export class BaseController {
 		}
 	}
 
-	navigate(url) {
-		this.core.navigate(url);
+	/**
+	 * Will navigate to another url on click on element if querySelector is provided
+	 * Otherwise directly redirect to given url
+	 * @param {string} url
+	 * @param {string} querySelector 
+	 */
+	navigate(url, querySelector) {
+		if (querySelector) {
+			this.onClick(querySelector, (el, e) => {
+				e.preventDefault();
+				this.core.navigate(url)
+			});
+		} else
+			this.core.navigate(url);
+	}
+
+	/**
+	 * @param {string} query
+	 * @returns {HTMLElement}
+	 */
+	select(query) {
+		return document.querySelector(id ? `[${id}] ${query}` : query);
+	}
+
+	/**
+	 * @param {string} query
+	 * @param {(el: HTMLElement, e: MouseEvent) => void} callback
+	 * @returns {HTMLElement}
+	 */
+	onClick(query, callback) {
+		let element = this.select(query);
+		element.addEventListener("click", e => callback(element, e));
+		return element;
 	}
 
 	/**

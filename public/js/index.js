@@ -37,9 +37,11 @@ class Main {
 		const servicesToInject = routes[route[0]].services.map(serviceId => this.services[serviceId]);
 		this.currentController = new routes[route[0]].controller(route[1], ...servicesToInject);
 		this.currentController.core = this;
+		this.currentController.id = this.getNewId();
 		try {
 			const view = await this.currentController.loadView();
-			document.getElementById("body-wrapper").innerHTML = view;
+			document.querySelector("#body-wrapper").innerHTML = view;
+			document.querySelector("#body-wrapper").setAttribute(this.currentController.id, '');
 			if (this.currentController.onInit) {
 				await this.currentController.onInit();
 				this.currentController.log("Controller inited");
@@ -48,14 +50,21 @@ class Main {
 			console.error("Fatal: Could not load view:", e);
 		} finally {
 			if (!this.mainController) {
-				const servicesToInject = routes['*'].services.map(serviceId => this.services[serviceId]);
-				this.mainController = new routes['*'].controller(route[1], ...servicesToInject);
-				this.mainController.core = this;
-				if (this.mainController.onInit) {
-					this.mainController.onInit();
-					this.mainController.log("Controller inited");
-				}
+				this.createMainController(route);	
 			}
+		}
+	}
+
+	createMainController(route) {
+		const servicesToInject = routes['*'].services.map(serviceId => this.services[serviceId]);
+		this.mainController = new routes['*'].controller(route[1], ...servicesToInject);
+		this.mainController.core = this;
+		this.mainController.id = this.getNewId();
+		document.querySelector("header").setAttribute(this.mainController.id, '');
+		document.querySelector("footer").setAttribute(this.mainController.id, '');
+		if (this.mainController.onInit) {
+			this.mainController.onInit();
+			this.mainController.log("Controller inited");
 		}
 	}
 
@@ -91,6 +100,20 @@ class Main {
 			if(service.init)
 				await service.init();
 		}
+	}
+
+	/**
+	 * Generate random string without digits of 6 characters
+	 * @returns {string}
+	 */
+	getNewId() {
+		let text = "";
+		const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+		for (let i = 0; i < 6; i++)
+			text += possible.charAt(Math.floor(Math.random() * possible.length));
+
+		return text;
 	}
 
 }

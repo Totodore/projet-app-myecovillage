@@ -16,8 +16,8 @@
 			<a id="Game" href=#Jeux>Allez au jeu</a>
 			<a id="FAQ" href="FAQ.html">FAQ</a>
 			<div class="button">
-				<a id="Connexion" href="/connexion">Connexion</a>
-				<a id="Inscription" href="/inscription">Inscription</a>
+				<a id="Connexion" href="/<?php echo $baseUrl ?>/connexion">Connexion</a>
+				<a id="Inscription" href="/<?php echo $baseUrl ?>/inscription">Inscription</a>
 			</div>
 		</div>
 		<nav>

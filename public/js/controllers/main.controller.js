@@ -16,7 +16,5 @@ export class MainController extends BaseController {
 	}
 
 	async onInit() {
-		const header = document.querySelector("header");
-		const footer = document.querySelector("footer");
 	}
 }

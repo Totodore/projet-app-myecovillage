@@ -2,7 +2,7 @@ import { BaseController } from '../core/base.controller.js';
 import { ApiService } from '../services/api.service.js';
 
 
-export class HomeController extends BaseController {
+export class SigninController extends BaseController {
 
 	id = "home";
 	ressourcePath = "";
@@ -16,5 +16,6 @@ export class HomeController extends BaseController {
 	}
 
 	async onInit() {
+		this.navigate("signin", "#Connexion");
 	}
 }
