@@ -314,3 +314,15 @@ nav {
     visibility: visible;
     display: block;
 }
+
+@media only screen and (max-width: 765px) {
+    nav {
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 765px) {
+    nav {
+        display: none;
+    }
+}
