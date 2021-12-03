@@ -1,0 +1,28 @@
+footer {
+    background-color: white;
+    position: absolute;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    padding-top: 40px;
+    box-shadow: 0 0 4px 2px #4e6b81;
+}
+
+#CGU,
+#FAQ_f,
+#contact {
+    font-size: 20px;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+    color: #5BCC12;
+    text-align: right;
+    font-weight: 700;
+    padding-right: 2%;
+}
+
+.desfooter {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: right;
+}

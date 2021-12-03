@@ -427,6 +427,8 @@ header {
     justify-content: center;
     align-items: center;
     box-shadow: 1px 2px 3px 1px #4e6b81 inset;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -754,7 +756,7 @@ html {
 }
 
 nav {
-    padding: 0 14px;
+    padding: 0 9px;
     display: inline-block;
 }
 
