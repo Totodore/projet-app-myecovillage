@@ -28,6 +28,10 @@ export class BaseController {
 		}
 	}
 
+	navigate(url) {
+		this.core.navigate(url);
+	}
+
 	/**
 	 * @param {string} message
 	 */

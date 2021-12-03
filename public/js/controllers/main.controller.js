@@ -2,10 +2,10 @@ import { BaseController } from '../core/base.controller.js';
 import { ApiService } from '../services/api.service.js';
 
 
-export class HomeController extends BaseController {
+export class MainController extends BaseController {
 
-	id = "home";
-	ressourcePath = "";
+	id = "index";
+	ressourcePath = "/";
 
 	/**
 	 * @param {ApiService} apiService
@@ -16,6 +16,7 @@ export class HomeController extends BaseController {
 	}
 
 	async onInit() {
-		this.log("init");
+		const header = document.querySelector("header");
+		const footer = document.querySelector("footer");
 	}
 }

@@ -7,6 +7,11 @@ class Main {
 	 */
 	currentController;
 
+	/**
+	 * @type {BaseController}
+	 */
+	mainController;
+
 	currentView;
 
 	/**
@@ -14,6 +19,9 @@ class Main {
 	 */
 	services = {};
 
+	/**
+	 * Load all services and parse current route
+	 */
 	async init() {
 		await this.instantiateServices();
 		const route = this.routeParser();
@@ -28,19 +36,41 @@ class Main {
 	async render(route) {
 		const servicesToInject = routes[route[0]].services.map(serviceId => this.services[serviceId]);
 		this.currentController = new routes[route[0]].controller(route[1], ...servicesToInject);
+		this.currentController.core = this;
 		try {
 			const view = await this.currentController.loadView();
 			document.getElementById("body-wrapper").innerHTML = view;
+			if (this.currentController.onInit) {
+				await this.currentController.onInit();
+				this.currentController.log("Controller inited");
+			}
 		} catch(e) {
 			console.error("Fatal: Could not load view:", e);
+		} finally {
+			if (!this.mainController) {
+				const servicesToInject = routes['*'].services.map(serviceId => this.services[serviceId]);
+				this.mainController = new routes['*'].controller(route[1], ...servicesToInject);
+				this.mainController.core = this;
+				if (this.mainController.onInit) {
+					this.mainController.onInit();
+					this.mainController.log("Controller inited");
+				}
+			}
 		}
+	}
+
+	navigate(route) {
+		history.pushState(null, null, baseUrl + "/" + route);
+		route = this.routeParser();
+		if (route)
+			this.render(route);
 	}
 
 	/**
 	 * @returns {null|[string, string[]]}
 	 */
-	routeParser() {
-		const location = window.location.pathname.replace(baseUrl + "/", "");
+	routeParser(location = window.location.pathname) {
+		location = location.replace(baseUrl + "/", "");
 		if (routes[location]) {
 			const params = Object.fromEntries(window.location.search.replace("?", "").split("&").map(el => el.split("=")));
 			return [location, params];
