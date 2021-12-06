@@ -161,6 +161,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 100;
 }
 
 #logo {
@@ -431,6 +432,7 @@ header {
     box-shadow: 1px 2px 3px 1px #4e6b81 inset;
     justify-content: center;
     align-items: center;
+    display: flex;
 }
 
 
@@ -895,4 +897,75 @@ nav {
     opacity: 1;
     visibility: visible;
     display: block;
+}
+
+.rond1:hover .flex-wrapper,
+.rond2:hover .flex-wrapper {
+    display: flex;
+}
+
+.rond1:hover #Txtrond1,
+.rond2:hover #Txtrond2 {
+    display: none;
+}
+
+.flex-wrapper {
+    display: none;
+    flex-flow: row nowrap;
+    transition: all 0.5s;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.single-chart {
+    width: 50%;
+    justify-content: space-around;
+}
+
+.circular-chart {
+    display: block;
+    margin: 10px auto;
+    max-width: 80%;
+    max-height: 350px;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #6a90ad50;
+    stroke-width: 3.8;
+}
+
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+}
+
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+
+.circular-chart.Temp .circle {
+    stroke: #5BCC12;
+}
+
+.circular-chart.CO2 .circle {
+    stroke: #5BCC12;
+}
+
+.circular-chart.blue .circle {
+    stroke: #3c9ee5;
+}
+
+.percentage {
+    fill: white;
+    font-family: 'Roboto';
+    font-size: 7px;
+    text-anchor: middle;
 }
