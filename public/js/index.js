@@ -1,6 +1,6 @@
 import { routes } from "./routes.js";
 import { BaseController } from "./core/base.controller.js";
-class Main {
+export class Main {
 
 	/**
 	 * @type {BaseController}
@@ -27,6 +27,11 @@ class Main {
 		const route = this.routeParser();
 		if (route)
 			this.render(route);
+		window.onpopstate = () => {
+			const route = this.routeParser();
+			if (route)
+				this.render(route);
+		};
 	}
 
 	/**
@@ -35,13 +40,15 @@ class Main {
 	 */
 	async render(route) {
 		const servicesToInject = routes[route[0]].services.map(serviceId => this.services[serviceId]);
+		if (this.currentController)
+			this.bodyWrapper.removeAttribute(this.currentController.id);
 		this.currentController = new routes[route[0]].controller(route[1], ...servicesToInject);
 		this.currentController.core = this;
 		this.currentController.id = this.getNewId();
 		try {
 			const view = await this.currentController.loadView();
-			document.querySelector("#body-wrapper").innerHTML = view;
-			document.querySelector("#body-wrapper").setAttribute(this.currentController.id, '');
+			this.bodyWrapper.innerHTML = view;
+			this.bodyWrapper.setAttribute(this.currentController.id, '');
 			if (this.currentController.onInit) {
 				await this.currentController.onInit();
 				this.currentController.log("Controller inited");
@@ -68,14 +75,20 @@ class Main {
 		}
 	}
 
+	/**
+	 * Navigate to a given route
+	 * @param {string} route 
+	 */
 	navigate(route) {
-		history.pushState(null, null, baseUrl + "/" + route);
+		history.pushState(null, null, "/" + baseUrl + (!route.startsWith("/") ? "/" : '') + route);
+		
 		route = this.routeParser();
 		if (route)
 			this.render(route);
 	}
 
 	/**
+	 * Parse a given route or the current one
 	 * @returns {null|[string, string[]]}
 	 */
 	routeParser(location = window.location.pathname) {
@@ -89,7 +102,7 @@ class Main {
 	}
 
 	/**
-	 * 
+	 * Create all registered services
 	 */
 	async instantiateServices() {
 		const services = Object.values(routes).reduce((prev, curr) => curr.services.concat(prev), []);
@@ -114,6 +127,10 @@ class Main {
 			text += possible.charAt(Math.floor(Math.random() * possible.length));
 
 		return text;
+	}
+
+	get bodyWrapper() {
+		return document.querySelector("#body-wrapper");
 	}
 
 }

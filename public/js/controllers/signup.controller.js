@@ -4,14 +4,14 @@ import { ApiService } from '../services/api.service.js';
 
 export class SignupController extends BaseController {
 
-	id = "home";
-	ressourcePath = "";
+	id = "signup";
+	ressourcePath = "signup";
 
 	/**
 	 * @param {ApiService} apiService
 	 */
 	constructor(params, apiService) {
-		super(params);
+		super("signup", params);
 		this.apiService = apiService;
 	}
 

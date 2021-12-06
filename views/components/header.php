@@ -1,23 +1,23 @@
 <header>
-	<div class="Toolbar">
+	<div class="toolbar">
 
-		<a href="Test2.html" title="Home">
+		<a class="home" title="Home">
 			<img id="logo" src="public/images/MyEcoVillage_png.png" alt="logo my EcoVillage" />
 		</a>
 		<div class="By">
 			<span>By</span>
 			</br>
-			<a href="PlaneteWise.html" title="PlaneteWise">
+			<a class="logo-link" title="PlaneteWise">
 				<img id="logo_2" src="public/images/planete_wise.png" alt="logo planete wise" />
 			</a>
 		</div>
 		<div class="centercolumn">
-			<a id="Acceuil" href="Test2.html">Accueil</a>
-			<a id="Game" href=#Jeux>Allez au jeu</a>
-			<a id="FAQ" href="FAQ.html">FAQ</a>
+			<a class="acceuil">Accueil</a>
+			<a class="game">Allez au jeu</a>
+			<a class="faq">FAQ</a>
 			<div class="button">
-				<a id="Connexion" href="/<?php echo $baseUrl ?>/connexion">Connexion</a>
-				<a id="Inscription" href="/<?php echo $baseUrl ?>/inscription">Inscription</a>
+				<a class="connexion">Connexion</a>
+				<a class="inscription">Inscription</a>
 			</div>
 		</div>
 		<nav>

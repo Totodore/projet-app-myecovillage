@@ -1,3 +1,4 @@
+import { Main } from "../index.js";
 export class BaseController {
 
 	/**
@@ -8,9 +9,16 @@ export class BaseController {
 	viewParams = {};
 	id = "";
 
-	constructor(params) {
+	/**
+	 * @type {Main}
+	 */
+	core;
+
+	constructor(ressourcePath, params) {
 		this.params = params;
+		this.ressourcePath = ressourcePath;
 		this.view = `/${baseUrl}/${this.ressourcePath}`;
+		this.log("Current view", this.view);
 		this.log("Controller loaded");
 	}
 
@@ -22,7 +30,9 @@ export class BaseController {
 			this.error("No view found!");
 		else {
 			this.log("Loading view...");
-			let response = await fetch(`${this.view}?${Object.entries(el => el[0] + "=" + el[1]).join('&')}`);
+			let response = await fetch(`${this.view}?${Object.entries(el => el[0] + "=" + el[1]).join('&')}`, {
+				headers: { dynamic: "true" }
+			});
 			let html = await response.text();
 			this.log("View loaded");
 			return html;
@@ -50,7 +60,7 @@ export class BaseController {
 	 * @returns {HTMLElement}
 	 */
 	select(query) {
-		return document.querySelector(id ? `[${id}] ${query}` : query);
+		return document.querySelector(this.id ? `[${this.id}] ${query}` : query);
 	}
 
 	/**
@@ -59,9 +69,11 @@ export class BaseController {
 	 * @returns {HTMLElement}
 	 */
 	onClick(query, callback) {
-		let element = this.select(query);
-		element.addEventListener("click", e => callback(element, e));
-		return element;
+			let element = this.select(query);
+			if (element) {
+				element.addEventListener("click", (e) => callback(element, e));
+			}
+			return element;
 	}
 
 	/**

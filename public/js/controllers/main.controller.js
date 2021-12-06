@@ -11,10 +11,15 @@ export class MainController extends BaseController {
 	 * @param {ApiService} apiService
 	 */
 	constructor(params, apiService) {
-		super(params);
+		super("/", params);
 		this.apiService = apiService;
 	}
 
 	async onInit() {
+		this.navigate("signin", '.connexion');
+		this.navigate("signup", '.inscription');
+		this.navigate("", '.home');
+		this.navigate("", ".logo-link");
+		this.navigate("", ".acceuil");
 	}
 }

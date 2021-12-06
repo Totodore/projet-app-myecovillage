@@ -43,7 +43,6 @@ class ControllerManager
 			$isJson = $controllerAttribute->getName() == JsonController::class;
 			$this->routes = array_merge($this->routes, $this->getControllerRoutes($classInfos, $rootPath, $isJson));
 		}
-
 		/**
 		 * We initialize the database
 		 */
@@ -73,6 +72,8 @@ class ControllerManager
 		$request = array_merge($_GET, $_POST, $_FILES, Utils::isJson($entityBody) ? json_decode($entityBody) : []);
 		unset($request['q']);
 		$headers = getallheaders();
+		if (!($headers['dynamic'] ?? false))
+			$controller->setDynamicRequest();
 		if (!$this->verifyRequest($request)) {
 			http_response_code(400);
 			return;

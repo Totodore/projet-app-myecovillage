@@ -5,13 +5,12 @@ import { ApiService } from '../services/api.service.js';
 export class HomeController extends BaseController {
 
 	id = "home";
-	ressourcePath = "";
 
 	/**
 	 * @param {ApiService} apiService
 	 */
 	constructor(params, apiService) {
-		super(params);
+		super("home", params);
 		this.apiService = apiService;
 	}
 

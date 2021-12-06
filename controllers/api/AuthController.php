@@ -37,10 +37,10 @@ class AuthController {
 		if (UserModel::findBy("email", $query["email"]) != null)
 			return ["error" => "Email already used"];
 	
-		$user = UserModel::create($query, 'm_');
+		$user = UserModel::create($query);
 		$user->save();
 
-		unset($user->m_password);
+		unset($user->password);
 
 		return [
 			'success' => true,

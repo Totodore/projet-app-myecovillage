@@ -8,4 +8,4 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <title>MyEcoVillage</title>
-<link rel="icon" type="image/png" sizes="16x16" href="./public/images/weblogosans.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/<?php echo $baseUrl ?>/public/images/weblogosans.png">

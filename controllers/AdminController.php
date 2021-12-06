@@ -10,7 +10,6 @@ class AdminController extends BaseController {
 
 	#[Get("/admin")]
 	public function index(array $query): array {
-		print_r($query);
 		return $this->loadView('admin.index', $query);
 	}
 }

@@ -2,6 +2,7 @@ import { AdminController } from "./controllers/admin.controller.js";
 import { HomeController } from "./controllers/home.controller.js";
 import { MainController } from "./controllers/main.controller.js";
 import { SigninController } from "./controllers/signin.controller.js";
+import { SignupController } from "./controllers/signup.controller.js";
 import { BaseController } from "./core/base.controller.js";
 import { BaseService } from "./core/base.service.js";
 import { AdminGuard } from "./guards/admin.guard.js";
@@ -23,6 +24,11 @@ export const routes = {
 	},
 	'/signin': {
 		controller: SigninController,
+		services: [ApiService],
+		guard: null
+	},
+	'/signup': {
+		controller: SignupController,
 		services: [ApiService],
 		guard: null
 	},
