@@ -10,7 +10,7 @@
 			<input type="password" placeholder="Mot de passe">
 		</div>
 
-		<a class="inscription">Je n'ai pas de compte.Je m'en crée un.</a>
+		<a class="inscription">Je n'ai pas de compte.</a>
 		<div class="buttonconnexion">
 			<a id="buttonconnexion" href="index.html">Se connecter</a>
 		</div>
