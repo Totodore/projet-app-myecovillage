@@ -899,13 +899,19 @@ nav {
     display: block;
 }
 
-.rond1:hover .flex-wrapper,
+
+/*.rond1:hover .flex-wrapper,
 .rond2:hover .flex-wrapper {
     display: flex;
-}
+}*/
 
 .rond1:hover #Txtrond1,
-.rond2:hover #Txtrond2 {
+.rond2:hover #Txtrond2,
+.rond3:hover #Txtrond3 {
+    display: none;
+}
+
+.rond1:not(:hover) .flex-wrapper {
     display: none;
 }
 
@@ -918,6 +924,18 @@ nav {
     justify-content: center;
     align-items: center;
     position: absolute;
+}
+
+@media (hover: hover) {
+    .rond1:hover .flex-wrapper {
+        display: flex;
+    }
+    .rond2:hover .flex-wrapper {
+        display: flex;
+    }
+    .rond3:hover .flex-wrapper {
+        display: flex;
+    }
 }
 
 .single-chart {
@@ -959,8 +977,8 @@ nav {
     stroke: #5BCC12;
 }
 
-.circular-chart.blue .circle {
-    stroke: #3c9ee5;
+.circular-chart.Decibel .circle {
+    stroke: #5BCC12;
 }
 
 .percentage {
