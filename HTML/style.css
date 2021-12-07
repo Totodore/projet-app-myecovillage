@@ -467,6 +467,14 @@
         animation-fill-mode: both;
     }
     
+    @media(hover:hover) {
+        #graphe1 {
+            animation: slidin 2s;
+            animation-delay: 2s;
+            animation-fill-mode: both;
+        }
+    }
+    
     @keyframes slidin {
         0% {
             height: 0%;
@@ -474,6 +482,10 @@
         100% {
             height: 80%;
         }
+    }
+    
+    #compteur {
+        color: white;
     }
     
     #graph3,
@@ -917,6 +929,11 @@
     
     .rond1:not(:hover) .flex-wrapper {
         display: none;
+    }
+    
+    .rond1:hover .flex-wrapper,
+    .rond2:hover .flex-wrapper {
+        display: flex;
     }
     
     .flex-wrapper {
