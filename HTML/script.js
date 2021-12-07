@@ -1,8 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const round = document.querySelector('.round');
-    const roundRadius = +round.querySelector('circle').getAttribute("r");
-    const roundPercent = +round.getAttribute('data-percent');
-    const roundCircum = 2 * roundRadius * Math.PI;
-    const roundDraw = roundPercent * roundCircum / 100;
-    round.style.strokeDasharray = roundDraw + '999';
-});
+var n = 100; // Nombre final du compteur
+var cpt = 0; // Initialisation du compteur
+var duree = 5; // Durée en seconde pendant laquel le compteur ira de 0 à 15
+var delta = Math.ceil((duree * 1000) / n); // On calcule l'intervalle de temps entre chaque rafraîchissement du compteur (durée mise en milliseconde)
+var node = document.getElementById("compteur"); // On récupère notre noeud où sera rafraîchi la valeur du compteur
+
+function countdown() {
+    node.innerHTML = ++cpt * 10;
+    if (cpt * 10 < n) { // Si on est pas arrivé à la valeur finale, on relance notre compteur une nouvelle fois
+        setTimeout(countdown, delta);
+    }
+}
+
+setTimeout(countdown, delta);
