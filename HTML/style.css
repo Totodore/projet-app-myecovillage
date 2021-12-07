@@ -405,6 +405,7 @@
         display: flex;
         flex-direction: column;
         margin-bottom: 20%;
+        padding-top: 1%;
     }
     
     .Tableau {
@@ -462,7 +463,13 @@
     }
     
     #graph1 {
-        animation: slidin 2s;
+        animation: slidin80 2s;
+        animation-delay: 2s;
+        animation-fill-mode: both;
+    }
+    
+    #graph2 {
+        animation: slidin70 2s;
         animation-delay: 2s;
         animation-fill-mode: both;
     }
@@ -475,7 +482,7 @@
         }
     }
     
-    @keyframes slidin {
+    @keyframes slidin80 {
         0% {
             height: 0%;
         }
@@ -484,7 +491,17 @@
         }
     }
     
-    #compteur {
+    @keyframes slidin70 {
+        0% {
+            height: 0%;
+        }
+        100% {
+            height: 70%;
+        }
+    }
+    
+    .compteur,
+    .compteur2 {
         color: white;
     }
     
