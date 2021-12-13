@@ -1,36 +1,31 @@
-p {
+header p {
 	font-size: 24px;
-	/* commentaire*/
+ /* commentaire*/
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 	text-align: center;
 	color: #878787;
-	text-shadow: none
+	text-shadow: none;
 }
-
-.game,
-.acceuil,
-.faq {
+header .game, header .acceuil, header .faq {
 	font-size: 30px;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-	color: #5BCC12;
+	color: #5bcc12;
 	text-decoration: none;
 	text-align: right;
 	margin-right: 10px;
 	position: relative;
 	cursor: pointer;
 }
-
-.game {
+header .game {
 	font-size: 30px;
 	text-decoration: none;
-	color: #5BCC12;
+	color: #5bcc12;
 	text-align: right;
 	margin: 20px;
-	position: relative
+	position: relative;
 }
-
-.inscription {
-	background-color: #5BCC12;
+header .inscription {
+	background-color: #5bcc12;
 	border-radius: 3px;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 	color: white;
@@ -40,40 +35,31 @@ p {
 	border-radius: 3px;
 	cursor: pointer;
 }
-
-.connexion {
+header .connexion {
 	border-width: 1px;
-	border-color: #5BCC12;
+	border-color: #5bcc12;
 	border-style: solid;
 	padding: 15px 25px;
 	border-radius: 3px;
 	font-size: 20px;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-	color: #5BCC12;
+	color: #5bcc12;
 	text-decoration: none;
 	cursor: pointer;
 }
-
-.acceuil:hover,
-.connexion:hover,
-.faq:hover {
+header .acceuil:hover, header .connexion:hover, header .faq:hover {
 	color: #45990f;
 }
-
-.game:hover,
-.connexion:hover {
-	color: #45990f
+header .game:hover, header .connexion:hover {
+	color: #45990f;
 }
-
-.connexion:hover {
+header .connexion:hover {
 	color: white;
 	background-color: #45990f;
 }
-
-.inscription:hover {
+header .inscription:hover {
 	background-color: #45990f;
 }
-
 header {
 	height: auto;
 	padding: 10px 0px;
@@ -85,8 +71,7 @@ header {
 	left: 0;
 	width: 100%;
 }
-
-#logo {
+header #logo {
 	display: block;
 	height: 80px;
 	width: auto;
@@ -94,40 +79,34 @@ header {
 	margin-left: 10px;
 	margin-bottom: 5px;
 }
-
-#logo_2 {
+header #logo_2 {
 	position: relative;
 	height: 40px;
 	width: auto;
 	margin-top: 4px;
 }
-
-.centercolumn {
+header .centercolumn {
 	display: flex;
 	flex-direction: row;
 	align-content: space-between;
 	width: auto;
-	/*Taille de la colonne centrée moins le padding*/
+ /*Taille de la colonne centrée moins le padding*/
 	text-align: right;
 	margin-left: auto;
 	margin-right: 0;
 	align-items: center;
 }
-
-.toolbar {
+header .toolbar {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	height: 100%;
 	width: 100%;
 }
-
-#logo:hover,
-#logo_2:hover {
+header #logo:hover, header #logo_2:hover {
 	opacity: 0.6;
 }
-
-.By {
+header .By {
 	display: inline-block;
 	font-weight: bold;
 	font-size: 15px;
@@ -135,76 +114,69 @@ header {
 	text-align: left;
 	margin-left: 10px;
 }
-
 @media only screen and (max-width: 1200px) {
-	.menu {
-			display: none;
-			clear: both;
-	}
-	.centercolumn {
-			display: block;
-			clear: both;
-	}
-	.button {
-			margin-top: 4.5%;
-			margin-bottom: 1%;
-	}
-	.faq {
-			margin-right: 0;
-	}
+	header .menu {
+		display: none;
+		clear: both;
+ }
+	header .centercolumn {
+		display: block;
+		clear: both;
+ }
+	header .button {
+		margin-top: 4.5%;
+		margin-bottom: 1%;
+ }
+	header .faq {
+		margin-right: 0;
+ }
 }
-
 @media only screen and (max-width: 793px) {
-	.menu {
-			display: block;
-			clear: both;
-	}
-	.centercolumn {
-			display: none;
-			clear: both;
-	}
+	header .menu {
+		display: block;
+		clear: both;
+ }
+	header .centercolumn {
+		display: none;
+		clear: both;
+ }
 }
-
 @media only screen and (min-width: 1200px) {
-	.menu {
-			display: none;
-			clear: both;
-	}
-	.centercolumn {
-			display: flex;
-			clear: both;
-	}
-	.Txttoolbar {
-			margin: right 4px;
-	}
+	header .menu {
+		display: none;
+		clear: both;
+ }
+	header .centercolumn {
+		display: flex;
+		clear: both;
+ }
+	header .Txttoolbar {
+		margin: right 4px;
+ }
 }
-
 @media only screen and (max-width: 375px) {
-	.By {
-			font-size: 15px;
-	}
-	#logo {
-			height: 60px;
-	}
-	#logo_2 {
-			height: 35px;
-	}
+	header .By {
+		font-size: 15px;
+ }
+	header #logo {
+		height: 60px;
+ }
+	header #logo_2 {
+		height: 35px;
+ }
 }
-
-nav {
+header nav {
 	padding: 0 9px;
 	display: inline-block;
 }
-
-.menu {
+header .menu {
 	width: 60px;
 	height: 60px;
 	position: relative;
 	cursor: pointer;
-	margin: right 1%
+	margin: right 1%;
 }
-
-[class*=bar-] {
+header [class*=bar-] {
 	background: #000;
 	height: 2px;
 	right: 0;
@@ -213,33 +185,27 @@ nav {
 	transition: all 0.5s ease;
 	margin-right: 5px;
 }
-
-.bar-1 {
+header .bar-1 {
 	width: 40px;
 	top: 11px;
 }
-
-.bar-2 {
+header .bar-2 {
 	width: 60px;
 	top: 18px;
 }
-
-.bar-3 {
+header .bar-3 {
 	width: 40px;
 	top: 25px;
 }
-
-.bar-4 {
+header .bar-4 {
 	width: 60px;
 	top: 32px;
 }
-
-.bar-5 {
+header .bar-5 {
 	width: 40px;
 	top: 38px;
 }
-
-.dropdown-menu {
+header .dropdown-menu {
 	padding: 20px 0;
 	top: 45px;
 	right: -150px;
@@ -249,14 +215,13 @@ nav {
 	transition: all 0.5s ease;
 	background-color: #fff;
 }
-
-.item {
+header .item {
 	width: 250px;
 	margin: 10px 5px;
 	padding: 5px 0;
 	display: inline-block;
 	position: relative;
-	color: #5BCC12;
+	color: #5bcc12;
 	text-align: right;
 	transition: all 0.5s ease;
 	text-decoration: none;
@@ -264,53 +229,44 @@ nav {
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
 	font-size: 30px;
 }
-
-.item:hover {
+header .item:hover {
 	opacity: 0.8;
 	color: #45990f;
 }
-
-.item:hover {
+header .item:hover {
 	letter-spacing: 1px;
 }
-
-.item::before {
+header .item::before {
 	width: 40px;
 }
-
-.menu:hover .bar-1 {
+header .menu:hover .bar-1 {
 	width: 60px;
 	top: 15px;
 	transform: rotate(135deg);
 }
-
-.menu:hover .bar-2 {
+header .menu:hover .bar-2 {
 	width: 60px;
 	top: 15px;
 	transform: rotate(-135deg);
 }
-
-.menu:hover .bar-3 {
+header .menu:hover .bar-3 {
 	opacity: 0;
 	width: 60px;
 	top: 15px;
 	transform: rotate(135deg);
 }
-
-.menu:hover .bar-4 {
+header .menu:hover .bar-4 {
 	width: 60px;
 	top: 15px;
 	transform: rotate(-135deg);
 }
-
-.menu:hover .bar-5 {
+header .menu:hover .bar-5 {
 	opacity: 0;
 	width: 60px;
 	top: 15px;
 	transform: rotate(135deg);
 }
-
-.menu:hover .dropdown-menu {
+header .menu:hover .dropdown-menu {
 	right: -14px;
 	opacity: 1;
 	visibility: visible;

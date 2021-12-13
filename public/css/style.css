@@ -1,9 +1,5 @@
 @import './components/header.css';
 @import './components/footer.css';
-@import './signin.css';
-@import './signup.css';
-@import './faq.css';
-@import './contactus.css';
 
 p {
 	font-size: 24px;
@@ -22,6 +18,7 @@ body {
 	min-height: 100vh;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
 }
+
 #body-wrapper {
 	margin-top: 150px;
 }

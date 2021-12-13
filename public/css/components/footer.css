@@ -5,19 +5,15 @@ footer {
 	padding-top: 40px;
 	box-shadow: 0 0 4px 2px #4e6b81;
 }
-
-#CGU,
-#FAQ_f,
-#contact {
+footer #CGU, footer #FAQ_f, footer #contact {
 	font-size: 20px;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-	color: #5BCC12;
+	color: #5bcc12;
 	text-align: right;
 	font-weight: 700;
 	padding-right: 2%;
 }
-
-.desfooter {
+footer .desfooter {
 	display: flex;
 	flex-direction: row;
 	align-content: center;

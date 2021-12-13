@@ -16,6 +16,7 @@ export class SigninController extends BaseController {
 	}
 
 	async onInit() {
-		this.navigate("signin", "#Connexion");
+		this.navigate("signin", "#buttonconnexion");
+		this.navigate("signup", ".inscription");
 	}
 }

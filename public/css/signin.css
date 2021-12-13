@@ -6,13 +6,13 @@ form {
 	padding: 40px 60px;
 	border-radius: 5px;
 	height: auto;
-	width: auto;
+	width: 570px;
 	text-align: center;
 	margin-bottom: 2%;
 }
 
 #titreconnexion {
-	color: #5bcc12;
+	color: #5BCC12;
 	font-size: 40px;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 	align-self: center;
@@ -23,8 +23,8 @@ form .inputs {
 	flex-direction: column;
 }
 
-form .inputs input[type="id"],
-input[type="password"] {
+form .inputs input[type='id'],
+input[type='password'] {
 	padding: 15px;
 	border: none;
 	border-radius: 4px;
@@ -33,7 +33,7 @@ input[type="password"] {
 	margin-bottom: 15px;
 }
 
-form p.inscription {
+form .inscription {
 	font-size: 14px;
 	margin-bottom: 20px;
 	color: #878787;
@@ -50,7 +50,7 @@ form p.inscription {
 }
 
 #creer {
-	color: #5bcc12;
+	color: #5BCC12
 }
 
 a#creer:link {
@@ -66,9 +66,10 @@ a#creer:link {
 	border: none;
 	font-size: 15px;
 	color: #fff;
-	background-color: #5bcc12;
+	background-color: #5BCC12;
 	outline: none;
 	cursor: pointer;
+	margin-top: 30px;
 }
 
 a#buttonconnexion:link {
@@ -86,7 +87,7 @@ a#buttonconnexion:link {
 }
 
 .container {
-	margin: 0 10%;
+	margin: 10%;
 	background-color: none;
 	padding: 40px 60px;
 	border-radius: 10px;
@@ -98,9 +99,14 @@ a#buttonconnexion:link {
 	width: auto;
 	height: auto;
 }
-
-.logoconnexion,
-.buttonconnexion {
-	display: table;
+#logo {
+	display: block;
+	height: 80px;
+	width: auto;
 	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}
+.inscription {
+	cursor: pointer;
 }

@@ -1,3 +1,4 @@
+
 form {
 	box-sizing: border-box;
 	align-items: center;
@@ -12,7 +13,7 @@ form {
 }
 
 #titreconnexion {
-	color: #5bcc12;
+	color: #5BCC12;
 	font-size: 40px;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 	align-self: center;
@@ -41,7 +42,7 @@ form p.inscription {
 }
 
 #creer {
-	color: #5bcc12;
+	color: #5BCC12
 }
 
 a#creer:link {
@@ -57,7 +58,7 @@ a#creer:link {
 	border: none;
 	font-size: 15px;
 	color: #fff;
-	background-color: #5bcc12;
+	background-color: #5BCC12;
 	outline: none;
 	cursor: pointer;
 }
@@ -89,12 +90,6 @@ a#buttonconnexion:link {
 	width: auto;
 	height: auto;
 }
-
-html {
-	min-height: 100%;
-	position: relative;
-}
-
 .logoconnexion,
 .buttonconnexion {
 	display: table;
@@ -114,7 +109,15 @@ input[type="password"] {
 }
 
 @media only screen and (max-width: 630px) {
-	form .inputs input[type="text"] {
-		width: auto;
+	form .inputs input[type='nom'] {
+			width: auto;
 	}
+}
+#logo {
+	display: block;
+	height: 80px;
+	width: auto;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 5px;
 }
