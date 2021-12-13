@@ -23,19 +23,21 @@ export class BaseController {
 	}
 
 	/**
-	 * @return {Promise<string>} html content
+	 * @return {Promise<[string, string]>} html, css content
 	 */
 	async loadView() {
 		if (!this.view)
 			this.error("No view found!");
 		else {
 			this.log("Loading view...");
+			let cssResponse = await fetch(`/${baseUrl}/public/css/${this.ressourcePath}.css`);
 			let response = await fetch(`${this.view}?${Object.entries(el => el[0] + "=" + el[1]).join('&')}`, {
 				headers: { dynamic: "true" }
 			});
-			let html = await response.text();
+			const html = await response.text();
+			const css = await cssResponse.text();
 			this.log("View loaded");
-			return html;
+			return [html, css];
 		}
 	}
 

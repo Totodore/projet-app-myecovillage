@@ -46,8 +46,9 @@ export class Main {
 		this.currentController.core = this;
 		this.currentController.id = this.getNewId();
 		try {
-			const view = await this.currentController.loadView();
-			this.bodyWrapper.innerHTML = view;
+			const [html, css] = await this.currentController.loadView();
+			this.bodyWrapper.innerHTML = html;
+			this.styleWrapper.innerHTML = css;
 			this.bodyWrapper.setAttribute(this.currentController.id, '');
 			if (this.currentController.onInit) {
 				await this.currentController.onInit();
@@ -131,6 +132,10 @@ export class Main {
 
 	get bodyWrapper() {
 		return document.querySelector("#body-wrapper");
+	}
+
+	get styleWrapper() {
+		return document.head.querySelector("#style-wrapper");
 	}
 
 }

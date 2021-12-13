@@ -9,3 +9,4 @@
 <meta name="description" content="">
 <title>MyEcoVillage</title>
 <link rel="icon" type="image/png" sizes="16x16" href="/<?php echo $baseUrl ?>/public/images/weblogosans.png">
+<style id="style-wrapper"></style>
