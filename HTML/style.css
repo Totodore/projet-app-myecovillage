@@ -446,20 +446,27 @@
         color: white;
         font-size: 25px;
         justify-content: space-around;
-        align-items: flex-end;
+        align-items: center;
         margin-top: 0.5%;
         margin-bottom: 0.5%;
         font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
     }
     
     #Txtgraph1,
-    #Txtgraph2 {
+    #Txtgraph2,
+    #Txtgraph3,
+    #Txtgraph4,
+    #Txtgraph5,
+    #Txtgraph6,
+    #Txtgraph7 {
         color: white;
         font-size: 25px;
         align-items: flex-end;
         margin-top: 0.5%;
         margin-bottom: 0.5%;
         font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+        justify-content: center;
+        margin-left: 4%;
     }
     
     #graph1 {
