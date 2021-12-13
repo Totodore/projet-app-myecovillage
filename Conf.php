@@ -26,7 +26,7 @@ use Project\Models\FaqArticleModel;
 class Conf
 {
 
-	const HOST = '127.0.0.1';
+	const HOST = 'localhost';
 	const DB   = 'test';
 	const USER = 'root';
 	const PASS = 'root';

@@ -21,5 +21,6 @@ export class MainController extends BaseController {
 		this.navigate("", '.home');
 		this.navigate("", ".logo-link");
 		this.navigate("", ".acceuil");
+		this.navigate("faq", ".faq");
 	}
 }

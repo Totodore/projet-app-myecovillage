@@ -26,4 +26,12 @@ class IndexController extends BaseController {
 	public function signup(array $query): array {
 		return $this->loadView('signup', $query);
 	}
+	#[Get('/faq')]
+	public function faq(array $query): array {
+		return $this->loadView('faq', $query);
+	}
+	#[Get('/contactus')]
+	public function contactus(array $query): array {
+		return $this->loadView('contactus', $query);
+	}
 }
