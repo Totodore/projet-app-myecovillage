@@ -5,6 +5,7 @@ namespace Project\Core;
 use Exception;
 use ReflectionClass;
 use Project\Conf;
+use Project\Core\Attributes\Http\AuthGuard;
 use Project\Core\Attributes\Http\Controller;
 use Project\Core\Attributes\Http\JsonController;
 use Project\Core\Attributes\Http\VerifyRequest;
@@ -74,9 +75,10 @@ class ControllerManager
 		$headers = getallheaders();
 		if (!($headers['dynamic'] ?? false))
 			$controller->setDynamicRequest();
+		if ($route->guard != null)
+			$route->guard->newInstance();
 		if (!$this->verifyRequest($request)) {
 			http_response_code(400);
-			return;
 		}
 		//We invoke the method to check the request, if it returns true. Then we invoke the main handling method
 			try {
@@ -144,7 +146,8 @@ class ControllerManager
 				verifyArray: $verifyAttr ? $verifyAttr->getArguments()[0] ?? null : null,
 				method: (new ReflectionClass($routeAttr->getName()))->getConstant("METHOD"),
 				function:$method,
-				isJson:$isJson
+				isJson:$isJson,
+				guard:$method->getAttributes(AuthGuard::class)[0] ?? null
 			));
 		}
 		return $routeMethods;
