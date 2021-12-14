@@ -1,5 +1,6 @@
 import { routes } from "./routes.js";
 import { BaseController } from "./core/base.controller.js";
+import { MainController } from "./controllers/main.controller.js";
 export class Main {
 
 	/**
@@ -8,7 +9,7 @@ export class Main {
 	currentController;
 
 	/**
-	 * @type {BaseController}
+	 * @type {MainController}
 	 */
 	mainController;
 

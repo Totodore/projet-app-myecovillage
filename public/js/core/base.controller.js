@@ -67,6 +67,14 @@ export class BaseController {
 
 	/**
 	 * @param {string} query
+	 * @returns {NodeListOf<HTMLElement>}
+	 */
+	 selectAll(query) {
+		return document.querySelectorAll(this.id ? `[${this.id}] ${query}` : query);
+	}
+
+	/**
+	 * @param {string} query
 	 * @param {(el: HTMLElement, e: MouseEvent) => void} callback
 	 * @returns {HTMLElement}
 	 */

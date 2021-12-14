@@ -24,16 +24,18 @@ header .game {
 	margin: 20px;
 	position: relative;
 }
-header .inscription {
+header .inscription, header .account {
 	background-color: #5bcc12;
 	border-radius: 3px;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 	color: white;
 	font-size: 20px;
 	text-decoration: none;
 	padding: 15px 25px;
 	border-radius: 3px;
 	cursor: pointer;
+}
+header .account {
+	display: none;
 }
 header .connexion {
 	border-width: 1px;
@@ -42,7 +44,6 @@ header .connexion {
 	padding: 15px 25px;
 	border-radius: 3px;
 	font-size: 20px;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 	color: #5bcc12;
 	text-decoration: none;
 	cursor: pointer;

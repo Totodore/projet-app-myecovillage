@@ -23,7 +23,7 @@ form .inputs {
     flex-direction: column;
 }
 
-form .inputs input[type='id'],
+form .inputs input[type='email'],
 input[type='password'] {
     padding: 15px;
     border: none;
@@ -35,7 +35,7 @@ input[type='password'] {
 }
 
 @media only screen and (max-width: 420px) {
-    form .inputs input[type='id'],
+    form .inputs input[type='email'],
     input[type='password'] {
         width: auto;
     }

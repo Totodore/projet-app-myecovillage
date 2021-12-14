@@ -18,22 +18,37 @@ export class MainController extends BaseController {
 	onInit() {
 		this.navigate("signin", '.connexion');
 		this.navigate("signup", '.inscription');
+		this.navigate("account", '.account');
 		this.navigate("", '.home');
 		this.navigate("", ".logo-link");
 		this.navigate("", ".acceuil");
 		this.navigate("faq", ".faq");
+		this.updateLoginStatus();
 	}
 
 	/**
 	 * @param {string} route
 	 */
 	onNavigate(route) {
-		if (route[0] == "/signin") {
+		if (route[0] == "/signin" && !this.apiService.logged) {
 			this.select(".connexion").style.display = "none";
 			this.select(".inscription").style.display = "block";
-		} else if (route[0] == "/signup") {
+		} else if (route[0] == "/signup" && !this.apiService.logged) {
 			this.select(".connexion").style.display = "block";
 			this.select(".inscription").style.display = "none";
+		}
+	}
+
+	updateLoginStatus() {
+		console.log(this.apiService.logged);
+		if (this.apiService.logged) {
+			this.select(".account").style.display = "block";
+			this.select(".connexion").style.display = "none";
+			this.select(".inscription").style.display = "none";
+		} else {
+			this.select(".account").style.display = "none";
+			this.select(".connexion").style.display = "block";
+			this.select(".inscription").style.display = "block";
 		}
 	}
 }

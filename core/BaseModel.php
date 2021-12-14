@@ -140,6 +140,8 @@ abstract class BaseModel extends BaseModelHandler
 		$instance = new static();
 		$types = $instance->getColumnTypes();
 		foreach ($data as $key => $value) {
+			if (!array_key_exists($key, $types))
+				continue;
 			$instance->{$key} = $types[$key] === 'DATETIME' ? new DateTime($value) : $value;
 		}
 		return $instance;
