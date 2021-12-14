@@ -15,12 +15,25 @@ export class MainController extends BaseController {
 		this.apiService = apiService;
 	}
 
-	async onInit() {
+	onInit() {
 		this.navigate("signin", '.connexion');
 		this.navigate("signup", '.inscription');
 		this.navigate("", '.home');
 		this.navigate("", ".logo-link");
 		this.navigate("", ".acceuil");
 		this.navigate("faq", ".faq");
+	}
+
+	/**
+	 * @param {string} route
+	 */
+	onNavigate(route) {
+		if (route[0] == "/signin") {
+			this.select(".connexion").style.display = "none";
+			this.select(".inscription").style.display = "block";
+		} else if (route[0] == "/signup") {
+			this.select(".connexion").style.display = "block";
+			this.select(".inscription").style.display = "none";
+		}
 	}
 }
