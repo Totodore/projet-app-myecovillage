@@ -1,3 +1,5 @@
+import { AccountController } from "./controllers/account.controller.js";
+import { AccountEditController } from "./controllers/account_edit.controller.js";
 import { AdminController } from "./controllers/admin.controller.js";
 import { HomeController } from "./controllers/home.controller.js";
 import { MainController } from "./controllers/main.controller.js";
@@ -46,6 +48,16 @@ export const routes = {
 	},
 	'/contactus': {
 		controller: ContactusController,
+		services: [],
+		guard: null
+	},
+	'/account': {
+		controller: AccountController,
+		services: [],
+		guard: null
+	},
+	'/account/edit': {
+		controller: AccountEditController,
 		services: [],
 		guard: null
 	}

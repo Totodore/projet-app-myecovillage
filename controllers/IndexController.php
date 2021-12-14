@@ -5,6 +5,8 @@ use Project\Core\Attributes\Http\Controller;
 use Project\Core\Attributes\Http\Get;
 use Project\Core\Attributes\Http\AuthGuard;
 use Project\Core\BaseController;
+use Project\Models\UserModel;
+
 #[Controller]
 class IndexController extends BaseController {
 
@@ -32,8 +34,22 @@ class IndexController extends BaseController {
 	public function faq(array $query): array {
 		return $this->loadView('faq', $query);
 	}
+	
 	#[Get('/contactus')]
 	public function contactus(array $query): array {
 		return $this->loadView('contactus', $query);
 	}
+
+	#[Get('/account')]
+	public function account(array $query): array {
+		$user = UserModel::findOne(10); 
+		return $this->loadView('account', [ "user" => $user ]);
+	}
+
+	#[Get('/account/edit')]
+	public function account_edit(array $query): array {
+		$usered = UserModel::findOne(10);
+		return $this->loadView('account_edit', [ "usered" => $usered ]);
+	}
+
 }
