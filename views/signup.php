@@ -19,7 +19,7 @@
 			<input type="number" min="10" max="200"  placeholder="Poids (kg)"></input>
 
 		</div>
-		<a class="inscription">J'ai déjà un compte</a>
+		<p class="inscription">J'ai déjà un <a id="creer" href="connexion.html">compte.</a> Je me <a id="creer" href="connexion.html">connecte</a></p>
 		<div class="buttonconnexion">
 			<a class="buttonins" href="connexion.html">S'inscrire</a>
 		</div>
