@@ -21,7 +21,7 @@ h4
     max-width: 900px;
 	min-width: 400px;
     padding: 50px;
-	margin-bottom: 40px%;
+	margin-bottom: 40px;
     border: 1px solid black;
     background: white;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
@@ -45,8 +45,9 @@ h4
 }
 .visible-panel span {
 	position: absolute;
-	top:50px;
+	top:50%;
 	right: 4px;
+	transform: translateY(-50%);
 	color: white;
 	cursor: pointer;
 	padding-right: 10px;
@@ -58,17 +59,13 @@ h4
 	text-align: justify;
 	padding: 20px;
 }
+.toggle-panel p {
+	text-align: justify;
+}
 
 h2
 {
 	margin-left: 10px;
 	padding: 15px 5px;
 	font-size:25px;
-}
-img
-{
-	margin-right: 10px;
-	width: 60px;
-	height: 60px;
-	cursor: pointer;
 }
