@@ -9,6 +9,8 @@ import { BaseService } from "./core/base.service.js";
 import { AdminGuard } from "./guards/admin.guard.js";
 import { ApiService } from "./services/api.service.js";
 import { ContactusController } from "./controllers/contactus.controller.js";
+import { DroitsdaccesController } from "./controllers/droitsdacces.controller.js";
+
 /**
  * Route mapping between path and controllers
  * @type {Object.<string, {controller: typeof BaseController, guard?: typeof BaseGuard, services: typeof BaseService[]}>}
@@ -46,6 +48,11 @@ export const routes = {
 	},
 	'/contactus': {
 		controller: ContactusController,
+		services: [],
+		guard: null
+	},
+	'/droitsdacces': {
+		controller: DroitsdaccesController,
 		services: [],
 		guard: null
 	}

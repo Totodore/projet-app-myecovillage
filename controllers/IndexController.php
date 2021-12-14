@@ -36,4 +36,8 @@ class IndexController extends BaseController {
 	public function contactus(array $query): array {
 		return $this->loadView('contactus', $query);
 	}
+	#[Get('/droitsdacces')]
+	public function droitsdacces(array $query): array {
+		return $this->loadView('droitsdacces', $query);
+	}
 }

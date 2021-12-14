@@ -8,27 +8,27 @@ table/* Mettre une bordure sur les td ET les th*/
   border-radius: .5em;
   padding: 5px;
   background-color: #5BCC12;
-  clear: left;
+  
 }
 
 .tableau
 {
   background-color: white;
-  width:550px;
+  width:600px;
   margin:0px auto;
-  height: 575px;
+  height: 1750px;
   
 }
 
 .btnhome 
 {  
-    margin-left: 1000px;
-    margin-top: -100;
+    margin-left: 500px;
+    margin-top: 10;
     width: 95px;
     height: 45px;   
     background-color: black;
-    color: white;   
+    color:white;   
     font-size:14px;
     font-weight:700;
-
-}
+    position: absolute;
+    
