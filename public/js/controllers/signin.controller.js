@@ -4,19 +4,19 @@ import { ApiService } from '../services/api.service.js';
 
 export class SigninController extends BaseController {
 
-	id = "signin";
-	ressourcePath = "signin";
+    id = "signin";
+    ressourcePath = "signin";
 
-	/**
-	 * @param {ApiService} apiService
-	 */
-	constructor(params, apiService) {
-		super("signin", params);
-		this.apiService = apiService;
-	}
+    /**
+     * @param {ApiService} apiService
+     */
+    constructor(params, apiService) {
+        super("signin", params);
+        this.apiService = apiService;
+    }
 
-	async onInit() {
-		this.navigate("signin", "#buttonconnexion");
-		this.navigate("signup", ".inscription");
-	}
+    async onInit() {
+        this.navigate("signin", "#buttonconnexion");
+        this.navigate("signup", ".inscription");
+    }
 }
