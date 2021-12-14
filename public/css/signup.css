@@ -110,8 +110,12 @@
         width: 450px;
     }
     
-    @media only screen and (max-width: 630px) {
-        form .inputs input[type='nom'] {
+    @media only screen and (max-width: 420px) {
+        form .inputs input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type='number'],
+        input[type='date'] {
             width: auto;
         }
     }
