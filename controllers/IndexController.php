@@ -14,7 +14,7 @@ class IndexController extends BaseController {
 	}
 
 	#[Get('/home')]
-	#[AuthGuard]
+	
 	public function home(array $query): array {
 		return $this->loadView('home', $query);
 	}
