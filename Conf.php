@@ -26,10 +26,11 @@ use Project\Models\FaqArticleModel;
 class Conf
 {
 
-	const HOST = 'localhost';
+	const HOST = '127.0.0.1';
 	const DB   = 'test';
 	const USER = 'root';
 	const PASS = 'root';
+	const PORT = '3306';
 	const CHARSET = 'utf8mb4';
 	const FORCE_UPDATE = false;
 	const JWT_SECRET = "PNkL4zCwxmP34SN8mhQNuqLijoq8X9zocsbJnzUzXLOXWDbXL8m67B0vYBgyKoH1";
