@@ -1,0 +1,34 @@
+
+table/* Mettre une bordure sur les td ET les th*/
+{
+  border: 5px solid #5BCC12 ;
+  border-collapse: separate;
+  border-spacing: 2px;
+  width: 440px;
+  border-radius: .5em;
+  padding: 5px;
+  background-color: #5BCC12;
+  clear: left;
+}
+
+.tableau
+{
+  background-color: white;
+  width:550px;
+  margin:0px auto;
+  height: 575px;
+  
+}
+
+.btnhome 
+{  
+    margin-left: 1000px;
+    margin-top: -100;
+    width: 95px;
+    height: 45px;   
+    background-color: black;
+    color: white;   
+    font-size:14px;
+    font-weight:700;
+
+}
