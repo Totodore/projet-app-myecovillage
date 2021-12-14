@@ -3,7 +3,7 @@
         <h1>Contactez-nous</h1>
 
         <label for="prénom">Prénom :</label>
-        <input type="text" name=prénom" id="prénom" autofocus />
+        <input type="text" name="prénom" id="prénom" autofocus />
 
         <label for="nom">Nom :</label>
         <input type="text" name="nom" id="nom" />
