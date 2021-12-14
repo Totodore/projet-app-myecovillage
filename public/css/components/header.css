@@ -1,21 +1,25 @@
 header p {
-	font-size: 24px;
- /* commentaire*/
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-	text-align: center;
-	color: #878787;
-	text-shadow: none;
+    font-size: 24px;
+    /* commentaire*/
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+    text-align: center;
+    color: #878787;
+    text-shadow: none;
 }
-header .game, header .acceuil, header .faq {
-	font-size: 30px;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-	color: #5bcc12;
-	text-decoration: none;
-	text-align: right;
-	margin-right: 10px;
-	position: relative;
-	cursor: pointer;
+
+header .game,
+header .acceuil,
+header .forum {
+    font-size: 30px;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+    color: #5bcc12;
+    text-decoration: none;
+    text-align: right;
+    margin-right: 10px;
+    position: relative;
+    cursor: pointer;
 }
+
 header .game {
 	font-size: 30px;
 	text-decoration: none;
@@ -53,223 +57,298 @@ header .acceuil:hover, header .connexion:hover, header .faq:hover {
 }
 header .game:hover, header .connexion:hover {
 	color: #45990f;
+    font-size: 30px;
+    text-decoration: none;
+    color: #5bcc12;
+    text-align: right;
+    margin: 20px;
+    position: relative;
 }
+
+header .inscription {
+    background-color: #5bcc12;
+    border-radius: 3px;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+header .connexion {
+    border-width: 1px;
+    border-color: #5bcc12;
+    border-style: solid;
+    padding: 15px 25px;
+    border-radius: 3px;
+    font-size: 20px;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+    color: #5bcc12;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+header .acceuil:hover,
+header .connexion:hover,
+header .forum:hover {
+    color: #45990f;
+}
+
+header .game:hover,
 header .connexion:hover {
-	color: white;
-	background-color: #45990f;
+    color: #45990f;
 }
+
+header .connexion:hover {
+    color: white;
+    background-color: #45990f;
+}
+
 header .inscription:hover {
-	background-color: #45990f;
+    background-color: #45990f;
 }
+
 header {
-	height: auto;
-	padding: 10px 0px;
-	background-color: white;
-	box-shadow: 0 0 4px 2px #4e6b81;
-	position: fixed;
-	z-index: 100;
-	top: 0;
-	left: 0;
-	width: 100%;
+    height: auto;
+    padding: 10px 0px;
+    background-color: white;
+    box-shadow: 0 0 4px 2px #4e6b81;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
+
 header #logo {
-	display: block;
-	height: 80px;
-	width: auto;
-	margin-top: 10px;
-	margin-left: 10px;
-	margin-bottom: 5px;
+    display: block;
+    height: 80px;
+    width: auto;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
 }
+
 header #logo_2 {
-	position: relative;
-	height: 40px;
-	width: auto;
-	margin-top: 4px;
+    position: relative;
+    height: 40px;
+    width: auto;
+    margin-top: 4px;
 }
+
 header .centercolumn {
-	display: flex;
-	flex-direction: row;
-	align-content: space-between;
-	width: auto;
- /*Taille de la colonne centrée moins le padding*/
-	text-align: right;
-	margin-left: auto;
-	margin-right: 0;
-	align-items: center;
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    width: auto;
+    /*Taille de la colonne centrée moins le padding*/
+    text-align: right;
+    margin-left: auto;
+    margin-right: 0;
+    align-items: center;
 }
+
 header .toolbar {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 100%;
-	width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
-header #logo:hover, header #logo_2:hover {
-	opacity: 0.6;
+
+header #logo:hover,
+header #logo_2:hover {
+    opacity: 0.6;
 }
+
 header .By {
-	display: inline-block;
-	font-weight: bold;
-	font-size: 15px;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-	text-align: left;
-	margin-left: 10px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+    text-align: left;
+    margin-left: 10px;
 }
+
 @media only screen and (max-width: 1200px) {
-	header .menu {
-		display: none;
-		clear: both;
- }
-	header .centercolumn {
-		display: block;
-		clear: both;
- }
-	header .button {
-		margin-top: 4.5%;
-		margin-bottom: 1%;
- }
-	header .faq {
-		margin-right: 0;
- }
+    header .menu {
+        display: none;
+        clear: both;
+    }
+    header .centercolumn {
+        display: block;
+        clear: both;
+    }
+    header .button {
+        margin-top: 4.5%;
+        margin-bottom: 1%;
+    }
+    header .forum {
+        margin-right: 0;
+    }
 }
+
 @media only screen and (max-width: 793px) {
-	header .menu {
-		display: block;
-		clear: both;
- }
-	header .centercolumn {
-		display: none;
-		clear: both;
- }
+    header .menu {
+        display: block;
+        clear: both;
+    }
+    header .centercolumn {
+        display: none;
+        clear: both;
+    }
 }
+
 @media only screen and (min-width: 1200px) {
-	header .menu {
-		display: none;
-		clear: both;
- }
-	header .centercolumn {
-		display: flex;
-		clear: both;
- }
-	header .Txttoolbar {
-		margin: right 4px;
- }
+    header .menu {
+        display: none;
+        clear: both;
+    }
+    header .centercolumn {
+        display: flex;
+        clear: both;
+    }
+    header .Txttoolbar {
+        margin: right 4px;
+    }
 }
+
 @media only screen and (max-width: 375px) {
-	header .By {
-		font-size: 15px;
- }
-	header #logo {
-		height: 60px;
- }
-	header #logo_2 {
-		height: 35px;
- }
+    header .By {
+        font-size: 15px;
+    }
+    header #logo {
+        height: 60px;
+    }
+    header #logo_2 {
+        height: 35px;
+    }
 }
+
 header nav {
-	padding: 0 9px;
-	display: inline-block;
+    padding: 0 13px;
+    display: inline-block;
 }
+
 header .menu {
-	width: 60px;
-	height: 60px;
-	position: relative;
-	cursor: pointer;
-	margin: right 1%;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    cursor: pointer;
+    margin: right 1%;
 }
+
 header [class*=bar-] {
-	background: #000;
-	height: 2px;
-	right: 0;
-	display: block;
-	position: absolute;
-	transition: all 0.5s ease;
-	margin-right: 5px;
+    background: #000;
+    height: 2px;
+    right: 0;
+    display: block;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-right: 5px;
 }
+
 header .bar-1 {
-	width: 40px;
-	top: 11px;
+    width: 40px;
+    top: 11px;
 }
+
 header .bar-2 {
-	width: 60px;
-	top: 18px;
+    width: 60px;
+    top: 18px;
 }
+
 header .bar-3 {
-	width: 40px;
-	top: 25px;
+    width: 40px;
+    top: 25px;
 }
+
 header .bar-4 {
-	width: 60px;
-	top: 32px;
+    width: 60px;
+    top: 32px;
 }
+
 header .bar-5 {
-	width: 40px;
-	top: 38px;
+    width: 40px;
+    top: 38px;
 }
+
 header .dropdown-menu {
-	padding: 20px 0;
-	top: 45px;
-	right: -150px;
-	position: absolute;
-	opacity: 0;
-	visibility: hidden;
-	transition: all 0.5s ease;
-	background-color: #fff;
+    padding: 20px 0;
+    top: 45px;
+    right: -150px;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    background-color: #fff;
 }
+
 header .item {
-	width: 250px;
-	margin: 10px 5px;
-	padding: 5px 0;
-	display: inline-block;
-	position: relative;
-	color: #5bcc12;
-	text-align: right;
-	transition: all 0.5s ease;
-	text-decoration: none;
-	background-color: #fff;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
-	font-size: 30px;
+    width: 250px;
+    margin: 10px 5px;
+    padding: 5px 0;
+    display: inline-block;
+    position: relative;
+    color: #5bcc12;
+    text-align: right;
+    transition: all 0.5s ease;
+    text-decoration: none;
+    background-color: #fff;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
+    font-size: 30px;
 }
+
 header .item:hover {
-	opacity: 0.8;
-	color: #45990f;
+    opacity: 0.8;
+    color: #45990f;
 }
+
 header .item:hover {
-	letter-spacing: 1px;
+    letter-spacing: 1px;
 }
+
 header .item::before {
-	width: 40px;
+    width: 40px;
 }
+
 header .menu:hover .bar-1 {
-	width: 60px;
-	top: 15px;
-	transform: rotate(135deg);
+    width: 60px;
+    top: 15px;
+    transform: rotate(135deg);
 }
+
 header .menu:hover .bar-2 {
-	width: 60px;
-	top: 15px;
-	transform: rotate(-135deg);
+    width: 60px;
+    top: 15px;
+    transform: rotate(-135deg);
 }
+
 header .menu:hover .bar-3 {
-	opacity: 0;
-	width: 60px;
-	top: 15px;
-	transform: rotate(135deg);
+    opacity: 0;
+    width: 60px;
+    top: 15px;
+    transform: rotate(135deg);
 }
+
 header .menu:hover .bar-4 {
-	width: 60px;
-	top: 15px;
-	transform: rotate(-135deg);
+    width: 60px;
+    top: 15px;
+    transform: rotate(-135deg);
 }
+
 header .menu:hover .bar-5 {
-	opacity: 0;
-	width: 60px;
-	top: 15px;
-	transform: rotate(135deg);
+    opacity: 0;
+    width: 60px;
+    top: 15px;
+    transform: rotate(135deg);
 }
+
 header .menu:hover .dropdown-menu {
-	right: -14px;
-	opacity: 1;
-	visibility: visible;
-	display: block;
+    right: -14px;
+    opacity: 1;
+    visibility: visible;
+    display: block;
 }
