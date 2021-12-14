@@ -31,10 +31,10 @@ input[type='password'] {
     background-color: #f2f2f2;
     outline: none;
     margin-bottom: 15px;
-    width: 570px;
+    width: 480px;
 }
 
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 615px) {
     form .inputs input[type='id'],
     input[type='password'] {
         width: auto;
