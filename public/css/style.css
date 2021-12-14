@@ -22,6 +22,7 @@ body {
 
 #body-wrapper {
     margin-top: 150px;
+		flex: 1 1 auto;
 }
 
 a {
