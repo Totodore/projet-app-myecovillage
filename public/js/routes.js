@@ -13,7 +13,7 @@ import { ApiService } from "./services/api.service.js";
 import { ContactusController } from "./controllers/contactus.controller.js";
 import { CguController } from "./controllers/cgu.controller.js";
 import { ForumController } from "./controllers/forum.controller.js";
-import { Gestion_forumController } from "./controllers/gestion_forum.controller.js";
+import { GestionForumController } from "./controllers/gestion-forum.controller.js";
 /**
  * Route mapping between path and controllers
  * @type {Object.<string, {controller: typeof BaseController, guard?: typeof BaseGuard, services: typeof BaseService[]}>}
@@ -75,7 +75,7 @@ export const routes = {
 		guard: null
 	},
 	'/gestion_forum': {
-		controller: Gestion_forumController,
+		controller: GestionForumController,
 		services: [],
 		guard: null
 	}

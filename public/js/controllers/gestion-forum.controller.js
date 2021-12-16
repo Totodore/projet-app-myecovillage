@@ -2,7 +2,7 @@ import { BaseController } from '../core/base.controller.js';
 import { ApiService } from '../services/api.service.js';
 
 
-export class Gestion_forumController extends BaseController {
+export class GestionForumController extends BaseController {
 
 	id = "gestion_forum";
 

@@ -24,6 +24,8 @@ export class MainController extends BaseController {
 		this.navigate("", ".acceuil");
 		this.navigate("faq", "#FAQ_f");
 		this.navigate("contactus", "#contact");
+		this.navigate("cgu", "#CGU");
+		this.navigate("forum", ".forum");
 		this.updateLoginStatus();
 	}
 

@@ -4,7 +4,7 @@
             type="button">
         Posez votre question
     </button>
-    <div class="forum">
+    <div class="forum-wrapper">
         <div class="questions">
             <h2>Où vont les données ?</h2>
             <span class="material-icons">expand_more</span>

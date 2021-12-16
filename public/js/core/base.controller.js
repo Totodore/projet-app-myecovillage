@@ -52,6 +52,7 @@ export class BaseController {
 			this.onClick(querySelector, (el, e) => {
 				e.preventDefault();
 				this.core.navigate(url)
+				window.scrollTo({ top: 0, behavior: 'smooth' });
 			});
 		} else
 			this.core.navigate(url);
