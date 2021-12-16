@@ -2,6 +2,9 @@
 @import './components/footer.css';
 @import './signin.css';
 @import './signup.css';
+@import './style_cgu.css';
+@import './forum.css';
+@import './gestion_forum.css';
 
 p {
 	font-size: 24px;
