@@ -33,6 +33,7 @@ export class SignupController extends BaseController {
 			return;
 		}
 		const res = await this.apiService.register(data);
-		console.log(res);
+		this.log(res);
+		this.navigate("signin");
 	}
 }

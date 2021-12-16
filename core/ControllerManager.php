@@ -82,7 +82,7 @@ class ControllerManager
 		}
 		//We invoke the method to check the request, if it returns true. Then we invoke the main handling method
 			try {
-				$res = $route->function->invokeArgs($controller, [$request]);
+				$res = $route->function->invokeArgs($controller, [$request, $headers['Authorization'] ?? null]);
 				if (is_null($res)) {
 					http_response_code(204);
 					return;

@@ -1,4 +1,5 @@
 import { Main } from "../index.js";
+import { ApiService } from "../services/api.service.js";
 export class BaseController {
 
 	/**
@@ -32,7 +33,7 @@ export class BaseController {
 			this.log("Loading view...");
 			let cssResponse = await fetch(`/${baseUrl}/public/css/${this.ressourcePath}.css`);
 			let response = await fetch(`${this.view}?${Object.entries(el => el[0] + "=" + el[1]).join('&')}`, {
-				headers: { dynamic: "true" }
+				headers: { dynamic: "true", Authorization: ApiService.instance.token },
 			});
 			const html = await response.text();
 			const css = await cssResponse.text();
@@ -91,7 +92,7 @@ export class BaseController {
 	 * @param {string} message
 	 */
 	log(message) {
-		console.log(`[${this.constructor.name}] ${message}`);
+		console.log(`[${this.constructor.name}] ${JSON.stringify(message)}`);
 	}
 
 	/**

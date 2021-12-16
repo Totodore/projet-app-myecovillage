@@ -2,6 +2,16 @@ import { BaseService } from "../core/base.service.js";
 
 export class ApiService extends BaseService {
 
+	
+	/**
+	 * @param {ApiService} instance
+	 */
+	static instance;
+
+	constructor() {
+		super();
+		ApiService.instance = this;
+	}
 	/**
 	 * @param {string} username 
 	 * @param {string} password
@@ -15,13 +25,13 @@ export class ApiService extends BaseService {
 			return true;
 		} catch(e) {
 			console.error(e);
-			return false;
+			throw e;
 		}
 	}
 
 	async register(data) {
 		try {
-			await this.post("api/auth/register", data);
+			return await this.post("api/auth/register", data);
 		} catch(e) {
 			console.error(e);
 		}
