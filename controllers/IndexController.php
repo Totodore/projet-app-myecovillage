@@ -52,4 +52,16 @@ class IndexController extends BaseController {
 		return $this->loadView('account_edit', [ "usered" => $usered ]);
 	}
 
+	#[Get('/cgu')]
+	public function cgu(array $query): array {
+		return $this->loadView('cgu', $query);
+	}
+	#[Get('/forum')]
+	public function forum(array $query): array {
+		return $this->loadView('forum', $query);
+	}
+	#[Get('/gestion_forum')]
+	public function gestion_forum(array $query): array {
+		return $this->loadView('gestion_forum', $query);
+	}
 }
