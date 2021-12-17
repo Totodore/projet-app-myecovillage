@@ -69,3 +69,9 @@ h2
 	padding: 15px 5px;
 	font-size:25px;
 }
+@media only screen and (max-width: 420px) {
+    .container-faq {
+        min-width: none;
+        margin: 2%;
+    }
+}

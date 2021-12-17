@@ -5,7 +5,7 @@
 	margin-top: 10%;
     margin-bottom: 40px;
     max-width: 600px;
-	min-width: 400px;
+	min-width: 300px;
     padding: 50px;
     border: 1px solid black;
     background: white;
@@ -57,4 +57,10 @@ textarea
     box-sizing: border-box;height: 100px;
     margin-bottom: 30px;
     resize: none;
+}
+@media only screen and (max-width: 420px) {
+    #formulaire {
+        min-width: none;
+        margin: 2%;
+    }
 }
