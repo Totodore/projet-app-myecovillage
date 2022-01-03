@@ -1,4 +1,4 @@
-FROM php:8-apache
+FROM php:8.0.1-apache
 
 RUN apt-get update -y && apt-get install -y libonig-dev
 
