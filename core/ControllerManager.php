@@ -73,7 +73,7 @@ class ControllerManager
 		$request = array_merge($_GET, $_POST, $_FILES, Utils::isJson($entityBody) ? get_object_vars(json_decode($entityBody)) : []);
 		unset($request['q']);
 		$headers = getallheaders();
-		if (!($headers['dynamic'] ?? false))
+		if ($headers['dynamic'] ?? false)
 			$controller->setDynamicRequest();
 		if ($route->guard != null)
 			$route->guard->newInstance();
