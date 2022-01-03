@@ -50,3 +50,5 @@ jobs:
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+      - name: Deploy
+        run: echo $(wget -O - ${{ secrets.DEPLOY_WEBHOOK_URL }} > /dev/null)
