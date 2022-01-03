@@ -18,6 +18,7 @@
 			<div class="button">
 				<a class="connexion">Connexion</a>
 				<a class="inscription">Inscription</a>
+				<a class="account">Mon compte</a>
 			</div>
 		</div>
 		<nav>

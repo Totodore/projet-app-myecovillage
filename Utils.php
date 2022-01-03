@@ -2,6 +2,8 @@
 
 namespace Project;
 
+use Project\Models\UserModel;
+
 class Utils
 {
 
@@ -37,7 +39,7 @@ class JWT
 		return trim($header, '=') . '.' . trim($payload, '=') . '.' . trim($signature, '=');
 	}
 
-	public static function decode(string $token, string $secret): array
+	public static function decode(string $token): object
 	{
 		$parts = explode('.', $token);
 		$header = $parts[0];
@@ -48,10 +50,19 @@ class JWT
 		$payload = base64_decode($payload);
 		$signature = base64_decode($signature);
 
-		if ($signature !== hash_hmac('sha256', $header . '.' . $payload, $secret, true)) {
-			throw new \Exception('Invalid signature');
-		}
+		return json_decode($payload);
+	}
 
-		return json_decode($payload, true);
+	public static function verify(string $token, string $secret): bool {
+		$parts = explode('.', $token);
+		$header = $parts[0];
+		$payload = $parts[1];
+		$signature = $parts[2];
+
+		$header = base64_decode($header);
+		$payload = base64_decode($payload);
+		$signature = base64_decode($signature);
+
+		return $signature !== hash_hmac('sha256', $header . '.' . $payload, $secret, true);
 	}
 }
