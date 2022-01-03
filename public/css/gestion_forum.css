@@ -66,14 +66,14 @@ p
 .expand_more
 {
     position: absolute;
-    bottom: 50px;
+    bottom: 30px;
     right:4px;
     color: white;
 }
 .delete
 {
     position: absolute;
-    bottom: 50px;
+    bottom: 30px;
     right:30px;
     color: white;
 }
