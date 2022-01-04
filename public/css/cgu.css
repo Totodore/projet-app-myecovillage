@@ -23,6 +23,8 @@ h2 {
 	font-size: 20px;
 }
 p {
+	color: black;
+	text-align: justify;
 	font-size: 14px;
 }
 ul {
