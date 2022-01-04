@@ -13,10 +13,11 @@
 	border: #5bcc12 4px solid;
 	border-radius: 20px;
 	padding: 10px 20px 10px 20px;
-	color: black;
 	text-align: justify;
 }
 p {
+	color: black;
+	text-align: justify;
 	font-size: 14px;
 }
 h1 {
