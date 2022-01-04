@@ -39,7 +39,7 @@ export class MainController extends BaseController {
 		} else if (route[0] == "/signup" && !this.apiService.logged) {
 			this.select(".connexion").style.display = "block";
 			this.select(".inscription").style.display = "none";
-		} else if (route[0] == "/home" && !this.apiService.logged) {
+		} else if (route[0] == "/" && !this.apiService.logged) {
 			this.select(".connexion").style.display = "block";
 			this.select(".inscription").style.display = "block";
 		}
