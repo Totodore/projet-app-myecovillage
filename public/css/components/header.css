@@ -44,7 +44,6 @@ header .account {
 	padding: 15px 25px;
 	border-radius: 3px;
 	cursor: pointer;
-	text-align: center;
 }
 header .account {
 	display: none;
@@ -59,7 +58,6 @@ header .connexion {
 	color: #5bcc12;
 	text-decoration: none;
 	cursor: pointer;
-	text-align: center;
 }
 header .acceuil:hover,
 header .connexion:hover,
@@ -68,6 +66,7 @@ header .faq:hover {
 }
 
 header .inscription {
+	text-align: center;
 	background-color: #5bcc12;
 	border-radius: 3px;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
@@ -78,10 +77,10 @@ header .inscription {
 	border-radius: 3px;
 	cursor: pointer;
 	max-width: 50%;
-	text-align: center;
 }
 
 header .connexion {
+	text-align: center;
 	border-width: 1px;
 	border-color: #5bcc12;
 	border-style: solid;
@@ -93,7 +92,6 @@ header .connexion {
 	text-decoration: none;
 	cursor: pointer;
 	max-width: 50%;
-	text-align: center;
 }
 
 header .acceuil:hover,
