@@ -45,7 +45,7 @@ export class MainController extends BaseController {
     }
 
     updateLoginStatus() {
-        console.log(this.apiService.logged);
+        this.log(this.apiService.logged ? "Logged" : "Not logged");
         if (this.apiService.logged) {
             this.select(".account").style.display = "block";
             this.select(".connexion").style.display = "none";

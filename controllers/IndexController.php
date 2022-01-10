@@ -55,7 +55,7 @@ class IndexController extends BaseController
 	public function account(array $query, ?string $auth): array
 	{
 		if ($auth == null)
-			header('Location: /php-framework/signin');
+			header('Location: /php-framework');
 		$user = UserModel::findOne(JWT::decode($auth)->id);
 		return $this->loadView('account', ["user" => $user]);
 	}
@@ -64,7 +64,7 @@ class IndexController extends BaseController
 	public function account_edit(array $query, ?string $auth): array
 	{
 		if ($auth == null)
-			header('Location: /php-framework/signin');
+			header('Location: /php-framework');
 		$user = UserModel::findOne(JWT::decode($auth)->id);
 		return $this->loadView('account_edit', ["usered" => $user]);
 	}

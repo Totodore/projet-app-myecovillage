@@ -70,4 +70,11 @@ class Conf
 	];
 
 	const ROOT_PATH = "php-framework";
+
+	public static function getenv(string $key): ?string {
+		if (!getenv($key))
+			return null;
+		else
+			return getenv($key);
+	}
 }
