@@ -46,6 +46,16 @@
 					?>
 				</span>
 				</p>
+				<span class="text_info">Administrateur :
+					<?php
+					if ($user->isadmin == true){
+						echo "admin";
+					}
+					else{
+						echo "utilisateur";
+					}
+					?>
+				</span>
 			</div>
 
 			<div class="elementPE">
@@ -55,6 +65,7 @@
 
 		<div>
 			<button class="boutonconnexion1">Editer profil</button>
+			<button class="boutondeconnexion">Déconnexion</button>
 		</div>
 	</form>
 </div>

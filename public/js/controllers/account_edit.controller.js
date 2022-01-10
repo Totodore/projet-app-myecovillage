@@ -5,7 +5,7 @@ import { ApiService } from '../services/api.service.js';
 export class AccountEditController extends BaseController {
 
 	id = "account_edit";
-	ressourcePath = "account/edit";
+	ressourcePath = "account_edit";
 
 	/**
 	 * @param {ApiService} apiService

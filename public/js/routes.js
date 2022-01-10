@@ -56,7 +56,7 @@ export const routes = {
 	},
 	'/account': {
 		controller: AccountController,
-		services: [],
+		services: [ApiService],
 		guard: null
 	},
 	'/account/edit': {
