@@ -25,7 +25,7 @@ abstract class BaseModel extends BaseModelHandler
 			$this->createTable($pdo);
 			// echo 'Table ' . $this->tableName . ' created' . "\n";
 		} else {
-			if (Conf::FORCE_UPDATE) {
+			if (Conf::DB_FORCE_UPDATE) {
 				// echo 'Table ' . $this->tableName . ' force update, dropping table and recreating it...' . "\n";
 				$this->dropTable($pdo);
 				$this->createTable($pdo);

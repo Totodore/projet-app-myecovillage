@@ -25,8 +25,8 @@ class ColumnMetadata {
 
 	private function getColumnType(ReflectionProperty $property): string {
 		$columnAttr = ($property->getAttributes(Column::class)[0] ?? $property->getAttributes(PrimaryColumn::class)[0])->getArguments();
-		$type = strtoupper($columnAttr["type"] ?? null);
-		if (!$type) {
+		$type = ($columnAttr["type"] ?? null) ? strtoupper($columnAttr["type"]) : null;
+		if ($type == null) {
 			switch ($property->getType()->getName()) {
 				case 'string':
 					return 'VARCHAR(255)';

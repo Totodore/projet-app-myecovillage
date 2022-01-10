@@ -73,7 +73,7 @@ class ControllerManager
 		$request = array_merge($_GET, $_POST, $_FILES, Utils::isJson($entityBody) ? get_object_vars(json_decode($entityBody)) : []);
 		unset($request['q']);
 		$headers = getallheaders();
-		if (!($headers['dynamic'] ?? false))
+		if ($headers['dynamic'] ?? false)
 			$controller->setDynamicRequest();
 		if ($route->guard != null)
 			$route->guard->newInstance();
@@ -127,7 +127,10 @@ class ControllerManager
 		$fragments = array_filter($fragments, function ($fragment) {
 			return $fragment !== "";
 		});
-		return "/" . implode("/", $fragments);
+		if (count($fragments) == 0)
+			return "";
+		else
+			return "/" . implode("/", $fragments);
 	}
 
 	private function getControllerRoutes(ReflectionClass $controller, string $rootPath, bool $isJson): array

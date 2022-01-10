@@ -12,7 +12,7 @@ use Project\Models\UserModel;
 class UserController {
 
 	#[Get('me')]
-	public function getMe(): array {
+	public function getMe(): object {
 		return JWT::decode($_SERVER['HTTP_AUTHORIZATION'], Conf::JWT_SECRET);
 	}
 
