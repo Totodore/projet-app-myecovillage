@@ -13,6 +13,13 @@ abstract class BaseController {
 			return ["index", []];
 	}
 
+	/**
+	 * Send a mail to the given mail address
+	 */
+	protected function sendMail(string $to, string $subject, string $body): bool {
+		return mail($to, $subject, $body);
+	}
+
 	public function setDynamicRequest() {
 		$this->isDynamicRequest = true;
 	}

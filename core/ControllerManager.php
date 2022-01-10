@@ -127,7 +127,10 @@ class ControllerManager
 		$fragments = array_filter($fragments, function ($fragment) {
 			return $fragment !== "";
 		});
-		return "/" . implode("/", $fragments);
+		if (count($fragments) == 0)
+			return "";
+		else
+			return "/" . implode("/", $fragments);
 	}
 
 	private function getControllerRoutes(ReflectionClass $controller, string $rootPath, bool $isJson): array
