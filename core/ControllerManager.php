@@ -127,10 +127,7 @@ class ControllerManager
 		$fragments = array_filter($fragments, function ($fragment) {
 			return $fragment !== "";
 		});
-		if (count($fragments) == 0)
-			return "";
-		else
-			return "/" . implode("/", $fragments);
+		return "/" . implode("/", $fragments);
 	}
 
 	private function getControllerRoutes(ReflectionClass $controller, string $rootPath, bool $isJson): array
@@ -144,8 +141,11 @@ class ControllerManager
 			if (is_null($routeAttr))
 				continue;
 			$verifyAttr = $method->getAttributes(VerifyRequest::class)[0] ?? null;
+			$path = ($rootPath == "/" ? '' : $rootPath) . $this->parsePath($routeAttr->getArguments()[0]);
+			if (strlen($path) > 1 && str_ends_with($path, "/"))
+				$path = substr($path, 0, strlen($path) - 1);
 			array_push($routeMethods, new Route(
-				path: ($rootPath == "/" ? '' : $rootPath) . $this->parsePath($routeAttr->getArguments()[0]), 
+				path: $path, 
 				verifyArray: $verifyAttr ? $verifyAttr->getArguments()[0] ?? null : null,
 				method: (new ReflectionClass($routeAttr->getName()))->getConstant("METHOD"),
 				function:$method,
