@@ -81,33 +81,33 @@ class ControllerManager
 			http_response_code(400);
 		}
 		//We invoke the method to check the request, if it returns true. Then we invoke the main handling method
-			try {
-				$res = $route->function->invokeArgs($controller, [$request, $headers['Authorization'] ?? null]);
-				if (is_null($res)) {
-					http_response_code(204);
-					return;
-				}
-				if ($route->isJson)	//If the controller inherits from the json controller
-					echo json_encode($res);
-				else {
-					if (array_key_exists(1, $res))
-						extract($res[1]);
-					$baseUrl = Conf::ROOT_PATH;
-					include_once ROOT . "/views/$res[0].php";
-				}
-			} catch (HttpException $e) {	//We catch Http Exception to throw http errors
-				http_response_code($e->getCode());
-				if ($route->isJson)	//If the controller inherits from the json controller
-					echo json_encode(["message" => $e->getMessage(), "code" => $e->getCode()]);
-				else
-					echo $e->getMessage();
-			} catch (Exception $e) { //In case of a generic exception we throw a 500 error
-				http_response_code(500);
-				if ($route->isJson)	//If the controller inherits from the json controller
-					echo json_encode(["message" => "Internal server error: " . $e->getMessage(), "code" => 500]);
-				else
-					echo "Internal server error: " . $e->getMessage();
+		try {
+			$res = $route->function->invokeArgs($controller, [$request]);
+			if (is_null($res)) {
+				http_response_code(204);
+				return;
 			}
+			if ($route->isJson)	//If the controller inherits from the json controller
+				echo json_encode($res);
+			else {
+				if (array_key_exists(1, $res))
+					extract($res[1]);
+				$baseUrl = Conf::ROOT_PATH;
+				include_once ROOT . "/views/$res[0].php";
+			}
+		} catch (HttpException $e) {	//We catch Http Exception to throw http errors
+			http_response_code($e->getCode());
+			if ($route->isJson)	//If the controller inherits from the json controller
+				echo json_encode(["message" => $e->getMessage(), "code" => $e->getCode()]);
+			else
+				echo $e->getMessage();
+		} catch (Exception $e) { //In case of a generic exception we throw a 500 error
+			http_response_code(500);
+			if ($route->isJson)	//If the controller inherits from the json controller
+				echo json_encode(["message" => "Internal server error: " . $e->getMessage(), "code" => 500]);
+			else
+				echo "Internal server error: " . $e->getMessage();
+		}
 	}
 
 	private function getRequestPath(): string
@@ -145,18 +145,19 @@ class ControllerManager
 			if (strlen($path) > 1 && str_ends_with($path, "/"))
 				$path = substr($path, 0, strlen($path) - 1);
 			array_push($routeMethods, new Route(
-				path: $path, 
+				path: $path,
 				verifyArray: $verifyAttr ? $verifyAttr->getArguments()[0] ?? null : null,
 				method: (new ReflectionClass($routeAttr->getName()))->getConstant("METHOD"),
-				function:$method,
-				isJson:$isJson,
-				guard:$method->getAttributes(AuthGuard::class)[0] ?? null
+				function: $method,
+				isJson: $isJson,
+				guard: $method->getAttributes(AuthGuard::class)[0] ?? null
 			));
 		}
 		return $routeMethods;
 	}
 
-	private function getCurrentRoute(): ?Route {
+	private function getCurrentRoute(): ?Route
+	{
 		$route = current(array_filter($this->routes, function ($route) {
 			return $this->getRequestPath() == $route->path && $_SERVER["REQUEST_METHOD"] == $route->method;
 		}));

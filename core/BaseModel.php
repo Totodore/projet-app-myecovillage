@@ -88,9 +88,9 @@ abstract class BaseModel extends BaseModelHandler
 	public function print(): void
 	{
 		$val = array();
-		foreach ($this->properties as $key => $value)
-			$val[$value] = $this->{$value};
-		echo $this->tableName . ": ";
+		foreach ($this->getColumnEntries() as $key => $value)
+			$val[$key] = $value;
+		echo $this->getTableName() . ": ";
 		print_r($val);
 	}
 	

@@ -109,6 +109,6 @@ class Conf
 	}
 
 	public static function init(): void {
-		// ini_set("");
+		ini_set("sendmail_path", "/usr/bin/msmtp -t");
 	}
 }

@@ -12,4 +12,10 @@ class InfoController extends BaseController {
 	public function index(): void {
 		phpinfo();
 	}
+
+	#[Get('/test')]
+	public function test(): void {
+		echo 'testing mail';
+		$this->sendMail("prevottheodore@gmail.com", "Yolo", "Yolo");
+	}
 }
