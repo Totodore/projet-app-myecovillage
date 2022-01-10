@@ -56,6 +56,11 @@ use Project\Core\ControllerManager;
 // $user->remove();
 // print_r(UserModel::findOne(345));
 
+
+/**
+ * Initialize dynamic parameters for PHP
+ */
+Conf::init();
 /**
  * We create the controller manager and we ask it to handle the current request
  */
