@@ -25,7 +25,7 @@ abstract class BaseModel extends BaseModelHandler
 			$this->createTable($pdo);
 			// echo 'Table ' . $this->tableName . ' created' . "\n";
 		} else {
-			if (Conf::FORCE_UPDATE) {
+			if (Conf::DB_FORCE_UPDATE) {
 				// echo 'Table ' . $this->tableName . ' force update, dropping table and recreating it...' . "\n";
 				$this->dropTable($pdo);
 				$this->createTable($pdo);
@@ -140,6 +140,8 @@ abstract class BaseModel extends BaseModelHandler
 		$instance = new static();
 		$types = $instance->getColumnTypes();
 		foreach ($data as $key => $value) {
+			if (!array_key_exists($key, $types))
+				continue;
 			$instance->{$key} = $types[$key] === 'DATETIME' ? new DateTime($value) : $value;
 		}
 		return $instance;

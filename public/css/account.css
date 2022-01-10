@@ -1,4 +1,3 @@
-
 .titreconnexion{
     color: #5BCC12;
     font-size: 40px;
@@ -8,7 +7,7 @@
 }
 .container_profil{
     margin: 5%;
-    background-color: #6A90AD;
+    background-color: white;
     padding: 40px 30px;
     border-radius: 10px;
     align-self: center;
@@ -18,7 +17,8 @@
     flex-direction: column;
     align-items: center;
     width: auto;
-    height: auto;   
+    height: auto;
+    border: solid #5BCC12 4px; 
   }
   .text_info
   {
@@ -64,6 +64,21 @@
     display: table;
     font-size: 16px;
     margin: auto;
+    margin-top: 10px;
+    font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
+  }
+  .boutondeconnexion
+  {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: table;
+    font-size: 16px;
+    margin: auto;
+    margin-top: 10px;
     font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
   }
 
@@ -93,7 +108,8 @@
       display: flex;
       justify-content: space-around;
       text-align: left;
-      width: 650px;
+      width: 450px;
+      margin-right: 3em;
   }
   .elementPE:nth-child(1)
   {

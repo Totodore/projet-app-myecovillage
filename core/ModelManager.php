@@ -37,9 +37,8 @@ class ModelManager
 	public function init(): void
 	{
 		try {
-			$this->pdo = new PDO("mysql:host=" . Conf::HOST . ";dbname=" . Conf::DB . ";charset=" . Conf::CHARSET, Conf::USER, Conf::PASS, Conf::OPTIONS);
+			$this->pdo = new PDO("mysql:host=" . Conf::get("DB_HOST") . ";port=" . Conf::get("DB_PORT") . ";dbname=" . Conf::get("DB_NAME") . ";charset=" . Conf::DB_CHARSET, Conf::get("DB_USER"), Conf::get("DB_PASS"), Conf::OPTIONS);
 		} catch (\PDOException $e) {
-			// echo $e;
 			http_response_code(500);
 			echo 'ModelManager: Could not connect to database';
 			exit();

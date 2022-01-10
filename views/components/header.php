@@ -14,10 +14,11 @@
 		<div class="centercolumn">
 			<a class="acceuil">Accueil</a>
 			<a class="game">Allez au jeu</a>
-			<a class="faq">FAQ</a>
+			<a class="forum">Forum</a>
 			<div class="button">
 				<a class="connexion">Connexion</a>
 				<a class="inscription">Inscription</a>
+				<a class="account">Mon compte</a>
 			</div>
 		</div>
 		<nav>
@@ -30,11 +31,11 @@
 
 				<div class="dropdown-menu">
 
-					<a class="item" href="connexion.html">Connexion</a>
-					<a class="item" href="inscription.html">Inscription</a>
+					<a class="item" id="navconnexion" >Connexion</a>
+					<a class="item" id="navinscription" >Inscription</a>
 					<a class="item" href="#Jeux">Game</a>
 					<a class="item" href="#">Contact</a>
-					<a class="item" href="FAQ.html">FAQ</a>
+					<a class="item" href="Forum.html">Forum</a>
 				</div>
 
 			</div>

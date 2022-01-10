@@ -1,25 +1,26 @@
 footer {
-	background-color: white;
-	width: 100%;
-	height: 50px;
-	padding-top: 40px;
-	box-shadow: 0 0 4px 2px #4e6b81;
+    background-color: white;
+    width: 100%;
+    height: 50px;
+    padding: 40px 0;
+    box-shadow: 0 0 4px 2px #4e6b81;
 }
 
-#CGU,
-#FAQ_f,
-#contact {
-	font-size: 20px;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-	color: #5BCC12;
-	text-align: right;
-	font-weight: 700;
-	padding-right: 2%;
+footer #CGU,
+footer #FAQ_f,
+footer #contact {
+    font-size: 20px;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+    color: #5bcc12;
+    text-align: right;
+    font-weight: 700;
+    padding-right: 2%;
+    cursor: pointer;
 }
 
-.desfooter {
-	display: flex;
-	flex-direction: row;
-	align-content: center;
-	justify-content: right;
+footer .desfooter {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: right;
 }

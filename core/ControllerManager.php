@@ -5,6 +5,7 @@ namespace Project\Core;
 use Exception;
 use ReflectionClass;
 use Project\Conf;
+use Project\Core\Attributes\Http\AuthGuard;
 use Project\Core\Attributes\Http\Controller;
 use Project\Core\Attributes\Http\JsonController;
 use Project\Core\Attributes\Http\VerifyRequest;
@@ -69,18 +70,19 @@ class ControllerManager
 		}
 		$controller = $route->function->getDeclaringClass()->newInstance();
 		$entityBody = file_get_contents('php://input');
-		$request = array_merge($_GET, $_POST, $_FILES, Utils::isJson($entityBody) ? json_decode($entityBody) : []);
+		$request = array_merge($_GET, $_POST, $_FILES, Utils::isJson($entityBody) ? get_object_vars(json_decode($entityBody)) : []);
 		unset($request['q']);
 		$headers = getallheaders();
-		if (!($headers['dynamic'] ?? false))
+		if ($headers['dynamic'] ?? false)
 			$controller->setDynamicRequest();
+		if ($route->guard != null)
+			$route->guard->newInstance();
 		if (!$this->verifyRequest($request)) {
 			http_response_code(400);
-			return;
 		}
 		//We invoke the method to check the request, if it returns true. Then we invoke the main handling method
 			try {
-				$res = $route->function->invokeArgs($controller, [$request]);
+				$res = $route->function->invokeArgs($controller, [$request, $headers['Authorization'] ?? null]);
 				if (is_null($res)) {
 					http_response_code(204);
 					return;
@@ -125,7 +127,10 @@ class ControllerManager
 		$fragments = array_filter($fragments, function ($fragment) {
 			return $fragment !== "";
 		});
-		return "/" . implode("/", $fragments);
+		if (count($fragments) == 0)
+			return "";
+		else
+			return "/" . implode("/", $fragments);
 	}
 
 	private function getControllerRoutes(ReflectionClass $controller, string $rootPath, bool $isJson): array
@@ -144,7 +149,8 @@ class ControllerManager
 				verifyArray: $verifyAttr ? $verifyAttr->getArguments()[0] ?? null : null,
 				method: (new ReflectionClass($routeAttr->getName()))->getConstant("METHOD"),
 				function:$method,
-				isJson:$isJson
+				isJson:$isJson,
+				guard:$method->getAttributes(AuthGuard::class)[0] ?? null
 			));
 		}
 		return $routeMethods;

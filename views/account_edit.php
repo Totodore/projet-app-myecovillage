@@ -52,9 +52,7 @@
                         <input type="text" class="barresaisie" id="mailchange" name="mailchange">
                     </p>
                         <span class="text_info">mot de passe :
-                            <?php 
-							    echo $usered->password; 
-						    ?> 
+                            
                         </span>
                         <input type="text" class="barresaisie" id="passwordchange" name="passwordchange">
                     </div>

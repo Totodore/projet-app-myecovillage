@@ -1,5 +1,6 @@
 import { routes } from "./routes.js";
 import { BaseController } from "./core/base.controller.js";
+import { MainController } from "./controllers/main.controller.js";
 export class Main {
 
 	/**
@@ -8,7 +9,7 @@ export class Main {
 	currentController;
 
 	/**
-	 * @type {BaseController}
+	 * @type {MainController}
 	 */
 	mainController;
 
@@ -46,8 +47,9 @@ export class Main {
 		this.currentController.core = this;
 		this.currentController.id = this.getNewId();
 		try {
-			const view = await this.currentController.loadView();
-			this.bodyWrapper.innerHTML = view;
+			const [html, css] = await this.currentController.loadView();
+			this.bodyWrapper.innerHTML = html;
+			this.styleWrapper.innerHTML = css;
 			this.bodyWrapper.setAttribute(this.currentController.id, '');
 			if (this.currentController.onInit) {
 				await this.currentController.onInit();
@@ -73,18 +75,22 @@ export class Main {
 			this.mainController.onInit();
 			this.mainController.log("Controller inited");
 		}
+		if (this.mainController.onNavigate)
+			this.mainController.onNavigate(route);
 	}
 
 	/**
 	 * Navigate to a given route
 	 * @param {string} route 
 	 */
-	navigate(route) {
+	async navigate(route) {
 		history.pushState(null, null, "/" + baseUrl + (!route.startsWith("/") ? "/" : '') + route);
 		
 		route = this.routeParser();
 		if (route)
-			this.render(route);
+			await this.render(route);
+		if (this.mainController)
+			this.mainController.onNavigate(route);
 	}
 
 	/**
@@ -131,6 +137,10 @@ export class Main {
 
 	get bodyWrapper() {
 		return document.querySelector("#body-wrapper");
+	}
+
+	get styleWrapper() {
+		return document.head.querySelector("#style-wrapper");
 	}
 
 }

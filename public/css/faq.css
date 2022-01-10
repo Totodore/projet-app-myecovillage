@@ -1,0 +1,78 @@
+.container-faq h1 {
+    text-align: center;
+    padding: 35px 0;
+    font-size: 45px;
+    padding: 10px;
+    width: 400px;
+    background: #5BCC12;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+h4 {
+    color: #5BCC12;
+}
+
+.container-faq {
+    margin: 0 auto;
+    margin-top: 10%;
+    max-width: 900px;
+    min-width: none;
+    padding: 50px;
+    margin-bottom: 40px;
+    border: 1px solid black;
+    background: white;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.questions {
+    width: 100%;
+    height: auto;
+    margin: 5px;
+}
+
+.visible-panel {
+    display: flex;
+    background: lightgrey;
+    border-radius: 10px;
+    position: relative;
+}
+
+.visible-panel span {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    transform: translateY(-50%);
+    color: white;
+    cursor: pointer;
+    padding-right: 10px;
+    font-size: 40px;
+}
+
+.toggle-panel {
+    display: none;
+    text-align: justify;
+    padding: 20px;
+}
+
+.toggle-panel p {
+    text-align: justify;
+}
+
+h2 {
+    margin-left: 10px;
+    padding: 15px 5px;
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 420px) {
+    .container-faq {
+        min-width: none;
+        margin: 2%;
+    }
+}

@@ -6,13 +6,13 @@
 			</a>
 		</div>
 		<div class="inputs">
-			<input type="Id" placeholder="Identifiant" />
-			<input type="password" placeholder="Mot de passe">
+			<input name="email" type="email" placeholder="Email" />
+			<input name="password" type="password" placeholder="Mot de passe">
 		</div>
 
-		<a class="inscription">Je n'ai pas de compte.</a>
+		<p class="inscription">Je n'ai pas de <a id="creer">compte.</a>Je m'en <a id="creer">crée</a> un.</p>
 		<div class="buttonconnexion">
-			<a id="buttonconnexion" href="index.html">Se connecter</a>
+			<button type="submit" id="buttonconnexion">Se connecter</button>
 		</div>
 	</form>
 </div>
