@@ -1,4 +1,4 @@
-<div id="formulaire">
+<div class="formulaire">
     <form method="post" action="traitement.php">
         <h1>Contactez-nous</h1>
 
