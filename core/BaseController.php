@@ -2,9 +2,21 @@
 
 namespace Project\Core;
 
+use Project\JWT;
+use Project\Models\UserModel;
+
 abstract class BaseController {
 
 	private bool $isDynamicRequest = false;
+	private ?string $token;
+
+	public function __construct() {
+		$this->token = $this->getToken();
+	}
+
+	public function isLogged(): bool {
+		return $this->token != null;
+	}
 
 	protected function loadView(string $view, array $data = []): array {
 		if ($this->isDynamicRequest)
@@ -22,5 +34,18 @@ abstract class BaseController {
 
 	public function setDynamicRequest() {
 		$this->isDynamicRequest = true;
+	}
+
+	public function getLoggedUser(): ?UserModel {
+		$id = JWT::decode($this->token)->id;
+		return UserModel::findOne($id);
+	}
+
+	private function getToken(): ?string {
+		$headers = getallheaders();
+		if (isset($headers['Authorization']))
+			return $headers['Authorization'];
+		else
+			return null;
 	}
 }
