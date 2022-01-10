@@ -31,8 +31,8 @@
 
 				<div class="dropdown-menu">
 
-					<a class="item" id="navconnexion" href="connexion.html">Connexion</a>
-					<a class="item" id="navinscription" href="inscription.html">Inscription</a>
+					<a class="item" id="navconnexion" >Connexion</a>
+					<a class="item" id="navinscription" >Inscription</a>
 					<a class="item" href="#Jeux">Game</a>
 					<a class="item" href="#">Contact</a>
 					<a class="item" href="Forum.html">Forum</a>
