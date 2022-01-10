@@ -30,13 +30,11 @@ class UserController {
 
 
 	#[Post('edit_profil')]
-	#[VerifyRequest(["email", "password", "name",  "password", "firstname",  "birthdate",  "weight", "height"])]
-	public function register(array $query): array {
+	//#[VerifyRequest(["email", "password", "name", "firstname", "weight", "height"])]
+	public function register(array $query): array 
+	{
 		$query['password'] = password_hash($query['password'], PASSWORD_BCRYPT);
 
-		/*if (UserModel::findBy("email", $query["email"]) != null)
-			return ["error" => "Email already used"];
-		*/
 		$user = UserModel::findOne(10);
 		$user->save();
 

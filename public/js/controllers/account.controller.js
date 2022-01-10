@@ -22,6 +22,7 @@ export class AccountController extends BaseController {
 
 	fonc_click(e) {
 		e.preventDefault();
-		this.apiService.token = null;
+		this.apiService.logout();
+		location = "/" + baseUrl;
 	}
 }
