@@ -36,27 +36,6 @@ spl_autoload_register(function (string $className) {
 	}
 });
 use Project\Core\ControllerManager;
-// use Project\Models\UserModel;
-
-// $modelManager = new ModelManager();
-// $modelManager->verify();
-// $modelManager->init();
-
-// $user = UserModel::create([
-// 	'm_password' => 'blabla',
-// 	'm_username' => 'Théodore',
-// 	'm_email' => 'prevottheodore@gmail.com',
-// ])->save();
-// print_r($user);
-
-// $user = UserModel::findOne(1);
-// $user->m_username = 'Théodazdore';
-// $user->save();
-// $user->print();
-// $user->remove();
-// print_r(UserModel::findOne(345));
-
-
 /**
  * Initialize dynamic parameters for PHP
  */
