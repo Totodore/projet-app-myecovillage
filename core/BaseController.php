@@ -33,7 +33,7 @@ abstract class BaseController {
 	/**
 	 * Send a mail to the given mail address
 	 */
-	protected function sendMail(string $to, string $subject, string $body): ?MailResponseModel {
+	protected function sendMail(string $to, string $subject, string $body): void {
 		$query = http_build_query([
 			"to" => $to,
 			"subject" => $subject,
