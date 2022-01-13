@@ -193,6 +193,19 @@ abstract class BaseModel extends BaseModelHandler
 		return !$res ? NULL : static::create($res);
 	}
 
+	public static function search(string $q, array $columns, int $limit): array
+	{
+		$tableName = static::getTableName();
+		$pdo = $GLOBALS['pdo'];
+		$query = $pdo->prepare("SELECT * FROM $tableName WHERE " . implode("OR ", array_map(function($col) { return " UPPER($col) LIKE UPPER(?) "; }, $columns)) . " LIMIT ?");
+		$query->execute(array_merge(array_fill(0, count($columns), '%' . $q . '%'), [$limit]));
+		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		$models = array();
+		foreach ($res as $data)
+			array_push($models, static::create($data));
+		return $models;
+	}
+
 	/**
 	 * Delete a model from the database from its id
 	 */
