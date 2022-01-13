@@ -15,7 +15,6 @@ class InfoController extends BaseController {
 
 	#[Get('/test')]
 	public function test(): void {
-		echo 'testing mail';
-		$this->sendMail("prevottheodore@gmail.com", "Yolo", "Yolo");
+		$res = $this->sendMail("prevottheodore@gmail.com", "Yolo", "Yolo");
 	}
 }

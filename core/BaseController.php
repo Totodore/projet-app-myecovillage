@@ -2,8 +2,13 @@
 
 namespace Project\Core;
 
+use Exception;
+use MailResponseModel;
+use Project\Conf;
+use Project\Exceptions\HttpException;
 use Project\JWT;
 use Project\Models\UserModel;
+use Project\Utils;
 
 abstract class BaseController {
 
@@ -28,8 +33,17 @@ abstract class BaseController {
 	/**
 	 * Send a mail to the given mail address
 	 */
-	protected function sendMail(string $to, string $subject, string $body): bool {
-		return mail($to, $subject, $body);
+	protected function sendMail(string $to, string $subject, string $body): ?MailResponseModel {
+		$query = http_build_query([
+			"to" => $to,
+			"subject" => $subject,
+		]);
+		try {
+			Utils::file_put_raw_contents("https://mail-rest.dev.scriptis.fr/mail?$query", $body, 'admin', Conf::get('MAIL_PASSWORD'));
+		} catch(Exception $e) {
+			echo $e->getMessage();
+			throw new HttpException("Error while sending mail", 500, $e);
+		}
 	}
 
 	public function setDynamicRequest() {
