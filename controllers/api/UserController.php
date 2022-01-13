@@ -29,8 +29,8 @@ class UserController extends BaseController {
 
 	#[Get('/search')]
 	public function search(array $query) {
-		// if (!$this->isLogged())
-		// 	throw new ForbiddenException();
+		if (!$this->isLogged())
+			throw new ForbiddenException();
 		$users = UserModel::search($query["query"], ['firstname', 'name', 'email'], 5);
 		foreach ($users as $user) {
 			unset($user->password);

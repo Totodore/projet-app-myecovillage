@@ -24,10 +24,11 @@ abstract class BaseController {
 	}
 
 	protected function loadView(string $view, array $data = []): array {
+		$data['isLogged'] = $this->isLogged();
 		if ($this->isDynamicRequest)
 			return [$view, $data];
 		else
-			return ["index", []];
+			return ["index", $data];
 	}
 
 	/**

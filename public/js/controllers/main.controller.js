@@ -43,6 +43,8 @@ export class MainController extends BaseController {
             this.select(".connexion").style.display = "block";
             this.select(".inscription").style.display = "none";
         }
+
+				this.select(".search-user").style.display = this.apiService.logged ? 'flex' : 'none';
     }
 
     updateLoginStatus() {
@@ -71,7 +73,7 @@ export class MainController extends BaseController {
 				this.select('#user-list').innerHTML = '';
 				for (const user of res) {
 					const li = document.createElement('li');
-					li.innerHTML = `<a href="/${baseUrl}/user/${user.id}">${user.firstname} ${user.name} | ${user.email}</a>`;
+					li.innerHTML = `<a href="/${baseUrl}/user?id=${user.id}">${user.firstname} ${user.name} | ${user.email}</a>`;
 					this.select('#user-list').appendChild(li);
 				}
 			} else if (res && res.length == 0) {

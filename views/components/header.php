@@ -16,7 +16,7 @@
 				<a class="acceuil">Accueil</a>
 				<a class="game">Allez au jeu</a>
 				<a class="forum">Forum</a>
-				<div class="search-user">
+				<div class="search-user" style="display: <?php echo ($isLogged ? "flex" : "none") ?>">
 					<input autocomplete="off" type="text" name="user" id="user-input" placeholder="Recherche un utilisateur" />
 					<button><span class="material-icons">search</span></button>
 					<div id="user-list"></div>

@@ -22,7 +22,6 @@ class IndexController extends BaseController
 	}
 
 	#[Get('/home')]
-
 	public function home(array $query): array
 	{
 		if (!$this->isLogged())

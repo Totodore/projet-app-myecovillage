@@ -19,8 +19,7 @@ export class ApiService extends BaseService {
 	 */
 	async login(email, password) {
 		try {
-			const req = await this.post("api/auth/login", { email, password });
-			const res = await req.json();
+			const res = await this.post("api/auth/login", { email, password });
 			this.token = res.token;
 			return true;
 		} catch(e) {
