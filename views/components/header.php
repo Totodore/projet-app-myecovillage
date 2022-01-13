@@ -12,9 +12,16 @@
 			</a>
 		</div>
 		<div class="centercolumn">
-			<a class="acceuil">Accueil</a>
-			<a class="game">Allez au jeu</a>
-			<a class="forum">Forum</a>
+			<div class="search-wrapper">
+				<a class="acceuil">Accueil</a>
+				<a class="game">Allez au jeu</a>
+				<a class="forum">Forum</a>
+				<div class="search-user">
+					<input autocomplete="off" type="text" name="user" id="user-input" placeholder="Recherche un utilisateur" />
+					<button><span class="material-icons">search</span></button>
+					<div id="user-list"></div>
+				</div>
+			</div>
 			<div class="button">
 				<a class="connexion">Connexion</a>
 				<a class="inscription">Inscription</a>
@@ -31,8 +38,8 @@
 
 				<div class="dropdown-menu">
 
-					<a class="item" id="navconnexion" >Connexion</a>
-					<a class="item" id="navinscription" >Inscription</a>
+					<a class="item" id="navconnexion">Connexion</a>
+					<a class="item" id="navinscription">Inscription</a>
 					<a class="item" href="#Jeux">Game</a>
 					<a class="item" href="#">Contact</a>
 					<a class="item" href="Forum.html">Forum</a>

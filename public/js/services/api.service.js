@@ -37,12 +37,12 @@ export class ApiService extends BaseService {
 		}
 	}
 
-	async get(url, params) {
-		const req = await fetch(url, { params: params, headers: this.token ? { "Authorization": this.token } : null });
+	async get(url) {
+		const req = await fetch(url, { headers: this.token ? { "Authorization": this.token } : null });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
-		return req;
+		return await req.json();
 	}
 
 	async post(url, data) {
@@ -50,7 +50,7 @@ export class ApiService extends BaseService {
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
-		return req;
+		return await req.json();
 	}
 
 	async put(url, data) {
@@ -58,7 +58,7 @@ export class ApiService extends BaseService {
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
-		return req;
+		return await req.json();
 	}
 
 	async delete(url) {
@@ -66,7 +66,7 @@ export class ApiService extends BaseService {
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
-		return req;
+		return await req.json();
 	}
 
 	set token(value) {

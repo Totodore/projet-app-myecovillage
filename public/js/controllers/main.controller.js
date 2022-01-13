@@ -29,6 +29,7 @@ export class MainController extends BaseController {
         this.navigate("cgu", "#CGU");
         this.navigate("forum", ".forum");
         this.updateLoginStatus();
+				this.select("#user-input").addEventListener('input', e => this.onSearch(e.target.value));
     }
 
     /**
@@ -56,4 +57,25 @@ export class MainController extends BaseController {
             this.select(".inscription").style.display = "block";
         }
     }
+
+		async onSearch(query) {
+			this.log('Searching for ' + query);
+
+			if (query.length < 2) {
+				this.select("#user-list").innerHTML = "";
+				return;
+			}
+			
+			const res = await this.apiService.get('api/users/search?query=' + query );
+			if (res && res.length > 0 ) {
+				this.select('#user-list').innerHTML = '';
+				for (const user of res) {
+					const li = document.createElement('li');
+					li.innerHTML = `<a href="/${baseUrl}/user/${user.id}">${user.firstname} ${user.name} | ${user.email}</a>`;
+					this.select('#user-list').appendChild(li);
+				}
+			} else if (res && res.length == 0) {
+				this.select('#user-list').innerHTML = '';
+			}
+		}
 }
