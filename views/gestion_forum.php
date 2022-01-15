@@ -11,6 +11,9 @@
                 <span class="material-icons">delete</span>
                 </div>
             </div>
+            <div class="réponse">
+                <p>Elles seront seulement sur le site et elles seront sécurisées.</p>
+            </div>
         </div>
         <div class="forum-fle">
             <div class="questions">
@@ -22,6 +25,9 @@
                     <span class="material-icons">delete</span>
                 </div>    
             </div>
-        </div>
+            <div class="réponse">
+                <p>blablabla</p>
+            </div>
+            </div>
     </div>
 </div>
