@@ -58,6 +58,7 @@ p {
 	color: white;
 }
 .réponse {
+	display: none;
 	background-color: #6a90ad;
 	border-radius: 10px;
 	margin-left: 30px;
