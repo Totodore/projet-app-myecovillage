@@ -79,6 +79,7 @@ p
 }
 .réponse
 {
+    display: none;
     background-color: #6A90AD;
     border-radius: 10px;
     margin-left: 30px;
