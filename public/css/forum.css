@@ -75,6 +75,8 @@ textarea {
 
 input[type=submit] {
 	margin: auto;
+	display: flex;
+	justify-content: center;
     width: 40%;
     background-color: #ffffff;
     border : 1px solid black ;
