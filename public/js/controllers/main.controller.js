@@ -19,6 +19,13 @@ export class MainController extends BaseController {
 		this.navigate("signin", '.connexion');
 		this.navigate("signup", '.inscription');
 		this.navigate("account", '.account');
+		this.navigate("signin", ".mobile-connexion");
+		this.navigate("signup", ".mobile-inscription");
+		this.navigate("account", ".mobile-account");
+		this.navigate("game", ".mobile-game");
+		this.navigate("contactus", ".mobile-contact");
+		this.navigate("forum", ".mobile-forum");
+		this.navigate("faq", ".mobile-faq");
 		this.navigate("", '.home');
 		this.navigate("", ".logo-link");
 		this.navigate("", ".acceuil");

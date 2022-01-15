@@ -38,11 +38,11 @@
 
 				<div class="dropdown-menu">
 
-					<a class="item" id="navconnexion">Connexion</a>
-					<a class="item" id="navinscription">Inscription</a>
-					<a class="item" href="#Jeux">Game</a>
-					<a class="item" href="#">Contact</a>
-					<a class="item" href="Forum.html">Forum</a>
+					<a class="item mobile-connexion">Connexion</a>
+					<a class="item mobile-inscription">Inscription</a>
+					<a class="item mobile-game">Game</a>
+					<a class="item mobile-contact">Contact</a>
+					<a class="item mobile-forum">Forum</a>
 				</div>
 
 			</div>
