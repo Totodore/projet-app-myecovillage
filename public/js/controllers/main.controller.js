@@ -54,6 +54,7 @@ export class MainController extends BaseController {
 			this.select(".inscription").style.display = "block";
 		}
 		this.select(".search-user").style.display = this.apiService.logged ? 'flex' : 'none';
+		this.select("#ticket").style.display = this.apiService.logged ? 'block' : 'none';
 	}
 
 	updateLoginStatus() {
