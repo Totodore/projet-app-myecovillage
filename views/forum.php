@@ -5,6 +5,7 @@
         Posez votre question
     </button>
     <div class="forum-wrapper">
+
         <div class=question>
             <div class="questions">
                 <h2>Où vont les données ?</h2>
@@ -22,6 +23,7 @@
                 </form>
             </div>
         </div>
+
         <div class=question>
             <div class="questions">
                 <h2>Peut-on voir les données des autres utilisateurs ?</h2>
@@ -37,5 +39,6 @@
                 </p>
             </div>
         </div>
+        
     </div>
 </div>
