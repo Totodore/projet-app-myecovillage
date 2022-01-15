@@ -57,8 +57,13 @@ class UserController extends BaseController {
 		{
 			$user->password = password_hash($query['passwordchange'], PASSWORD_BCRYPT);
 		}
-
+		if ($query["mailchange"] != null && UserModel::findBy('email', $query["mailchange"]) == null)
+		{
+			$user->email = $query["mailchange"];
+		}
+		
 		$user->save();
+		$this->sendMail($user->email, "Modification de votre profil", "Bonjour,\n\nVotre profil a été modifié.\n\nCordialement,\nL'équipe MyEcovillage");
 
 		unset($user->password);
 
