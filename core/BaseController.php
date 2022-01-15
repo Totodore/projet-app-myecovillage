@@ -20,7 +20,7 @@ abstract class BaseController {
 	}
 
 	public function isLogged(): bool {
-		return $this->token != null;
+		return $this->token != null && JWT::verify($this->token, Conf::JWT_SECRET);
 	}
 
 	protected function loadView(string $view, array $data = []): array {

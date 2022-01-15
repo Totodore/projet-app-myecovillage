@@ -2,6 +2,7 @@
 
 namespace Project;
 
+use ErrorException;
 use Exception;
 /**
  * Options to display all errors
@@ -35,6 +36,11 @@ spl_autoload_register(function (string $className) {
 		throw new Exception('Class ' . $className . ' not found, required path: ' . $path);
 	}
 });
+
+set_error_handler(function ($errno, $errstr, $errfile, $errline ) {
+	throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
+});
+
 use Project\Core\ControllerManager;
 /**
  * Initialize dynamic parameters for PHP
