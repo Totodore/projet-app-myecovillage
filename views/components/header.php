@@ -12,9 +12,16 @@
 			</a>
 		</div>
 		<div class="centercolumn">
-			<a class="acceuil">Accueil</a>
-			<a class="game">Allez au jeu</a>
-			<a class="forum">Forum</a>
+			<div class="search-wrapper">
+				<a class="acceuil">Accueil</a>
+				<a class="game">Allez au jeu</a>
+				<a class="forum">Forum</a>
+				<div class="search-user" style="display: <?php echo ($isLogged ? "flex" : "none") ?>">
+					<input autocomplete="off" type="text" name="user" id="user-input" placeholder="Recherche un utilisateur" />
+					<button><span class="material-icons">search</span></button>
+					<div id="user-list"></div>
+				</div>
+			</div>
 			<div class="button">
 				<a class="connexion">Connexion</a>
 				<a class="inscription">Inscription</a>
@@ -31,11 +38,11 @@
 
 				<div class="dropdown-menu">
 
-					<a class="item" id="navconnexion" href="connexion.html">Connexion</a>
-					<a class="item" id="navinscription" href="inscription.html">Inscription</a>
-					<a class="item" href="#Jeux">Game</a>
-					<a class="item" href="#">Contact</a>
-					<a class="item" href="Forum.html">Forum</a>
+					<a class="item mobile-connexion">Connexion</a>
+					<a class="item mobile-inscription">Inscription</a>
+					<a class="item mobile-game">Game</a>
+					<a class="item mobile-contact">Contact</a>
+					<a class="item mobile-forum">Forum</a>
 				</div>
 
 			</div>

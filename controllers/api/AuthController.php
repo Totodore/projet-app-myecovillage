@@ -41,6 +41,8 @@ class AuthController extends BaseController {
 		$user = UserModel::create($query);
 		$user->save();
 
+		$this->sendMail($user->email, "Bienvenue sur MyEcovillage", "Bonjour " . $user->name . ",\n\nBienvenue sur MyEcovillage, nous vous souhaitons la bienvenue.\nVous pouvez dès à présent vous connecter sur le site.\n\nCordialement,\n\nL'équipe MyEcovillage");
+
 		unset($user->password);
 
 		return [

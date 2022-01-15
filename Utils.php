@@ -2,6 +2,7 @@
 
 namespace Project;
 
+use Exception;
 use Project\Models\UserModel;
 
 class Utils
@@ -14,6 +15,25 @@ class Utils
 	{
 		json_decode($str);
 		return json_last_error() === JSON_ERROR_NONE;
+	}
+
+	public static function file_put_raw_contents($url, $data, $username = null, $password = null)
+	{
+		$opts = array(
+			'http' =>
+			array(
+				'method'  => 'PUT',
+				'header'  => 	"Content-type: text/plain\r\n".
+											"Content-Length: " . strlen($data) . "\r\n",
+				'content' => $data,
+			)
+		);
+
+		if ($username && $password) {
+			$opts['http']['header'] .= ("Authorization: Basic " . base64_encode("$username:$password"))."\r\n";
+		}
+		$context = stream_context_create($opts);
+		file_get_contents($url, false, $context);
 	}
 }
 
@@ -53,7 +73,8 @@ class JWT
 		return json_decode($payload);
 	}
 
-	public static function verify(string $token, string $secret): bool {
+	public static function verify(string $token, string $secret): bool
+	{
 		$parts = explode('.', $token);
 		$header = $parts[0];
 		$payload = $parts[1];

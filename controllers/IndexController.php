@@ -22,9 +22,11 @@ class IndexController extends BaseController
 	}
 
 	#[Get('/home')]
-
 	public function home(array $query): array
 	{
+		if (!$this->isLogged())
+			throw new ForbiddenException();
+		// $this->getLoggedUser()->print();
 		return $this->loadView('home', $query);
 	}
 
@@ -52,20 +54,20 @@ class IndexController extends BaseController
 	}
 
 	#[Get('/account')]
-	public function account(array $query, ?string $auth): array
+	public function account(array $query): array
 	{
-		if ($auth == null)
-			header('Location: /php-framework/signin');
-		$user = UserModel::findOne(JWT::decode($auth)->id);
+		if (!$this->isLogged())
+			header('Location: /php-framework');
+		$user = $this->getLoggedUser();
 		return $this->loadView('account', ["user" => $user]);
 	}
 
 	#[Get('/account/edit')]
-	public function account_edit(array $query, ?string $auth): array
+	public function account_edit(array $query): array
 	{
-		if ($auth == null)
-			header('Location: /php-framework/signin');
-		$user = UserModel::findOne(JWT::decode($auth)->id);
+		if (!$this->isLogged())
+			header('Location: /php-framework');
+		$user = $this->getLoggedUser();
 		return $this->loadView('account_edit', ["usered" => $user]);
 	}
 
