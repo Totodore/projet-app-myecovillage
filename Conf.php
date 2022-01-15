@@ -11,6 +11,7 @@ use PDO;
 use Project\Controllers\AdminController;
 use Project\Controllers\IndexController;
 use Project\Controllers\Api\AuthController;
+use Project\Controllers\Api\TicketController;
 use Project\Controllers\Api\UserController;
 use Project\Controllers\InfoController;
 use Project\Core\Attributes\Http\Get;
@@ -19,10 +20,11 @@ use Project\Core\Attributes\Http\Put;
 use Project\Core\Attributes\Http\Delete;
 use Project\Core\Attributes\Http\Patch;
 use Project\Models\UserModel;
-use Project\Models\AdminMessageModel;
 use Project\Models\HeartBeatModel;
 use Project\Models\MinigameResultModel;
 use Project\Models\FaqArticleModel;
+use Project\Models\ForumModel;
+use Project\Models\TicketModel;
 
 class Conf
 {
@@ -60,6 +62,7 @@ class Conf
 		AdminController::class,
 		AuthController::class,
 		UserController::class,
+		TicketController::class
 	];
 
 	/**
@@ -67,10 +70,11 @@ class Conf
  	*/
 	const MODELS = [
 		UserModel::class,
-		AdminMessageModel::class,
 		HeartBeatModel::class,
 		MinigameResultModel::class,
 		FaqArticleModel::class,
+		ForumModel::class,
+		TicketModel::class,
 	];
 
 	/**

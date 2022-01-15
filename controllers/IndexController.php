@@ -9,6 +9,7 @@ use Project\JWT;
 use Project\Conf;
 use Project\Exceptions\ForbiddenException;
 use Project\Exceptions\HttpException;
+use Project\Models\TicketModel;
 use Project\Models\UserModel;
 
 #[Controller]
@@ -57,7 +58,7 @@ class IndexController extends BaseController
 	public function account(array $query): array
 	{
 		if (!$this->isLogged())
-			header('Location: /php-framework');
+			$this->redirect("/");
 		$user = $this->getLoggedUser();
 		return $this->loadView('account', ["user" => $user]);
 	}
@@ -66,7 +67,7 @@ class IndexController extends BaseController
 	public function account_edit(array $query): array
 	{
 		if (!$this->isLogged())
-			header('Location: /php-framework');
+			$this->redirect("/");
 		$user = $this->getLoggedUser();
 		return $this->loadView('account_edit', ["usered" => $user]);
 	}
@@ -85,5 +86,21 @@ class IndexController extends BaseController
 	public function gestion_forum(array $query): array
 	{
 		return $this->loadView('gestion_forum', $query);
+	}
+	
+	#[Get('/ticket')]
+	public function ticket(array $query): array {
+		if (!$this->isLogged())
+			$this->redirect("/");
+		$tickets = TicketModel::findManyBy('authorId', $this->getLoggedUser()->id) ?? [];
+		$openedTickets = [];
+		$closedTickets = [];
+		foreach ($tickets as $ticket) {
+			if ($ticket->open)
+				$openedTickets[] = $ticket;
+			else
+				$closedTickets[] = $ticket;
+		}
+		return $this->loadView('ticket', ["openedTickets" => $openedTickets, "closedTickets" => $closedTickets]);
 	}
 }
