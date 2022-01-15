@@ -52,8 +52,9 @@ class IndexController extends BaseController
 	public function contactus(array $query): array
 	{
 		if ($this->isLogged())
-		$user = $this->getLoggedUser();
-		else $user=NULL;
+			$user = $this->getLoggedUser();
+		else 
+			$user = NULL;
 		return $this->loadView('contactus', ["user" => $user]);
 	}
 
