@@ -84,7 +84,8 @@ export class BaseController {
 			let element = this.select(query);
 			if (element) {
 				element.addEventListener("click", (e) => callback(element, e));
-			}
+			} else
+				this.log("WARN Cannot find element", query);
 			return element;
 	}
 

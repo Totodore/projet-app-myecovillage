@@ -19,8 +19,7 @@ export class ApiService extends BaseService {
 	 */
 	async login(email, password) {
 		try {
-			const req = await this.post("api/auth/login", { email, password });
-			const res = await req.json();
+			const res = await this.post("api/auth/login", { email, password });
 			this.token = res.token;
 			return true;
 		} catch(e) {
@@ -37,36 +36,41 @@ export class ApiService extends BaseService {
 		}
 	}
 
-	async get(url, params) {
-		const req = await fetch(url, { params: params, headers: this.token ? { "Authorization": "Bearer " + this.token } : null });
+	logout()
+	{
+		localStorage.removeItem("token");
+	}
+	
+	async get(url) {
+		const req = await fetch(url, { headers: this.token ? { "Authorization": this.token } : null });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
-		return req;
+		return await req.json();
 	}
 
 	async post(url, data) {
-		const req = await fetch(baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? "Bearer " + this.token : null } });
+		const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
-		return req;
+		return await req.json();
 	}
 
 	async put(url, data) {
-		const req = await fetch(baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? "Bearer " + this.token : null } });
+		const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
-		return req;
+		return await req.json();
 	}
 
 	async delete(url) {
-		const req = await fetch(baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? "Bearer " + this.token : null } });
+		const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
-		return req;
+		return await req.json();
 	}
 
 	set token(value) {

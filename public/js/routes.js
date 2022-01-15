@@ -56,12 +56,12 @@ export const routes = {
 	},
 	'/account': {
 		controller: AccountController,
-		services: [],
+		services: [ApiService],
 		guard: null
 	},
 	'/account/edit': {
 		controller: AccountEditController,
-		services: [],
+		services: [ApiService],
 		guard: null
 	},
 	'/cgu': {

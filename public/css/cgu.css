@@ -15,15 +15,17 @@
 	padding: 10px 20px 10px 20px;
 	text-align: justify;
 }
+p {
+	color: black;
+	text-align: justify;
+	font-size: 14px;
+}
 h1 {
 	color: white;
 	text-align: center;
 }
 h2 {
 	font-size: 20px;
-}
-p {
-	font-size: 14px;
 }
 ul {
 	font-size: 14px;

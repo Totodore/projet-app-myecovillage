@@ -25,7 +25,7 @@ abstract class BaseModel extends BaseModelHandler
 			$this->createTable($pdo);
 			// echo 'Table ' . $this->tableName . ' created' . "\n";
 		} else {
-			if (Conf::FORCE_UPDATE) {
+			if (Conf::DB_FORCE_UPDATE) {
 				// echo 'Table ' . $this->tableName . ' force update, dropping table and recreating it...' . "\n";
 				$this->dropTable($pdo);
 				$this->createTable($pdo);
@@ -88,9 +88,9 @@ abstract class BaseModel extends BaseModelHandler
 	public function print(): void
 	{
 		$val = array();
-		foreach ($this->properties as $key => $value)
-			$val[$value] = $this->{$value};
-		echo $this->tableName . ": ";
+		foreach ($this->getColumnEntries() as $key => $value)
+			$val[$key] = $value;
+		echo $this->getTableName() . ": ";
 		print_r($val);
 	}
 	
@@ -191,6 +191,19 @@ abstract class BaseModel extends BaseModelHandler
 		$query->execute(array($value));
 		$res = $query->fetch(PDO::FETCH_ASSOC);
 		return !$res ? NULL : static::create($res);
+	}
+
+	public static function search(string $q, array $columns, int $limit): array
+	{
+		$tableName = static::getTableName();
+		$pdo = $GLOBALS['pdo'];
+		$query = $pdo->prepare("SELECT * FROM $tableName WHERE " . implode("OR ", array_map(function($col) { return " UPPER($col) LIKE UPPER(?) "; }, $columns)) . " LIMIT ?");
+		$query->execute(array_merge(array_fill(0, count($columns), '%' . $q . '%'), [$limit]));
+		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		$models = array();
+		foreach ($res as $data)
+			array_push($models, static::create($data));
+		return $models;
 	}
 
 	/**
