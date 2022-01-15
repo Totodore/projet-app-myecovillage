@@ -1,6 +1,4 @@
-import { BaseService } from "../core/base.service.js";
-
-export class ApiService extends BaseService {
+export class ApiService {
 
 	
 	/**
@@ -9,7 +7,6 @@ export class ApiService extends BaseService {
 	static instance;
 
 	constructor() {
-		super();
 		ApiService.instance = this;
 	}
 	/**
@@ -37,6 +34,10 @@ export class ApiService extends BaseService {
 		} catch(e) {
 			console.error(e);
 		}
+	}
+
+	async isAdmin() {
+		return (await this.get("api/auth/is-admin")).isAdmin;
 	}
 
 	logout()

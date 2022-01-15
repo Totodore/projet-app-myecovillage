@@ -30,7 +30,7 @@ abstract class BaseController {
 	}
 
 	public function isAdmin(): bool {
-		return $this->isLogged() && $this->getLoggedUser()->isAdmin;
+		return $this->isLogged() && $this->getLoggedUser()->isadmin;
 	}
 
 	public function loadView(string $view, array $data = []): array {

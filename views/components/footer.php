@@ -1,4 +1,5 @@
 <footer>
+	<div id="admin" style="display: none;">ADMINISTRATION</div>
 	<div class="desfooter">
 		<div id="ticket">J'AI UN PROBLÈME</div>
 		<div id="contact">CONTACT</div>

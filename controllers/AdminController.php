@@ -4,12 +4,15 @@ namespace Project\Controllers;
 use Project\Core\Attributes\Http\Controller;
 use Project\Core\Attributes\Http\Get;
 use Project\Core\BaseController;
+use Project\Exceptions\ForbiddenException;
 
-#[Controller]
+#[Controller("admin")]
 class AdminController extends BaseController {
 
-	#[Get("/admin")]
+	#[Get("/index")]
 	public function index(array $query): array {
-		return $this->loadView('admin.index', $query);
+		if (!$this->isAdmin())
+			new ForbiddenException();
+		return $this->loadView('admin/index', $query);
 	}
 }

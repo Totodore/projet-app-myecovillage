@@ -1,13 +1,12 @@
 import { AccountController } from "./controllers/account.controller.js";
 import { AccountEditController } from "./controllers/account_edit.controller.js";
-import { AdminController } from "./controllers/admin.controller.js";
 import { HomeController } from "./controllers/home.controller.js";
 import { MainController } from "./controllers/main.controller.js";
 import { SigninController } from "./controllers/signin.controller.js";
 import { SignupController } from "./controllers/signup.controller.js";
 import { FaqController } from "./controllers/faq.controller.js";
 import { BaseController } from "./core/base.controller.js";
-import { BaseService } from "./core/base.service.js";
+import { AdminController } from "./controllers/admin/admin.controller.js";
 import { AdminGuard } from "./guards/admin.guard.js";
 import { ApiService } from "./services/api.service.js";
 import { ContactusController } from "./controllers/contactus.controller.js";
@@ -82,6 +81,11 @@ export const routes = {
 	},
 	'/ticket': {
 		controller: TicketController,
+		services: [ApiService],
+		guard: null
+	},
+	'/admin': {
+		controller: AdminController,
 		services: [ApiService],
 		guard: null
 	}

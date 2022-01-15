@@ -15,7 +15,7 @@ export class MainController extends BaseController {
 		this.apiService = apiService;
 	}
 
-	onInit() {
+	async onInit() {
 		this.navigate("signin", '.connexion');
 		this.navigate("signup", '.inscription');
 		this.navigate("account", '.account');
@@ -34,8 +34,10 @@ export class MainController extends BaseController {
 		this.navigate("cgu", "#CGU");
 		this.navigate("forum", ".forum");
 		this.navigate("ticket", "#ticket");
+		this.navigate("admin", "#admin");
 		this.select("#user-input").addEventListener('input', e => this.onSearch(e.target.value));
 		this.updateLoginStatus();
+		this.select("#admin").style.display = this.apiService.logged && await this.apiService.isAdmin() ? 'block' : 'none';
 	}
 
 	/**
