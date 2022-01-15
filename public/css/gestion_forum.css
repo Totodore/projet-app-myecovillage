@@ -17,6 +17,7 @@ h2{
 p
 {
     color: white;
+    text-align: justify;
 }
 .question {
     border: 0;
@@ -45,7 +46,7 @@ p
                 inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
-.forum
+.forum-wrapper
 {
     background-color: #666;
     box-shadow: 0 0 5px 2px #00000069;
@@ -65,14 +66,14 @@ p
 .expand_more
 {
     position: absolute;
-    bottom: 50px;
+    bottom: 30px;
     right:4px;
     color: white;
 }
 .delete
 {
     position: absolute;
-    bottom: 50px;
+    bottom: 30px;
     right:30px;
     color: white;
 }

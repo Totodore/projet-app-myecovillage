@@ -70,6 +70,7 @@ header .faq:hover {
 }
 
 header .inscription {
+	text-align: center;
 	background-color: #5bcc12;
 	border-radius: 3px;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
@@ -82,6 +83,7 @@ header .inscription {
 }
 
 header .connexion {
+	text-align: center;
 	border-width: 1px;
 	border-color: #5bcc12;
 	border-style: solid;

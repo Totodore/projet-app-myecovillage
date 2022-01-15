@@ -1,6 +1,6 @@
 <div class="gestion">    
     <h1>Forum</h1>
-    <div class="forum">
+    <div class="forum-wrapper">
         <div class="questions">
             <h2>Où vont les données ?</h2>
             <div class="expand_more">
