@@ -36,6 +36,11 @@ export class ApiService extends BaseService {
 		}
 	}
 
+	logout()
+	{
+		localStorage.removeItem("token");
+	}
+	
 	async get(url) {
 		const req = await fetch(url, { headers: this.token ? { "Authorization": this.token } : null });
 		if (!req.ok) {

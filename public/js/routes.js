@@ -61,7 +61,7 @@ export const routes = {
 	},
 	'/account/edit': {
 		controller: AccountEditController,
-		services: [],
+		services: [ApiService],
 		guard: null
 	},
 	'/cgu': {

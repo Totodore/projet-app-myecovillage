@@ -44,7 +44,7 @@
     font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
   }
 
-  .boutonconnexion1:hover
+  .boutonconnexion1,.boutonvalider:hover
   {
     background-color: #78c545;
   }
@@ -54,7 +54,7 @@
     font-size: 40px;
     font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
   }
-  .boutonconnexion1
+  .boutonconnexion1,.boutonvalider
   {
     background-color: #4CAF50; /* Green */
     border: none;

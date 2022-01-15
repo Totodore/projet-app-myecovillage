@@ -9,6 +9,7 @@ use Project\Core\BaseController;
 use Project\Exceptions\ForbiddenException;
 use Project\JWT;
 use Project\Models\UserModel;
+use Project\Core\Attributes\Http\Post;
 
 #[JsonController('api/users')]
 class UserController extends BaseController {
@@ -36,5 +37,35 @@ class UserController extends BaseController {
 			unset($user->password);
 		}
 		return $users;
+	}
+
+
+	#[Post('edit_profil')]
+	public function profil_edit(array $query): array 
+	{
+		$user = $this->getLoggedUser();
+
+		$user->name = $query["nomchange"] ?? $user->name;
+
+		$user->firstname = $query["prenomchange"] ?? $user->firstname;
+
+		$user->height = $query["taillechange"] ?? $user->height;
+
+		$user->weight = $query["poidschange"] ?? $user->weight;
+
+		if($query["passwordchange"] != null)
+		{
+			$user->password = password_hash($query['passwordchange'], PASSWORD_BCRYPT);
+		}
+
+		$user->save();
+
+		unset($user->password);
+
+		return [
+			'success' => true,
+			'user' => $user
+		];
+		
 	}
 }
