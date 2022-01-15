@@ -20,6 +20,8 @@
                 </p>
             </form>
         </div>
+    </div>
+    <div class="forum-wrapper">
         <div class="questions">
             <h2>Peut-on voir les données des autres utilisateurs ?</h2>
             <span class="material-icons">expand_more</span>   
