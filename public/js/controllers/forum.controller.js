@@ -15,14 +15,5 @@ export class ForumController extends BaseController {
 	}
 
 	async onInit() {
-		const questions = document.querySelectorAll('.forum-wrapper');
-        for (const question of questions) {
-            question.querySelector('span.material-icons').addEventListener('click', () => {
-                const panel = question.querySelector('.reponse');
-                if (panel.style.display == 'block')
-                    panel.style.display = 'none';
-                else panel.style.display = 'block';
-            });
-        }
 	}
 }
