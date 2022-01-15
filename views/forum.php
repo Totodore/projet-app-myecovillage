@@ -12,14 +12,13 @@
             </div>
             <div class="réponse">
                 <p>Elles seront seulement sur le site et elles seront sécurisées.</p>
-                <form method="post" action="">
                     <p>
                         <label for="réponse">Votre réponse à la question</label>
                     </p>
                     <p>
                         <textarea name="réponse" id="réponse"></textarea>
                     </p>
-                </form>
+                <input type="submit" value="Envoyer">
             </div>
         </div>
         <div class="forum-fle">
@@ -35,6 +34,7 @@
                 <p>
                     <textarea name="réponse" id="réponse"></textarea>
                 </p>
+                <input type="submit" value="Envoyer">
             </div>
         </div>
     </div>
