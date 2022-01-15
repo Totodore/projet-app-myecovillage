@@ -72,3 +72,9 @@ textarea {
 	resize: none;
 	height: 100px;
 }
+
+input[type=submit] {
+    width: 40%;
+    background-color: #ffffff;
+    border : 1px solid black ;
+  }
