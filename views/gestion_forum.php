@@ -11,17 +11,6 @@
                 <span class="material-icons">delete</span>
                 </div>
             </div>
-            <div class="réponse">
-                <p>Elles seront seulement sur le site et elles seront sécurisées.</p>
-                <form method="post" action="">
-                    <p>
-                        <label for="réponse">Votre réponse à la question</label>
-                    </p>
-                    <p>
-                        <textarea name="réponse" id="réponse1"></textarea>
-                    </p>
-                </form>
-            </div>
         </div>
         <div class="forum-fle">
             <div class="questions">
@@ -32,15 +21,6 @@
                 <div class="delete">
                     <span class="material-icons">delete</span>
                 </div>    
-            </div>
-            <div class="réponse">
-                <p>blablabla</p>
-                <p>
-                    <label for="réponse">Votre réponse à la question</label>
-                </p>    
-                <p>
-                    <textarea name="réponse" id="réponse2"></textarea>
-                </p>
             </div>
         </div>
     </div>
