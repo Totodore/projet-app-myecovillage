@@ -33,6 +33,7 @@ export class MainController extends BaseController {
 		this.navigate("contactus", "#contact");
 		this.navigate("cgu", "#CGU");
 		this.navigate("forum", ".forum");
+		this.select("#user-input").addEventListener('input', e => this.onSearch(e.target.value));
 		this.updateLoginStatus();
 	}
 
@@ -50,6 +51,7 @@ export class MainController extends BaseController {
 			this.select(".connexion").style.display = "block";
 			this.select(".inscription").style.display = "block";
 		}
+		this.select(".search-user").style.display = this.apiService.logged ? 'flex' : 'none';
 	}
 
 	updateLoginStatus() {
