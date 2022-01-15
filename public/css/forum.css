@@ -74,7 +74,8 @@ textarea {
 }
 
 input[type=submit] {
-    width: 100%;
+	align-content: center;
+    width: 40%;
     background-color: #ffffff;
     border : 1px solid black ;
   }
