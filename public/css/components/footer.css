@@ -6,9 +6,7 @@ footer {
     box-shadow: 0 0 4px 2px #4e6b81;
 }
 
-footer #CGU,
-footer #FAQ_f,
-footer #contact {
+footer .desfooter div {
     font-size: 20px;
     font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
     color: #5bcc12;
