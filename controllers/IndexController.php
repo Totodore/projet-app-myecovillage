@@ -52,20 +52,20 @@ class IndexController extends BaseController
 	}
 
 	#[Get('/account')]
-	public function account(array $query, ?string $auth): array
+	public function account(array $query): array
 	{
-		if ($auth == null)
+		if (!$this->isLogged())
 			header('Location: /php-framework');
-		$user = UserModel::findOne(JWT::decode($auth)->id);
+		$user = $this->getLoggedUser();
 		return $this->loadView('account', ["user" => $user]);
 	}
 
 	#[Get('/account/edit')]
-	public function account_edit(array $query, ?string $auth): array
+	public function account_edit(array $query): array
 	{
-		if ($auth == null)
+		if (!$this->isLogged())
 			header('Location: /php-framework');
-		$user = UserModel::findOne(JWT::decode($auth)->id);
+		$user = $this->getLoggedUser();
 		return $this->loadView('account_edit', ["usered" => $user]);
 	}
 

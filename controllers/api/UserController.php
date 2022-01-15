@@ -9,9 +9,10 @@ use Project\JWT;
 use Project\Models\UserModel;
 use Project\Core\Attributes\Http\Post;
 use Project\Core\Attributes\Http\VerifyRequest;
+use Project\Core\BaseController;
 
 #[JsonController('api/users')]
-class UserController {
+class UserController extends BaseController {
 
 	#[Get('me')]
 	public function getMe(): object {
@@ -30,12 +31,23 @@ class UserController {
 
 
 	#[Post('edit_profil')]
-	//#[VerifyRequest(["email", "password", "name", "firstname", "weight", "height"])]
-	public function register(array $query): array 
+	public function profil_edit(array $query): array 
 	{
-		$query['password'] = password_hash($query['password'], PASSWORD_BCRYPT);
+		$user = $this->getLoggedUser();
 
-		$user = UserModel::findOne(10);
+		$user->name = $query["nomchange"] ?? $user->name;
+
+		$user->firstname = $query["prenomchange"] ?? $user->firstname;
+
+		$user->height = $query["taillechange"] ?? $user->height;
+
+		$user->weight = $query["poidschange"] ?? $user->weight;
+
+		if($query["passwordchange"] != null)
+		{
+			$user->password = password_hash($query['passwordchange'], PASSWORD_BCRYPT);
+		}
+
 		$user->save();
 
 		unset($user->password);

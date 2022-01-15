@@ -43,7 +43,7 @@ export class ApiService extends BaseService {
 	}
 
 	async get(url, params) {
-		const req = await fetch(url, { params: params, headers: this.token ? { "Authorization": "Bearer " + this.token } : null });
+		const req = await fetch(url, { params: params, headers: this.token ? { "Authorization": this.token } : null });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
@@ -51,7 +51,7 @@ export class ApiService extends BaseService {
 	}
 
 	async post(url, data) {
-		const req = await fetch(baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? "Bearer " + this.token : null } });
+		const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
@@ -59,7 +59,7 @@ export class ApiService extends BaseService {
 	}
 
 	async put(url, data) {
-		const req = await fetch(baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? "Bearer " + this.token : null } });
+		const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
@@ -67,7 +67,7 @@ export class ApiService extends BaseService {
 	}
 
 	async delete(url) {
-		const req = await fetch(baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? "Bearer " + this.token : null } });
+		const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}

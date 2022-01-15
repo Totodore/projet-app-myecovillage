@@ -25,4 +25,6 @@ export class AccountController extends BaseController {
 		this.apiService.logout();
 		location = "/" + baseUrl;
 	}
+
+	
 }
