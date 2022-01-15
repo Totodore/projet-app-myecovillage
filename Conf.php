@@ -11,6 +11,7 @@ use PDO;
 use Project\Controllers\AdminController;
 use Project\Controllers\IndexController;
 use Project\Controllers\Api\AuthController;
+use Project\Controllers\Api\ContactController;
 use Project\Controllers\Api\UserController;
 use Project\Controllers\InfoController;
 use Project\Core\Attributes\Http\Get;
@@ -32,7 +33,7 @@ class Conf
 	const DB_NAME   					= 'test';
 	const DB_USER 						= 'root';
 	const DB_PASS 						= 'root';
-	const DB_PORT 						= '3306';
+	const DB_PORT 						= '3307';
 	const DB_CHARSET 					= 'utf8mb4';
 	const DB_FORCE_UPDATE 		= false;
 	const OPTIONS = [
@@ -43,7 +44,7 @@ class Conf
 	
 	//Mail configuration
 	const MAIL_PASSWORD 	= 'dabEscPNSr';
-	const MAIL_USER 			= 'myecovillage@scriptis.fr';
+	const MAIL_USER 			= 'jasiewe21@gmail.com';
 	const MAIL_HOST 			= 'mail.scriptis.fr';
 	const MAIL_PORT 			= '587';
 	const MAIL_FROM_NAME 	= 'MyEcoVillage';
@@ -60,6 +61,7 @@ class Conf
 		AdminController::class,
 		AuthController::class,
 		UserController::class,
+		ContactController::class,
 	];
 
 	/**

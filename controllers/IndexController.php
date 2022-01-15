@@ -50,7 +50,10 @@ class IndexController extends BaseController
 	#[Get('/contactus')]
 	public function contactus(array $query): array
 	{
-		return $this->loadView('contactus', $query);
+		if ($this->isLogged())
+		$user = $this->getLoggedUser();
+		else $user=NULL;
+		return $this->loadView('contactus', ["user" => $user]);
 	}
 
 	#[Get('/account')]

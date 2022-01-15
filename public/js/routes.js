@@ -51,7 +51,7 @@ export const routes = {
 	},
 	'/contactus': {
 		controller: ContactusController,
-		services: [],
+		services: [ApiService],
 		guard: null
 	},
 	'/account': {
