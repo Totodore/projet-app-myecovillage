@@ -50,6 +50,7 @@ p {
 	border-radius: 10px;
 	padding: 5px 5px 5px 5px;
 	position: relative;
+	margin-bottom: 10px;
 }
 .material-icons {
 	position: absolute;
