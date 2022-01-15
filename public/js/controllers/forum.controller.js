@@ -15,7 +15,7 @@ export class ForumController extends BaseController {
 	}
 
 	async onInit() {
-		const questions = document.querySelectorAll('.questions');
+		const questions = document.querySelectorAll('.forum-wrapper');
 		for (const question of questions) {
             question.querySelector('span.material-icons').addEventListener('click', () => {
                 const reponse = question.querySelector('.réponse');
