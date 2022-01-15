@@ -29,7 +29,7 @@ class MinigameResultModel extends BaseModel {
 	#[Column()]
 	public bool $wentOutside;
 	#[Column()]
-	public bool $interactiveDay;
+	public int $interactiveDay;
 	#[Column()]
 	public bool $sport;
 	#[Column()]

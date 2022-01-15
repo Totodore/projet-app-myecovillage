@@ -14,69 +14,75 @@ import { ContactusController } from "./controllers/contactus.controller.js";
 import { CguController } from "./controllers/cgu.controller.js";
 import { ForumController } from "./controllers/forum.controller.js";
 import { GestionForumController } from "./controllers/gestion-forum.controller.js";
+import { MinigameController } from "./controllers/minigame.controller.js";
 /**
  * Route mapping between path and controllers
  * @type {Object.<string, {controller: typeof BaseController, guard?: typeof BaseGuard, services: typeof BaseService[]}>}
  */
 export const routes = {
-	'*': {
-		controller: MainController,
-		services: [ApiService],
-		guard: null
-	},
-	'/': {
-		controller: HomeController,
-		services: [ApiService],
-		guard: null
-	},
-	'/signin': {
-		controller: SigninController,
-		services: [ApiService],
-		guard: null
-	},
-	'/signup': {
-		controller: SignupController,
-		services: [ApiService],
-		guard: null
-	},
-	'/admin': {
-		controller: AdminController,
-		services: [],
-		guard: AdminGuard
-	},
-	'/faq': {
-		controller: FaqController,
-		services: [],
-		guard: null
-	},
-	'/contactus': {
-		controller: ContactusController,
-		services: [],
-		guard: null
-	},
-	'/account': {
-		controller: AccountController,
-		services: [ApiService],
-		guard: null
-	},
-	'/account/edit': {
-		controller: AccountEditController,
-		services: [],
-		guard: null
-	},
-	'/cgu': {
-		controller: CguController,
-		services: [],
-		guard: null
-	},
-	'/forum': {
-		controller: ForumController,
-		services: [],
-		guard: null
-	},
-	'/gestion_forum': {
-		controller: GestionForumController,
-		services: [],
-		guard: null
-	}
+    '*': {
+        controller: MainController,
+        services: [ApiService],
+        guard: null
+    },
+    '/': {
+        controller: HomeController,
+        services: [ApiService],
+        guard: null
+    },
+    '/signin': {
+        controller: SigninController,
+        services: [ApiService],
+        guard: null
+    },
+    '/signup': {
+        controller: SignupController,
+        services: [ApiService],
+        guard: null
+    },
+    '/admin': {
+        controller: AdminController,
+        services: [],
+        guard: AdminGuard
+    },
+    '/faq': {
+        controller: FaqController,
+        services: [],
+        guard: null
+    },
+    '/contactus': {
+        controller: ContactusController,
+        services: [],
+        guard: null
+    },
+    '/account': {
+        controller: AccountController,
+        services: [ApiService],
+        guard: null
+    },
+    '/account/edit': {
+        controller: AccountEditController,
+        services: [],
+        guard: null
+    },
+    '/cgu': {
+        controller: CguController,
+        services: [],
+        guard: null
+    },
+    '/forum': {
+        controller: ForumController,
+        services: [],
+        guard: null
+    },
+    '/gestion_forum': {
+        controller: GestionForumController,
+        services: [],
+        guard: null
+    },
+    '/minigame': {
+        controller: MinigameController,
+        services: [],
+        guard: null
+    }
 }

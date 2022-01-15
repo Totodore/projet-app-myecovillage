@@ -86,4 +86,9 @@ class IndexController extends BaseController
 	{
 		return $this->loadView('gestion_forum', $query);
 	}
+	#[Get('/minigame')]
+	public function minigame(array $query): array
+	{
+		return $this->loadView('minigame', $query);
+	}
 }
