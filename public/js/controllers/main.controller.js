@@ -33,6 +33,7 @@ export class MainController extends BaseController {
 		this.navigate("contactus", "#contact");
 		this.navigate("cgu", "#CGU");
 		this.navigate("forum", ".forum");
+		this.navigate("ticket", "#ticket");
 		this.select("#user-input").addEventListener('input', e => this.onSearch(e.target.value));
 		this.updateLoginStatus();
 	}
@@ -48,6 +49,7 @@ export class MainController extends BaseController {
 			this.select(".connexion").style.display = "block";
 			this.select(".inscription").style.display = "none";
 		} else if (route[0] == "/" && !this.apiService.logged) {
+			this.navigate("signin");
 			this.select(".connexion").style.display = "block";
 			this.select(".inscription").style.display = "block";
 		}

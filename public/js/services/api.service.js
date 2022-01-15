@@ -19,7 +19,10 @@ export class ApiService extends BaseService {
 	 */
 	async login(email, password) {
 		try {
-			const res = await this.post("api/auth/login", { email, password });
+			const res = await this.post("/api/auth/login", { email, password });
+			console.log("login", res);
+			if (!res.token)
+				throw new Error("Invalid token");
 			this.token = res.token;
 			return true;
 		} catch(e) {
@@ -30,7 +33,7 @@ export class ApiService extends BaseService {
 
 	async register(data) {
 		try {
-			return await this.post("api/auth/register", data);
+			return await this.post("/api/auth/register", data);
 		} catch(e) {
 			console.error(e);
 		}
@@ -42,7 +45,7 @@ export class ApiService extends BaseService {
 	}
 	
 	async get(url) {
-		const req = await fetch(url, { headers: this.token ? { "Authorization": this.token } : null });
+		const req = await fetch(url, { headers: this.token ? { "Authorization": this.token, dynamic: true } : { dynamic: true } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
@@ -50,7 +53,7 @@ export class ApiService extends BaseService {
 	}
 
 	async post(url, data) {
-		const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null } });
+		const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, dynamic: true } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
@@ -58,7 +61,7 @@ export class ApiService extends BaseService {
 	}
 
 	async put(url, data) {
-		const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null } });
+		const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, dynamic: true } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
@@ -66,7 +69,7 @@ export class ApiService extends BaseService {
 	}
 
 	async delete(url) {
-		const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null } });
+		const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null, dynamic: true } });
 		if (!req.ok) {
 			throw new Error(req.status + " " + req.statusText);
 		}
