@@ -80,13 +80,14 @@ export class MainController extends BaseController {
 			return;
 		}
 
-		const res = await this.apiService.get('api/users/search?query=' + query);
+		const res = await this.apiService.get("/" + baseUrl + '/api/users/search?query=' + query);
 		if (res && res.length > 0) {
 			this.select('#user-list').innerHTML = '';
 			for (const user of res) {
 				const li = document.createElement('li');
-				li.innerHTML = `<a href="/${baseUrl}/user?id=${user.id}">${user.firstname} ${user.name} | ${user.email}</a>`;
+				li.innerHTML = `<button id="user-search-${user.id}" data-id="${user.id}" href="/${baseUrl}/user?id=${user.id}">${user.firstname} ${user.name} | ${user.email}</butt>`;
 				this.select('#user-list').appendChild(li);
+				this.navigate(`user?id=${user.id}`, `#user-search-${user.id}`);
 			}
 		} else if (res && res.length == 0) {
 			this.select('#user-list').innerHTML = '';

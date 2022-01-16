@@ -61,8 +61,10 @@
 		</div>
 	</div>
 
-	<div>
-		<button class="boutonconnexion1">Editer profil</button>
-		<button class="boutondeconnexion">Déconnexion</button>
-	</div>
+	<?php if ($personal) { ?>
+		<div>
+			<button class="boutonconnexion1">Editer profil</button>
+			<button class="boutondeconnexion">Déconnexion</button>
+		</div>
+	<?php } ?>
 </div>

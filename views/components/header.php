@@ -5,13 +5,13 @@
 	<div class="toolbar">
 
 		<a class="home" title="Home">
-			<img id="logo" src="public/images/MyEcoVillage_png.png" alt="logo my EcoVillage" />
+			<img id="logo" src="/<?php echo $baseUrl ?>/public/images/MyEcoVillage_png.png" alt="logo my EcoVillage" />
 		</a>
 		<div class="By">
 			<span>By</span>
 			</br>
 			<a class="logo-link" title="PlaneteWise">
-				<img id="logo_2" src="public/images/planete_wise.png" alt="logo planete wise" />
+				<img id="logo_2" src="/<?php echo $baseUrl ?>/public/images/planete_wise.png" alt="logo planete wise" />
 			</a>
 		</div>
 		<div class="centercolumn">
