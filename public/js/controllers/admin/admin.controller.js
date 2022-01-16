@@ -13,6 +13,7 @@ export class AdminController extends BaseController {
 	}
 
 	async onInit() {
+		this.navigate("admin/ticket", ".ticket-btn");
 	}
 
 }

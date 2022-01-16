@@ -46,7 +46,7 @@ export class ApiService {
 	}
 
 	async isAdmin() {
-		return (await this.get("api/auth/is-admin")).isAdmin;
+		return (await this.get("/" + baseUrl + "/api/auth/is-admin")).isAdmin;
 	}
 
 	logout() {
