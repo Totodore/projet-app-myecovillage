@@ -14,8 +14,6 @@
                 <p>Elles seront seulement sur le site et elles seront sécurisées.</p>
                     <p>
                         <label for="réponse">Votre réponse à la question</label>
-                    </p>
-                    <p>
                         <textarea name="réponse" id="réponse"></textarea>
                     </p>
                 <input type="submit" value="Envoyer">
@@ -30,8 +28,6 @@
                 <p>blablabla</p>
                 <p>
                     <label for="réponse">Votre réponse à la question</label>
-                </p>
-                <p>
                     <textarea name="réponse" id="réponse"></textarea>
                 </p>
                 <input type="submit" value="Envoyer">
