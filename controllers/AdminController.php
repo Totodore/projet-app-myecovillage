@@ -9,10 +9,15 @@ use Project\Exceptions\ForbiddenException;
 #[Controller("admin")]
 class AdminController extends BaseController {
 
-	#[Get("/index")]
+	#[Get("/")]
 	public function index(array $query): array {
 		if (!$this->isAdmin())
 			new ForbiddenException();
 		return $this->loadView('admin/index', $query);
+	}
+
+	#[Get("/index")]
+	public function index2(array $query): array {
+		return $this->index($query);
 	}
 }
