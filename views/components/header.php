@@ -1,4 +1,7 @@
 <header>
+	<div class="progressbar">
+		<div class="indeterminate"></div>
+	</div>
 	<div class="toolbar">
 
 		<a class="home" title="Home">

@@ -1,13 +1,22 @@
+import { ProgressService } from "./progress.service.js";
+
 export class ApiService {
 
-	
+
 	/**
 	 * @param {ApiService} instance
 	 */
 	static instance;
 
+
+	/**
+	 * @param {ProgressService} progress
+	 */
+	static progress;
+
 	constructor() {
 		ApiService.instance = this;
+		ApiService.progress = new ProgressService();
 	}
 	/**
 	 * @param {string} username 
@@ -22,7 +31,7 @@ export class ApiService {
 				throw new Error("Invalid token");
 			this.token = res.token;
 			return true;
-		} catch(e) {
+		} catch (e) {
 			console.error(e);
 			throw e;
 		}
@@ -31,7 +40,7 @@ export class ApiService {
 	async register(data) {
 		try {
 			return await this.post("/api/auth/register", data);
-		} catch(e) {
+		} catch (e) {
 			console.error(e);
 		}
 	}
@@ -40,41 +49,60 @@ export class ApiService {
 		return (await this.get("api/auth/is-admin")).isAdmin;
 	}
 
-	logout()
-	{
+	logout() {
 		localStorage.removeItem("token");
 	}
-	
+
 	async get(url) {
-		const req = await fetch(url, { headers: this.token ? { "Authorization": this.token, dynamic: true } : { dynamic: true } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch(url, { headers: this.token ? { "Authorization": this.token, dynamic: true } : { dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return await req.json();
 	}
 
 	async post(url, data) {
-		const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, dynamic: true } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return await req.json();
 	}
 
 	async put(url, data) {
-		const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, dynamic: true } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return await req.json();
 	}
 
 	async delete(url) {
-		const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null, dynamic: true } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null, dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return await req.json();
 	}
 
 	set token(value) {
@@ -86,5 +114,12 @@ export class ApiService {
 
 	get logged() {
 		return !!this.token;
+	}
+
+	/**
+	 * @returns {ApiService}
+	 */
+	get progress() {
+		return ApiService.progress;
 	}
 }
