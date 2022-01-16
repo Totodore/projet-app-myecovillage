@@ -56,7 +56,7 @@ export class ApiService {
 	async get(url) {
 		this.progress.show();
 		try {
-			const req = await fetch(url, { headers: this.token ? { "Authorization": this.token, dynamic: true } : { dynamic: true } });
+			const req = await fetch(url, { headers: this.token ? { "Authorization": this.token, Dynamic: true } : { Dynamic: true } });
 			if (!req.ok) {
 				throw new Error(req.status + " " + req.statusText);
 			}
@@ -69,7 +69,7 @@ export class ApiService {
 	async post(url, data) {
 		this.progress.show();
 		try {
-			const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, dynamic: true } });
+			const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, Dynamic: true } });
 			if (!req.ok) {
 				throw new Error(req.status + " " + req.statusText);
 			}
@@ -82,7 +82,7 @@ export class ApiService {
 	async put(url, data) {
 		this.progress.show();
 		try {
-			const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, dynamic: true } });
+			const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, Dynamic: true } });
 			if (!req.ok) {
 				throw new Error(req.status + " " + req.statusText);
 			}
@@ -95,7 +95,7 @@ export class ApiService {
 	async delete(url) {
 		this.progress.show();
 		try {
-			const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null, dynamic: true } });
+			const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null, Dynamic: true } });
 			if (!req.ok) {
 				throw new Error(req.status + " " + req.statusText);
 			}
