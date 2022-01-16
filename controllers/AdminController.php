@@ -7,6 +7,7 @@ use Project\Core\Attributes\Http\Get;
 use Project\Core\BaseController;
 use Project\Exceptions\ForbiddenException;
 use Project\Models\TicketModel;
+use Project\Models\UserModel;
 
 #[Controller("admin")]
 class AdminController extends BaseController
@@ -43,4 +44,15 @@ class AdminController extends BaseController
 		return $this->loadView('admin/ticket', ["openedTickets" => $openedTickets, "closedTickets" => $closedTickets]);
 	}
 
+	#[Get("/user")]
+	public function user(array $query): array
+	{
+		if (!$this->isAdmin())
+			throw new ForbiddenException();
+		$users = UserModel::find(null, 100);
+		foreach ($users as $user) {
+			unset($user->password);
+		}
+		return $this->loadView('admin/user', ["users" => $users]);
+	}
 }

@@ -15,6 +15,7 @@ import { ForumController } from "./controllers/forum.controller.js";
 import { GestionForumController } from "./controllers/gestion-forum.controller.js";
 import { TicketController } from "./controllers/ticket.controller.js";
 import { AdminTicketController } from "./controllers/admin/admin-ticket.controller.js";
+import { AdminUserController } from "./controllers/admin/admin-user.controller.js";
 import { UserController } from "./controllers/user.controller.js";
 /**
  * Route mapping between path and controllers
@@ -93,6 +94,11 @@ export const routes = {
 	},
 	'/admin/ticket': {
 		controller: AdminTicketController,
+		services: [ApiService],
+		guard: null
+	},
+	'/admin/user': {
+		controller: AdminUserController,
 		services: [ApiService],
 		guard: null
 	},

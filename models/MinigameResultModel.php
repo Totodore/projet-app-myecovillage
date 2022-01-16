@@ -15,31 +15,31 @@ class MinigameResultModel extends BaseModel {
 	public int $id;
 
 	#[Column()]
-	public int $userId;
+	public int $userid;
 	#[Column()]
-	public int $dayMood;
+	public int $daymood;
 	#[Column()]
-	public int $daySleep;
+	public int $daysleep;
 	#[Column()]
-	public int $noiseDayMood;
+	public int $noisedaymood;
 	#[Column()]
-	public int $noiseNightMood;
+	public int $noisenightmood;
 	#[Column()]
 	public int $breathing;
 	#[Column()]
-	public bool $wentOutside;
+	public bool $wentoutside;
 	#[Column()]
-	public bool $interactiveDay;
+	public bool $interactiveday;
 	#[Column()]
 	public bool $sport;
 	#[Column()]
-	public bool $sportIndoor;
+	public bool $sportindoor;
 	#[Column()]
-	public bool $sportHarder;
+	public bool $sportharder;
 	#[Column()]
-	public int $sportDuration;
+	public int $sportduration;
 
 	public function getAuthor(): UserModel {
-		return UserModel::findOne($this->userId);
+		return UserModel::findOne($this->userid);
 	}
 }

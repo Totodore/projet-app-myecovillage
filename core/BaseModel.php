@@ -151,16 +151,16 @@ abstract class BaseModel extends BaseModelHandler
 	 * If the list of ids is not specified it will returns all the models
 	 * @return array of models
 	 **/
-	public static function find(?array $ids = null): array
+	public static function find(?array $ids = null, ?int $limit = null): array
 	{
 		$tableName = static::getTableName();
 		$pdo = $GLOBALS['pdo'];
 		if ($ids === null) {
-			$query = $pdo->query('SELECT * FROM ' . $tableName);
+			$query = $pdo->query('SELECT * FROM ' . $tableName . ($limit ? ' LIMIT ' . $limit : ''));
 			$query->execute();
 		}
 		else {
-			$query = $pdo->prepare('SELECT * FROM ' . $tableName . ' WHERE id IN (?)');
+			$query = $pdo->prepare('SELECT * FROM ' . $tableName . ' WHERE id IN (?)' . ($limit ? ' LIMIT ' . $limit : ''));
 			$query->execute(array(implode(',', $ids)));
 		}
 		$res = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -228,6 +228,13 @@ abstract class BaseModel extends BaseModelHandler
 		$tableName = static::getTableName();
 		$pdo = $GLOBALS['pdo'];
 		$pdo->prepare('DELETE FROM ' . $tableName . ' WHERE id = ?')->execute(array($id));
+	}
+
+	public static function deleteWHere(string $column, string $value)
+	{
+		$tableName = static::getTableName();
+		$pdo = $GLOBALS['pdo'];
+		$pdo->prepare('DELETE FROM ' . $tableName . ' WHERE ' . $column . ' = ?')->execute(array($value));
 	}
 
 	/**
