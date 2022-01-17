@@ -35,7 +35,7 @@ class Conf
 	const DB_NAME   					= 'test';
 	const DB_USER 						= 'root';
 	const DB_PASS 						= 'root';
-	const DB_PORT 						= '3306';
+	const DB_PORT 						= '3307';
 	const DB_CHARSET 					= 'utf8mb4';
 	const DB_FORCE_UPDATE 		= false;
 	const OPTIONS = [
