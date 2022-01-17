@@ -39,18 +39,48 @@ class MinigameResultModel extends BaseModel {
 	public bool $sportharder;
 	#[Column()]
 	public int $sportduration;
-	#[Column(default: 'CURRENT_TIMESTAMP')]
+	#[Column()]
 	public DateTime $date;
+
+	public function __construct() {
+		$this->date = new DateTime();
+		parent::__construct();
+	}
 
 	public function getAuthor(): UserModel {
 		return UserModel::findOne($this->userid);
 	}
 
-	public static function hasDayStat(string $userid): bool {
+	public static function hasWeekStat(string $userid): bool {
 		foreach(MinigameResultModel::findManyBy("userid", $userid) ?? [] as $result) {
-			if ($result->date->format("Y-m-d") == date("Y-m-d"))
+			if ($result->date->format("W") == date("W"))
 				return true;
 		}
 		return false;
+	}
+
+	public static function getWeekStat(string $userid): array {
+		$week = [];
+		foreach(MinigameResultModel::findManyBy("userid", $userid) ?? [] as $result) {
+			if ($result->date->format("W") == date("W")) {
+				$score = 0;
+				$score += $result->daymood;	 //MAX : 5
+				if ($result->daysleep > 6 && $result->daysleep < 10) // MAX : 2 (pas + de 12)
+					$score++;
+				else if ($result->daysleep >= 10)
+					$score += 2; 
+				$score += $result->noisenightmood >= 4 ? 0 : 4 - $result->noisenightmood; // MAX : 3
+				$score += $result->noisedaymood > 4 ? 0 : 5 - $result->noisedaymood; // MAX : 4
+				$score += $result->breathing / 100;	// MAX : 1
+				$score += $result->wentoutside ? 1 : 0;	// MAX : 1
+				$score += $result->interactiveday >= 1 ? 2 : 0; 	// MAX : 2
+				$score += $result->sport ? 2 : 0; 				// MAX : 2
+				$score += !$result->sportindoor ? 1 : 0; // MAX : 1
+				$score += max(floor($result->sportduration / 30), 10); 	// MAX : 10 
+				$score += !$result->sportharder ? 1 : 0;			// MAX : 1
+				$week[$result->date->format("D")] = $score;
+			}
+		}
+		return $week;
 	}
 }

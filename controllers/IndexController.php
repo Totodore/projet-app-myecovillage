@@ -30,9 +30,9 @@ class IndexController extends BaseController
 		if (!$this->isLogged())
 			throw new ForbiddenException();
 		$user = $this->getLoggedUser();
-		$hasDayStat = MinigameResultModel::hasDayStat($user->id);
-		$dataStat = MinigameResultModel::findManyBy("userid", $user->id);
-		return $this->loadView('home', ["user" => $user, "hasDayStat" => $hasDayStat, "datastat" => $dataStat]);
+		$hasWeekStat = MinigameResultModel::hasWeekStat($user->id);
+		$dataStat = MinigameResultModel::getWeekStat($user->id);
+		return $this->loadView('home', ["user" => $user, "hasWeekStat" => $hasWeekStat, "datastat" => $dataStat]);
 	}
 
 	#[Get('/signin')]
@@ -116,5 +116,10 @@ class IndexController extends BaseController
 				$closedTickets[] = $ticket;
 		}
 		return $this->loadView('ticket', ["openedTickets" => $openedTickets, "closedTickets" => $closedTickets]);
+	}
+	#[Get('/minigame')]
+	public function minigame(array $query): array
+	{
+		return $this->loadView('minigame', $query);
 	}
 }
