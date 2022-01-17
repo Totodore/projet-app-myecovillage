@@ -8,7 +8,7 @@
         </div>
         <div class="toggle-panel">
             <h4>Où vont les données </h4>
-            <p>Elles seront seulement sur le site et elles seront sécurisées. </p>
+            <p>Elles sont seulement sur le site et elles sont sécurisées. </p>
         </div>
     </div>
 
@@ -19,7 +19,7 @@
         </div>
         <div class="toggle-panel">
             <h4>Peut-on voir les données des autres utilisateurs ?</h4>
-            <p>Oui, en cherchant leur nom d'un utilisateur dans la barre de recherche vous pourrez voir ses données.  </p>
+            <p>Oui, en cherchant le nom d'un utilisateur dans la barre de recherche vous pourrez accéder à ses données.  </p>
         </div>
     </div>
 
