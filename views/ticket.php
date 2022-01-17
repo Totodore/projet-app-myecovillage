@@ -21,8 +21,8 @@
 			<?php } ?>
 		</div>
 	</div>
-<? }
-if (count($closedTickets) > 0) { ?>
+<?php } ?>
+<?php if (count($closedTickets) > 0) { ?>
 	<div class="block-ticket">
 		<div class="closed-tickets">
 			<h2>Mes tickets résolus</h2>
