@@ -1,3 +1,4 @@
-.empsmiley .st0 .st1 {
+.empsmiley {
     display: flex;
+    flex-direction: row;
 }
