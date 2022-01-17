@@ -9,13 +9,13 @@
         <input type="text" name="nom" id="nom" value="<?php echo $isLogged ? $user->name : ''; ?>"/>
 
         <label for="email">E-mail :</label>
-        <input type="email" name="email" id="email" value="<?php echo $isLogged ? $user->mail : ''; ?>"/>
+        <input type="email" name="email" id="email" value="<?php echo $isLogged ? $user->email : ''; ?>"/>
 
         <label for="objet">Objet :</label>
-        <input type="text" name="objet" id="objet" value="<?php echo $isLogged ? $user->subject : ''; ?>"/>
+        <input type="text" name="objet" id="objet"/>
 
         <label for="message">Message :</label>
-        <textarea class="message" type="text" name="message" id="message" value="<?php echo $isLogged ? $user->message : ''; ?>"></textarea>
+        <textarea class="message" type="text" name="message" id="message" ></textarea>
 
         <input type="submit" value="Envoyer" />
     </form>
