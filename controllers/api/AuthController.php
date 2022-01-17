@@ -3,6 +3,7 @@
 namespace Project\Controllers\Api;
 
 use Project\Conf;
+use Project\Core\Attributes\Http\Get;
 use Project\Core\Attributes\Http\JsonController;
 use Project\Core\Attributes\Http\Post;
 use Project\Core\Attributes\Http\VerifyRequest;
@@ -48,6 +49,15 @@ class AuthController extends BaseController {
 		return [
 			'success' => true,
 			'user' => $user
+		];
+	}
+
+	#[Get("/is-admin")]
+	public function isAdminQuery(array $query): array {
+		if (!$this->isLogged())
+			throw new ForbiddenException("You must be logged");
+		return [
+			"isAdmin" => $this->isAdmin()
 		];
 	}
 }

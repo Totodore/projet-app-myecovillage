@@ -1,13 +1,12 @@
 import { AccountController } from "./controllers/account.controller.js";
 import { AccountEditController } from "./controllers/account_edit.controller.js";
-import { AdminController } from "./controllers/admin.controller.js";
 import { HomeController } from "./controllers/home.controller.js";
 import { MainController } from "./controllers/main.controller.js";
 import { SigninController } from "./controllers/signin.controller.js";
 import { SignupController } from "./controllers/signup.controller.js";
 import { FaqController } from "./controllers/faq.controller.js";
 import { BaseController } from "./core/base.controller.js";
-import { BaseService } from "./core/base.service.js";
+import { AdminController } from "./controllers/admin/admin.controller.js";
 import { AdminGuard } from "./guards/admin.guard.js";
 import { ApiService } from "./services/api.service.js";
 import { ContactusController } from "./controllers/contactus.controller.js";
@@ -15,6 +14,9 @@ import { CguController } from "./controllers/cgu.controller.js";
 import { ForumController } from "./controllers/forum.controller.js";
 import { GestionForumController } from "./controllers/gestion-forum.controller.js";
 import { TicketController } from "./controllers/ticket.controller.js";
+import { AdminTicketController } from "./controllers/admin/admin-ticket.controller.js";
+import { AdminUserController } from "./controllers/admin/admin-user.controller.js";
+import { UserController } from "./controllers/user.controller.js";
 /**
  * Route mapping between path and controllers
  * @type {Object.<string, {controller: typeof BaseController, guard?: typeof BaseGuard, services: typeof BaseService[]}>}
@@ -83,6 +85,26 @@ export const routes = {
 	'/ticket': {
 		controller: TicketController,
 		services: [ApiService],
+		guard: null
+	},
+	'/admin': {
+		controller: AdminController,
+		services: [ApiService],
+		guard: null
+	},
+	'/admin/ticket': {
+		controller: AdminTicketController,
+		services: [ApiService],
+		guard: null
+	},
+	'/admin/user': {
+		controller: AdminUserController,
+		services: [ApiService],
+		guard: null
+	},
+	'/user': {
+		controller: UserController,
+		services: [],
 		guard: null
 	}
 }

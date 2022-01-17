@@ -32,8 +32,8 @@ export class BaseController {
 		else {
 			this.log("Loading view...");
 			let cssResponse = await fetch(`/${baseUrl}/public/css/${this.ressourcePath}.css`);
-			let response = await fetch(`${this.view}?${Object.entries(el => el[0] + "=" + el[1]).join('&')}`, {
-				headers: { dynamic: "true", Authorization: ApiService.instance.token },
+			let response = await fetch(`${this.view}?${Object.entries(this.params).map(el => el[0] + "=" + el[1]).join('&')}`, {
+				headers: { Dynamic: "true", Authorization: ApiService.instance.token },
 			});
 			const html = await response.text();
 			const css = await cssResponse.text();

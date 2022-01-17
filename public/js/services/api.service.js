@@ -1,16 +1,22 @@
-import { BaseService } from "../core/base.service.js";
+import { ProgressService } from "./progress.service.js";
 
-export class ApiService extends BaseService {
+export class ApiService {
 
-	
+
 	/**
 	 * @param {ApiService} instance
 	 */
 	static instance;
 
+
+	/**
+	 * @param {ProgressService} progress
+	 */
+	static progress;
+
 	constructor() {
-		super();
 		ApiService.instance = this;
+		ApiService.progress = new ProgressService();
 	}
 	/**
 	 * @param {string} username 
@@ -25,7 +31,7 @@ export class ApiService extends BaseService {
 				throw new Error("Invalid token");
 			this.token = res.token;
 			return true;
-		} catch(e) {
+		} catch (e) {
 			console.error(e);
 			throw e;
 		}
@@ -34,46 +40,69 @@ export class ApiService extends BaseService {
 	async register(data) {
 		try {
 			return await this.post("/api/auth/register", data);
-		} catch(e) {
+		} catch (e) {
 			console.error(e);
 		}
 	}
 
-	logout()
-	{
+	async isAdmin() {
+		return (await this.get("/" + baseUrl + "/api/auth/is-admin")).isAdmin;
+	}
+
+	logout() {
 		localStorage.removeItem("token");
 	}
-	
+
 	async get(url) {
-		const req = await fetch(url, { headers: this.token ? { "Authorization": this.token, dynamic: true } : { dynamic: true } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch(url, { headers: this.token ? { "Authorization": this.token, Dynamic: true } : { Dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return await req.json();
 	}
 
 	async post(url, data) {
-		const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, dynamic: true } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, Dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return await req.json();
 	}
 
 	async put(url, data) {
-		const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, dynamic: true } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, Dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return await req.json();
 	}
 
 	async delete(url) {
-		const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null, dynamic: true } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null, Dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return await req.json();
 	}
 
 	set token(value) {
@@ -85,5 +114,12 @@ export class ApiService extends BaseService {
 
 	get logged() {
 		return !!this.token;
+	}
+
+	/**
+	 * @returns {ApiService}
+	 */
+	get progress() {
+		return ApiService.progress;
 	}
 }

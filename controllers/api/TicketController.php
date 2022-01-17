@@ -67,12 +67,11 @@ class TicketController extends BaseController {
 			throw new ForbiddenException("You are not allowed to access this page");
 
 		$ticket->answer = $request["answer"];
-		$ticket->adminId = $user->id;
+		$ticket->adminid = $user->id;
 		$ticket->open = false;
 		$ticket->save();
 
 		$this->sendMail($user->email, "Votre ticket a bien été répondu", "Votre ticket intitulé '$ticket->title' a bien été répondu");
-		$this->sendMail(Conf::get('MAIL_USER'), "Un ticket a été répondu", "Un ticket a été répondu par $user->username");
 		return $ticket;
 	}
 }

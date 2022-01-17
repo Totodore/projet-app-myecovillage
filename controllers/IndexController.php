@@ -7,6 +7,7 @@ use Project\Core\Attributes\Http\Get;
 use Project\Core\BaseController;
 use Project\JWT;
 use Project\Conf;
+use Project\Exceptions\BadRequestException;
 use Project\Exceptions\ForbiddenException;
 use Project\Exceptions\HttpException;
 use Project\Models\TicketModel;
@@ -64,7 +65,7 @@ class IndexController extends BaseController
 		if (!$this->isLogged())
 			$this->redirect("/");
 		$user = $this->getLoggedUser();
-		return $this->loadView('account', ["user" => $user]);
+		return $this->loadView('account', ["user" => $user, "personal" => true]);
 	}
 
 	#[Get('/account/edit')]
@@ -86,10 +87,16 @@ class IndexController extends BaseController
 	{
 		return $this->loadView('forum', $query);
 	}
-	#[Get('/gestion_forum')]
-	public function gestion_forum(array $query): array
+
+	#[Get('/user')]
+	public function user(array $query): array
 	{
-		return $this->loadView('gestion_forum', $query);
+		if (!$this->isLogged())
+			throw new ForbiddenException();
+		if (!isset($query['id']))
+			throw new BadRequestException();
+		$user = UserModel::findOne($query['id']);
+		return $this->loadView('account', ["user" => $user, "personal" => false]);
 	}
 	
 	#[Get('/ticket')]
