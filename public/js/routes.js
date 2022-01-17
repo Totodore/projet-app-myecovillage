@@ -17,6 +17,7 @@ import { TicketController } from "./controllers/ticket.controller.js";
 import { AdminTicketController } from "./controllers/admin/admin-ticket.controller.js";
 import { AdminUserController } from "./controllers/admin/admin-user.controller.js";
 import { UserController } from "./controllers/user.controller.js";
+import { MinigameController } from "./controllers/minigame.controller.js";
 /**
  * Route mapping between path and controllers
  * @type {Object.<string, {controller: typeof BaseController, guard?: typeof BaseGuard, services: typeof BaseService[]}>}
@@ -104,6 +105,11 @@ export const routes = {
 	},
 	'/user': {
 		controller: UserController,
+		services: [],
+		guard: null
+	},
+	'/minigame': {
+		controller: MinigameController,
 		services: [],
 		guard: null
 	}

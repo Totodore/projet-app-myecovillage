@@ -117,4 +117,9 @@ class IndexController extends BaseController
 		}
 		return $this->loadView('ticket', ["openedTickets" => $openedTickets, "closedTickets" => $closedTickets]);
 	}
+	#[Get('/minigame')]
+	public function minigame(array $query): array
+	{
+		return $this->loadView('minigame', $query);
+	}
 }
