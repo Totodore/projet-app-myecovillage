@@ -2,6 +2,7 @@
 
 namespace Project\Models;
 
+use DateTime;
 use Project\Core\Attributes\Orm\Column;
 use Project\Core\Attributes\Orm\PrimaryColumn;
 use Project\Core\BaseModel;
@@ -38,8 +39,18 @@ class MinigameResultModel extends BaseModel {
 	public bool $sportharder;
 	#[Column()]
 	public int $sportduration;
+	#[Column(default: 'CURRENT_TIMESTAMP')]
+	public DateTime $date;
 
 	public function getAuthor(): UserModel {
 		return UserModel::findOne($this->userid);
+	}
+
+	public static function hasDayStat(string $userid): bool {
+		foreach(MinigameResultModel::findManyBy("userid", $userid) ?? [] as $result) {
+			if ($result->date->format("Y-m-d") == date("Y-m-d"))
+				return true;
+		}
+		return false;
 	}
 }

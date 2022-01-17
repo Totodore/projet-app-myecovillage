@@ -10,6 +10,7 @@ use Project\Conf;
 use Project\Exceptions\BadRequestException;
 use Project\Exceptions\ForbiddenException;
 use Project\Exceptions\HttpException;
+use Project\Models\MinigameResultModel;
 use Project\Models\TicketModel;
 use Project\Models\UserModel;
 
@@ -28,8 +29,10 @@ class IndexController extends BaseController
 	{
 		if (!$this->isLogged())
 			throw new ForbiddenException();
-		// $this->getLoggedUser()->print();
-		return $this->loadView('home', $query);
+		$user = $this->getLoggedUser();
+		$hasDayStat = MinigameResultModel::hasDayStat($user->id);
+		$dataStat = MinigameResultModel::findManyBy("userid", $user->id);
+		return $this->loadView('home', ["user" => $user, "hasDayStat" => $hasDayStat, "datastat" => $dataStat]);
 	}
 
 	#[Get('/signin')]
