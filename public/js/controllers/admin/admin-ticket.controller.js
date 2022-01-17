@@ -16,7 +16,7 @@ export class AdminTicketController extends BaseController {
 	}
 
 	async onInit() {
-		for (const btn of this.selectAll(".answer-btn")) {
+		for (const btn of this.selectAll("button.answer-btn")) {
 			btn.addEventListener("click", e => btn.parentElement.classList.toggle("answer-show"));
 			btn.parentElement.querySelector("form").addEventListener("submit", e => this.onAnswer(e));
 		}
