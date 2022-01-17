@@ -45,12 +45,12 @@
 				?>
 			</span>
 			</p>
-			<span class="text_info">Administrateur :
+			<span class="text_info">Statut :
 				<?php
 				if ($user->isadmin == true) {
-					echo "oui";
+					echo "administrateur";
 				} else {
-					echo "non";
+					echo "utilisateur";
 				}
 				?>
 			</span>
