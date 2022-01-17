@@ -52,51 +52,29 @@
 	</div>
 </div>
 
-<?php if ($hasDayStat) { ?>
+<?php if ($hasWeekStat) { ?>
 	<div class="Emptableau">
 		<div class="Tableau">
-			<div id="graph1">
-				<div id="ptab1">
-					<p class="compteur" data-value="80">0</p>
+			<?php foreach ($dataStat as $score) { ?>
+				<div id="graph1">
+					<div id="ptab1">
+						<p class="compteur" data-value="80">0</p>
+					</div>
 				</div>
-			</div>
-			<div id="barre_tableausmall"></div>
-			<div id="Txtgraph1_2">Lundi</div>
-
-			<div id="graph2">
-				<div id="ptab1">
-					<p class="compteur" data-value="70">0</p>
-				</div>
-			</div>
-			<div id="barre_tableausmall"></div>
-			<div id="Txtgraph2_2">Mardi</div>
-			<div id="graph3">
-				<span id="Txtgraph3">Mercredi</span>
-			</div>
-			<div id="graph4">
-				<span id="Txtgraph4">Jeudi</span>
-			</div>
-			<div id="graph5">
-				<span id="Txtgraph5">Vendredi</span>
-			</div>
-			<div id="graph6">
-				<span id="Txtgraph6">Samedi</span>
-			</div>
-			<div id="graph7">
-				<span id="Txtgraph7">Dimanche</span>
-			</div>
-		</div>
-		<div id="barre_tableau"></div>
+				<div id="barre_tableausmall"></div>
+			<?php } ?>
+			<div id="barre_tableau"></div>
 
 
-		<div class="Txttableau">
-			<div id="Txtgraph1">Lundi</div>
-			<div id="Txtgraph2">Mardi</div>
-			<div id="Txtgraph2">Mercredi</div>
-			<div id="Txtgraph2">Jeudi</div>
-			<div id="Txtgraph2">Vendredi</div>
-			<div id="Txtgraph2">Samedi</div>
-			<div id="Txtgraph2">Dimanche</div>
+			<div class="Txttableau">
+				<div id="Txtgraph1">Lundi</div>
+				<div id="Txtgraph2">Mardi</div>
+				<div id="Txtgraph2">Mercredi</div>
+				<div id="Txtgraph2">Jeudi</div>
+				<div id="Txtgraph2">Vendredi</div>
+				<div id="Txtgraph2">Samedi</div>
+				<div id="Txtgraph2">Dimanche</div>
+			</div>
 		</div>
 	</div>
 <?php } else { ?>
