@@ -1,5 +1,7 @@
 
-
+<div class="Txtsmiley">
+    Comment vous sentez-vous aujourd'hui ?
+</div>
 <div class='empsmiley'>
 
     <div class="smiley1">
@@ -26,6 +28,9 @@
 
     </div>
 
+</div>
+<div class="Txtsmiley">
+    Comment le son vous à affecté la nuit dernière ?
 </div>
 <div class='empsoundnight'>
 <div class="moon">
@@ -61,6 +66,9 @@
 </div>
 
 </div>
+<div class="Txtsmiley">
+    Comment le son vous à affecté dans la journée?
+</div>
 <div class='empsoundday'>
 <div class="moon">
         <?php include __DIR__ . "/../public/images/sun.svg"
@@ -95,8 +103,11 @@
 
 </div>
 </div>
-
+<div class="Txtsmiley">
+    Etes-vous sortis aujourd'hui ?
+</div>
 <div class="Qwent">
+
 <div class='iconoutside'>
     <?php include __DIR__ . "/../public/images/icon_outside.svg"
         ?>
@@ -109,7 +120,11 @@
     </div>
 
 </div>
+<div class="Txtsmiley">
+    Sport en exterieur ou en interieur ?
+</div>
 <div class="Qsport">
+
 <div class='icon_sport_outside'>
     <?php include __DIR__ . "/../public/images/sport_outside.svg"
         ?>

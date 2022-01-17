@@ -3,6 +3,14 @@
     flex-direction: row;
     margin-top: 5%;
     justify-content: space-around;
+    width: 80%;
+    margin-bottom: 5%;
+}
+
+.Txtsmiley {
+    text-align: center;
+    color: white;
+    font-size: 40px;
 }
 
 .smiley1,
@@ -16,8 +24,8 @@
 
 .empsoundnight {
     background-color: #300d7c;
-    width: 90%;
-    height: 400px;
+    width: 80%;
+    height: auto;
     border-radius: 30px;
     display: block;
     margin: 3%;
@@ -38,8 +46,8 @@
 
 .empsoundday {
     background-color: #67bd45;
-    width: 90%;
-    height: 400px;
+    width: 80%;
+    height: auto;
     border-radius: 30px;
     display: block;
     margin: 3%;
@@ -52,7 +60,7 @@
 .sound3,
 .sound4,
 .sound5 {
-    width: 15%;
+    width: 12%;
     height: auto;
 }
 
