@@ -2,25 +2,25 @@
 
 <div class='empsmiley'>
 
-    <div class="1smiley">
+    <div class="smiley1">
         <?php include __DIR__ . "/../public/images/1smiley.svg"
         ?>
     </div>
-    <div class="2smiley">
+    <div class="smiley2">
         <?php include __DIR__ . "/../public/images/2smiley.svg"
         ?>
     </div>
-    <div class='3smiley'>
+    <div class='smiley3'>
         <?php include __DIR__ . "/../public/images/3smiley.svg"
         ?>
 
     </div>
-    <div class='4smiley'>
+    <div class='smiley4'>
         <?php include __DIR__ . "/../public/images/4smiley.svg"
         ?>
 
     </div>
-    <div class='5smiley'>
+    <div class='smiley5'>
         <?php include __DIR__ . "/../public/images/5smiley.svg"
         ?>
 
@@ -94,4 +94,31 @@
     </div>
 
 </div>
+</div>
+
+<div class="Qwent">
+<div class='iconoutside'>
+    <?php include __DIR__ . "/../public/images/icon_outside.svg"
+        ?>
+
+    </div>
+    <div class='iconinside'>
+    <?php include __DIR__ . "/../public/images/icon_inside.svg"
+        ?>
+
+    </div>
+
+</div>
+<div class="Qsport">
+<div class='icon_sport_outside'>
+    <?php include __DIR__ . "/../public/images/sport_outside.svg"
+        ?>
+
+    </div>
+    <div class='icon_sport_inside'>
+    <?php include __DIR__ . "/../public/images/sport_inside.svg"
+        ?>
+
+    </div>
+
 </div>
