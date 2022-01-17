@@ -20,13 +20,15 @@
                 <input type="text" class="barresaisie" id="prenomchange" name="prenomchange">
                 </p>
 
+                <!-- 
                 <span class="text_info">Date de naissance :
-                    <?php
+                    ?php
                     echo $usered->birthdate->format('d/m/Y');
                     ?>
                 </span>
                 <input type="text" class="barresaisie" id="anniverssairechange" name="anniverssairechange">
                 </p>
+                -->
 
                 <span class="text_info">Taille :
                     <?php
@@ -49,18 +51,17 @@
                     echo $usered->email;
                     ?>
                 </span>
-                <input type="email" class="barresaisie" id="mailchange" name="mailchange">
+                <input type="email" class="barresaisie" id="mailchange" name="mailchange" autocomplete="off">
                 </p>
                 <span class="text_info">mot de passe :
 
                 </span>
-                <input type="password" class="barresaisie" id="passwordchange" name="passwordchange">
+                <input type="password" class="barresaisie" id="passwordchange" name="passwordchange" autocomplete="off">
             </form>
         </div>
 
         <div class="elementPE">
             <img src="../public/images/user_profil.png" class="image_user_edit" />
-            <button class="editer_photo">editer photo</button>
         </div>
     </div>
 

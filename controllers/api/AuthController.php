@@ -2,6 +2,7 @@
 
 namespace Project\Controllers\Api;
 
+use DateTime;
 use Project\Conf;
 use Project\Core\Attributes\Http\Get;
 use Project\Core\Attributes\Http\JsonController;
@@ -40,6 +41,16 @@ class AuthController extends BaseController {
 			return ["error" => "Email already used"];
 	
 		$user = UserModel::create($query);
+
+		$datetime1 = new DateTime();
+		$datetime2 = new DateTime($user->birthdate->format('d-m-Y'));
+		$interval = $datetime1->diff($datetime2);
+		if($interval->y < 13)
+		{
+			throw new ForbiddenException("Wrong age");
+		}
+
+
 		$user->save();
 
 		$this->sendMail($user->email, "Bienvenue sur MyEcovillage", "Bonjour " . $user->name . ",\n\nBienvenue sur MyEcovillage, nous vous souhaitons la bienvenue.\nVous pouvez dès à présent vous connecter sur le site.\n\nCordialement,\n\nL'équipe MyEcovillage");

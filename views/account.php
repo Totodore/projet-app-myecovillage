@@ -3,11 +3,13 @@
 
 		<div class="elementPE">
 			<div class="titreinformation">Informations utilisateur</div>
-			<!-- <span class="text_info">Identifiant : (debug)
+			<!-- 
+				<span class="text_info">Identifiant : (debug)
 						<?php
 						// echo $user->id; 
 						?> 
-					</span> -->
+				</span> 
+			-->
 			</p>
 			<span class="text_info">Nom :
 				<?php
@@ -45,10 +47,10 @@
 				?>
 			</span>
 			</p>
-			<span class="text_info">Administrateur :
+			<span class="text_info">statue :
 				<?php
 				if ($user->isadmin == true) {
-					echo "admin";
+					echo "administrateur";
 				} else {
 					echo "utilisateur";
 				}
@@ -57,7 +59,7 @@
 		</div>
 
 		<div class="elementPE">
-			<img src="./public/images/user_profil.png" class="image_user" />
+		<img src="./public/images/user_profil.png" class="image_user" />
 		</div>
 	</div>
 
