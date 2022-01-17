@@ -30,6 +30,14 @@
 
 </div>
 <div class="Txtsmiley">
+    Combien d'heures avez-vous dormis ?
+</div>
+<div>
+  <input type="range" id="Heures" name="Heures"
+         min="0" max="24" step="1">
+  <label for="volume">Heures</label>
+</div>
+<div class="Txtsmiley">
     Comment le son vous à affecté la nuit dernière ?
 </div>
 <div class='empsoundnight'>

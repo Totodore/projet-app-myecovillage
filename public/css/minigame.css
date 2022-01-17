@@ -17,6 +17,11 @@
     margin-bottom: 3%;
 }
 
+#heures {
+    height: 200px;
+    width: auto;
+}
+
 .smiley1,
 .smiley2,
 .smiley3,
