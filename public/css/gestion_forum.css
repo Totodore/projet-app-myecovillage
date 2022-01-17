@@ -16,6 +16,7 @@ h2{
 }
 p
 {
+    font-size: 16px;
     color: white;
     text-align: justify;
 }
@@ -62,6 +63,7 @@ p
     border-radius: 10px;
     padding: 5px 5px 5px 5px;
     position: relative;
+    margin-bottom: 10px;
 }
 .expand_more
 {
@@ -79,6 +81,7 @@ p
 }
 .réponse
 {
+    display: none;
     background-color: #6A90AD;
     border-radius: 10px;
     margin-left: 30px;
