@@ -13,6 +13,7 @@ h2 {
 	color: white;
 }
 p {
+	font-size: 16px;
 	color: white;
 	text-align: justify;
 }
@@ -50,6 +51,7 @@ p {
 	border-radius: 10px;
 	padding: 5px 5px 5px 5px;
 	position: relative;
+	margin-bottom: 10px;
 }
 .material-icons {
 	position: absolute;
@@ -58,6 +60,7 @@ p {
 	color: white;
 }
 .réponse {
+	display: none;
 	background-color: #6a90ad;
 	border-radius: 10px;
 	margin-left: 30px;
@@ -70,3 +73,12 @@ textarea {
 	resize: none;
 	height: 100px;
 }
+
+input[type=submit] {
+	margin: auto;
+	display: flex;
+	justify-content: center;
+    width: 20%;
+    background-color: #ffffff;
+    border : 1px solid black ;
+  }
