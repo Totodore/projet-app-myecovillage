@@ -1,4 +1,48 @@
 .empsmiley {
     display: flex;
     flex-direction: row;
+    margin-top: 5%;
+    justify-content: space-around;
+}
+
+.empsoundnight {
+    background-color: #300d7c;
+    width: 90%;
+    height: 400px;
+    border-radius: 30px;
+    display: block;
+    margin: 3%;
+    z-index: -1;
+    padding: 3%;
+}
+
+.moon {
+    width: 7%;
+    height: auto;
+}
+
+.soundicon {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: row;
+}
+
+.empsoundday {
+    background-color: #0abc23;
+    width: 90%;
+    height: 400px;
+    border-radius: 30px;
+    display: block;
+    margin: 3%;
+    z-index: -1;
+    padding: 3%;
+}
+
+.sound1,
+.sound2,
+.sound3,
+.sound4,
+.sound5 {
+    width: 15%;
+    height: auto;
 }
