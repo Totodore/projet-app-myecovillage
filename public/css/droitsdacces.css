@@ -21,7 +21,7 @@ table/* Mettre une bordure sur les td ET les th*/
 }
 
 .btnhome 
-{  
+  {  
     margin-left: 500px;
     margin-top: 10;
     width: 95px;
@@ -31,4 +31,10 @@ table/* Mettre une bordure sur les td ET les th*/
     font-size:14px;
     font-weight:700;
     position: absolute;
-    
+  }
+
+
+.tab
+{
+  border-spacing: 200px;
+}

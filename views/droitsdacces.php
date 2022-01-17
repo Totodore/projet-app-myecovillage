@@ -9,13 +9,13 @@
     <br>
     <br>
 
-    <table width="150" align="center">
+    <table width="150">
 
-        <tr class="tab">
+        <tr>
             <td>
                 id
             </td>
-            <td>
+            <td align="center" width="150">
                 1
             </td>
         </tr>
@@ -23,13 +23,13 @@
 
     <br>
 
-    <table width="150" align="center">
+    <table width="150" >
 
         <tr class="tab">
             <td>
                 name
             </td>
-            <td>
+            <td align="center" width="150">
                 aziubazdi
             </td>
 
@@ -38,13 +38,13 @@
 
     <br>
 
-    <table width="150" align="center">
+    <table width="150">
 
         <tr class="tab">
             <td>
                 firstname
             </td>
-            <td>
+            <td align="center" width="150">
                 theodoazd
             </td>
         </tr>
@@ -53,12 +53,12 @@
 
     <br>
 
-    <table width="150" align="center">
+    <table width="150">
         <tr class="tab">
             <td>
                 birthdate
             </td>
-            <td>
+            <td align="center" width="150"> 
                 34567898765432
             </td>
 
@@ -68,13 +68,13 @@
 
     <br>
 
-    <table width="150" align="center">
+    <table width="150">
 
         <tr class="tab">
             <td>
                 heigt
             </td>
-            <td>
+            <td align="center" width="150">
                 173
             </td>
 
@@ -84,13 +84,13 @@
 
     <br>
 
-    <table width="150" align="center">
+    <table width="150">
 
         <tr class="tab">
             <td>
                 weight
             </td>
-            <td>
+            <td align="center" width="150">
                 55
             </td>
 
@@ -100,13 +100,13 @@
 
     <br>
 
-    <table width="300" align="center">
+    <table width="300">
 
         <tr class="tab">
             <td>
                 email
             </td>
-            <td>
+            <td align="center" width="150">
                 aziudi@gmail.com
             </td>
 
@@ -116,13 +116,13 @@
 
     <br>
 
-    <table width="300" align="center">
+    <table width="300">
 
         <tr class="tab">
             <td>
                 isadmin
             </td>
-            <td>
+            <td align="center" width="150">
                 false
             </td>
 
@@ -144,13 +144,13 @@
     <br>
     
 
-    <table width="150" align="center">
+    <table width="150">
 
         <tr class="tab">
             <td>
                 id
             </td>
-            <td>
+            <td align="center" width="150">
                 1
             </td>
         </tr>
@@ -158,13 +158,13 @@
 
     <br>
 
-    <table width="150" align="center">
+    <table width="150">
 
         <tr class="tab">
             <td>
                 name
             </td>
-            <td>
+            <td align="center" width="150">
                 aziubazdi
             </td>
 
@@ -173,13 +173,13 @@
 
     <br>
 
-    <table width="150" align="center">
+    <table width="150">
 
         <tr class="tab">
             <td>
                 firstname
             </td>
-            <td>
+            <td align="center" width="150">
                 theodoazd
             </td>
         </tr>
@@ -188,12 +188,12 @@
 
     <br>
 
-    <table width="150" align="center">
+    <table width="150">
         <tr class="tab">
             <td>
                 birthdate
             </td>
-            <td>
+            <td align="center" width="150">
                 34567898765432
             </td>
 
@@ -203,13 +203,13 @@
 
     <br>
 
-    <table width="150" align="center">
+    <table width="150">
 
         <tr class="tab">
             <td>
                 heigt
             </td>
-            <td>
+            <td align="center" width="150">
                 173
             </td>
 
@@ -225,7 +225,7 @@
             <td>
                 weight
             </td>
-            <td>
+            <td align="left" width="150">
                 55
             </td>
 
@@ -241,7 +241,7 @@
             <td>
                 email
             </td>
-            <td>
+            <td align="left" width="150">
                 aziudi@gmail.com
             </td>
 
@@ -257,7 +257,7 @@
             <td>
                 isadmin
             </td>
-            <td>
+            <td align="left" width="150">
                 false
             </td>
 
@@ -288,7 +288,7 @@
             <td>
                 id
             </td>
-            <td>
+            <td align="left" width="150">
                 1
             </td>
         </tr>
@@ -302,7 +302,7 @@
             <td>
                 name
             </td>
-            <td>
+            <td align="left" width="150">
                 aziubazdi
             </td>
 
@@ -317,7 +317,7 @@
             <td>
                 firstname
             </td>
-            <td>
+            <td align="left" width="150">
                 theodoazd
             </td>
         </tr>
@@ -331,7 +331,7 @@
             <td>
                 birthdate
             </td>
-            <td>
+            <td align="left" width="150">
                 34567898765432
             </td>
 
@@ -347,7 +347,7 @@
             <td>
                 heigt
             </td>
-            <td>
+            <td align="left" width="150">
                 173
             </td>
 
@@ -363,7 +363,7 @@
             <td>
                 weight
             </td>
-            <td>
+            <td align="left" width="150">
                 55
             </td>
 
@@ -379,7 +379,7 @@
             <td>
                 email
             </td>
-            <td>
+            <td align="left" width="150">
                 aziudi@gmail.com
             </td>
 
@@ -395,7 +395,7 @@
             <td>
                 isadmin
             </td>
-            <td>
+            <td align="left" width="150">
                 false
             </td>
 
