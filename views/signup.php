@@ -9,8 +9,14 @@
 			<input name="name" type="text" placeholder="Nom"></input>
 			<input name="firstname" type="text" placeholder="Prénom"></input>
 			<input name="email" type="email" placeholder="Email"></input>
-			<input name="password" type="password" placeholder="Mot de passe"></input>
-			<input name="repeatPassword" type="password" placeholder="Confirmer le mot de passe"></input>
+			<div class="password-wrapper">
+				<input name="password" type="password" placeholder="Mot de passe"></input>
+				<span class="material-icons">visibility</span>
+			</div>
+			<div class="password-wrapper">
+				<input name="repeatPassword" type="password" placeholder="Confirmer le mot de passe"></input>
+				<span class="material-icons">visibility</span>
+			</div>
 			<div class="datenaissance">
 				<p id="datenaissance">Date de naissance</p>
 				<input name="birthdate" type="date"></input>

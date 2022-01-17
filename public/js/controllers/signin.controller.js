@@ -20,6 +20,16 @@ export class SigninController extends BaseController {
 			this.navigate("")
 		this.navigate("signup", ".inscription");
 		this.select("form").addEventListener("submit", e => this.onSelectForm(e));
+		this.onClick(".password-wrapper span", el => this.togglePassword(el));
+	}
+
+	/**
+	 * @param {HTMLSpanElement} el
+	 */
+	 togglePassword(el) {
+		const input = el.parentElement.querySelector("input");
+		input.type = input.type === "password" ? "text" : "password";
+		el.innerHTML = el.innerHTML === "visibility" ? "visibility_off" : "visibility";
 	}
 
 	/**
