@@ -19,11 +19,21 @@ abstract class BaseController {
 		$this->token = $this->getToken();
 	}
 
-	public function isLogged(): bool {
-		return $this->token != null;
+	public function redirect(string $location) {
+		$root = Conf::ROOT_PATH;
+		header("Location: /$root$location");
+		exit();
 	}
 
-	protected function loadView(string $view, array $data = []): array {
+	public function isLogged(): bool {
+		return $this->token != null && JWT::verify($this->token, Conf::JWT_SECRET);
+	}
+
+	public function isAdmin(): bool {
+		return $this->isLogged() && $this->getLoggedUser()->isadmin;
+	}
+
+	public function loadView(string $view, array $data = []): array {
 		$data['isLogged'] = $this->isLogged();
 		if ($this->isDynamicRequest)
 			return [$view, $data];

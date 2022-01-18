@@ -1,133 +1,129 @@
 p {
-    font-size: 24px;
-    /* commentaire*/
-    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-    text-align: center;
-    color: #878787;
-    text-shadow: none
+	font-size: 24px;
+	/* commentaire*/
+	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+	text-align: center;
+	color: #878787;
+	text-shadow: none;
+}
+h2 {
+	display: block;
+	width: 80%;
+	text-align: center;
+	font-size: 2em;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 0;
+	color: rgba(255, 255, 255, 0.726);
+}
+@media screen and (max-width: 1200px) {
+	h2 {
+		margin-top: 60px;
+	}
+}
+@media screen and (max-width: 768px) {
+	h2 {
+		font-size: 1.8em;
+		margin-top: 20px;
+	}
 }
 
 .Donnee {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 18%;
-}
-
-.rond1 {
-    display: flex;
-    width: 450px;
-    height: 450px;
-    border: none;
-    background-color: #666;
-    border-radius: 450px;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10%;
-}
-
-.rond2 {
-    display: flex;
-    width: 450px;
-    height: 450px;
-    border: none;
-    background-color: #666;
-    border-radius: 450px;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10%;
-}
-
-.rond3 {
-    display: flex;
-    width: 450px;
-    height: 450px;
-    border: none;
-    background-color: #666;
-    border-radius: 450px;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10%;
-}
-
-#Txtrond3,
-#Txtrond2,
-#Txtrond1 {
-    font-size: 60px;
-    color: white;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 40px;
+	padding: 0 20px;
+	padding-top: 10px;
+	overflow: hidden;
 }
 
 .rond1,
 .rond2,
 .rond3 {
-    box-shadow: 0 0 5px 2px #00000069;
-    border: 1px solid #6a90ad;
+	display: flex;
+	width: 250px;
+	height: 250px;
+	border: none;
+	background-color: #666;
+	border-radius: 250px;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 10%;
+	position: relative;
 }
 
-@media only screen and (max-width: 1466px) {
-    .Donnee {
-        display: block;
-        align-items: center;
-        justify-content: space-around;
-    }
+#Txtrond3,
+#Txtrond2,
+#Txtrond1 {
+	font-size: 30px;
+	color: white;
+}
+
+.rond1,
+.rond2,
+.rond3 {
+	box-shadow: 0 0 5px 2px #00000069;
+	border: 1px solid #6a90ad;
+}
+
+@media only screen and (max-width: 900px) {
+	.Donnee {
+		display: block;
+		align-items: center;
+		justify-content: space-around;
+	}
 }
 
 @media only screen and (max-width: 500px) {
-    .rond1,
-    .rond2,
-    .rond3 {
-        Width: 300px;
-        height: 300px;
-        border-radius: 300px;
-    }
-    #Txtrond1,
-    #Txtrond2,
-    #Txtrond3 {
-        font-size: 40px
-    }
+	.rond1,
+	.rond2,
+	.rond3 {
+		width: 300px;
+		height: 300px;
+		border-radius: 300px;
+	}
+	#Txtrond1,
+	#Txtrond2,
+	#Txtrond3 {
+		font-size: 40px;
+	}
 }
 
 @media only screen and (max-width: 320px) {
-    .rond1,
-    .rond2,
-    .rond3 {
-        Width: 250px;
-        height: 250px;
-        border-radius: 250px;
-    }
-    #Txtrond1,
-    #Txtrond2,
-    #Txtrond3 {
-        font-size: 35px
-    }
-    /*#Menu{
-        height: 65%;
-
-    }*/
+	.rond1,
+	.rond2,
+	.rond3 {
+		width: 250px;
+		height: 250px;
+		border-radius: 250px;
+	}
+	#Txtrond1,
+	#Txtrond2,
+	#Txtrond3 {
+		font-size: 35px;
+	}
 }
 
 .Emptableau {
-    background-color: #666;
-    width: 90%;
-    height: 500px;
-    border-radius: 30px;
-    margin: 5%;
-    box-shadow: 0 0 5px 2px #00000069;
-    border: 1px solid #6a90ad;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20%;
-    padding-top: 1%;
+	background-color: #666;
+	width: 90%;
+	height: 500px;
+	border-radius: 30px;
+	margin: 5%;
+	box-shadow: 0 0 5px 2px #00000069;
+	border: 1px solid #6a90ad;
+	display: flex;
+	flex-direction: column;
+	padding-top: 1%;
 }
 
 .Tableau {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    flex: 1 0;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+	flex: 1 0;
 }
 
 #graph1,
@@ -137,25 +133,25 @@ p {
 #graph5,
 #graph6,
 #graph7 {
-    width: 150px;
-    background-color: #6A90AD;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 1px 2px 3px 1px #4e6b81 inset;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+	width: 150px;
+	background-color: #6a90ad;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 1px 2px 3px 1px #4e6b81 inset;
+	justify-content: center;
+	align-items: center;
+	display: flex;
 }
 
 .Txttableau {
-    display: flex;
-    color: white;
-    font-size: 25px;
-    justify-content: space-around;
-    align-items: center;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+	display: flex;
+	color: white;
+	font-size: 25px;
+	justify-content: space-around;
+	align-items: center;
+	margin-top: 0.5%;
+	margin-bottom: 0.5%;
+	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 }
 
 #Txtgraph1,
@@ -165,269 +161,296 @@ p {
 #Txtgraph5,
 #Txtgraph6,
 #Txtgraph7 {
-    color: white;
-    font-size: 25px;
-    align-items: flex-end;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-    justify-content: center;
-    margin-left: 4%;
+	color: white;
+	font-size: 25px;
+	align-items: flex-end;
+	margin-top: 0.5%;
+	margin-bottom: 0.5%;
+	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+	justify-content: center;
+	margin-left: 4%;
 }
 
 #graph1 {
-    animation: slidin80 2s;
-    animation-delay: 2s;
-    animation-fill-mode: both;
+	animation: slidin80 2s;
+	animation-delay: 2s;
+	animation-fill-mode: both;
 }
 
 #graph2 {
-    animation: slidin70 2s;
-    animation-delay: 2s;
-    animation-fill-mode: both;
+	animation: slidin70 2s;
+	animation-delay: 2s;
+	animation-fill-mode: both;
 }
 
-@media(hover:hover) {
-    #graphe1 {
-        animation: slidin 2s;
-        animation-delay: 2s;
-        animation-fill-mode: both;
-    }
+@media (hover: hover) {
+	#graphe1 {
+		animation: slidin 2s;
+		animation-delay: 2s;
+		animation-fill-mode: both;
+	}
 }
 
 @keyframes slidin80 {
-    0% {
-        height: 0%;
-    }
-    100% {
-        height: 80%;
-    }
+	0% {
+		height: 0%;
+	}
+	100% {
+		height: 80%;
+	}
 }
 
 @keyframes slidin70 {
-    0% {
-        height: 0%;
-    }
-    100% {
-        height: 70%;
-    }
+	0% {
+		height: 0%;
+	}
+	100% {
+		height: 70%;
+	}
 }
 
 .compteur,
 .compteur2 {
-    color: white;
+	color: white;
 }
 
 #graph3,
 #graph6 {
-    height: 40%;
+	height: 40%;
 }
 
 #graph2,
 #graph4 {
-    height: 70%;
+	height: 70%;
 }
 
 #graph5,
 #graph7 {
-    height: 50%;
+	height: 50%;
 }
 
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 #barre_tableau {
-    display: block;
-    width: 99%;
-    height: 20px;
-    margin-top: 1%;
-    background-color: #6A90AD;
-    margin-right: 0.5%;
-    margin-left: 0.5%;
+	display: block;
+	width: 99%;
+	height: 20px;
+	margin-top: 1%;
+	background-color: #6a90ad;
+	margin-right: 0.5%;
+	margin-left: 0.5%;
 }
 
 #barre_tableausmall {
-    width: 80%;
-    height: 100px;
-    margin-top: 2%;
-    background-color: #6A90AD;
-    margin-right: 0.5%;
-    margin-left: 0.5%;
+	width: 80%;
+	height: 100px;
+	margin-top: 2%;
+	background-color: #6a90ad;
+	margin-right: 0.5%;
+	margin-left: 0.5%;
 }
 
 #Txtgraph1_2,
 #Txtgraph2_2 {
-    color: white;
-    font-size: 25px;
-    align-items: flex-end;
-    margin-top: 0.5%;
-    margin-bottom: 0.5%;
-    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+	color: white;
+	font-size: 25px;
+	align-items: flex-end;
+	margin-top: 0.5%;
+	margin-bottom: 0.5%;
+	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 }
 
 @media only screen and (max-width: 1215px) {
-    #graph1,
-    #graph2,
-    #graph3,
-    #graph4,
-    #graph5,
-    #graph6,
-    #graph7 {
-        width: 90px;
-    }
-    #Txtgraph1,
-    #Txtgraph2 {
-        display: none;
-    }
-    #barre_tableau {
-        width: 98%;
-        align-self: center;
-    }
+	#graph1,
+	#graph2,
+	#graph3,
+	#graph4,
+	#graph5,
+	#graph6,
+	#graph7 {
+		width: 90px;
+	}
+	#Txtgraph1,
+	#Txtgraph2 {
+		display: none;
+	}
+	#barre_tableau {
+		width: 98%;
+		align-self: center;
+	}
 }
 
-@media only screen and (max-width: 630px) {}
+@media only screen and (max-width: 630px) {
+}
 
 @media only screen and (min-width: 765px) {
-    #barre_tableausmall,
-    #Txtgraph1_2,
-    #Txtgraph2_2 {
-        display: none;
-    }
+	#barre_tableausmall,
+	#Txtgraph1_2,
+	#Txtgraph2_2 {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 765px) {
-    #graph1,
-    #graph2,
-    #graph3,
-    #graph4,
-    #graph5,
-    #graph6,
-    #graph7 {
-        margin-top: 7%;
-        width: 175px;
-    }
-    .Tableau {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        align-content: space-evenly;
-        height: 2000px;
-    }
-    .Txttableau {
-        display: block;
-        font-size: 15px;
-    }
-    .Emptableau {
-        height: 2000px;
-    }
-    #barre_tableausmall,
-    #Txtgraph1_2,
-    #Txtgraph2_2 {
-        display: block;
-    }
-    #barre_tableau {
-        display: none;
-    }
-    nav {
-        display: block;
-    }
+	#graph1,
+	#graph2,
+	#graph3,
+	#graph4,
+	#graph5,
+	#graph6,
+	#graph7 {
+		margin-top: 7%;
+		width: 175px;
+	}
+	.Tableau {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		align-content: space-evenly;
+		height: 2000px;
+	}
+	.Txttableau {
+		display: block;
+		font-size: 15px;
+	}
+	.Emptableau {
+		height: 2000px;
+	}
+	#barre_tableausmall,
+	#Txtgraph1_2,
+	#Txtgraph2_2 {
+		display: block;
+	}
+	#barre_tableau {
+		display: none;
+	}
+	nav {
+		display: block;
+	}
 }
 
 @media only screen and (min-width: 765px) {
-    #barretableausmall,
-    #Txtgraph1_2,
-    #Txtgraph2_2,
-    nav {
-        display: none;
-    }
+	#barretableausmall,
+	#Txtgraph1_2,
+	#Txtgraph2_2,
+	nav {
+		display: none;
+	}
 }
 
 .rond1:hover #Txtrond1,
 .rond2:hover #Txtrond2,
 .rond3:hover #Txtrond3 {
-    display: none;
+	display: none;
 }
 
 .rond1:not(:hover) .flex-wrapper {
-    display: none;
+	display: none;
 }
 
 .rond1:hover .flex-wrapper,
 .rond2:hover .flex-wrapper {
-    display: flex;
+	display: flex;
 }
 
 .flex-wrapper {
-    display: none;
-    flex-flow: row nowrap;
-    transition: all 0.5s;
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
+	display: none;
+	flex-flow: row nowrap;
+	transition: all 0.5s;
+	height: 290%;
+	width: 290%;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	pointer-events: none;
 }
 
 @media (hover: hover) {
-    .rond1:hover .flex-wrapper {
-        display: flex;
-    }
-    .rond2:hover .flex-wrapper {
-        display: flex;
-    }
-    .rond3:hover .flex-wrapper {
-        display: flex;
-    }
+	.rond1:hover .flex-wrapper {
+		display: flex;
+	}
+	.rond2:hover .flex-wrapper {
+		display: flex;
+	}
+	.rond3:hover .flex-wrapper {
+		display: flex;
+	}
 }
 
 .single-chart {
-    width: 50%;
-    justify-content: space-around;
+	width: 50%;
+	justify-content: space-around;
 }
 
 .circular-chart {
-    display: block;
-    margin: 10px auto;
-    max-width: 80%;
-    max-height: 350px;
+	display: block;
+	margin: 10px auto;
+	max-width: 80%;
+	max-height: 350px;
 }
 
 .circle-bg {
-    fill: none;
-    stroke: #6a90ad50;
-    stroke-width: 3.8;
+	fill: none;
+	stroke: #6a90ad50;
+	stroke-width: 3.8;
 }
 
 .circle {
-    fill: none;
-    stroke-width: 2.8;
-    stroke-linecap: round;
-    animation: progress 1s ease-out forwards;
+	fill: none;
+	stroke-width: 0.5px;
+	stroke-linecap: round;
+	animation: progress 1s ease-out forwards;
 }
 
 @keyframes progress {
-    0% {
-        stroke-dasharray: 0 100;
-    }
+	0% {
+		stroke-dasharray: 0 100;
+	}
 }
 
 .circular-chart.Temp .circle {
-    stroke: #5BCC12;
+	stroke: #5bcc12;
 }
 
 .circular-chart.CO2 .circle {
-    stroke: #5BCC12;
+	stroke: #5bcc12;
 }
 
 .circular-chart.Decibel .circle {
-    stroke: #5BCC12;
+	stroke: #5bcc12;
 }
 
 .percentage {
-    fill: white;
-    font-family: 'Roboto';
-    font-size: 7px;
-    text-anchor: middle;
+	fill: white;
+	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
+	font-size: 6px;
+	text-anchor: middle;
+}
+.no-data {
+	margin-bottom: 60px;
+	margin-top: 0;
+}
+.no-data-link {
+	color: #5bcc12;
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+.map-wrapper {
+	width: 80%;
+	height: 600px;
+	position: relative;
+	display: block;
+	margin: auto;
+	margin-top: 40px;
+	margin-bottom: 50px;
+	box-shadow: 0 0 7px -1px #575757;
+	border-radius: 6px;
+	overflow: hidden;
+}
+#map {
+	width: 100%;
+	height: 100%;
 }

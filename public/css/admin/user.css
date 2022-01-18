@@ -1,0 +1,81 @@
+h2 {
+	text-align: center;
+	margin-top: 40px;
+	font-size: 1.9em;
+}
+@media screen and (max-width: 1200px) {
+	h2 {
+		margin-top: 70px;
+	}
+}
+.user-list {
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	width: 70%;
+	min-width: 700px;
+	justify-content: space-evenly;
+	margin-bottom: 30px;
+}
+.user {
+	display: flex;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #fff;
+	border: 3px solid #5bcc12;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+.user-info {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+}
+.user-info div {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+.user-info div:last-of-type {
+	margin-bottom: 0;
+}
+.user-actions {
+	display: flex;
+}
+.user-list button {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+}
+.action-admin {
+	border: 2px solid #5ccc1267;
+	border-radius: 4px;
+}
+.action-admin span {
+	margin-left: 10px;
+	color: #428f10;
+}
+.action-delete {
+	color: red;
+}
+
+.search-user-admin {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+}
+.search-user-admin .search-icon {
+	margin: 0 10px;
+	color: #5bcc12;
+}
+.search-user-admin input {
+	flex: 1;
+	border: none;
+	outline: none !important;
+	overflow: hidden;
+	transition: all 225ms ease-out;
+	width: 75%;
+	font-size: 20px;
+}

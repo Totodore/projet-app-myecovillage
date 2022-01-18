@@ -2,6 +2,7 @@
 
 namespace Project\Models;
 
+use DateTime;
 use Project\Core\Attributes\Orm\Column;
 use Project\Core\Attributes\Orm\PrimaryColumn;
 use Project\Core\BaseModel;
@@ -15,31 +16,71 @@ class MinigameResultModel extends BaseModel {
 	public int $id;
 
 	#[Column()]
-	public int $userId;
+	public int $userid;
 	#[Column()]
-	public int $dayMood;
+	public int $daymood;
 	#[Column()]
-	public int $daySleep;
+	public int $daysleep;
 	#[Column()]
-	public int $noiseDayMood;
+	public int $noisedaymood;
 	#[Column()]
-	public int $noiseNightMood;
+	public int $noisenightmood;
 	#[Column()]
 	public int $breathing;
 	#[Column()]
-	public bool $wentOutside;
+	public bool $wentoutside;
 	#[Column()]
-	public bool $interactiveDay;
+	public bool $interactiveday;
 	#[Column()]
 	public bool $sport;
 	#[Column()]
-	public bool $sportIndoor;
+	public bool $sportindoor;
 	#[Column()]
-	public bool $sportHarder;
+	public bool $sportharder;
 	#[Column()]
-	public int $sportDuration;
+	public int $sportduration;
+	#[Column()]
+	public DateTime $date;
+
+	public function __construct() {
+		$this->date = new DateTime();
+		parent::__construct();
+	}
 
 	public function getAuthor(): UserModel {
-		return UserModel::findOne($this->userId);
+		return UserModel::findOne($this->userid);
+	}
+
+	public static function hasWeekStat(string $userid): bool {
+		foreach(MinigameResultModel::findManyBy("userid", $userid) ?? [] as $result) {
+			if ($result->date->format("W") == date("W"))
+				return true;
+		}
+		return false;
+	}
+
+	public static function getWeekStat(string $userid): array {
+		$week = [];
+		foreach(MinigameResultModel::findManyBy("userid", $userid) ?? [] as $result) {
+			if ($result->date->format("W") == date("W")) {
+				$score = 0;
+				$score += $result->daymood;	 //MAX : 5
+				if ($result->daysleep > 6 && $result->daysleep < 10) // MAX : 2 (pas + de 12)
+					$score++;
+				else if ($result->daysleep >= 10)
+					$score += 2; 
+				$score += $result->noisenightmood >= 4 ? 0 : 4 - $result->noisenightmood; // MAX : 3
+				$score += $result->noisedaymood > 4 ? 0 : 5 - $result->noisedaymood; // MAX : 4
+				$score += $result->breathing / 100;	// MAX : 1
+				$score += $result->wentoutside ? 1 : 0;	// MAX : 1
+				$score += $result->interactiveday >= 1 ? 2 : 0; 	// MAX : 2
+				$score += $result->sport ? 2 : 0; 				// MAX : 2
+				$score += !$result->sportindoor ? 1 : 0; // MAX : 1
+				$score += max(floor($result->sportduration / 30), 10); 	// MAX : 10 
+				$score += !$result->sportharder ? 1 : 0;			// MAX : 1
+				$week[$result->date->format("D")] = $score;
+			}
+		}
+		return $week;
 	}
 }

@@ -1,35 +1,43 @@
-@import './components/header.css';
-@import './components/footer.css';
+@import "./components/header.css";
+@import "./components/footer.css";
+
+input::-ms-reveal,
+input::-ms-clear {
+	display: none;
+}
+
 p {
-    font-size: 24px;
-    /* commentaire*/
-    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-    text-align: center;
-    color: #878787;
-    text-shadow: none
+	font-size: 24px;
+	/* commentaire*/
+	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+	text-align: center;
+	color: #878787;
+	text-shadow: none;
 }
 
 body {
-    background-color: #6A90AD;
-    margin: 0px;
-    padding: 0px;
-    height: 100%;
-    min-height: 100vh;
-    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
-    display: flex;
-    flex-direction: column;
+	background-color: #6a90ad;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+	min-height: 100vh;
+	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
+	display: flex;
+	flex-direction: column;
 }
 
 #body-wrapper {
-    margin-top: 150px;
-		flex: 1 1 auto;
+	margin-top: 150px;
+	flex: 1 1 auto;
 }
 
 a {
-    user-select: none;
+	user-select: none;
 }
 
-button, input[type="submit"], input[type="reset"] {
+button,
+input[type="submit"],
+input[type="reset"] {
 	background: none;
 	color: inherit;
 	border: none;

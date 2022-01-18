@@ -11,6 +11,8 @@ use PDO;
 use Project\Controllers\AdminController;
 use Project\Controllers\IndexController;
 use Project\Controllers\Api\AuthController;
+use Project\Controllers\Api\ContactController;
+use Project\Controllers\Api\TicketController;
 use Project\Controllers\Api\UserController;
 use Project\Controllers\InfoController;
 use Project\Core\Attributes\Http\Get;
@@ -19,10 +21,11 @@ use Project\Core\Attributes\Http\Put;
 use Project\Core\Attributes\Http\Delete;
 use Project\Core\Attributes\Http\Patch;
 use Project\Models\UserModel;
-use Project\Models\AdminMessageModel;
 use Project\Models\HeartBeatModel;
 use Project\Models\MinigameResultModel;
 use Project\Models\FaqArticleModel;
+use Project\Models\ForumModel;
+use Project\Models\TicketModel;
 
 class Conf
 {
@@ -43,10 +46,12 @@ class Conf
 	
 	//Mail configuration
 	const MAIL_PASSWORD 	= 'dabEscPNSr';
-	const MAIL_USER 			= 'myecovillage@scriptis.fr';
+	const MAIL_USER 			= 'jasiewe21@gmail.com';
 	const MAIL_HOST 			= 'mail.scriptis.fr';
 	const MAIL_PORT 			= '587';
 	const MAIL_FROM_NAME 	= 'MyEcoVillage';
+	
+	const MAPS_API_KEY		= "AIzaSyBKYOtiKQz6F8OCE6iQ8mM8GqWxFq_4ouQ";
 
 	//Security configuration
 	const JWT_SECRET 			= "PNkL4zCwxmP34SN8mhQNuqLijoq8X9zocsbJnzUzXLOXWDbXL8m67B0vYBgyKoH1";
@@ -60,6 +65,8 @@ class Conf
 		AdminController::class,
 		AuthController::class,
 		UserController::class,
+		ContactController::class,
+		TicketController::class
 	];
 
 	/**
@@ -67,10 +74,11 @@ class Conf
  	*/
 	const MODELS = [
 		UserModel::class,
-		AdminMessageModel::class,
 		HeartBeatModel::class,
 		MinigameResultModel::class,
 		FaqArticleModel::class,
+		ForumModel::class,
+		TicketModel::class,
 	];
 
 	/**

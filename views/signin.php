@@ -7,7 +7,10 @@
 		</div>
 		<div class="inputs">
 			<input name="email" type="email" placeholder="Email" />
-			<input name="password" type="password" placeholder="Mot de passe">
+			<div class="password-wrapper">
+				<input name="password" type="password" placeholder="Mot de passe">
+				<span class="material-icons">visibility</span>
+			</div>
 		</div>
 
 		<p class="inscription">Je n'ai pas de <a id="creer">compte.</a>Je m'en <a id="creer">crée</a> un.</p>

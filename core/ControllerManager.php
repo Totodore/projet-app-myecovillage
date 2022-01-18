@@ -5,6 +5,7 @@ namespace Project\Core;
 use Exception;
 use ReflectionClass;
 use Project\Conf;
+use Project\Controllers\IndexController;
 use Project\Core\Attributes\Http\AuthGuard;
 use Project\Core\Attributes\Http\Controller;
 use Project\Core\Attributes\Http\JsonController;
@@ -73,7 +74,7 @@ class ControllerManager
 		$request = array_merge($_GET, $_POST, $_FILES, Utils::isJson($entityBody) ? get_object_vars(json_decode($entityBody)) : []);
 		unset($request['q']);
 		$headers = getallheaders();
-		if ($headers['dynamic'] ?? false)
+		if (isset($headers["Dynamic"]) ?? false)
 			$controller->setDynamicRequest();
 		if ($route->guard != null)
 			$route->guard->newInstance();
@@ -82,7 +83,7 @@ class ControllerManager
 		}
 		//We invoke the method to check the request, if it returns true. Then we invoke the main handling method
 		try {
-			$res = $route->function->invokeArgs($controller, [$request]);
+			$res = (isset($headers["Dynamic"]) ?? false) ? $route->function->invokeArgs($controller, [$request]) : (new IndexController())->index([]);
 			if (is_null($res)) {
 				http_response_code(204);
 				return;

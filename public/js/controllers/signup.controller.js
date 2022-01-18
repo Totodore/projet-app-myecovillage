@@ -19,6 +19,16 @@ export class SignupController extends BaseController {
 		if (this.apiService.logged)
 			this.navigate("")
 		this.select("form").addEventListener("submit", e => this.onSubmitForm(e));
+		this.selectAll(".password-wrapper span").forEach(el => el.addEventListener("click", () => this.togglePassword(el)));
+	}
+
+	/**
+ 		* @param {HTMLSpanElement} el
+ 	*/
+	togglePassword(el) {
+		const input = el.parentElement.querySelector("input");
+		input.type = input.type === "password" ? "text" : "password";
+		el.innerHTML = el.innerHTML === "visibility" ? "visibility_off" : "visibility";
 	}
 
 	/**

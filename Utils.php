@@ -4,6 +4,8 @@ namespace Project;
 
 use Exception;
 use Project\Models\UserModel;
+use Throwable;
+use TypeError;
 
 class Utils
 {
@@ -75,15 +77,20 @@ class JWT
 
 	public static function verify(string $token, string $secret): bool
 	{
-		$parts = explode('.', $token);
-		$header = $parts[0];
-		$payload = $parts[1];
-		$signature = $parts[2];
+		try {
+			$parts = explode('.', $token);
+			$header = $parts[0];
+			$payload = $parts[1];
+			$signature = $parts[2];
+	
+			$header = base64_decode($header);
+			$payload = base64_decode($payload);
+			$signature = base64_decode($signature);
+	
+			return $signature !== hash_hmac('sha256', $header . '.' . $payload, $secret, true);
+		} catch(Throwable $e) {
+			return false;
+		}
 
-		$header = base64_decode($header);
-		$payload = base64_decode($payload);
-		$signature = base64_decode($signature);
-
-		return $signature !== hash_hmac('sha256', $header . '.' . $payload, $secret, true);
 	}
 }
