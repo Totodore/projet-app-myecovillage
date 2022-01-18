@@ -6,31 +6,37 @@
 	margin: 80px auto;
 }
 h1 {
-	color: white;
+	color: #5BCC12;
 	text-align: center;
 }
 h2 {
-	color: white;
+	color: #5BCC12;
 }
 p {
 	font-size: 16px;
-	color: white;
+	color: black;
 	text-align: justify;
 }
+.proposition {
+	color:#5BCC12
+}
 .question {
-	border: 0;
-	line-height: 2.5;
-	padding: 0 20px;
-	font-size: 1rem;
-	text-align: center;
-	color: #fff;
-	text-shadow: 1px 1px 1px #000;
-	border-radius: 10px;
-	background-color: #5bcc12;
+	background-color: #5BCC12;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    width: 250px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 2s;
+    display: block;
+
 }
 
 .question:hover {
-	background-color: #5bcc12;
+	background-color: lightgrey;
+	box-shadow: 0 0 0px 2px #5BCC12;
+
 }
 
 .question:active {
@@ -38,8 +44,8 @@ p {
 }
 
 .forum-wrapper {
-	background-color: #666;
-	box-shadow: 0 0 5px 2px #00000069;
+	background-color: white;
+	box-shadow: 0 0 0px 2px #ccc;
 	border: 1px solid #6a90ad;
 	border-radius: 30px;
 	margin-top: 20px;
@@ -47,7 +53,7 @@ p {
 	text-align: justify;
 }
 .questions {
-	background-color: #5bcc12;
+	background-color: white;
 	border-radius: 10px;
 	padding: 5px 5px 5px 5px;
 	position: relative;
@@ -57,11 +63,12 @@ p {
 	position: absolute;
 	bottom: 30px;
 	right: 4px;
-	color: white;
+	color: black;
 }
 .réponse {
 	display: none;
-	background-color: #6a90ad;
+	background-color: white;
+	box-shadow:0 0 0px 2px #ccc;
 	border-radius: 10px;
 	margin-left: 30px;
 	margin-top: 5px;

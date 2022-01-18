@@ -12,9 +12,7 @@
             </div>
             <div class="réponse">
                 <p>Elles seront seulement sur le site et elles seront sécurisées.</p>
-                    <p>
-                        <label for="réponse">Votre réponse à la question</label>
-                    </p>
+                    <p class="proposition">Votre réponse à la question</p>
                     <p>
                         <textarea name="réponse" id="réponse"></textarea>
                     </p>
@@ -28,9 +26,7 @@
             </div>
             <div class="réponse">
                 <p>blablabla</p>
-                <p>
-                    <label for="réponse">Votre réponse à la question</label>
-                </p>
+                <p class="proposition">Votre réponse à la question</p>
                 <p>
                     <textarea name="réponse" id="réponse"></textarea>
                 </p>
