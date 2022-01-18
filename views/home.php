@@ -1,3 +1,4 @@
+<?php setlocale(LC_TIME, "fr_FR"); ?>
 <h2>Bonjour <?php echo $user->firstname; ?>, voici vos informations quotidiennes.</h2>
 <div Class="Donnee">
 	<div Class="rond1">
@@ -52,29 +53,18 @@
 	</div>
 </div>
 
+<h2>Vos statistiques de bien-être au sein de mon écoquartier :</h2>
 <?php if ($hasWeekStat) { ?>
 	<div class="Emptableau">
 		<div class="Tableau">
 			<?php foreach ($dataStat as $score) { ?>
-				<div id="graph1">
-					<div id="ptab1">
-						<p class="compteur" data-value="80">0</p>
+				<div class="graph">
+					<div class="ptab">
+						<p class="compteur" data-value="<?php echo $score[1] ?>">0</p>
 					</div>
+					<div class="barre_tableausmall"><?php echo $score[2] ?></div>
 				</div>
-				<div id="barre_tableausmall"></div>
 			<?php } ?>
-			<div id="barre_tableau"></div>
-
-
-			<div class="Txttableau">
-				<div id="Txtgraph1">Lundi</div>
-				<div id="Txtgraph2">Mardi</div>
-				<div id="Txtgraph2">Mercredi</div>
-				<div id="Txtgraph2">Jeudi</div>
-				<div id="Txtgraph2">Vendredi</div>
-				<div id="Txtgraph2">Samedi</div>
-				<div id="Txtgraph2">Dimanche</div>
-			</div>
 		</div>
 	</div>
 <?php } else { ?>

@@ -117,6 +117,7 @@ h2 {
 	display: flex;
 	flex-direction: column;
 	padding-top: 1%;
+	overflow: hidden;
 }
 
 .Tableau {
@@ -126,13 +127,7 @@ h2 {
 	flex: 1 0;
 }
 
-#graph1,
-#graph2,
-#graph3,
-#graph4,
-#graph5,
-#graph6,
-#graph7 {
+.graph {
 	width: 150px;
 	background-color: #6a90ad;
 	justify-content: center;
@@ -141,54 +136,14 @@ h2 {
 	justify-content: center;
 	align-items: center;
 	display: flex;
+	flex-direction: column;
 }
 
-.Txttableau {
-	display: flex;
-	color: white;
-	font-size: 25px;
-	justify-content: space-around;
-	align-items: center;
-	margin-top: 0.5%;
-	margin-bottom: 0.5%;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-}
 
-#Txtgraph1,
-#Txtgraph2,
-#Txtgraph3,
-#Txtgraph4,
-#Txtgraph5,
-#Txtgraph6,
-#Txtgraph7 {
-	color: white;
-	font-size: 25px;
-	align-items: flex-end;
-	margin-top: 0.5%;
-	margin-bottom: 0.5%;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-	justify-content: center;
-	margin-left: 4%;
-}
-
-#graph1 {
+#graph {
 	animation: slidin80 2s;
 	animation-delay: 2s;
 	animation-fill-mode: both;
-}
-
-#graph2 {
-	animation: slidin70 2s;
-	animation-delay: 2s;
-	animation-fill-mode: both;
-}
-
-@media (hover: hover) {
-	#graphe1 {
-		animation: slidin 2s;
-		animation-delay: 2s;
-		animation-fill-mode: both;
-	}
 }
 
 @keyframes slidin80 {
@@ -209,81 +164,8 @@ h2 {
 	}
 }
 
-.compteur,
-.compteur2 {
+.compteur {
 	color: white;
-}
-
-#graph3,
-#graph6 {
-	height: 40%;
-}
-
-#graph2,
-#graph4 {
-	height: 70%;
-}
-
-#graph5,
-#graph7 {
-	height: 50%;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-}
-
-#barre_tableau {
-	display: block;
-	width: 99%;
-	height: 20px;
-	margin-top: 1%;
-	background-color: #6a90ad;
-	margin-right: 0.5%;
-	margin-left: 0.5%;
-}
-
-#barre_tableausmall {
-	width: 80%;
-	height: 100px;
-	margin-top: 2%;
-	background-color: #6a90ad;
-	margin-right: 0.5%;
-	margin-left: 0.5%;
-}
-
-#Txtgraph1_2,
-#Txtgraph2_2 {
-	color: white;
-	font-size: 25px;
-	align-items: flex-end;
-	margin-top: 0.5%;
-	margin-bottom: 0.5%;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-}
-
-@media only screen and (max-width: 1215px) {
-	#graph1,
-	#graph2,
-	#graph3,
-	#graph4,
-	#graph5,
-	#graph6,
-	#graph7 {
-		width: 90px;
-	}
-	#Txtgraph1,
-	#Txtgraph2 {
-		display: none;
-	}
-	#barre_tableau {
-		width: 98%;
-		align-self: center;
-	}
-}
-
-@media only screen and (max-width: 630px) {
 }
 
 @media only screen and (min-width: 765px) {
@@ -295,13 +177,7 @@ h2 {
 }
 
 @media only screen and (max-width: 765px) {
-	#graph1,
-	#graph2,
-	#graph3,
-	#graph4,
-	#graph5,
-	#graph6,
-	#graph7 {
+	.graph {
 		margin-top: 7%;
 		width: 175px;
 	}
