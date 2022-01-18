@@ -21,7 +21,7 @@ class IndexController extends BaseController
 	#[Get('/')]
 	public function index(array $query): array
 	{
-		return $this->loadView('index', $query);
+		return $this->loadView('index', ["MAPS_API_KEY" => Conf::MAPS_API_KEY]);
 	}
 
 	#[Get('/home')]
@@ -32,7 +32,7 @@ class IndexController extends BaseController
 		$user = $this->getLoggedUser();
 		$hasWeekStat = MinigameResultModel::hasWeekStat($user->id);
 		$dataStat = MinigameResultModel::getWeekStat($user->id);
-		return $this->loadView('home', ["user" => $user, "hasWeekStat" => $hasWeekStat, "datastat" => $dataStat]);
+		return $this->loadView('home', ["user" => $user, "hasWeekStat" => $hasWeekStat, "dataStat" => $dataStat]);
 	}
 
 	#[Get('/signin')]
