@@ -23,10 +23,16 @@ class ForumModel extends BaseModel {
 	public int $authorid;
 
 	#[Column()]
+	public int $answerid;
+	
+	#[Column()]
 	public DateTime $date;
 
-	
 	public function getAuthor(): UserModel {
 		return UserModel::findOne($this->authorid);
+	}
+
+	public function getAnswer(): ?UserModel {
+		return $this->answerid ? UserModel::findOne($this->answerid) : null;
 	}
 }
