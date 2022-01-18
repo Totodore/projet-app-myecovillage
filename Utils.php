@@ -2,6 +2,11 @@
 
 namespace Project;
 
+use Exception;
+use Project\Models\UserModel;
+use Throwable;
+use TypeError;
+
 class Utils
 {
 
@@ -12,6 +17,25 @@ class Utils
 	{
 		json_decode($str);
 		return json_last_error() === JSON_ERROR_NONE;
+	}
+
+	public static function file_put_raw_contents($url, $data, $username = null, $password = null)
+	{
+		$opts = array(
+			'http' =>
+			array(
+				'method'  => 'PUT',
+				'header'  => 	"Content-type: text/plain\r\n".
+											"Content-Length: " . strlen($data) . "\r\n",
+				'content' => $data,
+			)
+		);
+
+		if ($username && $password) {
+			$opts['http']['header'] .= ("Authorization: Basic " . base64_encode("$username:$password"))."\r\n";
+		}
+		$context = stream_context_create($opts);
+		file_get_contents($url, false, $context);
 	}
 }
 
@@ -37,7 +61,7 @@ class JWT
 		return trim($header, '=') . '.' . trim($payload, '=') . '.' . trim($signature, '=');
 	}
 
-	public static function decode(string $token, string $secret): array
+	public static function decode(string $token): object
 	{
 		$parts = explode('.', $token);
 		$header = $parts[0];
@@ -48,10 +72,25 @@ class JWT
 		$payload = base64_decode($payload);
 		$signature = base64_decode($signature);
 
-		if ($signature !== hash_hmac('sha256', $header . '.' . $payload, $secret, true)) {
-			throw new \Exception('Invalid signature');
+		return json_decode($payload);
+	}
+
+	public static function verify(string $token, string $secret): bool
+	{
+		try {
+			$parts = explode('.', $token);
+			$header = $parts[0];
+			$payload = $parts[1];
+			$signature = $parts[2];
+	
+			$header = base64_decode($header);
+			$payload = base64_decode($payload);
+			$signature = base64_decode($signature);
+	
+			return $signature !== hash_hmac('sha256', $header . '.' . $payload, $secret, true);
+		} catch(Throwable $e) {
+			return false;
 		}
 
-		return json_decode($payload, true);
 	}
 }

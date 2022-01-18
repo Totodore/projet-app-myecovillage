@@ -25,7 +25,7 @@ abstract class BaseModel extends BaseModelHandler
 			$this->createTable($pdo);
 			// echo 'Table ' . $this->tableName . ' created' . "\n";
 		} else {
-			if (Conf::FORCE_UPDATE) {
+			if (Conf::DB_FORCE_UPDATE) {
 				// echo 'Table ' . $this->tableName . ' force update, dropping table and recreating it...' . "\n";
 				$this->dropTable($pdo);
 				$this->createTable($pdo);
@@ -88,9 +88,9 @@ abstract class BaseModel extends BaseModelHandler
 	public function print(): void
 	{
 		$val = array();
-		foreach ($this->properties as $key => $value)
-			$val[$value] = $this->{$value};
-		echo $this->tableName . ": ";
+		foreach ($this->getColumnEntries() as $key => $value)
+			$val[$key] = $value;
+		echo $this->getTableName() . ": ";
 		print_r($val);
 	}
 	
@@ -140,6 +140,8 @@ abstract class BaseModel extends BaseModelHandler
 		$instance = new static();
 		$types = $instance->getColumnTypes();
 		foreach ($data as $key => $value) {
+			if (!array_key_exists($key, $types))
+				continue;
 			$instance->{$key} = $types[$key] === 'DATETIME' ? new DateTime($value) : $value;
 		}
 		return $instance;
@@ -149,16 +151,16 @@ abstract class BaseModel extends BaseModelHandler
 	 * If the list of ids is not specified it will returns all the models
 	 * @return array of models
 	 **/
-	public static function find(?array $ids = null): array
+	public static function find(?array $ids = null, ?int $limit = null): array
 	{
 		$tableName = static::getTableName();
 		$pdo = $GLOBALS['pdo'];
 		if ($ids === null) {
-			$query = $pdo->query('SELECT * FROM ' . $tableName);
+			$query = $pdo->query('SELECT * FROM ' . $tableName . ($limit ? ' LIMIT ' . $limit : ''));
 			$query->execute();
 		}
 		else {
-			$query = $pdo->prepare('SELECT * FROM ' . $tableName . ' WHERE id IN (?)');
+			$query = $pdo->prepare('SELECT * FROM ' . $tableName . ' WHERE id IN (?)' . ($limit ? ' LIMIT ' . $limit : ''));
 			$query->execute(array(implode(',', $ids)));
 		}
 		$res = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -191,6 +193,33 @@ abstract class BaseModel extends BaseModelHandler
 		return !$res ? NULL : static::create($res);
 	}
 
+	public static function findManyBy(string $column, string $value): ?array
+	{
+		$tableName = static::getTableName();
+		$pdo = $GLOBALS['pdo'];
+		$query = $pdo->prepare('SELECT * FROM ' . $tableName . ' WHERE ' . $column . ' = ?');
+		$query->execute(array($value));
+		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		if ($res == null)
+			return NULL;
+		return array_map(function ($data) {
+			return static::create($data);
+		}, $res);
+	}
+
+	public static function search(string $q, array $columns, int $limit): array
+	{
+		$tableName = static::getTableName();
+		$pdo = $GLOBALS['pdo'];
+		$query = $pdo->prepare("SELECT * FROM $tableName WHERE " . implode("OR ", array_map(function($col) { return " UPPER($col) LIKE UPPER(?) "; }, $columns)) . " LIMIT ?");
+		$query->execute(array_merge(array_fill(0, count($columns), '%' . $q . '%'), [$limit]));
+		$res = $query->fetchAll(PDO::FETCH_ASSOC);
+		$models = array();
+		foreach ($res as $data)
+			array_push($models, static::create($data));
+		return $models;
+	}
+
 	/**
 	 * Delete a model from the database from its id
 	 */
@@ -199,6 +228,13 @@ abstract class BaseModel extends BaseModelHandler
 		$tableName = static::getTableName();
 		$pdo = $GLOBALS['pdo'];
 		$pdo->prepare('DELETE FROM ' . $tableName . ' WHERE id = ?')->execute(array($id));
+	}
+
+	public static function deleteWHere(string $column, string $value)
+	{
+		$tableName = static::getTableName();
+		$pdo = $GLOBALS['pdo'];
+		$pdo->prepare('DELETE FROM ' . $tableName . ' WHERE ' . $column . ' = ?')->execute(array($value));
 	}
 
 	/**

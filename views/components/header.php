@@ -1,23 +1,34 @@
 <header>
+	<div class="progressbar">
+		<div class="indeterminate"></div>
+	</div>
 	<div class="toolbar">
 
 		<a class="home" title="Home">
-			<img id="logo" src="public/images/MyEcoVillage_png.png" alt="logo my EcoVillage" />
+			<img id="logo" src="/<?php echo $baseUrl ?>/public/images/MyEcoVillage_png.png" alt="logo my EcoVillage" />
 		</a>
 		<div class="By">
 			<span>By</span>
 			</br>
 			<a class="logo-link" title="PlaneteWise">
-				<img id="logo_2" src="public/images/planete_wise.png" alt="logo planete wise" />
+				<img id="logo_2" src="/<?php echo $baseUrl ?>/public/images/planete_wise.png" alt="logo planete wise" />
 			</a>
 		</div>
 		<div class="centercolumn">
-			<a class="acceuil">Accueil</a>
-			<a class="game">Allez au jeu</a>
-			<a class="faq">FAQ</a>
+			<div class="search-wrapper">
+				<a class="acceuil">Accueil</a>
+				<a class="game">Allez au jeu</a>
+				<a class="forum">Forum</a>
+				<div class="search-user" style="display: <?php echo ($isLogged ? "flex" : "none") ?>">
+					<input autocomplete="off" type="text" name="user" id="user-input" placeholder="Recherche un utilisateur" />
+					<button><span class="material-icons">search</span></button>
+					<div id="user-list"></div>
+				</div>
+			</div>
 			<div class="button">
 				<a class="connexion">Connexion</a>
 				<a class="inscription">Inscription</a>
+				<a class="account">Mon compte</a>
 			</div>
 		</div>
 		<nav>
@@ -30,11 +41,11 @@
 
 				<div class="dropdown-menu">
 
-					<a class="item" href="connexion.html">Connexion</a>
-					<a class="item" href="inscription.html">Inscription</a>
-					<a class="item" href="#Jeux">Game</a>
-					<a class="item" href="#">Contact</a>
-					<a class="item" href="FAQ.html">FAQ</a>
+					<a class="item mobile-connexion">Connexion</a>
+					<a class="item mobile-inscription">Inscription</a>
+					<a class="item mobile-game">Game</a>
+					<a class="item mobile-contact">Contact</a>
+					<a class="item mobile-forum">Forum</a>
 				</div>
 
 			</div>

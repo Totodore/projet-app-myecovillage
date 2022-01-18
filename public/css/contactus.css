@@ -1,25 +1,23 @@
-
-#formulaire
-{
-	margin: 0 auto;
-	margin-top: 10%;
+.formulaire {
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 40px;
     max-width: 600px;
-	min-width: 400px;
+    min-width: 200px;
     padding: 50px;
     border: 1px solid black;
     background: white;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-#formulaire h1
-{
+
+.formulaire h1 {
     font-size: 45px;
     margin: 0 auto;
     padding: 30px;
     text-align: center;
 }
 
-form input
-{
+form input {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -37,23 +35,31 @@ input[type=submit] {
     cursor: pointer;
     width: 100%;
 }
-form input:invalid
-{
-	color:red;
+
+form input:invalid {
+    color: red;
 }
 
 input[type=submit]:hover {
     background-color: lightgrey;
     color: black;
 }
-textarea
-{
+
+textarea {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: block;
     border: 1px solid grey;
-    box-sizing: border-box;height: 100px;
+    box-sizing: border-box;
+    height: 100px;
     margin-bottom: 30px;
     resize: none;
+}
+
+@media only screen and (max-width: 420px) {
+    .formulaire {
+        min-width: none;
+        margin: 2%;
+    }
 }

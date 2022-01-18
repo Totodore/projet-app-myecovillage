@@ -1,12 +1,57 @@
+/**
+ * Progress bar inspiré de : link https://codepen.io/salazarr-js/pen/aJdmvw
+ */
+header .progressbar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background-color: #ffffffb4;
+	overflow: hidden;
+	transition: max-height 0.3s ease-in-out;
+	max-height: 0;
+}
+header .progressbar.show {
+	max-height: 4px;
+}
+header .progressbar .indeterminate {
+	background-color: #5bcc12;
+}
+header .progressbar .indeterminate::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	will-change: left, right;
+	background-color: inherit;
+	animation: indeterminate 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+header .progressbar .indeterminate::after {
+	content: "";
+	position: absolute;
+	background-color: inherit;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	will-change: left, right;
+	animation: indeterminate-short 2.1s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+	animation-delay: 1.15s;
+}
+
 header p {
 	font-size: 24px;
- /* commentaire*/
+	/* commentaire*/
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 	text-align: center;
 	color: #878787;
 	text-shadow: none;
 }
-header .game, header .acceuil, header .faq {
+
+header .game,
+header .acceuil,
+header .forum {
 	font-size: 30px;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
 	color: #5bcc12;
@@ -16,6 +61,7 @@ header .game, header .acceuil, header .faq {
 	position: relative;
 	cursor: pointer;
 }
+
 header .game {
 	font-size: 30px;
 	text-decoration: none;
@@ -24,7 +70,49 @@ header .game {
 	margin: 20px;
 	position: relative;
 }
+
+header .button {
+	display: flex;
+	justify-content: flex-end;
+	gap: 15px;
+}
+
+header .inscription,
+header .account {
+	background-color: #5bcc12;
+	border-radius: 3px;
+	color: white;
+	font-size: 20px;
+	text-decoration: none;
+	padding: 15px 25px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+header .account {
+	display: none;
+}
+
+header .connexion {
+	border-width: 1px;
+	border-color: #5bcc12;
+	border-style: solid;
+	padding: 15px 25px;
+	border-radius: 3px;
+	font-size: 20px;
+	color: #5bcc12;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+header .acceuil:hover,
+header .connexion:hover,
+header .faq:hover {
+	color: #45990f;
+}
+
 header .inscription {
+	text-align: center;
 	background-color: #5bcc12;
 	border-radius: 3px;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
@@ -35,7 +123,9 @@ header .inscription {
 	border-radius: 3px;
 	cursor: pointer;
 }
+
 header .connexion {
+	text-align: center;
 	border-width: 1px;
 	border-color: #5bcc12;
 	border-style: solid;
@@ -47,19 +137,27 @@ header .connexion {
 	text-decoration: none;
 	cursor: pointer;
 }
-header .acceuil:hover, header .connexion:hover, header .faq:hover {
+
+header .acceuil:hover,
+header .connexion:hover,
+header .forum:hover {
 	color: #45990f;
 }
-header .game:hover, header .connexion:hover {
+
+header .game:hover,
+header .connexion:hover {
 	color: #45990f;
 }
+
 header .connexion:hover {
 	color: white;
 	background-color: #45990f;
 }
+
 header .inscription:hover {
 	background-color: #45990f;
 }
+
 header {
 	height: auto;
 	padding: 10px 0px;
@@ -71,6 +169,7 @@ header {
 	left: 0;
 	width: 100%;
 }
+
 header #logo {
 	display: block;
 	height: 80px;
@@ -79,23 +178,32 @@ header #logo {
 	margin-left: 10px;
 	margin-bottom: 5px;
 }
+
 header #logo_2 {
 	position: relative;
 	height: 40px;
 	width: auto;
 	margin-top: 4px;
 }
+
 header .centercolumn {
 	display: flex;
 	flex-direction: row;
 	align-content: space-between;
 	width: auto;
- /*Taille de la colonne centrée moins le padding*/
+	/*Taille de la colonne centrée moins le padding*/
 	text-align: right;
 	margin-left: auto;
 	margin-right: 0;
 	align-items: center;
 }
+header .search-wrapper {
+	display: flex;
+	align-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
 header .toolbar {
 	display: flex;
 	justify-content: space-between;
@@ -103,9 +211,12 @@ header .toolbar {
 	height: 100%;
 	width: 100%;
 }
-header #logo:hover, header #logo_2:hover {
+
+header #logo:hover,
+header #logo_2:hover {
 	opacity: 0.6;
 }
+
 header .By {
 	display: inline-block;
 	font-weight: bold;
@@ -114,61 +225,67 @@ header .By {
 	text-align: left;
 	margin-left: 10px;
 }
+
 @media only screen and (max-width: 1200px) {
 	header .menu {
 		display: none;
 		clear: both;
- }
+	}
 	header .centercolumn {
 		display: block;
 		clear: both;
- }
+	}
 	header .button {
 		margin-top: 4.5%;
 		margin-bottom: 1%;
- }
-	header .faq {
+	}
+	header .forum {
 		margin-right: 0;
- }
+	}
 }
+
 @media only screen and (max-width: 793px) {
 	header .menu {
 		display: block;
 		clear: both;
- }
+	}
 	header .centercolumn {
 		display: none;
 		clear: both;
- }
+	}
 }
+
 @media only screen and (min-width: 1200px) {
 	header .menu {
 		display: none;
 		clear: both;
- }
+	}
 	header .centercolumn {
 		display: flex;
 		clear: both;
- }
+	}
 	header .Txttoolbar {
 		margin: right 4px;
- }
+	}
 }
+
 @media only screen and (max-width: 375px) {
 	header .By {
 		font-size: 15px;
- }
+	}
 	header #logo {
 		height: 60px;
- }
+	}
 	header #logo_2 {
 		height: 35px;
- }
+	}
 }
+
 header nav {
-	padding: 0 9px;
+	padding: 0 13px;
 	display: inline-block;
 }
+
 header .menu {
 	width: 60px;
 	height: 60px;
@@ -176,7 +293,8 @@ header .menu {
 	cursor: pointer;
 	margin: right 1%;
 }
-header [class*=bar-] {
+
+header [class*="bar-"] {
 	background: #000;
 	height: 2px;
 	right: 0;
@@ -185,26 +303,32 @@ header [class*=bar-] {
 	transition: all 0.5s ease;
 	margin-right: 5px;
 }
+
 header .bar-1 {
 	width: 40px;
 	top: 11px;
 }
+
 header .bar-2 {
 	width: 60px;
 	top: 18px;
 }
+
 header .bar-3 {
 	width: 40px;
 	top: 25px;
 }
+
 header .bar-4 {
 	width: 60px;
 	top: 32px;
 }
+
 header .bar-5 {
 	width: 40px;
 	top: 38px;
 }
+
 header .dropdown-menu {
 	padding: 20px 0;
 	top: 45px;
@@ -215,6 +339,7 @@ header .dropdown-menu {
 	transition: all 0.5s ease;
 	background-color: #fff;
 }
+
 header .item {
 	width: 250px;
 	margin: 10px 5px;
@@ -229,46 +354,187 @@ header .item {
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
 	font-size: 30px;
 }
+
 header .item:hover {
 	opacity: 0.8;
 	color: #45990f;
 }
+
 header .item:hover {
 	letter-spacing: 1px;
 }
+
 header .item::before {
 	width: 40px;
 }
+
 header .menu:hover .bar-1 {
 	width: 60px;
 	top: 15px;
 	transform: rotate(135deg);
 }
+
 header .menu:hover .bar-2 {
 	width: 60px;
 	top: 15px;
 	transform: rotate(-135deg);
 }
+
 header .menu:hover .bar-3 {
 	opacity: 0;
 	width: 60px;
 	top: 15px;
 	transform: rotate(135deg);
 }
+
 header .menu:hover .bar-4 {
 	width: 60px;
 	top: 15px;
 	transform: rotate(-135deg);
 }
+
 header .menu:hover .bar-5 {
 	opacity: 0;
 	width: 60px;
 	top: 15px;
 	transform: rotate(135deg);
 }
+
 header .menu:hover .dropdown-menu {
 	right: -14px;
 	opacity: 1;
 	visibility: visible;
 	display: block;
+}
+
+header .search-user {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+	margin: 0 10px;
+	position: relative;
+	margin-right: 10px;
+	/* transition: all 300ms; */
+}
+header .search-user::after {
+	content: "";
+	position: absolute;
+	bottom: 15px;
+	height: 2px;
+	width: 0;
+	background: #5bcc12;
+	transition: width 225ms ease-in;
+}
+header .search-user input {
+	border: none;
+	outline: none !important;
+	opacity: 0;
+	overflow: hidden;
+	transition: all 225ms ease-out;
+	visibility: hidden;
+	pointer-events: none;
+	position: absolute;
+	width: 75%;
+	font-size: 20px;
+	margin-left: 15px;
+	padding-left: 10px;
+}
+header .search-user span {
+	font-size: 35px;
+	color: #5bcc12;
+	cursor: pointer;
+}
+header .search-user button {
+	flex: 1;
+}
+header .search-user .material-icons {
+	position: initial !important;
+}
+header #user-list {
+	position: absolute;
+	top: calc(100% - 15px);
+	left: 0;
+	height: fit-content;
+	width: 100%;
+	background-color: white;
+	box-shadow: 0px 2px 2px 0px #00000059;
+	border-radius: 5px;
+	box-sizing: border-box;
+	display: none;
+	overflow: hidden;
+}
+header #user-list li {
+	list-style: none;
+	text-align: left;
+	padding: 10px;
+	transition: background-color 100ms ease-in;
+}
+header #user-list li a {
+	text-decoration: none;
+	color: black;
+}
+header #user-list li:hover {
+	background-color: #f2f2f2;
+}
+
+header .search-user:hover,
+header .search-user:focus-within {
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+	top: 0;
+	left: -15px;
+	position: absolute;
+}
+header .search-user:hover::after,
+header .search-user:focus-within::after {
+	width: 100%;
+}
+header .search-user:hover input,
+header .search-user:focus-within input {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	position: initial;
+}
+header .search-user:hover #user-list:not(:empty),
+header .search-user:focus-within #user-list:not(:empty) {
+	display: block;
+}
+
+@media only screen and (max-width: 1200px) {
+	header .search-user:hover,
+	header .search-user:focus-within {
+		width: calc(100% + 15px);
+	}
+}
+
+@keyframes indeterminate {
+	0% {
+		left: -35%;
+		right: 100%;
+	}
+	60% {
+		left: 100%;
+		right: -90%;
+	}
+	100% {
+		left: 100%;
+		right: -90%;
+	}
+}
+
+@keyframes indeterminate-short {
+	0% {
+		left: -200%;
+		right: 100%;
+	}
+	60% {
+		left: 107%;
+		right: -8%;
+	}
+	100% {
+		left: 107%;
+		right: -8%;
+	}
 }

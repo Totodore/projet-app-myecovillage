@@ -1,0 +1,97 @@
+.gestion
+{
+    background-color: #6A90AD;
+    font-family: "Roboto", "Helvetica", "Verdana", "Georgia", "Trebuchet MS";
+    margin: auto;   
+    max-width: 900px;
+    min-width: 400px;
+}
+h1
+{
+    color: white;
+    text-align: center;
+}
+h2{
+    color: white;
+}
+p
+{
+    font-size: 16px;
+    color: white;
+    text-align: justify;
+}
+.question {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: #5BCC12;
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.question:hover {
+    background-color: #5BCC12;
+}
+
+.question:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.forum-wrapper
+{
+    background-color: #666;
+    box-shadow: 0 0 5px 2px #00000069;
+    border: 1px solid #6a90ad;
+    border-radius: 30px;
+    margin-top: 20px;
+    padding: 30px 20px 10px 20px;
+    text-align: justify;    
+}
+.questions
+{
+    background-color: #5BCC12;
+    border-radius: 10px;
+    padding: 5px 5px 5px 5px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.expand_more
+{
+    position: absolute;
+    bottom: 30px;
+    right:4px;
+    color: white;
+}
+.delete
+{
+    position: absolute;
+    bottom: 30px;
+    right:30px;
+    color: white;
+}
+.réponse
+{
+    display: none;
+    background-color: #6A90AD;
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding: 5px 15px 5px 15px;
+}
+textarea
+{
+    width: 99%;
+    resize: none;
+    height: 100px;
+}

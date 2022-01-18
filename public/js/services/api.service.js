@@ -1,7 +1,23 @@
-import { BaseService } from "../core/base.service.js";
+import { ProgressService } from "./progress.service.js";
 
-export class ApiService extends BaseService {
+export class ApiService {
 
+
+	/**
+	 * @param {ApiService} instance
+	 */
+	static instance;
+
+
+	/**
+	 * @param {ProgressService} progress
+	 */
+	static progress;
+
+	constructor() {
+		ApiService.instance = this;
+		ApiService.progress = new ProgressService();
+	}
 	/**
 	 * @param {string} username 
 	 * @param {string} password
@@ -9,60 +25,101 @@ export class ApiService extends BaseService {
 	 */
 	async login(email, password) {
 		try {
-			const req = await this.post("/api/auth", { email, password });
-			const res = await req.json();
+			const res = await this.post("/api/auth/login", { email, password });
+			console.log("login", res);
+			if (!res.token)
+				throw new Error("Invalid token");
 			this.token = res.token;
 			return true;
-		} catch(e) {
+		} catch (e) {
 			console.error(e);
-			return false;
+			throw e;
 		}
 	}
 
 	async register(data) {
 		try {
-			await this.post("/api/register", data);
-		} catch(e) {
+			return await this.post("/api/auth/register", data);
+		} catch (e) {
 			console.error(e);
 		}
 	}
 
-	async get(url, params) {
-		const req = await fetch(baseUrl + url, { params: params, headers: this.token ? { "Authorization": "Bearer " + this.token } : null });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+	async isAdmin() {
+		return (await this.get("/" + baseUrl + "/api/auth/is-admin")).isAdmin;
+	}
+
+	logout() {
+		localStorage.removeItem("token");
+	}
+
+	async get(url) {
+		this.progress.show();
+		try {
+			const req = await fetch(url, { headers: this.token ? { "Authorization": this.token, Dynamic: true } : { Dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return req;
 	}
 
 	async post(url, data) {
-		const req = await fetch(baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? "Bearer " + this.token : null } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch("/" + baseUrl + url, { method: "POST", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, Dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return req;
 	}
 
 	async put(url, data) {
-		const req = await fetch(baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? "Bearer " + this.token : null } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch("/" + baseUrl + url, { method: "PUT", body: JSON.stringify(data), headers: { "Content-Type": "application/json", "Authorization": this.token ? this.token : null, Dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return req;
 	}
 
 	async delete(url) {
-		const req = await fetch(baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? "Bearer " + this.token : null } });
-		if (!req.ok) {
-			throw new Error(req.status + " " + req.statusText);
+		this.progress.show();
+		try {
+			const req = await fetch("/" + baseUrl + url, { method: "DELETE", headers: { "Authorization": this.token ? this.token : null, Dynamic: true } });
+			if (!req.ok) {
+				throw new Error(req.status + " " + req.statusText);
+			}
+			return await req.json();
+		} finally {
+			this.progress.hide();
 		}
-		return req;
 	}
 
 	set token(value) {
-		localStorage.setItem("token", value);
+		return localStorage.setItem("token", value);
 	}
 	get token() {
-		localStorage.getItem("token");
+		return localStorage.getItem("token");
+	}
+
+	get logged() {
+		return !!this.token;
+	}
+
+	/**
+	 * @returns {ApiService}
+	 */
+	get progress() {
+		return ApiService.progress;
 	}
 }

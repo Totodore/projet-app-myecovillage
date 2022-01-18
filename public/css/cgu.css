@@ -1,0 +1,32 @@
+.block_cgu {
+	background-color: #6a90ad;
+	font-family: "Roboto", "Helvetica", "Verdana", "Georgia", "Trebuchet MS";
+	margin: auto;
+	margin-bottom: 40px;
+	max-width: 750px;
+	min-width: 300px;
+	margin-top: 80px;
+}
+
+.cgu {
+	background-color: white;
+	border: #5bcc12 4px solid;
+	border-radius: 20px;
+	padding: 10px 20px 10px 20px;
+	text-align: justify;
+}
+p {
+	color: black;
+	text-align: justify;
+	font-size: 14px;
+}
+h1 {
+	color: white;
+	text-align: center;
+}
+h2 {
+	font-size: 20px;
+}
+ul {
+	font-size: 14px;
+}

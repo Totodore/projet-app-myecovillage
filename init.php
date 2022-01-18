@@ -2,6 +2,7 @@
 
 namespace Project;
 
+use ErrorException;
 use Exception;
 /**
  * Options to display all errors
@@ -35,27 +36,16 @@ spl_autoload_register(function (string $className) {
 		throw new Exception('Class ' . $className . ' not found, required path: ' . $path);
 	}
 });
+
+set_error_handler(function ($errno, $errstr, $errfile, $errline ) {
+	throw new ErrorException($errstr, $errno, 0, $errfile, $errline);
+});
+
 use Project\Core\ControllerManager;
-// use Project\Models\UserModel;
-
-// $modelManager = new ModelManager();
-// $modelManager->verify();
-// $modelManager->init();
-
-// $user = UserModel::create([
-// 	'm_password' => 'blabla',
-// 	'm_username' => 'Théodore',
-// 	'm_email' => 'prevottheodore@gmail.com',
-// ])->save();
-// print_r($user);
-
-// $user = UserModel::findOne(1);
-// $user->m_username = 'Théodazdore';
-// $user->save();
-// $user->print();
-// $user->remove();
-// print_r(UserModel::findOne(345));
-
+/**
+ * Initialize dynamic parameters for PHP
+ */
+Conf::init();
 /**
  * We create the controller manager and we ask it to handle the current request
  */

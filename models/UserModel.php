@@ -21,22 +21,26 @@ class UserModel extends BaseModel
 
 	#[Column()]
 	public string $firstname;
-	
+
 	#[Column()]
 	public DateTime $birthdate;
-	
+
 	#[Column()]
 	public int $height;
-	
+
 	#[Column()]
 	public int $weight;
-	
+
 	#[Column()]
 	public string $password;
 
 	#[Column()]
 	public string $email;
-	
+
 	#[Column(default: false, nullable: false)]
 	public bool $isadmin = false;
+
+	public function getFullName(): string {
+		return $this->firstname . ' ' . $this->name;
+	}
 }

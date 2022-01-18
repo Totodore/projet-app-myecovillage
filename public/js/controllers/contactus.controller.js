@@ -15,8 +15,21 @@ export class ContactusController extends BaseController {
 	}
 
 	async onInit() {
-        
-         
+		this.select("form").addEventListener("submit", e => this.onSubmit(e));
 
+	}
+
+	async onSubmit(e) {
+		e.preventDefault();
+		const form = e.target;
+		if (!form.checkValidity())
+			return;
+		const data = Object.fromEntries(new FormData(form).entries());
+		try {
+			const response = await this.apiService.post("/api/contactus", data);
+			this.navigate("/contactus");
+		} catch (e) {
+			console.error(e);
+		}
 	}
 }

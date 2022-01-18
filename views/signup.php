@@ -6,22 +6,28 @@
 			</a>
 		</div>
 		<div class="inputs">
-			<input type="text" placeholder="Nom"></input>
-			<input type="text" placeholder="Prénom"></input>
-			<input type="email" placeholder="Email"></input>
-			<input type="password" placeholder="Mot de passe"></input>
-			<input type="password" placeholder="Confirmer le mot de passe"></input>
+			<input name="name" type="text" placeholder="Nom"></input>
+			<input name="firstname" type="text" placeholder="Prénom"></input>
+			<input name="email" type="email" placeholder="Email"></input>
+			<div class="password-wrapper">
+				<input name="password" type="password" placeholder="Mot de passe"></input>
+				<span class="material-icons">visibility</span>
+			</div>
+			<div class="password-wrapper">
+				<input name="repeatPassword" type="password" placeholder="Confirmer le mot de passe"></input>
+				<span class="material-icons">visibility</span>
+			</div>
 			<div class="datenaissance">
 				<p id="datenaissance">Date de naissance</p>
-				<input type="date"></input>
+				<input name="birthdate" type="date"></input>
 			</div>
-			<input type="number" min="10" max="300" placeholder="Taille (cm)"></input>
-			<input type="number" min="10" max="200"  placeholder="Poids (kg)"></input>
+			<input name="height" type="number" min="10" max="300" placeholder="Taille (cm)"></input>
+			<input name="weight" type="number" min="10" max="200"  placeholder="Poids (kg)"></input>
 
 		</div>
 		<p class="inscription">J'ai déjà un <a id="creer" href="connexion.html">compte.</a> Je me <a id="creer" href="connexion.html">connecte</a></p>
 		<div class="buttonconnexion">
-			<a class="buttonins" href="connexion.html">S'inscrire</a>
+			<button class="buttonins" type="submit">S'inscrire</button>
 		</div>
 	</form>
 </div>
