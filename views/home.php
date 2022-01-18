@@ -83,3 +83,8 @@
 		<button class="no-data-link">un minijeu quotidien.</button>
 	</h2>
 <?php } ?>
+
+<h2>Trouver une borne MyEcoVillage dans votre écoquartier&nbsp;:</h2>
+<div class="map-wrapper">
+	<div id="map"></div>
+</div>
