@@ -5,6 +5,7 @@ namespace Project\Core;
 use Exception;
 use ReflectionClass;
 use Project\Conf;
+use Project\Controllers\IndexController;
 use Project\Core\Attributes\Http\AuthGuard;
 use Project\Core\Attributes\Http\Controller;
 use Project\Core\Attributes\Http\JsonController;
@@ -82,7 +83,7 @@ class ControllerManager
 		}
 		//We invoke the method to check the request, if it returns true. Then we invoke the main handling method
 		try {
-			$res = (isset($headers["Dynamic"]) ?? false) ? $route->function->invokeArgs($controller, [$request]) : $controller->loadView("index", []);
+			$res = (isset($headers["Dynamic"]) ?? false) ? $route->function->invokeArgs($controller, [$request]) : (new IndexController())->index([]);
 			if (is_null($res)) {
 				http_response_code(204);
 				return;

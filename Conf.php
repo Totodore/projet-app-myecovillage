@@ -50,6 +50,8 @@ class Conf
 	const MAIL_HOST 			= 'mail.scriptis.fr';
 	const MAIL_PORT 			= '587';
 	const MAIL_FROM_NAME 	= 'MyEcoVillage';
+	
+	const MAPS_API_KEY		= "AIzaSyBKYOtiKQz6F8OCE6iQ8mM8GqWxFq_4ouQ";
 
 	//Security configuration
 	const JWT_SECRET 			= "PNkL4zCwxmP34SN8mhQNuqLijoq8X9zocsbJnzUzXLOXWDbXL8m67B0vYBgyKoH1";
