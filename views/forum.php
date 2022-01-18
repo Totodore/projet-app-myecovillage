@@ -5,6 +5,9 @@
         Posez votre question
     </button>
     <div class="forum-wrapper">
+        <p>
+            <textarea name="pquestion" id="pquestion"></textarea>
+        </p>
         <div class="forum-fle">
             <div class="questions">
                 <h2>Où vont les données ?</h2>
