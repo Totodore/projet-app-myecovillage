@@ -113,9 +113,9 @@ export const routes = {
 		services: [],
 		guard: null
 	},
-	'/droitsdacces': {
-		controller: DroitsdaccesController,
-		services: [],
-		guard: null
-	}
+	// '/droitsdacces': {
+	// 	controller: DroitsdaccesController,
+	// 	services: [],
+	// 	guard: null
+	// }
 }
