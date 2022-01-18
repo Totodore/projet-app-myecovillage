@@ -60,9 +60,12 @@ export class HomeController extends BaseController {
     const compteurs = this.selectAll(".compteur");
     for (let compteur of compteurs) {
       let cpt = 0;
-      const n = +compteur.getAttribute("data-value");
-      const duree = 2;
+      const n = +compteur.dataset.value;
+      const duree = 1;
       const delta = Math.ceil((duree * 1000) / n);
+
+			if (n == 0)
+				continue;
 
       function countdown() {
         compteur.innerHTML = ++cpt + "%";
@@ -71,6 +74,8 @@ export class HomeController extends BaseController {
         }
       }
       countdown();
+			compteur.parentElement.parentElement.style.maxHeight = n + "%";
+			compteur.style.opacity = 1;
     }
   }
 }

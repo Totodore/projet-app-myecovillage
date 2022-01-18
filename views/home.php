@@ -1,8 +1,8 @@
 <?php setlocale(LC_TIME, "fr_FR"); ?>
 <h2>Bonjour <?php echo $user->firstname; ?>, voici vos informations quotidiennes.</h2>
 <div Class="Donnee">
-	<div Class="rond1">
-		<p id="Txtrond1">Température</p>
+	<div class="rond">
+		<p class="txt-rond">Température</p>
 		<div class="flex-wrapper">
 			<div class="single-chart">
 				<svg viewBox="0 0 36 36" class="circular-chart Temp">
@@ -17,8 +17,8 @@
 			</div>
 		</div>
 	</div>
-	<div Class="rond2">
-		<p id="Txtrond2">Co2</p>
+	<div class="rond">
+		<p class="txt-rond">Co2</p>
 		<div class="flex-wrapper">
 			<div class="single-chart">
 				<svg viewBox="0 0 36 36" class="circular-chart CO2">
@@ -34,8 +34,8 @@
 			</div>
 		</div>
 	</div>
-	<div Class="rond3">
-		<p id="Txtrond3">Bruit</p>
+	<div class="rond">
+		<p class="txt-rond">Bruit</p>
 		<div class="flex-wrapper">
 			<div class="single-chart">
 				<svg viewBox="0 0 36 36" class="circular-chart Decibel">
@@ -53,16 +53,23 @@
 	</div>
 </div>
 
-<h2>Vos statistiques de bien-être au sein de mon écoquartier :</h2>
+<?php if ($hasWeekStat && $dataStat[intval(date('w'))][1] == 0) { ?>
+<h2 class="no-data">
+	Vous n'avez pas encore participé au <button class="no-data-link">minijeu</button> aujourd'hui!
+</h2>
+<?php } ?>
+<h2>Vos statistiques de bien-être au sein de l'écoquartier&nbsp;:</h2>
 <?php if ($hasWeekStat) { ?>
 	<div class="Emptableau">
 		<div class="Tableau">
 			<?php foreach ($dataStat as $score) { ?>
 				<div class="graph">
 					<div class="ptab">
-						<p class="compteur" data-value="<?php echo $score[1] ?>">0</p>
+						<?php if ($score[1] > 0) { ?>
+							<p class="compteur" data-value="<?php echo $score[1] ?>">0</p>
+						<?php } ?>
 					</div>
-					<div class="barre_tableausmall"><?php echo $score[2] ?></div>
+					<div class="day-graph"><?php echo $score[2] ?></div>
 				</div>
 			<?php } ?>
 		</div>

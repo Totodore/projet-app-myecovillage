@@ -85,6 +85,8 @@ class MinigameResultModel extends BaseModel
 			$score += !$result->sportindoor ? 1 : 0; // MAX : 1
 			$score += max(floor($result->sportduration / 30), 10); 	// MAX : 10 
 			$score += !$result->sportharder ? 1 : 0;			// MAX : 1
+			$score /= 32;
+			$score *= 100;
 			$week[intval($result->date->format("w"))] = [intval($result->date->format("w")), $score, $days[intval($result->date->format("w"))]];
 		}
 		for ($i = 0; $i < 7; $i++) {
