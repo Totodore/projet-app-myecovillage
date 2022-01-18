@@ -8,6 +8,7 @@
         <p>
             <textarea name="pquestion" id="pquestion"></textarea>
         </p>
+        <input type="submit" value="Envoyer">
         <div class="forum-fle">
             <div class="questions">
                 <h2>Où vont les données ?</h2>
