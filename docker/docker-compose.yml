@@ -1,0 +1,46 @@
+version: '3.7'
+services:
+  app:
+    image: ghcr.io/totodore/my-ecovillage
+    container_name: myecovillage
+    restart: always
+    expose:
+      - 80
+    env_file:
+      - app.env
+    networks:
+      - traefik
+    labels:
+      traefik.enable: "true"
+      traefik.http.routers.myecovillage-secure.rule: "Host(`app.dev.scriptis.fr`)"
+      traefik.http.routers.myecovillage-secure.entrypoints: "websecure"
+      traefik.http.routers.myecovillage-secure.tls.certresolver: "myhttpchallenge"
+      # https redirection
+      traefik.http.middlewares.redirect.redirectscheme.scheme: "https"
+      traefik.http.routers.myecovillage.rule: "Host(`app.dev.scriptis.fr`)"
+      traefik.http.routers.myecovillage.entrypoints: "web"
+      traefik.http.routers.myecovillage.middlewares: "redirect"
+      #Docker-ci
+      docker-ci.enable: "true"
+
+
+  db:
+    image: mysql
+    container_name: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    cap_add:
+      - SYS_NICE # CAP_SYS_NICE
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ctyvubino
+    volumes:
+      - mysqldata:/var/lib/mysql
+
+networks:
+  traefik:
+    external: true
+
+volumes:
+  mysqldata:
