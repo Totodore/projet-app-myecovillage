@@ -7,7 +7,6 @@ import { SignupController } from "./controllers/signup.controller.js";
 import { FaqController } from "./controllers/faq.controller.js";
 import { BaseController } from "./core/base.controller.js";
 import { AdminController } from "./controllers/admin/admin.controller.js";
-import { AdminGuard } from "./guards/admin.guard.js";
 import { ApiService } from "./services/api.service.js";
 import { ContactusController } from "./controllers/contactus.controller.js";
 import { CguController } from "./controllers/cgu.controller.js";
@@ -46,7 +45,7 @@ export const routes = {
 	'/admin': {
 		controller: AdminController,
 		services: [],
-		guard: AdminGuard
+		guard: null
 	},
 	'/faq': {
 		controller: FaqController,

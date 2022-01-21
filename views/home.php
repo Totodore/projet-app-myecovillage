@@ -18,6 +18,22 @@
 		</div>
 	</div>
 	<div class="rond">
+		<p class="txt-rond">Taux de particule fines</p>
+		<div class="flex-wrapper">
+			<div class="single-chart">
+				<svg viewBox="0 0 36 36" class="circular-chart Temp">
+					<path class="circle-bg" d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831" />
+					<path class="circle" stroke-dasharray="30, 100" d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831" />
+					<text x="18" y="20.35" class="percentage">40 µg/m3</text>
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="rond">
 		<p class="txt-rond">Co2</p>
 		<div class="flex-wrapper">
 			<div class="single-chart">
@@ -54,9 +70,9 @@
 </div>
 
 <?php if ($hasWeekStat && $dataStat[intval(date('w'))][1] == 0) { ?>
-<h2 class="no-data">
-	Vous n'avez pas encore participé au <button class="no-data-link">minijeu</button> aujourd'hui!
-</h2>
+	<h2 class="no-data">
+		Vous n'avez pas encore participé au <button class="no-data-link">minijeu</button> aujourd'hui!
+	</h2>
 <?php } ?>
 <h2>Vos statistiques de bien-être au sein de l'écoquartier&nbsp;:</h2>
 <?php if ($hasWeekStat) { ?>
