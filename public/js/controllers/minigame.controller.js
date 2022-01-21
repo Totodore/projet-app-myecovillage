@@ -13,6 +13,15 @@ export class MinigameController extends BaseController {
         super("minigame", params);
         this.apiService = apiService;
     }
+    rangeSlide(value) {
+        this.select('#rangeValue').innerHTML = value + "%";
+    }
+    rangeslidesleep(value) {
+        this.select('#rangevaluesleep').innerHTML = value + "Heure";
+    }
+    async onInit() {
+        this.select("#breathing").addEventListener("input", e => this.rangeSlide(e.target.value));
+        this.select("#Sleep").addEventListener("input", e => this.rangeSlide(e.target.value));
 
-    async onInit() {}
+    }
 }
