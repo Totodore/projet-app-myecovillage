@@ -7,6 +7,7 @@ footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	box-sizing: border-box;
 }
 
 footer .desfooter div, footer #admin {
@@ -28,4 +29,21 @@ footer .desfooter {
 	flex-direction: row;
 	align-content: center;
 	justify-content: right;
+}
+
+@media screen and (max-width: 500px) {
+	footer {
+		display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    height: 140px;
+	}
+	footer .desfooter {
+		display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    padding-left: 2%;
+	}
 }

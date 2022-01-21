@@ -85,15 +85,15 @@ export class BaseController {
 			if (element) {
 				element.addEventListener("click", (e) => callback(element, e));
 			} else
-				this.log("WARN Cannot find element", query);
+				this.log("WARN Cannot find element " + query);
 			return element;
 	}
 
 	/**
 	 * @param {string} message
 	 */
-	log(message) {
-		console.log(`[${this.constructor.name}] ${JSON.stringify(message)}`);
+	log(...message) {
+		console.log(`[${this.constructor.name}]`, ...message);
 	}
 
 	/**

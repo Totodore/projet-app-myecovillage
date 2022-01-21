@@ -291,7 +291,6 @@ header .menu {
 	height: 60px;
 	position: relative;
 	cursor: pointer;
-	margin: right 1%;
 }
 
 header [class*="bar-"] {
@@ -338,10 +337,11 @@ header .dropdown-menu {
 	visibility: hidden;
 	transition: all 0.5s ease;
 	background-color: #fff;
+	box-shadow: -1px 2px 5px -2px #0000005e;
 }
 
 header .item {
-	width: 250px;
+	width: 215px;
 	margin: 10px 5px;
 	padding: 5px 0;
 	display: inline-block;
@@ -353,6 +353,7 @@ header .item {
 	background-color: #fff;
 	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
 	font-size: 30px;
+	padding-right: 20px;
 }
 
 header .item:hover {

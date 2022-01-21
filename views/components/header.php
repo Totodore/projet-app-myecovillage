@@ -17,7 +17,7 @@
 		<div class="centercolumn">
 			<div class="search-wrapper">
 				<a class="acceuil">Accueil</a>
-				<a class="game">Allez au jeu</a>
+				<a class="game">Aller au jeu</a>
 				<a class="forum">Forum</a>
 				<div class="search-user" style="display: <?php echo ($isLogged ? "flex" : "none") ?>">
 					<input autocomplete="off" type="text" name="user" id="user-input" placeholder="Recherche un utilisateur" />
@@ -43,7 +43,8 @@
 
 					<a class="item mobile-connexion">Connexion</a>
 					<a class="item mobile-inscription">Inscription</a>
-					<a class="item mobile-game">Game</a>
+					<a class="item mobile-account">Mon compte</a>
+					<a class="item mobile-game">Aller au jeu</a>
 					<a class="item mobile-contact">Contact</a>
 					<a class="item mobile-forum">Forum</a>
 				</div>

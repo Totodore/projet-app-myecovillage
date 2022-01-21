@@ -5,6 +5,10 @@ input::-ms-reveal,
 input::-ms-clear {
 	display: none;
 }
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	-webkit-tap-highlight-color: transparent;
+}
 
 p {
 	font-size: 24px;

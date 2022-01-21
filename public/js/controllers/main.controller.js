@@ -22,10 +22,9 @@ export class MainController extends BaseController {
 		this.navigate("signin", ".mobile-connexion");
 		this.navigate("signup", ".mobile-inscription");
 		this.navigate("account", ".mobile-account");
-		this.navigate("game", ".mobile-game");
+		this.navigate("minigame", ".mobile-game");
 		this.navigate("contactus", ".mobile-contact");
 		this.navigate("forum", ".mobile-forum");
-		this.navigate("faq", ".mobile-faq");
 		this.navigate("", '.home');
 		this.navigate("", ".logo-link");
 		this.navigate("", ".acceuil");
@@ -38,6 +37,7 @@ export class MainController extends BaseController {
 		this.select("#user-input").addEventListener('input', e => this.onSearch(e.target.value));
 		this.updateLoginStatus();
 		this.select("#admin").style.display = this.apiService.logged && await this.apiService.isAdmin() ? 'block' : 'none';
+		this.selectAll(".item").forEach(item => item.addEventListener("click", () => document.querySelector("#body-wrapper").click()));
 	}
 
 	/**
@@ -46,29 +46,41 @@ export class MainController extends BaseController {
 	onNavigate(route) {
 		if (route[0] == "/signin" && !this.apiService.logged) {
 			this.select(".connexion").style.display = "none";
+			this.select(".mobile-connexion").style.display = "none";
 			this.select(".inscription").style.display = "block";
+			this.select(".mobile-inscription").style.display = "block";
 		} else if (route[0] == "/signup" && !this.apiService.logged) {
 			this.select(".connexion").style.display = "block";
+			this.select(".mobile-connexion").style.display = "block";
 			this.select(".inscription").style.display = "none";
+			this.select(".mobile-inscription").style.display = "none";
 		} else if (route[0] == "/" && !this.apiService.logged) {
 			this.navigate("signin");
 			this.select(".connexion").style.display = "block";
+			this.select(".mobile-connexion").style.display = "block";
 			this.select(".inscription").style.display = "block";
+			this.select(".mobile-inscription").style.display = "block";
 		}
 		this.select(".search-user").style.display = this.apiService.logged ? 'flex' : 'none';
 		this.select("#ticket").style.display = this.apiService.logged ? 'block' : 'none';
 	}
 
 	updateLoginStatus() {
-		console.log(this.apiService.logged);
+		this.log("User logging state", this.apiService.logged);
 		if (this.apiService.logged) {
 			this.select(".account").style.display = "block";
+			this.select(".mobile-account").style.display = "block";
 			this.select(".connexion").style.display = "none";
+			this.select(".mobile-connexion").style.display = "none";
 			this.select(".inscription").style.display = "none";
+			this.select(".mobile-inscription").style.display = "none";
 		} else {
 			this.select(".account").style.display = "none";
+			this.select(".mobile-account").style.display = "none";
 			this.select(".connexion").style.display = "block";
+			this.select(".mobile-connexion").style.display = "block";
 			this.select(".inscription").style.display = "block";
+			this.select(".mobile-inscription").style.display = "block";
 		}
 	}
 
