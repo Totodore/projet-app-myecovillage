@@ -1,174 +1,375 @@
-.empsmiley {
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-    margin-top: 5%;
-    justify-content: space-around;
-    width: 80%;
-    margin-bottom: 5%;
-    margin: auto;
-}
-
-.Txtsmiley {
-    text-align: center;
-    color: white;
-    font-size: 40px;
-    margin-top: 3%;
-    margin-bottom: 3%;
-}
-
-#heures {
-    height: 200px;
-    width: auto;
-}
-
-.smiley1,
-.smiley2,
-.smiley3,
-.smiley4,
-.smiley5 {
-    width: 10%;
-    height: auto;
-}
-
-.empsoundnight {
-    background-color: #300d7c;
-    width: 80%;
-    height: auto;
-    border-radius: 30px;
-    display: block;
-    margin: auto;
-    z-index: -1;
-    padding: 3%;
-}
-
-.moon {
-    width: 7%;
-    height: auto;
-}
-
-.soundicon {
-    justify-content: space-around;
-    display: flex;
-    flex-direction: row;
-}
-
-.empsoundday {
-    background-color: #67bd45;
-    width: 80%;
-    height: auto;
-    border-radius: 30px;
-    display: block;
-    margin: auto;
-    z-index: -1;
-    padding: 3%;
-}
-
-.sound1,
-.sound2,
-.sound3,
-.sound4,
-.sound5 {
-    width: 12%;
-    height: auto;
-}
-
-.rangebreathing,
-.rangesleep {
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    width: 50%;
-    justify-content: center;
-    position: relative;
-    margin-bottom: 3%;
-}
-
-.rangebreathing {
-    margin-bottom: 5%;
-}
-
-#rangevalue,
-#rangevaluesleep {
-    font-size: 25px;
-    color: white;
-    text-shadow: 0px 0px 4px #5bcc12;
-    margin-left: 3%;
-}
-
-#breathing {
-    width: 50%;
-    height: 30px;
-    -webkit-appearance: none;
-    background: white;
-    outline: none;
-    border-radius: none;
-    overflow: hidden;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
-}
-
-#Sleep {
-    width: 50%;
-    height: 30px;
-    -webkit-appearance: none;
-    background: white;
-    outline: none;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
-}
-
-#breathing::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 3px;
-    height: 30px;
-    border-radius: none;
-    background: #5bcc12;
-    cursor: pointer;
-    border: 4px solid white;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
-}
-
-#sleep::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: #5bcc12;
-    cursor: pointer;
-    border: 4px solid white;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
-}
-
-#hard,
-#easy {
-    position: absolute;
-    font-size: 25px;
-    color: white;
-}
-
-#hard {
-    bottom: -30px;
-    right: 0;
-}
-
-#easy {
-    bottom: -30px;
-    left: 0;
-}
-
-.Qwent,
-.Qsport {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 3%;
-}
-
-.iconoutside,
-.iconinside,
-.icon_sport_outside,
-.icon_sport_inside {
-    width: 15%;
-    height: auto;
-}
+    .empsmiley {
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        margin-top: 5%;
+        justify-content: space-around;
+        width: 80%;
+        margin-bottom: 5%;
+        margin: auto;
+    }
+    
+    .Txtsmiley {
+        text-align: center;
+        color: white;
+        font-size: 40px;
+        margin-top: 3%;
+        margin-bottom: 3%;
+    }
+    
+    #heures {
+        height: 200px;
+        width: auto;
+    }
+    
+    .smiley1,
+    .smiley2,
+    .smiley3,
+    .smiley4,
+    .smiley5 {
+        width: 10%;
+        height: auto;
+    }
+    
+    .empsoundnight {
+        background-color: #300d7c;
+        width: 80%;
+        height: auto;
+        border-radius: 30px;
+        display: block;
+        margin: auto;
+        z-index: -1;
+        padding: 3%;
+    }
+    
+    .moon {
+        width: 7%;
+        height: auto;
+    }
+    
+    .soundicon {
+        justify-content: space-around;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .empsoundday {
+        background-color: #67bd45;
+        width: 80%;
+        height: auto;
+        border-radius: 30px;
+        display: block;
+        margin: auto;
+        z-index: -1;
+        padding: 3%;
+    }
+    
+    .sound1,
+    .sound2,
+    .sound3,
+    .sound4,
+    .sound5 {
+        width: 12%;
+        height: auto;
+    }
+    
+    .rangebreathing,
+    .rangesleep,
+    .rangeinter {
+        display: flex;
+        flex-direction: row;
+        margin: auto;
+        width: 50%;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 3%;
+    }
+    
+    .rangebreathing {
+        margin-bottom: 5%;
+    }
+    
+    #rangevalue,
+    #rangevaluesleep,
+    #rangevaluesinter {
+        font-size: 25px;
+        color: white;
+        text-shadow: 0px 0px 4px #5bcc12;
+        margin-left: 3%;
+    }
+    
+    #breathing {
+        width: 50%;
+        height: 30px;
+        -webkit-appearance: none;
+        background: white;
+        outline: none;
+        border-radius: none;
+        overflow: hidden;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+    }
+    
+    #Sleep,
+    #Inter {
+        width: 50%;
+        height: 30px;
+        -webkit-appearance: none;
+        background: white;
+        outline: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+    }
+    
+    #breathing::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 3px;
+        height: 30px;
+        border-radius: none;
+        background: #5bcc12;
+        cursor: pointer;
+        border: 4px solid white;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
+    }
+    
+    #sleep::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #5bcc12;
+        cursor: pointer;
+        border: 4px solid white;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
+    }
+    
+    #Inter::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: #5bcc12;
+        cursor: pointer;
+        border: 4px solid white;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
+    }
+    
+    #hard,
+    #easy {
+        position: absolute;
+        font-size: 25px;
+        color: white;
+    }
+    
+    #hard {
+        bottom: -30px;
+        right: 0;
+    }
+    
+    #easy {
+        bottom: -30px;
+        left: 0;
+    }
+    
+    .Qwent,
+    .Qsport {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-bottom: 3%;
+    }
+    
+    .iconoutside,
+    .iconinside,
+    .icon_sport_outside,
+    .icon_sport_inside {
+        width: 15%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .selectedicon {
+        border: solid white 6px;
+        border-radius: 9%;
+    }
+    
+    .repicon,
+    .repicon2 {
+        font-size: 25px;
+        color: white;
+        align-items: center;
+        margin-top: 10px;
+    }
+    
+    .repsport {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        width: 50%;
+        margin: auto;
+        margin-bottom: 3%;
+        justify-content: center;
+    }
+    
+    .Duration {
+        width: 50%;
+        position: relative;
+        margin: auto;
+        justify-content: center;
+        margin-bottom: 3%;
+    }
+    
+    .bouton_game {
+        width: 20%;
+        position: relative;
+        margin: auto;
+        justify-content: center;
+        margin-bottom: 3%;
+    }
+    
+    label {
+        font-size: 25px;
+        color: white
+    }
+    
+    input[type="radio"].sport1 {
+        display: none;
+    }
+    
+    input[type="radio"].sport1+label {
+        position: relative;
+        padding-left: 1.3rem;
+    }
+    
+    input[type="radio"].sport1+label::before,
+    input[type="radio"].sport1+label::after {
+        display: block;
+        position: absolute;
+        box-sizing: border-box;
+        content: '';
+        border-radius: 1rem;
+    }
+    
+    input[type="radio"].sport1+label::before {
+        bottom: 0;
+        left: 0;
+        border: 1px solid #ccc;
+        background-color: #eee;
+        width: 1rem;
+        height: 1rem;
+    }
+    
+    input[type="radio"].sport1+label::after {
+        bottom: 3px;
+        left: 3px;
+        width: calc(1rem - 6px);
+        height: calc(1rem - 6px);
+    }
+    
+    input[type="radio"].sport1:checked+label::after {
+        background-color: #5bcc12;
+    }
+    
+    input[type="checkbox"].sport2 {
+        display: none;
+    }
+    
+    input[type="checkbox"].sport2+label {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 3rem;
+        height: 1.5rem;
+        border-radius: 1.5rem;
+        padding: 2px;
+        background-color: #c0ceda;
+        transition: all 0.5s;
+    }
+    
+    input[type="checkbox"].sport2+label::before {
+        box-sizing: border-box;
+        display: block;
+        content: "";
+        height: calc(1.5rem - 4px);
+        width: calc(1.5rem - 4px);
+        border-radius: 50%;
+        background-color: #fff;
+        transition: all 0.5s;
+    }
+    
+    input[type="checkbox"].sport2:checked+label {
+        background-color: #5bcc12;
+    }
+    
+    input[type="checkbox"].sport2+label::after {
+        content: 'Oui';
+    }
+    
+    input[type="checkbox"].sport2:checked+label::before {
+        margin-left: 1.5rem;
+    }
+    
+    input[type="checkbox"].sport2:checked+label::after {
+        margin-left: 0;
+        content: 'Non';
+    }
+    
+    #sport1-b {
+        margin-left: 5px;
+    }
+    
+    .buttongame {
+        padding: 15px 25px;
+        border-radius: 4px;
+        border: none;
+        font-size: 15px;
+        color: #fff;
+        background-color: #5bcc12;
+        outline: none;
+        cursor: pointer;
+        width: 100%;
+    }
+    
+    input[type="number"] {
+        padding: 15px;
+        border: none;
+        border-radius: 4px;
+        background-color: #f2f2f2;
+        outline: none;
+        margin-bottom: 15px;
+        width: 100%
+    }
+    
+    @media only screen and (max-width: 420px) {
+        .Txtsmiley,
+        #rangevalue,
+        #rangevaluesleep,
+        #rangevaluesinter {
+            font-size: 22px;
+        }
+        label,
+        .repicon,
+        #hard,
+        #easy {
+            font-size: 15px;
+        }
+        .repicon2 {
+            font-size: 12px;
+        }
+        .rangebreathing,
+        .rangesleep,
+        .rangeinter,
+        .repsport {
+            width: 80%;
+        }
+        .bouton_game {
+            width: 60%;
+        }
+        .rangebreathing {
+            margin-bottom: 10%;
+        }
+        .repsport {
+            margin-bottom: 7%;
+        }
+    }

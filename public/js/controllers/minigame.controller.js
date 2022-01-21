@@ -19,9 +19,14 @@ export class MinigameController extends BaseController {
     rangeslidesleep(value) {
         this.select('#rangevaluesleep').innerHTML = value + (value == 0 ? " Heure" : " Heures");
     }
+    rangeslidesinter(value) {
+        this.select('#rangevaluesinter').innerHTML = value + (value == 0 ? " Intéraction" : " Interactions");
+    }
     async onInit() {
         this.select("#breathing").addEventListener("input", e => this.rangeSlide(e.target.value));
         this.select("#Sleep").addEventListener("input", e => this.rangeslidesleep(e.target.value));
+        this.select("#Inter").addEventListener("input", e => this.rangeslidesinter(e.target.value));
+
 
     }
 }
