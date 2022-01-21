@@ -3,7 +3,8 @@
     padding: 35px 0;
     font-size: 45px;
     padding: 10px;
-    width: 400px;
+    max-width: 400px;
+    min-width: none;
     background: #5BCC12;
     color: white;
     border-radius: 10px;
@@ -64,13 +65,23 @@ h4 {
     text-align: justify;
 }
 
+
 h2 {
     margin-left: 10px;
     padding: 15px 5px;
     font-size: 25px;
 }
+button {
+    color:#5BCC12;
+}
 @media only screen and (max-width: 420px) {
     .container-faq {
+        min-width: none;
+        margin: 2%;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .container-faq h1{
         min-width: none;
         margin: 2%;
     }

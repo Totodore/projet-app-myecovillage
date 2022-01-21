@@ -2,7 +2,7 @@
 	<div id="conteneurPE">
 
 		<div class="elementPE">
-			<div class="titreinformation">Informations utilisateur</div>
+			<div class="titreinformation"><strong>Mes Informations</strong></div>
 			<!-- <span class="text_info">Identifiant : (debug)
 						<?php
 						// echo $user->id; 
@@ -15,7 +15,7 @@
 				?>
 			</span>
 			</p>
-			<span class="text_info">Prenom :
+			<span class="text_info">Prénom :
 				<?php
 				echo $user->firstname;
 				?>
@@ -39,16 +39,16 @@
 				?>
 			</span>
 			</p>
-			<span class="text_info">Mail :
+			<span class="text_info">Email :
 				<?php
 				echo $user->email;
 				?>
 			</span>
 			</p>
-			<span class="text_info">Administrateur :
+			<span class="text_info">Statut :
 				<?php
 				if ($user->isadmin == true) {
-					echo "admin";
+					echo "administrateur";
 				} else {
 					echo "utilisateur";
 				}

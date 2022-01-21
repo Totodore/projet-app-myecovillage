@@ -25,6 +25,6 @@ export class FaqController extends BaseController {
                 else panel.style.display = 'block';
             });
         }
-
+		this.navigate("", ".test");
 	}
 }
