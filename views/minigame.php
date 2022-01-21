@@ -30,7 +30,7 @@
 
 </div>
 <div class="Txtsmiley">
-    Combien d'heures avez-vous dormis ?
+    Combien d'heure(s) avez-vous dormi ?
 </div>
 <div>
 <div class="rangesleep">
@@ -38,7 +38,7 @@
     <span id="rangevaluesleep">0 heure</span>
 </div>
 <div class="Txtsmiley">
-    Comment le son vous à affecté la nuit dernière ?
+    Comment le son vous a affecté la nuit dernière ?
 </div>
 <div class='empsoundnight'>
 <div class="moon">
@@ -75,7 +75,7 @@
 
 </div>
 <div class="Txtsmiley">
-    Comment le son vous à affecté dans la journée?
+    Comment le son vous a affecté dans la journée ?
 </div>
 <div class='empsoundday'>
 <div class="moon">
@@ -112,18 +112,18 @@
 </div>
 </div>
 <div class='Txtsmiley'>
-    Comment avez-vous respirez aujourd'hui ?
+    Comment avez-vous respiré aujourd'hui ?
 </div>
 <div class="rangebreathing">
     <input type="range" id="breathing" name="" value="0" min="0" max="100">
     <span id="rangevalue">0 %</span>
-    <div id="Easy">facilement</div>
+    <div id="Easy">Facilement</div>
     <div id="Hard">Difficilement</div>
 </div>
 
 
 <div class="Txtsmiley">
-    Etes-vous sortis aujourd'hui ?
+    Etes-vous sorti aujourd'hui ?
 </div>
 <div class="Qwent">
 
@@ -141,15 +141,15 @@
 
 </div>
 <div class="Txtsmiley">
-    Combien d'intéractions avez vou eu ?
+    Combien d'intéractions avez vous-eu aujourd'hui ?
 </div>
 <div>
 <div class="rangeinter">
     <input type="range" id="Inter" name="" value="0" min="0" max="5">
-    <span id="rangevaluesinter">0 Interactions</span>
+    <span id="rangevaluesinter">0 Interaction</span>
 </div>
 <div class="Txtsmiley">
-    Avez vous fait du sport ?
+    Avez-vous fait du sport aujourd'hui ?
 </div>
 <div class="repsport">
 <input type="radio" name="sport1" class="sport1" id="sport1-a" checked>
@@ -159,7 +159,7 @@
   
 </div>
 <div class="Txtsmiley">
-    Sport en exterieur ou en interieur ?
+    Sport en extérieur ou en intérieur ?
 </div>
 <div class="Qsport">
 
@@ -178,14 +178,14 @@
 
 </div>
 <div class="Txtsmiley">
-    Le sport était dure ?
+    Le sport était dur ?
 </div>
 <div class="repsport">
 <input type="checkbox" class="sport2" id="sport2">
 <label for="sport2"></label>
 </div>
   <div class="Txtsmiley">
-    Conbien de temps avez vous fait du sport ?
+    Conbien de temps avez-vous fait du sport ?
 </div>
 <div class="Duration">
 <input name="Duration" type="number" placeholder="En minute" />
