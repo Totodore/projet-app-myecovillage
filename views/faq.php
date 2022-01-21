@@ -25,7 +25,7 @@
 
     <div class="questions">
         <div class="visible-panel">
-            <h2>Où trouver une borne "MyEcovillage" dans mon ecoquartier ?</h2>
+            <h2>Où trouver une borne "MyEcoVillage" dans mon ecoquartier ?</h2>
             <span class="material-icons">add</span>
         </div>
         <div class="toggle-panel">
