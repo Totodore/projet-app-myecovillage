@@ -21,16 +21,14 @@ export class HomeController extends BaseController {
 
   googleApi() {
     const locations = [
-      ["Bondi Beach", -33.890542, 151.274856, 4],
-      ["Coogee Beach", -33.923036, 151.259052, 5],
-      ["Cronulla Beach", -34.028249, 151.157507, 3],
-      ["Manly Beach", -33.80010128657071, 151.28747820854187, 2],
-      ["Maroubra Beach", -33.950198, 151.259302, 1],
+      ["Ecoquartier 14e", 48.832341, 2.326305, 4],
+      ["Ecoquartier 5e", 48.842764, 2.357118, 5],
+      ["Ecoquartier 12e", 48.835307, 2.382825, 3],
     ];
 
 		const map = new google.maps.Map(document.getElementById("map"), {
-      zoom: 10,
-      center: new google.maps.LatLng(-33.92, 151.25),
+      zoom: 13,
+      center: new google.maps.LatLng(48.83, 2.32),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
     });
 
