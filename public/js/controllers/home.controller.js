@@ -16,7 +16,7 @@ export class HomeController extends BaseController {
     setTimeout(() => this.barAnimation(), 2000);
     if (this.select(".no-data-link"))
       this.navigate("minigame", ".no-data-link");
-		this.googleApi();
+    this.googleApi();
   }
 
   googleApi() {
@@ -28,8 +28,7 @@ export class HomeController extends BaseController {
       ["Maroubra Beach", -33.950198, 151.259302, 1],
     ];
 
-		console.log(document.getElementById("map"));
-    const map = new google.maps.Map(document.getElementById("map"), {
+		const map = new google.maps.Map(document.getElementById("map"), {
       zoom: 10,
       center: new google.maps.LatLng(-33.92, 151.25),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -58,12 +57,15 @@ export class HomeController extends BaseController {
     }
   }
   barAnimation() {
-    const compteurs = document.querySelectorAll(".compteur");
+    const compteurs = this.selectAll(".compteur");
     for (let compteur of compteurs) {
       let cpt = 0;
-      const n = +compteur.getAttribute("data-value");
-      const duree = 2;
+      const n = +compteur.dataset.value;
+      const duree = 1;
       const delta = Math.ceil((duree * 1000) / n);
+
+			if (n == 0)
+				continue;
 
       function countdown() {
         compteur.innerHTML = ++cpt + "%";
@@ -72,6 +74,8 @@ export class HomeController extends BaseController {
         }
       }
       countdown();
+			compteur.parentElement.parentElement.style.maxHeight = n + "%";
+			compteur.style.opacity = 1;
     }
   }
 }

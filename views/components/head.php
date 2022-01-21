@@ -10,5 +10,5 @@
 <title>MyEcoVillage</title>
 <link rel="icon" type="image/png" sizes="16x16" href="/<?php echo $baseUrl ?>/public/images/weblogosans.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script src="http://maps.google.com/maps/api/js?key=<?php echo $MAPS_API_KEY ?>" type="text/javascript"></script>
+<script src="https://maps.google.com/maps/api/js?key=<?php echo $MAPS_API_KEY ?>" type="text/javascript"></script>
 <style id="style-wrapper"></style>

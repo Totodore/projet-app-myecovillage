@@ -38,9 +38,7 @@ h2 {
 	overflow: hidden;
 }
 
-.rond1,
-.rond2,
-.rond3 {
+.rond {
 	display: flex;
 	width: 250px;
 	height: 250px;
@@ -52,20 +50,13 @@ h2 {
 	align-items: center;
 	margin-bottom: 10%;
 	position: relative;
-}
-
-#Txtrond3,
-#Txtrond2,
-#Txtrond1 {
-	font-size: 30px;
-	color: white;
-}
-
-.rond1,
-.rond2,
-.rond3 {
 	box-shadow: 0 0 5px 2px #00000069;
 	border: 1px solid #6a90ad;
+}
+
+.txt-rond {
+	font-size: 30px;
+	color: white;
 }
 
 @media only screen and (max-width: 900px) {
@@ -77,46 +68,50 @@ h2 {
 }
 
 @media only screen and (max-width: 500px) {
-	.rond1,
-	.rond2,
-	.rond3 {
+	.rond {
 		width: 300px;
 		height: 300px;
 		border-radius: 300px;
 	}
-	#Txtrond1,
-	#Txtrond2,
-	#Txtrond3 {
+	.txt-rond {
 		font-size: 40px;
 	}
 }
 
 @media only screen and (max-width: 320px) {
-	.rond1,
-	.rond2,
-	.rond3 {
+	.rond {
 		width: 250px;
 		height: 250px;
 		border-radius: 250px;
 	}
-	#Txtrond1,
-	#Txtrond2,
-	#Txtrond3 {
+	.txt-rond {
 		font-size: 35px;
 	}
 }
 
 .Emptableau {
-	background-color: #666;
 	width: 90%;
 	height: 500px;
 	border-radius: 30px;
 	margin: 5%;
 	box-shadow: 0 0 5px 2px #00000069;
-	border: 1px solid #6a90ad;
 	display: flex;
 	flex-direction: column;
 	padding-top: 1%;
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0 0 7px -1px #232c1e;
+	border-radius: 6px;
+}
+.Emptableau::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("public/images/rice-img.jpg");
+	filter: blur(3px) brightness(0.5);
 }
 
 .Tableau {
@@ -126,233 +121,50 @@ h2 {
 	flex: 1 0;
 }
 
-#graph1,
-#graph2,
-#graph3,
-#graph4,
-#graph5,
-#graph6,
-#graph7 {
+.graph {
 	width: 150px;
 	background-color: #6a90ad;
 	justify-content: center;
 	align-items: center;
-	box-shadow: 1px 2px 3px 1px #4e6b81 inset;
+	box-shadow: 0 0 3px 1px #4e6b81;
+	border-radius: 10px 10px 0 0;
 	justify-content: center;
 	align-items: center;
 	display: flex;
+	flex-direction: column;
+	height: 100%;
+	max-height: 0%;
+	transition: max-height 1s linear;
+	padding-bottom: 50px;
+	position: relative;
+	user-select: none;
 }
-
-.Txttableau {
+.ptab {
 	display: flex;
-	color: white;
-	font-size: 25px;
-	justify-content: space-around;
-	align-items: center;
-	margin-top: 0.5%;
-	margin-bottom: 0.5%;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-}
-
-#Txtgraph1,
-#Txtgraph2,
-#Txtgraph3,
-#Txtgraph4,
-#Txtgraph5,
-#Txtgraph6,
-#Txtgraph7 {
-	color: white;
-	font-size: 25px;
-	align-items: flex-end;
-	margin-top: 0.5%;
-	margin-bottom: 0.5%;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+	width: 100%;
+	height: 100%;
+	flex: 1;
 	justify-content: center;
-	margin-left: 4%;
+	align-items: center;
 }
-
-#graph1 {
-	animation: slidin80 2s;
-	animation-delay: 2s;
-	animation-fill-mode: both;
+.day-graph {
+	position: absolute;
+	bottom: 12px;
 }
-
-#graph2 {
-	animation: slidin70 2s;
-	animation-delay: 2s;
-	animation-fill-mode: both;
+.compteur {
+	opacity: 0;
+	transition: opacity 1s linear;
 }
-
-@media (hover: hover) {
-	#graphe1 {
-		animation: slidin 2s;
-		animation-delay: 2s;
-		animation-fill-mode: both;
-	}
-}
-
-@keyframes slidin80 {
-	0% {
-		height: 0%;
-	}
-	100% {
-		height: 80%;
-	}
-}
-
-@keyframes slidin70 {
-	0% {
-		height: 0%;
-	}
-	100% {
-		height: 70%;
-	}
-}
-
 .compteur,
-.compteur2 {
+.day-graph {
 	color: white;
 }
 
-#graph3,
-#graph6 {
-	height: 40%;
-}
-
-#graph2,
-#graph4 {
-	height: 70%;
-}
-
-#graph5,
-#graph7 {
-	height: 50%;
-}
-
-* {
-	margin: 0;
-	padding: 0;
-}
-
-#barre_tableau {
-	display: block;
-	width: 99%;
-	height: 20px;
-	margin-top: 1%;
-	background-color: #6a90ad;
-	margin-right: 0.5%;
-	margin-left: 0.5%;
-}
-
-#barre_tableausmall {
-	width: 80%;
-	height: 100px;
-	margin-top: 2%;
-	background-color: #6a90ad;
-	margin-right: 0.5%;
-	margin-left: 0.5%;
-}
-
-#Txtgraph1_2,
-#Txtgraph2_2 {
-	color: white;
-	font-size: 25px;
-	align-items: flex-end;
-	margin-top: 0.5%;
-	margin-bottom: 0.5%;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-}
-
-@media only screen and (max-width: 1215px) {
-	#graph1,
-	#graph2,
-	#graph3,
-	#graph4,
-	#graph5,
-	#graph6,
-	#graph7 {
-		width: 90px;
-	}
-	#Txtgraph1,
-	#Txtgraph2 {
-		display: none;
-	}
-	#barre_tableau {
-		width: 98%;
-		align-self: center;
-	}
-}
-
-@media only screen and (max-width: 630px) {
-}
-
-@media only screen and (min-width: 765px) {
-	#barre_tableausmall,
-	#Txtgraph1_2,
-	#Txtgraph2_2 {
-		display: none;
-	}
-}
-
-@media only screen and (max-width: 765px) {
-	#graph1,
-	#graph2,
-	#graph3,
-	#graph4,
-	#graph5,
-	#graph6,
-	#graph7 {
-		margin-top: 7%;
-		width: 175px;
-	}
-	.Tableau {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		align-content: space-evenly;
-		height: 2000px;
-	}
-	.Txttableau {
-		display: block;
-		font-size: 15px;
-	}
-	.Emptableau {
-		height: 2000px;
-	}
-	#barre_tableausmall,
-	#Txtgraph1_2,
-	#Txtgraph2_2 {
-		display: block;
-	}
-	#barre_tableau {
-		display: none;
-	}
-	nav {
-		display: block;
-	}
-}
-
-@media only screen and (min-width: 765px) {
-	#barretableausmall,
-	#Txtgraph1_2,
-	#Txtgraph2_2,
-	nav {
-		display: none;
-	}
-}
-
-.rond1:hover #Txtrond1,
-.rond2:hover #Txtrond2,
-.rond3:hover #Txtrond3 {
+.rond:hover .txt-rond {
 	display: none;
 }
 
-.rond1:not(:hover) .flex-wrapper {
-	display: none;
-}
-
-.rond1:hover .flex-wrapper,
-.rond2:hover .flex-wrapper {
+.rond:hover .flex-wrapper {
 	display: flex;
 }
 
@@ -366,18 +178,6 @@ h2 {
 	align-items: center;
 	position: absolute;
 	pointer-events: none;
-}
-
-@media (hover: hover) {
-	.rond1:hover .flex-wrapper {
-		display: flex;
-	}
-	.rond2:hover .flex-wrapper {
-		display: flex;
-	}
-	.rond3:hover .flex-wrapper {
-		display: flex;
-	}
 }
 
 .single-chart {
@@ -403,24 +203,13 @@ h2 {
 	stroke-width: 0.5px;
 	stroke-linecap: round;
 	animation: progress 1s ease-out forwards;
+	stroke: #5bcc12;
 }
 
 @keyframes progress {
 	0% {
 		stroke-dasharray: 0 100;
 	}
-}
-
-.circular-chart.Temp .circle {
-	stroke: #5bcc12;
-}
-
-.circular-chart.CO2 .circle {
-	stroke: #5bcc12;
-}
-
-.circular-chart.Decibel .circle {
-	stroke: #5bcc12;
 }
 
 .percentage {
@@ -453,4 +242,33 @@ h2 {
 #map {
 	width: 100%;
 	height: 100%;
+}
+@media screen and (max-width: 660px) {
+	.map-wrapper {
+		height: 400px;
+		width: 90%;
+	}
+
+	.Emptableau {
+		width: 90%;
+		height: 300px;
+		border-radius: 30px;
+		margin: 5%;
+		box-shadow: 0 0 5px 2px #00000069;
+		display: flex;
+		flex-direction: column;
+		padding-top: 1%;
+		overflow: hidden;
+		position: relative;
+		box-shadow: 0 0 7px -1px #232c1e;
+		border-radius: 6px;
+	}
+
+	.compteur,
+	.day-graph {
+		font-size: 14px;
+	}
+	.day-graph {
+		bottom: 13.5px;
+	}
 }
