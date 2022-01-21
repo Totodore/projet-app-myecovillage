@@ -140,6 +140,14 @@
 
 </div>
 <div class="Txtsmiley">
+    Combien d'intéractions avez vou eu ?
+</div>
+<div>
+<div class="rangeinter">
+    <input type="range" id="Inter" name="" value="0" min="0" max="5">
+    <span id="rangevaluesinter">0 Interactions</span>
+</div>
+<div class="Txtsmiley">
     Sport en exterieur ou en interieur ?
 </div>
 <div class="Qsport">
