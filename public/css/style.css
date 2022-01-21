@@ -1,52 +1,73 @@
 @import "./components/header.css";
 @import "./components/footer.css";
-
 input::-ms-reveal,
 input::-ms-clear {
-	display: none;
+    display: none;
 }
+
 * {
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	-webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 p {
-	font-size: 24px;
-	/* commentaire*/
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
-	text-align: center;
-	color: #878787;
-	text-shadow: none;
+    font-size: 24px;
+    /* commentaire*/
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+    text-align: center;
+    color: #878787;
+    text-shadow: none;
 }
 
 body {
-	background-color: #6a90ad;
-	margin: 0px;
-	padding: 0px;
-	height: 100%;
-	min-height: 100vh;
-	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
-	display: flex;
-	flex-direction: column;
+    background-color: #6a90ad;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    min-height: 100vh;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial" !important;
+    display: flex;
+    flex-direction: column;
 }
 
 #body-wrapper {
-	margin-top: 150px;
-	flex: 1 1 auto;
+    position: relative;
+    margin-top: 150px;
+    flex: 1 1 auto;
 }
 
 a {
-	user-select: none;
+    user-select: none;
 }
 
 button,
 input[type="submit"],
 input[type="reset"] {
-	background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.bgsite {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    top: 0;
+    width: 70%;
+    height: auto;
+    filter: blur(5px);
+}
+
+.bgsite2 {
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    top: 25%;
+    width: 70%;
+    height: auto;
+    filter: blur(5px);
 }

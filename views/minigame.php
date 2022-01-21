@@ -1,4 +1,4 @@
-
+<form>
 <div class="Txtsmiley">
     Comment vous sentez-vous aujourd'hui ?
 </div>
@@ -34,7 +34,7 @@
 </div>
 <div>
 <div class="rangesleep">
-    <input type="range" id="Sleep" name="" value="0" min="0" max="24">
+    <input type="range" id="Sleep" name="daysleep" value="0" min="0" max="24">
     <span id="rangevaluesleep">0 heure</span>
 </div>
 <div class="Txtsmiley">
@@ -115,7 +115,7 @@
     Comment avez-vous respiré aujourd'hui ?
 </div>
 <div class="rangebreathing">
-    <input type="range" id="breathing" name="" value="0" min="0" max="100">
+    <input type="range" id="breathing" name="breathing" value="0" min="0" max="100">
     <span id="rangevalue">0 %</span>
     <div id="Easy">Facilement</div>
     <div id="Hard">Difficilement</div>
@@ -145,16 +145,16 @@
 </div>
 <div>
 <div class="rangeinter">
-    <input type="range" id="Inter" name="" value="0" min="0" max="5">
+    <input type="range" id="Inter" name="interactiveday" value="0" min="0" max="5">
     <span id="rangevaluesinter">0 Interaction</span>
 </div>
 <div class="Txtsmiley">
     Avez-vous fait du sport aujourd'hui ?
 </div>
 <div class="repsport">
-<input type="radio" name="sport1" class="sport1" id="sport1-a" checked>
+<input type="radio" name="sport" class="sport1" id="sport1-a" checked>
 <label for="sport1-a">Oui</label>
-<input type="radio" name="sport1" class="sport1" id="sport1-b" >
+<input type="radio" name="sport" class="sport1" id="sport1-b" >
 <label for="sport1-b">Non</label>
   
 </div>
@@ -181,15 +181,16 @@
     Le sport était dur ?
 </div>
 <div class="repsport">
-<input type="checkbox" class="sport2" id="sport2">
+<input type="checkbox" name="sportharder" class="sport2" id="sport2">
 <label for="sport2"></label>
 </div>
   <div class="Txtsmiley">
     Conbien de temps avez-vous fait du sport ?
 </div>
 <div class="Duration">
-<input name="Duration" type="number" placeholder="En minute" />
+<input name="Duration" name="sportduration" type="number" placeholder="En minute" />
 </div>
 <div class="bouton_game">
 			<button class="buttongame" type="submit">Envoyer</button>
 		</div>
+</form>
