@@ -74,7 +74,7 @@
 		Vous n'avez pas encore participé au <button class="no-data-link">minijeu</button> aujourd'hui!
 	</h2>
 <?php } ?>
-<h2>Vos statistiques de bien-être au sein de l'écoquartier&nbsp;:</h2>
+<h2 style="margin-top: 0;">Vos statistiques de bien-être au sein de l'écoquartier&nbsp;:</h2>
 <?php if ($hasWeekStat) { ?>
 	<div class="Emptableau">
 		<div class="Tableau">

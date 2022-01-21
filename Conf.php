@@ -12,6 +12,7 @@ use Project\Controllers\AdminController;
 use Project\Controllers\IndexController;
 use Project\Controllers\Api\AuthController;
 use Project\Controllers\Api\ContactController;
+use Project\Controllers\Api\MinigameController;
 use Project\Controllers\Api\TicketController;
 use Project\Controllers\Api\UserController;
 use Project\Controllers\InfoController;
@@ -65,7 +66,8 @@ class Conf
 		AuthController::class,
 		UserController::class,
 		ContactController::class,
-		TicketController::class
+		TicketController::class,
+		MinigameController::class,
 	];
 
 	/**

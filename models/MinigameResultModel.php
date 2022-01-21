@@ -34,12 +34,12 @@ class MinigameResultModel extends BaseModel
 	public bool $interactiveday;
 	#[Column()]
 	public bool $sport;
-	#[Column()]
-	public bool $sportindoor;
-	#[Column()]
-	public bool $sportharder;
-	#[Column()]
-	public int $sportduration;
+	#[Column(nullable: true)]
+	public ?bool $sportindoor;
+	#[Column(nullable: true)]
+	public ?bool $sportharder;
+	#[Column(nullable: true)]
+	public ?int $sportduration;
 	#[Column()]
 	public DateTime $date;
 
@@ -63,9 +63,18 @@ class MinigameResultModel extends BaseModel
 		return false;
 	}
 
+	public static function getTodayGame(string $userid): ?MinigameResultModel
+	{
+		foreach (MinigameResultModel::findManyBy("userid", $userid) ?? [] as $result) {
+			if ($result->date->format("Y-m-d") == date("Y-m-d"))
+				return $result;
+		}
+		return null;
+	}
+
 	public static function getWeekStat(string $userid): array
 	{
-		$days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"];
+		$days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"];
 		$week = [];
 		foreach (MinigameResultModel::findManyBy("userid", $userid) ?? [] as $result) {
 			if ($result->date->format("W") != date("W"))

@@ -109,7 +109,7 @@ export const routes = {
 	},
 	'/minigame': {
 		controller: MinigameController,
-		services: [],
+		services: [ApiService],
 		guard: null
 	}
 }

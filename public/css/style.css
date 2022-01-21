@@ -53,21 +53,21 @@ input[type="reset"] {
 }
 
 .bgsite {
-	position: absolute;
+	position: fixed;
 	z-index: -1;
 	right: 0;
 	top: 0;
 	width: 70%;
 	height: auto;
-	filter: blur(2px) brightness(0.5);
+	filter: blur(2.5px) brightness(0.3);
 }
 
 .bgsite2 {
-	position: absolute;
+	position: fixed;
 	z-index: -1;
 	left: 0;
 	top: 25%;
 	width: 70%;
 	height: auto;
-	filter: blur(2px) brightness(0.5);
+	filter: blur(2.5px) brightness(0.3);
 }

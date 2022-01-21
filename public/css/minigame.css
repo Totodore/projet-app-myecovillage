@@ -1,375 +1,437 @@
-    .empsmiley {
-        margin: auto;
-        display: flex;
-        flex-direction: row;
-        margin-top: 5%;
-        justify-content: space-around;
-        width: 80%;
-        margin-bottom: 5%;
-        margin: auto;
-    }
-    
-    .Txtsmiley {
-        text-align: center;
-        color: white;
-        font-size: 40px;
-        margin-top: 3%;
-        margin-bottom: 3%;
-    }
-    
-    #heures {
-        height: 200px;
-        width: auto;
-    }
-    
-    .smiley1,
-    .smiley2,
-    .smiley3,
-    .smiley4,
-    .smiley5 {
-        width: 10%;
-        height: auto;
-    }
-    
-    .empsoundnight {
-        background-color: #300d7c;
-        width: 80%;
-        height: auto;
-        border-radius: 30px;
-        display: block;
-        margin: auto;
-        z-index: -1;
-        padding: 3%;
-    }
-    
-    .moon {
-        width: 7%;
-        height: auto;
-    }
-    
-    .soundicon {
-        justify-content: space-around;
-        display: flex;
-        flex-direction: row;
-    }
-    
-    .empsoundday {
-        background-color: #67bd45;
-        width: 80%;
-        height: auto;
-        border-radius: 30px;
-        display: block;
-        margin: auto;
-        z-index: -1;
-        padding: 3%;
-    }
-    
-    .sound1,
-    .sound2,
-    .sound3,
-    .sound4,
-    .sound5 {
-        width: 12%;
-        height: auto;
-    }
-    
-    .rangebreathing,
-    .rangesleep,
-    .rangeinter {
-        display: flex;
-        flex-direction: row;
-        margin: auto;
-        width: 50%;
-        justify-content: center;
-        position: relative;
-        margin-bottom: 3%;
-    }
-    
-    .rangebreathing {
-        margin-bottom: 5%;
-    }
-    
-    #rangevalue,
-    #rangevaluesleep,
-    #rangevaluesinter {
-        font-size: 25px;
-        color: white;
-        text-shadow: 0px 0px 4px #5bcc12;
-        margin-left: 3%;
-    }
-    
-    #breathing {
-        width: 50%;
-        height: 30px;
-        -webkit-appearance: none;
-        background: white;
-        outline: none;
-        border-radius: none;
-        overflow: hidden;
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
-    }
-    
-    #Sleep,
-    #Inter {
-        width: 50%;
-        height: 30px;
-        -webkit-appearance: none;
-        background: white;
-        outline: none;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
-    }
-    
-    #breathing::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 3px;
-        height: 30px;
-        border-radius: none;
-        background: #5bcc12;
-        cursor: pointer;
-        border: 4px solid white;
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
-    }
-    
-    #sleep::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: #5bcc12;
-        cursor: pointer;
-        border: 4px solid white;
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
-    }
-    
-    #Inter::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: #5bcc12;
-        cursor: pointer;
-        border: 4px solid white;
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
-    }
-    
-    #hard,
-    #easy {
-        position: absolute;
-        font-size: 25px;
-        color: white;
-    }
-    
-    #hard {
-        bottom: -30px;
-        right: 0;
-    }
-    
-    #easy {
-        bottom: -30px;
-        left: 0;
-    }
-    
-    .Qwent,
-    .Qsport {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        margin-bottom: 3%;
-    }
-    
-    .iconoutside,
-    .iconinside,
-    .icon_sport_outside,
-    .icon_sport_inside {
-        width: 15%;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .selectedicon {
-        border: solid white 6px;
-        border-radius: 9%;
-    }
-    
-    .repicon,
-    .repicon2 {
-        font-size: 25px;
-        color: white;
-        align-items: center;
-        margin-top: 10px;
-    }
-    
-    .repsport {
-        display: flex;
-        flex-direction: row;
-        position: relative;
-        width: 50%;
-        margin: auto;
-        margin-bottom: 3%;
-        justify-content: center;
-    }
-    
-    .Duration {
-        width: 50%;
-        position: relative;
-        margin: auto;
-        justify-content: center;
-        margin-bottom: 3%;
-    }
-    
-    .bouton_game {
-        width: 20%;
-        position: relative;
-        margin: auto;
-        justify-content: center;
-        margin-bottom: 3%;
-    }
-    
-    label {
-        font-size: 25px;
-        color: white
-    }
-    
-    input[type="radio"].sport1 {
-        display: none;
-    }
-    
-    input[type="radio"].sport1+label {
-        position: relative;
-        padding-left: 1.3rem;
-    }
-    
-    input[type="radio"].sport1+label::before,
-    input[type="radio"].sport1+label::after {
-        display: block;
-        position: absolute;
-        box-sizing: border-box;
-        content: '';
-        border-radius: 1rem;
-    }
-    
-    input[type="radio"].sport1+label::before {
-        bottom: 0;
-        left: 0;
-        border: 1px solid #ccc;
-        background-color: #eee;
-        width: 1rem;
-        height: 1rem;
-    }
-    
-    input[type="radio"].sport1+label::after {
-        bottom: 3px;
-        left: 3px;
-        width: calc(1rem - 6px);
-        height: calc(1rem - 6px);
-    }
-    
-    input[type="radio"].sport1:checked+label::after {
-        background-color: #5bcc12;
-    }
-    
-    input[type="checkbox"].sport2 {
-        display: none;
-    }
-    
-    input[type="checkbox"].sport2+label {
-        box-sizing: border-box;
-        display: inline-block;
-        width: 3rem;
-        height: 1.5rem;
-        border-radius: 1.5rem;
-        padding: 2px;
-        background-color: #c0ceda;
-        transition: all 0.5s;
-    }
-    
-    input[type="checkbox"].sport2+label::before {
-        box-sizing: border-box;
-        display: block;
-        content: "";
-        height: calc(1.5rem - 4px);
-        width: calc(1.5rem - 4px);
-        border-radius: 50%;
-        background-color: #fff;
-        transition: all 0.5s;
-    }
-    
-    input[type="checkbox"].sport2:checked+label {
-        background-color: #5bcc12;
-    }
-    
-    input[type="checkbox"].sport2+label::after {
-        content: 'Oui';
-    }
-    
-    input[type="checkbox"].sport2:checked+label::before {
-        margin-left: 1.5rem;
-    }
-    
-    input[type="checkbox"].sport2:checked+label::after {
-        margin-left: 0;
-        content: 'Non';
-    }
-    
-    #sport1-b {
-        margin-left: 5px;
-    }
-    
-    .buttongame {
-        padding: 15px 25px;
-        border-radius: 4px;
-        border: none;
-        font-size: 15px;
-        color: #fff;
-        background-color: #5bcc12;
-        outline: none;
-        cursor: pointer;
-        width: 100%;
-    }
-    
-    input[type="number"] {
-        padding: 15px;
-        border: none;
-        border-radius: 4px;
-        background-color: #f2f2f2;
-        outline: none;
-        margin-bottom: 15px;
-        width: 100%
-    }
-    
-    @media only screen and (max-width: 420px) {
-        .Txtsmiley,
-        #rangevalue,
-        #rangevaluesleep,
-        #rangevaluesinter {
-            font-size: 22px;
-        }
-        label,
-        .repicon,
-        #hard,
-        #easy {
-            font-size: 15px;
-        }
-        .repicon2 {
-            font-size: 12px;
-        }
-        .rangebreathing,
-        .rangesleep,
-        .rangeinter,
-        .repsport {
-            width: 80%;
-        }
-        .bouton_game {
-            width: 60%;
-        }
-        .rangebreathing {
-            margin-bottom: 10%;
-        }
-        .repsport {
-            margin-bottom: 7%;
-        }
-    }
+form {
+	display: block;
+	margin-top: 50px;
+}
+@media screen and (max-width: 1200px) and (min-width: 800px) {
+	form {
+		margin-top: 100px;
+	}
+}
+.empsmiley {
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	margin-top: 5%;
+	justify-content: space-around;
+	width: 80%;
+	margin-bottom: 5%;
+	margin: auto;
+}
+
+.Txtsmiley {
+	text-align: center;
+	color: white;
+	font-size: 40px;
+	margin-top: 3%;
+	margin-bottom: 3%;
+	text-shadow: 0px 0px 4px #5bcc12;
+}
+
+#heures {
+	height: 200px;
+	width: auto;
+}
+
+.smiley1,
+.smiley2,
+.smiley3,
+.smiley4,
+.smiley5 {
+	width: 10%;
+	height: auto;
+	cursor: pointer;
+	transition: all 200ms;
+}
+.smiley1:hover,
+.smiley2:hover,
+.smiley3:hover,
+.smiley4:hover,
+.smiley5:hover {
+	transform: scale(1.05);
+}
+.smiley-selected {
+	border-radius: 200px;
+	box-shadow: 0 0 0 5px white;
+	transition: all 200ms;
+}
+.smiley-selected svg {
+	transform: scale(0.9);
+}
+
+.empsoundnight {
+	background-color: #300d7c;
+	width: 80%;
+	height: auto;
+	border-radius: 30px;
+	display: block;
+	margin: auto;
+	z-index: -1;
+	padding: 3%;
+}
+
+.moon {
+	width: 7%;
+	height: auto;
+}
+
+.soundicon {
+	justify-content: space-around;
+	display: flex;
+	flex-direction: row;
+}
+
+.empsoundday {
+	background-color: #67bd45;
+	width: 80%;
+	height: auto;
+	border-radius: 30px;
+	display: block;
+	margin: auto;
+	z-index: -1;
+	padding: 3%;
+}
+
+.sound1,
+.sound2,
+.sound3,
+.sound4,
+.sound5 {
+	width: 12%;
+	height: auto;
+	cursor: pointer;
+	transition: all 200ms;
+}
+.sound1:hover,
+.sound2:hover,
+.sound3:hover,
+.sound4:hover,
+.sound5:hover {
+	transform: scale(1.05);
+}
+.empsoundnight .sound-selected path {
+	fill: #5bcc12;
+}
+.empsoundday .sound-selected path {
+	fill: #000000;
+}
+
+.rangebreathing,
+.rangesleep,
+.rangeinter {
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+	width: 50%;
+	justify-content: center;
+	position: relative;
+	margin-bottom: 3%;
+}
+
+.rangebreathing {
+	margin-bottom: 5%;
+}
+
+#rangevalue,
+#rangevaluesleep,
+#rangevaluesinter {
+	font-size: 25px;
+	color: white;
+	text-shadow: 0px 0px 4px #5bcc12;
+	margin-left: 3%;
+}
+
+#breathing {
+	width: 50%;
+	height: 30px;
+	-webkit-appearance: none;
+	background: white;
+	outline: none;
+	border-radius: none;
+	overflow: hidden;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+
+#Sleep,
+#Inter {
+	width: 50%;
+	height: 30px;
+	-webkit-appearance: none;
+	background: white;
+	outline: none;
+	border-radius: 15px;
+	overflow: hidden;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+
+#breathing::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 3px;
+	height: 30px;
+	border-radius: none;
+	background: #5bcc12;
+	cursor: pointer;
+	border: 4px solid white;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
+}
+
+#Sleep::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: #5bcc12;
+	cursor: pointer;
+	border: 4px solid white;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 1) inset, -507px 0 0 500px #5bcc12;
+}
+
+#Inter::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background: #5bcc12;
+	cursor: pointer;
+	border: 4px solid white;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
+}
+
+#hard,
+#easy {
+	position: absolute;
+	font-size: 25px;
+	color: white;
+}
+
+#hard {
+	bottom: -30px;
+	right: 0;
+}
+
+#easy {
+	bottom: -30px;
+	left: 0;
+}
+
+.Qwent,
+.Qsport {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 3%;
+}
+
+.iconoutside,
+.iconinside,
+.icon_sport_outside,
+.icon_sport_inside {
+	width: 15%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+	transition: all 200ms;
+}
+.iconoutside:hover,
+.iconinside:hover,
+.icon_sport_outside:hover,
+.icon_sport_inside:hover {
+	transform: scale(1.05);
+}
+
+.selected-icon {
+	border-radius: 9%;
+	box-shadow: 0 0 0 5px white;
+	transition: all 200ms;
+}
+.selected-icon svg {
+	transform: scale(0.9);
+}
+
+.repicon,
+.repicon2 {
+	font-size: 25px;
+	color: white;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.repsport {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	width: 150px;
+	justify-content: space-between;
+	margin: auto;
+	margin-bottom: 3%;
+}
+
+.Duration {
+	width: 200px;
+	position: relative;
+	margin: auto;
+	justify-content: center;
+	margin-bottom: 3%;
+}
+
+.bouton_game {
+	width: 20%;
+	position: relative;
+	margin: auto;
+	justify-content: center;
+	margin-bottom: 3%;
+}
+
+label {
+	font-size: 25px;
+	color: white;
+}
+
+input[type="radio"].sport1 {
+	display: none;
+}
+
+input[type="radio"].sport1 + label {
+	position: relative;
+	padding-left: 1.3rem;
+}
+
+input[type="radio"].sport1 + label::before,
+input[type="radio"].sport1 + label::after {
+	display: block;
+	position: absolute;
+	box-sizing: border-box;
+	content: "";
+	border-radius: 1rem;
+	bottom: 50%;
+	transform: translateY(50%);
+}
+
+input[type="radio"].sport1 + label::before {
+	left: 0;
+	border: 1px solid #ccc;
+	background-color: #eee;
+	width: 1rem;
+	height: 1rem;
+}
+
+input[type="radio"].sport1 + label::after {
+	left: 3px;
+	width: calc(1rem - 6px);
+	height: calc(1rem - 6px);
+}
+
+input[type="radio"].sport1:checked + label::after {
+	background-color: #5bcc12;
+}
+
+input[type="checkbox"].sport2 {
+	display: none;
+}
+
+input[type="checkbox"].sport2 + label {
+	box-sizing: border-box;
+	display: inline-block;
+	width: 3rem;
+	height: 1.5rem;
+	border-radius: 1.5rem;
+	padding: 2px;
+	background-color: #c0ceda;
+	transition: all 0.5s;
+}
+
+input[type="checkbox"].sport2 + label::before {
+	box-sizing: border-box;
+	display: block;
+	content: "";
+	height: calc(1.5rem - 4px);
+	width: calc(1.5rem - 4px);
+	border-radius: 50%;
+	background-color: #fff;
+	transition: all 0.5s;
+}
+
+input[type="checkbox"].sport2:checked + label {
+	background-color: #5bcc12;
+}
+
+input[type="checkbox"].sport2 + label::after {
+	content: "Oui";
+	position: absolute;
+	bottom: -32px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+input[type="checkbox"].sport2:checked + label::before {
+	margin-left: 1.5rem;
+}
+
+input[type="checkbox"].sport2:checked + label::after {
+	margin-left: 0;
+	content: "Non";
+}
+
+#sport1-b {
+	margin-left: 5px;
+}
+
+.buttongame {
+	padding: 15px 25px;
+	border-radius: 4px;
+	border: none;
+	font-size: 15px;
+	color: #fff;
+	background-color: #5bcc12;
+	outline: none;
+	cursor: pointer;
+	width: 100%;
+	box-shadow: 0 0 3px 0px #0000007e;
+	transition: all 200ms;
+}
+.buttongame:hover {
+	transform: scale(1.05);
+}
+input[type="number"] {
+	padding: 15px;
+	border: none;
+	border-radius: 4px;
+	background-color: #f2f2f2;
+	outline: none;
+	margin-bottom: 15px;
+	width: 100%;
+}
+
+@media only screen and (max-width: 420px) {
+	.Txtsmiley,
+	#rangevalue,
+	#rangevaluesleep,
+	#rangevaluesinter {
+		font-size: 22px;
+	}
+	label,
+	.repicon,
+	#hard,
+	#easy {
+		font-size: 15px;
+	}
+	.repicon2 {
+		font-size: 12px;
+	}
+	.rangebreathing,
+	.rangesleep,
+	.rangeinter,
+	.repsport {
+		width: 80%;
+	}
+	.bouton_game {
+		width: 60%;
+	}
+	.rangebreathing {
+		margin-bottom: 10%;
+	}
+	.repsport {
+		margin-bottom: 7%;
+	}
+}
