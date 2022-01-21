@@ -166,13 +166,13 @@
 <div class='icon_sport_outside'>
     <?php include __DIR__ . "/../public/images/sport_outside.svg"
         ?>
-        <span class="repicon"> Dehors ?</span>
+        <span class="repicon2"> Dehors ?</span>
 
     </div>
     <div class='icon_sport_inside'>
     <?php include __DIR__ . "/../public/images/sport_inside.svg"
         ?>
-        <span class="repicon"> Intérieur ?</span>
+        <span class="repicon2"> Intérieur ?</span>
 
     </div>
 

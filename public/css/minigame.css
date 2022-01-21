@@ -195,7 +195,8 @@
         border-radius: 9%;
     }
     
-    .repicon {
+    .repicon,
+    .repicon2 {
         font-size: 25px;
         color: white;
         align-items: center;
@@ -302,7 +303,7 @@
     }
     
     input[type="checkbox"].sport2+label::after {
-        content: 'Non';
+        content: 'Oui';
     }
     
     input[type="checkbox"].sport2:checked+label::before {
@@ -311,7 +312,7 @@
     
     input[type="checkbox"].sport2:checked+label::after {
         margin-left: 0;
-        content: 'Oui';
+        content: 'Non';
     }
     
     #sport1-b {
@@ -338,4 +339,37 @@
         outline: none;
         margin-bottom: 15px;
         width: 100%
+    }
+    
+    @media only screen and (max-width: 420px) {
+        .Txtsmiley,
+        #rangevalue,
+        #rangevaluesleep,
+        #rangevaluesinter {
+            font-size: 22px;
+        }
+        label,
+        .repicon,
+        #hard,
+        #easy {
+            font-size: 15px;
+        }
+        .repicon2 {
+            font-size: 12px;
+        }
+        .rangebreathing,
+        .rangesleep,
+        .rangeinter,
+        .repsport {
+            width: 80%;
+        }
+        .bouton_game {
+            width: 60%;
+        }
+        .rangebreathing {
+            margin-bottom: 10%;
+        }
+        .repsport {
+            margin-bottom: 7%;
+        }
     }
