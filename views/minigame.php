@@ -149,6 +149,16 @@
     <span id="rangevaluesinter">0 Interactions</span>
 </div>
 <div class="Txtsmiley">
+    Avez vous fait du sport ?
+</div>
+<div class="repsport">
+<input type="radio" name="sport1" class="sport1" id="sport1-a" checked>
+<label for="sport1-a">Oui</label>
+<input type="radio" name="sport1" class="sport1" id="sport1-b" >
+<label for="sport1-b">Non</label>
+  
+</div>
+<div class="Txtsmiley">
     Sport en exterieur ou en interieur ?
 </div>
 <div class="Qsport">
@@ -167,3 +177,19 @@
     </div>
 
 </div>
+<div class="Txtsmiley">
+    Le sport était dure ?
+</div>
+<div class="repsport">
+<input type="checkbox" class="sport2" id="sport2">
+<label for="sport2"></label>
+</div>
+  <div class="Txtsmiley">
+    Conbien de temps avez vous fait du sport ?
+</div>
+<div class="Duration">
+<input name="Duration" type="number" placeholder="En minute" />
+</div>
+<div class="bouton_game">
+			<button class="buttongame" type="submit">Envoyer</button>
+		</div>
