@@ -51,7 +51,7 @@
   .titreinformation
   {
     color: #5BCC12;
-    font-size: 40px;
+    font-size: 200%;
     font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
   }
   .boutonconnexion1,.boutonvalider
@@ -72,31 +72,9 @@
   {
       padding: 6px;
   }
-  .image_user
-  {
-    height: 172px;
-    width: 172px;
-    padding-left: 100px;
-    padding-right: 100px;
-  }
   .image_user_edit
   {
-    height: 172px;
-    width: 172px;
-  }
-  .editer_photo
-  {   
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 6px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: table;
-    font-size: 16px;
-    margin: auto;
-    margin-top: 10px;
-    font-family: "Roboto","Helvetica Neue","Helvetica","Arial";
+    height: 25%;
   }
 
   #conteneurPE
@@ -117,4 +95,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  @media (orientation: portrait) 
+  {
+    #conteneurPE {
+      flex-direction: column;
+      text-align: center;
+      margin-right: 0;
+      align-items: center;
+    }
+    .image_user_edit
+    {
+      height: 250px;
+    }
+    .boutonvalider
+    {
+      margin-top: 10px;
+    }
   }

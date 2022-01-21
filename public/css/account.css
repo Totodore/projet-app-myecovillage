@@ -88,20 +88,12 @@
   }
   .image_user
   {
-    height: 172px;
-    width: 172px;
-    margin-left: 50px;
-    padding-left: 100px;
-    padding-right: 100px;
+    height: 25%;
   }
   .image_user_edit
   {
     height: 172px;
     width: 172px;
-  }
-  .editer_photo
-  {   
-    width: 60%;
   }
 
   #conteneurPE
@@ -122,4 +114,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  @media (orientation: portrait) 
+  {
+    #conteneurPE {
+      flex-direction: column;
+      text-align: center;
+      margin-right: 0;
+      align-items: center;
+    }
+    .image_user
+    {
+      height: 250px;
+    }
+
+
   }

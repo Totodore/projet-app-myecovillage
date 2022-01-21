@@ -3,11 +3,6 @@
 
 		<div class="elementPE">
 			<div class="titreinformation"><strong>Mes Informations</strong></div>
-			<!-- <span class="text_info">Identifiant : (debug)
-						<?php
-						// echo $user->id; 
-						?> 
-					</span> -->
 			</p>
 			<span class="text_info">Nom :
 				<?php
@@ -57,7 +52,7 @@
 		</div>
 
 		<div class="elementPE">
-			<img src="./public/images/user_profil.png" class="image_user" />
+		<img src="./public/images/user_profil.png" class="image_user" />
 		</div>
 	</div>
 

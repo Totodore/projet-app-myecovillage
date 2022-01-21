@@ -56,13 +56,13 @@ class UserController extends BaseController {
 			throw new ForbiddenException();
 		$user = $this->getLoggedUser();
 
-		$user->name = $query["nomchange"] ?? $user->name;
+		$user->name = htmlspecialchars($query["nomchange"] ?? $user->name);
 
-		$user->firstname = $query["prenomchange"] ?? $user->firstname;
+		$user->firstname = htmlspecialchars($query["prenomchange"] ?? $user->firstname);
 
-		$user->height = $query["taillechange"] ?? $user->height;
+		$user->height = htmlspecialchars($query["taillechange"] ?? $user->height);
 
-		$user->weight = $query["poidschange"] ?? $user->weight;
+		$user->weight = htmlspecialchars($query["poidschange"] ?? $user->weight);
 
 		if($query["passwordchange"] != null)
 		{
