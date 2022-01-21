@@ -113,7 +113,7 @@ class ControllerManager
 
 	private function getRequestPath(): string
 	{
-		$path = str_replace(Conf::ROOT_PATH, "", strtok($_SERVER["REQUEST_URI"], '?'));
+		$path = str_replace(Conf::get("ROOT_PATH"), "", strtok($_SERVER["REQUEST_URI"], '?'));
 		if (str_ends_with($path, "/"))
 			$path = substr($path, 0, strlen($path) - 1);
 		return str_replace("//", "/", $path);

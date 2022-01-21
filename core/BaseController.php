@@ -20,13 +20,13 @@ abstract class BaseController {
 	}
 
 	public function redirect(string $location) {
-		$root = Conf::ROOT_PATH;
+		$root = Conf::get("ROOT_PATH");
 		header("Location: /$root$location");
 		exit();
 	}
 
 	public function isLogged(): bool {
-		return $this->token != null && JWT::verify($this->token, Conf::JWT_SECRET);
+		return $this->token != null && JWT::verify($this->token, Conf::get("JWT_SECRET"));
 	}
 
 	public function isAdmin(): bool {

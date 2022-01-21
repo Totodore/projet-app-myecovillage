@@ -13,16 +13,14 @@ use Project\JWT;
 use Project\Models\UserModel;
 
 #[JsonController('api')]
-class ContactController extends BaseController {
+class ContactController extends BaseController
+{
 
 	#[Post('/contactus')]
 	#[VerifyRequest(["prénom", "nom", "email", "objet", "message"])]
-	public function contactus(array $query): array {
-	$this->sendMail(Conf::MAIL_USER,$query["objet"], $query["message"]);
-    return [];
-    }
+	public function contactus(array $query): array
+	{
+		$this->sendMail(Conf::get("MAIL_USER"), $query["objet"], $query["message"]);
+		return [];
+	}
 }
-
-
-
-

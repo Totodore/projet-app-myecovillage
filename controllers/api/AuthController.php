@@ -15,11 +15,13 @@ use Project\JWT;
 use Project\Models\UserModel;
 
 #[JsonController('api/auth')]
-class AuthController extends BaseController {
+class AuthController extends BaseController
+{
 
 	#[Post('/login')]
 	#[VerifyRequest(["email", "password"])]
-	public function login(array $query): array {
+	public function login(array $query): array
+	{
 		$user = UserModel::findBy("email", $query['email']);
 		if (!$user)
 			throw new NotFoundException("User not found");
@@ -34,19 +36,19 @@ class AuthController extends BaseController {
 
 	#[Post('/register')]
 	#[VerifyRequest(["email", "name",  "password", "firstname",  "birthdate",  "weight", "height"])]
-	public function register(array $query): array {
+	public function register(array $query): array
+	{
 		$query['password'] = password_hash($query['password'], PASSWORD_BCRYPT);
 
 		if (UserModel::findBy("email", $query["email"]) != null)
 			return ["error" => "Email already used"];
-	
+
 		$user = UserModel::create($query);
 
 		$datetime1 = new DateTime();
 		$datetime2 = new DateTime($user->birthdate->format('d-m-Y'));
 		$interval = $datetime1->diff($datetime2);
-		if($interval->y < 13)
-		{
+		if ($interval->y < 13) {
 			throw new ForbiddenException("Wrong age");
 		}
 
@@ -64,7 +66,8 @@ class AuthController extends BaseController {
 	}
 
 	#[Get("/is-admin")]
-	public function isAdminQuery(array $query): array {
+	public function isAdminQuery(array $query): array
+	{
 		if (!$this->isLogged())
 			throw new ForbiddenException("You must be logged");
 		return [

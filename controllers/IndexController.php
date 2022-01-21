@@ -57,7 +57,7 @@ class IndexController extends BaseController
 	{
 		if ($this->isLogged())
 			$user = $this->getLoggedUser();
-		else 
+		else
 			$user = NULL;
 		return $this->loadView('contactus', ["user" => $user]);
 	}
@@ -101,9 +101,10 @@ class IndexController extends BaseController
 		$user = UserModel::findOne($query['id']);
 		return $this->loadView('account', ["user" => $user, "personal" => false]);
 	}
-	
+
 	#[Get('/ticket')]
-	public function ticket(array $query): array {
+	public function ticket(array $query): array
+	{
 		if (!$this->isLogged())
 			$this->redirect("/");
 		$tickets = TicketModel::findManyBy('authorId', $this->getLoggedUser()->id) ?? [];

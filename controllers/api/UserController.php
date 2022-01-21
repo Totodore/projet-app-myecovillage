@@ -17,17 +17,20 @@ use Project\Models\MinigameResultModel;
 use Project\Models\TicketModel;
 
 #[JsonController('api/users')]
-class UserController extends BaseController {
+class UserController extends BaseController
+{
 
 	#[Get('me')]
-	public function getMe(): object {
+	public function getMe(): object
+	{
 		if (!$this->isLogged())
 			throw new ForbiddenException();
 		return JWT::decode($_SERVER['HTTP_AUTHORIZATION'], Conf::JWT_SECRET);
 	}
 
 	#[Get('all')]
-	public function getAll(): array {
+	public function getAll(): array
+	{
 		if (!$this->isAdmin())
 			throw new ForbiddenException();
 		$users = UserModel::find(null, 100);
@@ -38,7 +41,8 @@ class UserController extends BaseController {
 	}
 
 	#[Get('/search')]
-	public function search(array $query) {
+	public function search(array $query)
+	{
 		if (!$this->isLogged())
 			throw new ForbiddenException();
 		$users = UserModel::search($query["query"], ['firstname', 'name', 'email'], 5);
@@ -50,7 +54,7 @@ class UserController extends BaseController {
 
 
 	#[Post('edit_profil')]
-	public function profil_edit(array $query): array 
+	public function profil_edit(array $query): array
 	{
 		if (!$this->isLogged())
 			throw new ForbiddenException();
@@ -64,15 +68,13 @@ class UserController extends BaseController {
 
 		$user->weight = htmlspecialchars($query["poidschange"] ?? $user->weight);
 
-		if($query["passwordchange"] != null)
-		{
+		if ($query["passwordchange"] != null) {
 			$user->password = password_hash($query['passwordchange'], PASSWORD_BCRYPT);
 		}
-		if ($query["mailchange"] != null && UserModel::findBy('email', $query["mailchange"]) == null)
-		{
+		if ($query["mailchange"] != null && UserModel::findBy('email', $query["mailchange"]) == null) {
 			$user->email = $query["mailchange"];
 		}
-		
+
 		$user->save();
 		$this->sendMail($user->email, "Modification de votre profil", "Bonjour,\n\nVotre profil a été modifié.\n\nCordialement,\nL'équipe MyEcovillage");
 
@@ -85,7 +87,8 @@ class UserController extends BaseController {
 	}
 
 	#[Post('admin')]
-	public function setAdmin(array $query): array {
+	public function setAdmin(array $query): array
+	{
 		if (!$this->isAdmin())
 			throw new ForbiddenException();
 		if (!isset($query['id']))
