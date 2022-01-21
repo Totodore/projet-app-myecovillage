@@ -130,11 +130,12 @@
 <div class='iconoutside'>
     <?php include __DIR__ . "/../public/images/icon_outside.svg"
         ?>
-
+    <span class="repicon"> Oui ?</span>
     </div>
     <div class='iconinside'>
     <?php include __DIR__ . "/../public/images/icon_inside.svg"
         ?>
+        <span class="repicon"> Non ?</span>
 
     </div>
 
@@ -155,11 +156,13 @@
 <div class='icon_sport_outside'>
     <?php include __DIR__ . "/../public/images/sport_outside.svg"
         ?>
+        <span class="repicon"> Dehors ?</span>
 
     </div>
     <div class='icon_sport_inside'>
     <?php include __DIR__ . "/../public/images/sport_inside.svg"
         ?>
+        <span class="repicon"> Intérieur ?</span>
 
     </div>
 
