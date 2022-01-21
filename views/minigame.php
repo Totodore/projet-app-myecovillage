@@ -34,9 +34,8 @@
 </div>
 <div>
 <div class="rangesleep">
-    <input type="range" id="Sleep" name="" value="0" min="0" max="24"
-    onChange="rangeslidesleep(this.value)" onmousemove="rangeslidesleep(this.value)">
-    <span id="rangevaluesleep">0 heures</span>
+    <input type="range" id="Sleep" name="" value="0" min="0" max="24">
+    <span id="rangevaluesleep">0 heure</span>
 </div>
 <div class="Txtsmiley">
     Comment le son vous à affecté la nuit dernière ?
@@ -116,8 +115,7 @@
     Comment avez-vous respirez aujourd'hui ?
 </div>
 <div class="rangebreathing">
-    <input type="range" id="breathing" name="" value="0" min="0" max="100"
-    onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)">
+    <input type="range" id="breathing" name="" value="0" min="0" max="100">
     <span id="rangevalue">0 %</span>
     <div id="Easy">facilement</div>
     <div id="Hard">Difficilement</div>

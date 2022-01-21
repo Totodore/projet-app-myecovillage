@@ -73,13 +73,19 @@
     height: auto;
 }
 
-.rangebreathing .rangesleep {
+.rangebreathing,
+.rangesleep {
     display: flex;
     flex-direction: row;
     margin: auto;
     width: 50%;
     justify-content: center;
     position: relative;
+    margin-bottom: 3%;
+}
+
+.rangebreathing {
+    margin-bottom: 5%;
 }
 
 #rangevalue,
@@ -90,8 +96,7 @@
     margin-left: 3%;
 }
 
-#breathing,
-#Sleep {
+#breathing {
     width: 50%;
     height: 30px;
     -webkit-appearance: none;
@@ -103,7 +108,14 @@
 }
 
 #Sleep {
+    width: 50%;
+    height: 30px;
+    -webkit-appearance: none;
+    background: white;
+    outline: none;
     border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
 }
 
 #breathing::-webkit-slider-thumb {
@@ -119,7 +131,7 @@
 
 #sleep::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 3px;
+    width: 30px;
     height: 30px;
     border-radius: 50%;
     background: #5bcc12;
@@ -136,12 +148,12 @@
 }
 
 #hard {
-    bottom: 0;
+    bottom: -30px;
     right: 0;
 }
 
 #easy {
-    bottom: 0;
+    bottom: -30px;
     left: 0;
 }
 
