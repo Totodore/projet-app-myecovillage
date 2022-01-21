@@ -2,6 +2,7 @@
 
 namespace Project\Models;
 
+use DateTime;
 use Project\Core\Attributes\Orm\Column;
 use Project\Core\Attributes\Orm\PrimaryColumn;
 use Project\Core\BaseModel;
@@ -18,5 +19,5 @@ class HeartBeatModel extends BaseModel {
 	#[Column()]
 	public int $heartBeat;
 	#[Column()]
-	public int $date;
+	public DateTime $date;
 }

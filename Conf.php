@@ -23,7 +23,6 @@ use Project\Core\Attributes\Http\Patch;
 use Project\Models\UserModel;
 use Project\Models\HeartBeatModel;
 use Project\Models\MinigameResultModel;
-use Project\Models\FaqArticleModel;
 use Project\Models\ForumModel;
 use Project\Models\TicketModel;
 
@@ -76,7 +75,6 @@ class Conf
 		UserModel::class,
 		HeartBeatModel::class,
 		MinigameResultModel::class,
-		FaqArticleModel::class,
 		ForumModel::class,
 		TicketModel::class,
 	];
