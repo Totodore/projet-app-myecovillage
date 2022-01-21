@@ -73,6 +73,38 @@
     height: auto;
 }
 
+.rangebreathing {
+    display: flex;
+    flex-direction: row;
+}
+
+#rangevalue {
+    font-size: 25px;
+    color: #5bcc12;
+}
+
+#breathing {
+    width: 50%;
+    height: 30px;
+    -webkit-appearance: none;
+    background: white;
+    outline: none;
+    border-radius: none;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+
+#breathing::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 3px;
+    height: 30px;
+    border-radius: none;
+    background: #5bcc12;
+    cursor: pointer;
+    border: 4px solid white;
+    box-shadow: -507px 0 0 500px #5bcc12;
+}
+
 .Qwent,
 .Qsport {
     display: flex;
