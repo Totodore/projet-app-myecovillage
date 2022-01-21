@@ -73,6 +73,90 @@
     height: auto;
 }
 
+.rangebreathing,
+.rangesleep {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 50%;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 3%;
+}
+
+.rangebreathing {
+    margin-bottom: 5%;
+}
+
+#rangevalue,
+#rangevaluesleep {
+    font-size: 25px;
+    color: white;
+    text-shadow: 0px 0px 4px #5bcc12;
+    margin-left: 3%;
+}
+
+#breathing {
+    width: 50%;
+    height: 30px;
+    -webkit-appearance: none;
+    background: white;
+    outline: none;
+    border-radius: none;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+
+#Sleep {
+    width: 50%;
+    height: 30px;
+    -webkit-appearance: none;
+    background: white;
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+
+#breathing::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 3px;
+    height: 30px;
+    border-radius: none;
+    background: #5bcc12;
+    cursor: pointer;
+    border: 4px solid white;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
+}
+
+#sleep::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #5bcc12;
+    cursor: pointer;
+    border: 4px solid white;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1), -507px 0 0 500px #5bcc12;
+}
+
+#hard,
+#easy {
+    position: absolute;
+    font-size: 25px;
+    color: white;
+}
+
+#hard {
+    bottom: -30px;
+    right: 0;
+}
+
+#easy {
+    bottom: -30px;
+    left: 0;
+}
+
 .Qwent,
 .Qsport {
     display: flex;

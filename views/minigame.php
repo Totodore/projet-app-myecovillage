@@ -33,9 +33,9 @@
     Combien d'heures avez-vous dormis ?
 </div>
 <div>
-  <input type="range" id="Heures" name="Heures"
-         min="0" max="24" step="1">
-  <label for="volume">Heures</label>
+<div class="rangesleep">
+    <input type="range" id="Sleep" name="" value="0" min="0" max="24">
+    <span id="rangevaluesleep">0 heure</span>
 </div>
 <div class="Txtsmiley">
     Comment le son vous à affecté la nuit dernière ?
@@ -111,6 +111,17 @@
 
 </div>
 </div>
+<div class='Txtsmiley'>
+    Comment avez-vous respirez aujourd'hui ?
+</div>
+<div class="rangebreathing">
+    <input type="range" id="breathing" name="" value="0" min="0" max="100">
+    <span id="rangevalue">0 %</span>
+    <div id="Easy">facilement</div>
+    <div id="Hard">Difficilement</div>
+</div>
+
+
 <div class="Txtsmiley">
     Etes-vous sortis aujourd'hui ?
 </div>
