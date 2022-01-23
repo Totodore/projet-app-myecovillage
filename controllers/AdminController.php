@@ -6,6 +6,7 @@ use Project\Core\Attributes\Http\Controller;
 use Project\Core\Attributes\Http\Get;
 use Project\Core\BaseController;
 use Project\Exceptions\ForbiddenException;
+use Project\Models\ForumModel;
 use Project\Models\TicketModel;
 use Project\Models\UserModel;
 
@@ -54,5 +55,14 @@ class AdminController extends BaseController
 			unset($user->password);
 		}
 		return $this->loadView('admin/user', ["users" => $users]);
+	}
+
+	#[Get("/forum")]
+	public function forum(array $query): array
+	{
+		if (!$this->isAdmin())
+			throw new ForbiddenException();
+		$forums = ForumModel::find();
+		return $this->loadView('admin/forum', ["forums" => $forums]);
 	}
 }

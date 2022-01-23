@@ -13,20 +13,23 @@ class ForumModel extends BaseModel {
 	#[PrimaryColumn()]
 	public int $id;
 
-	#[Column("text")]
+	#[Column(type: "TEXT")]
 	public string $question;
 
-	#[Column("text")]
-	public string $answer;
+	#[Column(type: "TEXT")]
+	public ?string $answer;
 
 	#[Column()]
 	public int $authorid;
 
 	#[Column()]
-	public int $answerid;
+	public ?int $answerid;
 	
 	#[Column()]
 	public DateTime $date;
+
+	#[Column()]
+	public ?DateTime $answerDate;
 
 	public function getAuthor(): UserModel {
 		return UserModel::findOne($this->authorid);

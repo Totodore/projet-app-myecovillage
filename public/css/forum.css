@@ -1,92 +1,144 @@
 .block_forum {
-    background-color: #6a90ad;
-    font-family: "Roboto", "Helvetica", "Verdana", "Georgia", "Trebuchet MS";
-    max-width: 900px;
-    min-width: 350px;
-    margin: 80px auto;
+	font-family: "Roboto", "Helvetica", "Verdana", "Georgia", "Trebuchet MS";
+	max-width: 900px;
+	min-width: 350px;
+	margin: 80px auto;
 }
 
 h1 {
-    color: white;
-    text-align: center;
+	color: white;
+	text-align: center;
 }
-
 h2 {
-    color: white;
-}
-
-p {
-    font-size: 16px;
-    color: white;
-    text-align: justify;
-}
-
-.question {
-    border: 0;
-    line-height: 2.5;
-    padding: 0 20px;
-    font-size: 1rem;
-    text-align: center;
-    color: #fff;
-    text-shadow: 1px 1px 1px #000;
-    border-radius: 10px;
-    background-color: #5bcc12;
-}
-
-.question:hover {
-    background-color: #5bcc12;
-}
-
-.question:active {
-    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
-}
-
-.forum-wrapper {
-    background-color: #666;
-    box-shadow: 0 0 5px 2px #00000069;
-    border: 1px solid #6a90ad;
-    border-radius: 30px;
-    margin-top: 20px;
-    padding: 30px 20px 10px 20px;
-    text-align: justify;
-}
-
-.questions {
-    background-color: #5bcc12;
-    border-radius: 10px;
-    padding: 5px 5px 5px 5px;
-    position: relative;
-    margin-bottom: 10px;
-}
-
-.material-icons {
-    position: absolute;
-    bottom: 30px;
-    right: 4px;
-    color: white;
-}
-
-.réponse {
-    display: none;
-    background-color: #6a90ad;
-    border-radius: 10px;
-    margin-left: 30px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    padding: 5px 15px 5px 15px;
+	text-align: center;
+	font-size: 1.5em;
+	margin-top: 0;
+	margin-bottom: 20px;
+	color: #5BCC12;
 }
 
 textarea {
-    width: 99%;
-    resize: none;
-    height: 100px;
+	min-height: 100px;
+	width: 100%;
+}
+input,
+textarea {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	outline: none;
+	transition: box-shadow 200ms;
+	font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial";
+	margin-bottom: 15px;
+	max-width: 100%;
+}
+input:focus,
+textarea:focus {
+	box-shadow: 0 0 0 1px #5bcc12;
 }
 
-input[type=submit] {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    width: 20%;
-    background-color: #ffffff;
-    border: 1px solid black;
+input[type="submit"] {
+	background-color: #5bcc12;
+	border: none;
+	padding: 10px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 200ms;
+	display: block;
+	color: white;
+	margin: auto;
+	width: 40%;
+}
+
+.question {
+	border: 0;
+	line-height: 2.5;
+	padding: 0 20px;
+	font-size: 1rem;
+	text-align: center;
+	color: #fff;
+	text-shadow: 1px 1px 1px #000;
+	border-radius: 10px;
+	background-color: #5bcc12;
+}
+
+.question:hover {
+	background-color: #5bcc12;
+}
+
+.question:active {
+	box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.forum-wrapper {
+	width: 80%;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 6px;
+	padding: 20px;
+	border: 2px solid #5bcc12;
+	margin-top: 50px;
+}
+.forum-wrapper.expand .réponse {
+	display: block;
+}
+.forum-wrapper.expand span.material-icons {
+	transform: rotate(180deg) translateY(50%);
+}
+
+.questions {
+	background-color: #5bcc12;
+	border-radius: 6px;
+	padding: 10px 40px 10px 20px;
+	position: relative;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+	align-items: center;
+}
+.question-content {
+	display: flex;
+	margin-right: 10px !important;
+	text-align: left;
+}
+.question-by {
+	width: 40%;
+	text-align: right;
+}
+
+.material-icons {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 4px;
+	color: white;
+	cursor: pointer;
+	user-select: none;
+	font-size: 1.2rem;
+	transition: all 250ms;
+	transform-origin: center;
+}
+
+.réponse {
+	display: none;
+	padding: 5px 15px 5px 15px;
+}
+
+.forum-wrapper p {
+	font-size: 1.1rem;
+	margin: 0;
+}
+.answer-p {
+	margin-top: 10px;
+	color: black;
+	text-align: left;
+}
+.answer-date {
+	font-size: 0.8rem;
+	color: #5bcc12;
+	margin-top: 10px;
+	text-align: right;
 }

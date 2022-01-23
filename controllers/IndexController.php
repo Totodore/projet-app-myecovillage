@@ -10,6 +10,7 @@ use Project\Conf;
 use Project\Exceptions\BadRequestException;
 use Project\Exceptions\ForbiddenException;
 use Project\Exceptions\HttpException;
+use Project\Models\ForumModel;
 use Project\Models\MinigameResultModel;
 use Project\Models\TicketModel;
 use Project\Models\UserModel;
@@ -88,7 +89,8 @@ class IndexController extends BaseController
 	#[Get('/forum')]
 	public function forum(array $query): array
 	{
-		return $this->loadView('forum', $query);
+		$forums = ForumModel::find();
+		return $this->loadView('forum', ["forums" => $forums]);
 	}
 
 	#[Get('/user')]

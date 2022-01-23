@@ -17,6 +17,7 @@ import { AdminTicketController } from "./controllers/admin/admin-ticket.controll
 import { AdminUserController } from "./controllers/admin/admin-user.controller.js";
 import { UserController } from "./controllers/user.controller.js";
 import { MinigameController } from "./controllers/minigame.controller.js";
+import { AdminForumController } from "./controllers/admin/admin-forum.controller.js";
 /**
  * Route mapping between path and controllers
  * @type {Object.<string, {controller: typeof BaseController, guard?: typeof BaseGuard, services: typeof BaseService[]}>}
@@ -74,12 +75,12 @@ export const routes = {
 	},
 	'/forum': {
 		controller: ForumController,
-		services: [],
+		services: [ApiService],
 		guard: null
 	},
 	'/gestion_forum': {
 		controller: GestionForumController,
-		services: [],
+		services: [ApiService],
 		guard: null
 	},
 	'/ticket': {
@@ -99,6 +100,11 @@ export const routes = {
 	},
 	'/admin/user': {
 		controller: AdminUserController,
+		services: [ApiService],
+		guard: null
+	},
+	'/admin/forum': {
+		controller: AdminForumController,
 		services: [ApiService],
 		guard: null
 	},
