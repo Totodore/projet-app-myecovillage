@@ -109,7 +109,7 @@ input[type="submit"] {
 	text-align: right;
 }
 
-.material-icons {
+.forum-wrapper .material-icons {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
