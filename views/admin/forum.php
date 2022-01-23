@@ -1,5 +1,5 @@
 <div class="forum-wrapper">
-	<h2>Utilisateurs</h2>
+	<h2>Gestion du forum</h2>
 	<div class="forum-list">
 		<?php foreach ($forums as $forum) { ?>
 			<div class="forum" data-id="<?php echo $forum->id ?>">
