@@ -28,7 +28,7 @@
 					<path class="circle" stroke-dasharray="30, 100" d="M18 2.0845
                         a 15.9155 15.9155 0 0 1 0 31.831
                         a 15.9155 15.9155 0 0 1 0 -31.831" />
-					<text x="18" y="20.35" class="percentage">40<br />µg/m3</text>
+					<text x="18" y="20.35" class="percentage">40 µg/m3</text>
 				</svg>
 			</div>
 		</div>
