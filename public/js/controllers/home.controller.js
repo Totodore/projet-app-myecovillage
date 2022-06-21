@@ -10,6 +10,7 @@ export class HomeController extends BaseController {
   constructor(params, apiService) {
     super("home", params);
     this.apiService = apiService;
+		setInterval(() => this.fetchData(), 500);
   }
 
   async onInit() {
@@ -18,6 +19,13 @@ export class HomeController extends BaseController {
       this.navigate("minigame", ".no-data-link");
     this.googleApi();
   }
+
+	async fetchData() {
+		const res = await this.apiService.get("/" + baseUrl + "/api/data/micro", false);
+		this.log("Micro value", res);
+		this.select("#bruit-value").innerHTML = res.mic;
+		this.select("#bruit-progress").setAttribute("stroke-dasharray", `${res.mic / 80 * 100}, 100`);
+	}
 
   googleApi() {
     const locations = [

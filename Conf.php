@@ -16,6 +16,7 @@ use Project\Controllers\Api\ForumController;
 use Project\Controllers\Api\MinigameController;
 use Project\Controllers\Api\TicketController;
 use Project\Controllers\Api\UserController;
+use Project\Controllers\Api\DataController;
 use Project\Controllers\InfoController;
 use Project\Core\Attributes\Http\Get;
 use Project\Core\Attributes\Http\Post;
@@ -57,11 +58,14 @@ class Conf
 	//Security configuration
 	const JWT_SECRET 			= "PNkL4zCwxmP34SN8mhQNuqLijoq8X9zocsbJnzUzXLOXWDbXL8m67B0vYBgyKoH1";
 
+	const DATA_URL 				= "http://projets-tomcat.isep.fr:8080/appService/?ACTION=GETLOG&TEAM=G01D";
+
 	/**
 	 * The list of the controllers with their corresponding routes
 	 */
 	const CONTROLLERS = [
 		IndexController::class,
+		DataController::class,
 		InfoController::class,
 		AdminController::class,
 		AuthController::class,

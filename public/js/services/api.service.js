@@ -53,8 +53,9 @@ export class ApiService {
 		localStorage.removeItem("token");
 	}
 
-	async get(url) {
-		this.progress.show();
+	async get(url, showProgress = true) {
+		if(showProgress)
+			this.progress.show();
 		try {
 			const req = await fetch(url, { headers: this.token ? { "Authorization": this.token, Dynamic: true } : { Dynamic: true } });
 			if (!req.ok) {
@@ -62,7 +63,8 @@ export class ApiService {
 			}
 			return await req.json();
 		} finally {
-			this.progress.hide();
+			if (showProgress)
+				this.progress.hide();
 		}
 	}
 
