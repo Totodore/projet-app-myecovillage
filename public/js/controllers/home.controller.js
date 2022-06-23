@@ -11,7 +11,7 @@ export class HomeController extends BaseController {
   constructor(params, apiService) {
     super("home", params);
     this.apiService = apiService;
-		interval = setInterval(() => this.fetchData(), 500);
+		this.interval = setInterval(() => this.fetchData(), 500);
   }
 
   async onInit() {
