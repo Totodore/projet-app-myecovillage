@@ -3,6 +3,7 @@ import { ApiService } from "../services/api.service.js";
 
 export class HomeController extends BaseController {
   id = "home";
+	interval = null;
 
   /**
    * @param {ApiService} apiService
@@ -10,7 +11,7 @@ export class HomeController extends BaseController {
   constructor(params, apiService) {
     super("home", params);
     this.apiService = apiService;
-		setInterval(() => this.fetchData(), 500);
+		interval = setInterval(() => this.fetchData(), 500);
   }
 
   async onInit() {
@@ -21,10 +22,14 @@ export class HomeController extends BaseController {
   }
 
 	async fetchData() {
-		const res = await this.apiService.get("/" + baseUrl + "/api/data/micro", false);
-		this.log("Micro value", res);
-		this.select("#bruit-value").innerHTML = res.mic;
-		this.select("#bruit-progress").setAttribute("stroke-dasharray", `${res.mic / 80 * 100}, 100`);
+		try {
+			const res = await this.apiService.get("/" + baseUrl + "/api/data/micro", false);
+			this.log("Micro value", res);
+			this.select("#bruit-value").innerHTML = res.mic;
+			this.select("#bruit-progress").setAttribute("stroke-dasharray", `${res.mic / 80 * 100}, 100`);
+		} catch(e) {
+			clearInterval(this.interval);
+		}
 	}
 
   googleApi() {
